@@ -63,6 +63,7 @@ void SpriteManager::loadFile(string input) {
 				animatedSprite.addAnimation(animationName, animation); //Add animation to sprite
 			}
 			spriteMap.emplace(spriteName, animatedSprite); //add sprite to spritemap
+			spriteMap.at(spriteName).render(false);
 			numSprites++;
 		}
 		cout << numSprites << " sprites loaded from " << input << '.' << endl;

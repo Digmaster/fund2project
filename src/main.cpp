@@ -87,10 +87,10 @@ int main()
         animatedSprite.update(frameTime);
 
         // draw
-        rendEng.window.clear();
+        //rendEng.window.clear();
         rendEng.render();
-        rendEng.window.draw(animatedSprite);
-        rendEng.window.display();
+        //rendEng.window.draw(animatedSprite);
+        //rendEng.window.display();
         /*window.clear();
         window.draw(animatedSprite);
         window.display(); */

@@ -42,12 +42,15 @@ class AnimatedSprite : public sf::Drawable, public sf::Transformable
 {
 public:
     explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);
-
+        AnimatedSprite(const AnimatedSprite &copyFrom); //Copy Constructor
+        AnimatedSprite& operator=( const AnimatedSprite& rhs );
+    ~AnimatedSprite();
     void update(sf::Time deltaTime);
     void setAnimation(const Animation& animation);
         void setAnimation(std::string animation);
         void addAnimation(std::string name, Animation& animation);
         bool doesAnimationExist(std::string name);
+        void render(bool input = true);
     void setFrameTime(sf::Time time);
     void play();
     void play(const Animation& animation);

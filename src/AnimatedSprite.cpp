@@ -41,13 +41,29 @@ bool AnimatedSprite::doesAnimationExist(std::string name) {
         return false;
 }
 
+void AnimatedSprite::render(bool input) { //Mostly for the spritemanager class, so it can deactivate stored sprites
+    if(input)
+        rendEng->addSprite(this);
+    else
+        rendEng->removeSprite(this);
+}
+
 //********************************************************** Came with the library! ***************************************************************//
 
 AnimatedSprite::AnimatedSprite(sf::Time frameTime, bool paused, bool looped) :
     m_animation(NULL), m_frameTime(frameTime), m_currentFrame(0), m_isPaused(paused), m_isLooped(looped), m_texture(NULL)
 {
     if(rendEng==NULL) throw logic_error("Render engine not initialized yet");
-    rendEng->rendList->addSprite(this);
+    rendEng->addSprite(this); //Adds sprite to the render list
+}
+
+AnimatedSprite::~AnimatedSprite() {
+    rendEng->removeSprite(this); //Removes sprite from render list
+}
+
+AnimatedSprite::AnimatedSprite(const AnimatedSprite &other)
+    : AnimatedSprite(other.m_frameTime, other.m_isPaused, other.m_isLooped) {
+    animationMap = other.animationMap;
 }
 
 void AnimatedSprite::setAnimation(const Animation& animation)
