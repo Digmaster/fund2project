@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteSheet file="assets/art/SuperMetroidSamus.png">
+    <Sprite name="Samus">
+        <Animation name="Dissipate">
+            <Frame LC="820" TC="64" W="32" H="45"></Frame>
+            <Frame LC="852" TC="59" W="32" H="50"></Frame>
+            <Frame LC="884" TC="54" W="45" H="55"></Frame>
+            <Frame LC="929" TC="43" W="45" H="65"></Frame>
+            <Frame LC="986" TC="32" W="65" H="80"></Frame>
+            <Frame LC="1055" TC="25" W="70" H="90"></Frame>
+        </Animation>
+        <Animation name="WalkLeft">
+            <Frame LC="32" TC="32" W="32" H="32"></Frame>
+            <Frame LC="64" TC="32" W="32" H="32"></Frame>
+            <Frame LC="32" TC="32" W="32" H="32"></Frame>
+            <Frame LC="0" TC="32" W="32" H="32"></Frame>
+        </Animation>
+        <Animation name="WalkUp">
+            <Frame LC="32" TC="96" W="32" H="32"></Frame>
+            <Frame LC="64" TC="96" W="32" H="32"></Frame>
+            <Frame LC="32" TC="96" W="32" H="32"></Frame>
+            <Frame LC="0" TC="96" W="32" H="32"></Frame>
+        </Animation>
+        <Animation name="WalkRight">
+            <Frame LC="32" TC="64" W="32" H="32"></Frame>
+            <Frame LC="64" TC="64" W="32" H="32"></Frame>
+            <Frame LC="32" TC="64" W="32" H="32"></Frame>
+            <Frame LC="0" TC="64" W="32" H="32"></Frame>
+        </Animation>
+    </Sprite>
+</SpriteSheet>
