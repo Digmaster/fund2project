@@ -1,12 +1,10 @@
-#pragma once
+#ifndef RENDERENGINE_H
+#define RENDERENGINE_H
 
 #include "AnimatedSprite.h"
 #include "Options.h"
-#include "RenderList.h"
 #include <SFML/Graphics.hpp>
 #include <deque>
-
-class RenderList;
 class AnimatedSprite;
 
 class RenderEngine
@@ -15,11 +13,14 @@ class RenderEngine
         RenderEngine();
         ~RenderEngine();
         void render();
-        sf::RenderWindow window;
-        void addSprite(AnimatedSprite* input);
-        void removeSprite(AnimatedSprite* input);
+        void addSprite(sf::Drawable* input);
+        void removeSprite(sf::Drawable* input);
         void flush() {renderList.clear();}
+        sf::RenderWindow window;
+        sf::View view;
     protected:
     private:
-        deque<AnimatedSprite*> renderList;
+        deque<sf::Drawable*> renderList;
 };
+
+#endif // RENDERENGINE_H

@@ -16,7 +16,8 @@ int main()
     RenderEngine rendEng;
     SpriteManager spriteMan;
     spriteMan.loadFile("assets/testSprite.xml");
-    AnimatedSprite animatedSprite = spriteMan.getSprite("BraveAdventurer");
+    spriteMan.loadFile("assets/SamusSprites.xml");
+    AnimatedSprite animatedSprite = spriteMan.getSprite("Samus");
 
     // set up AnimatedSprite
     animatedSprite.setPosition(sf::Vector2f(0, 0));
@@ -36,6 +37,8 @@ int main()
                 rendEng.window.close();
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
                 rendEng.window.close();
+            if (event.type == sf::Event::Resized)
+                rendEng.view.setSize(event.size.width, event.size.height);
         }
 
         sf::Time frameTime = frameClock.restart();
@@ -47,8 +50,8 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             //currentAnimation = &walkingAnimationUp;
-            currAnimation="WalkUp";
-            movement.y -= speed;
+            currAnimation="Dissipate";
+            //movement.y -= speed;
             noKeyWasPressed = false;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
@@ -71,6 +74,42 @@ int main()
             currAnimation="WalkRight";
             movement.x += speed;
             noKeyWasPressed = false;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Add))
+        {
+            rendEng.view.zoom(.99);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Subtract))
+        {
+            rendEng.view.zoom(1.01);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad7))
+        {
+            rendEng.view.rotate(-1);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad9))
+        {
+            rendEng.view.rotate(1);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad8))
+        {
+            rendEng.view.move(0,-1);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))
+        {
+            rendEng.view.move(0,1);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))
+        {
+            rendEng.view.move(-1,0);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))
+        {
+            rendEng.view.move(1,0);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))
+        {
+            rendEng.view.setRotation(0);
         }
         animatedSprite.setAnimation(currAnimation);
         animatedSprite.play();

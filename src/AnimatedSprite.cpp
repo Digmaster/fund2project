@@ -31,7 +31,7 @@ void AnimatedSprite::setAnimation(std::string animation) {
 }
 
 void AnimatedSprite::addAnimation(std::string name, Animation& animation) {
-    animationMap.emplace(name, animation);
+    animationMap[name] = animation;
 }
 
 bool AnimatedSprite::doesAnimationExist(std::string name) {

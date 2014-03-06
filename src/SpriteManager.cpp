@@ -13,8 +13,6 @@ SpriteManager::~SpriteManager() {
 }
 
 void SpriteManager::loadFile(string input) {
-	//Create the sprite
-	AnimatedSprite animatedSprite(sf::seconds(0.2), true, false);
 	//Parse XML shiiiiiiiiiit
 	xml_document<> doc;
 	xml_node<> * root_node;
@@ -46,6 +44,7 @@ void SpriteManager::loadFile(string input) {
 		for (xml_node<> * sprite_node = root_node->first_node("Sprite"); sprite_node; sprite_node = sprite_node->next_sibling()) {
 			string spriteName = sprite_node->first_attribute("name")->value();
 
+			AnimatedSprite animatedSprite(sf::seconds(0.2), true, false);
 			//Iterate through all animations in sprite
 			for(xml_node<> * animation_node = sprite_node->first_node("Animation"); animation_node; animation_node = animation_node->next_sibling()) {
 				string animationName = animation_node->first_attribute("name")->value();
@@ -62,13 +61,17 @@ void SpriteManager::loadFile(string input) {
 				}
 				animatedSprite.addAnimation(animationName, animation); //Add animation to sprite
 			}
-			spriteMap.emplace(spriteName, animatedSprite); //add sprite to spritemap
-			spriteMap.at(spriteName).render(false);
+			addSprite(spriteName, animatedSprite); //add sprite to spritemap
 			numSprites++;
 		}
 		cout << numSprites << " sprites loaded from " << input << '.' << endl;
 	}
 
+}
+
+void SpriteManager::addSprite(std::string name, AnimatedSprite sprite) {
+    spriteMap.emplace(name, sprite); //add sprite to spritemap
+    spriteMap.at(name).render(false);
 }
 
 AnimatedSprite SpriteManager::getSprite(std::string input) {
