@@ -50,8 +50,8 @@ void AnimatedSprite::render(bool input) { //Mostly for the spritemanager class, 
 
 //********************************************************** Came with the library! ***************************************************************//
 
-AnimatedSprite::AnimatedSprite(sf::Time frameTime, bool paused, bool looped) :
-    m_animation(NULL), m_frameTime(frameTime), m_currentFrame(0), m_isPaused(paused), m_isLooped(looped), m_texture(NULL)
+AnimatedSprite::AnimatedSprite(float speed, bool paused, bool looped) :
+    m_animation(NULL), m_speed(speed), m_currentFrame(0), m_isPaused(paused), m_isLooped(looped), m_texture(NULL)
 {
     if(rendEng==NULL) throw logic_error("Render engine not initialized yet");
     rendEng->addSprite(this); //Adds sprite to the render list
@@ -62,7 +62,7 @@ AnimatedSprite::~AnimatedSprite() {
 }
 
 AnimatedSprite::AnimatedSprite(const AnimatedSprite &other)
-    : AnimatedSprite(other.m_frameTime, other.m_isPaused, other.m_isLooped) {
+    : AnimatedSprite(other.m_isPaused, other.m_isLooped) {
     animationMap = other.animationMap;
 }
 
@@ -74,10 +74,6 @@ void AnimatedSprite::setAnimation(const Animation& animation)
     setFrame(m_currentFrame);
 }
 
-void AnimatedSprite::setFrameTime(sf::Time time)
-{
-    m_frameTime = time;
-}
 
 void AnimatedSprite::play()
 {
@@ -147,22 +143,23 @@ bool AnimatedSprite::isPlaying() const
     return !m_isPaused;
 }
 
-sf::Time AnimatedSprite::getFrameTime() const
-{
-    return m_frameTime;
-}
-
 void AnimatedSprite::setFrame(std::size_t newFrame, bool resetTime)
 {
     if (m_animation)
     {
         //calculate new vertex positions and texture coordiantes
         sf::IntRect rect = m_animation->getFrame(newFrame);
-
+        /* //Default render, with TL corner at 0,0
         m_vertices[0].position = sf::Vector2f(0.f, 0.f);
         m_vertices[1].position = sf::Vector2f(0.f, static_cast<float>(rect.height));
         m_vertices[2].position = sf::Vector2f(static_cast<float>(rect.width), static_cast<float>(rect.height));
         m_vertices[3].position = sf::Vector2f(static_cast<float>(rect.width), 0.f);
+        */
+        //Non-Default, with MIDDLE at 0,0
+        m_vertices[0].position = sf::Vector2f(-static_cast<float>(rect.width)/2, -static_cast<float>(rect.height)/2);
+        m_vertices[1].position = sf::Vector2f(-static_cast<float>(rect.width)/2, static_cast<float>(rect.height)/2);
+        m_vertices[2].position = sf::Vector2f(static_cast<float>(rect.width)/2, static_cast<float>(rect.height)/2);
+        m_vertices[3].position = sf::Vector2f(static_cast<float>(rect.width)/2, -static_cast<float>(rect.height)/2);
 
         float left = static_cast<float>(rect.left) + 0.0001f;
         float right = left + static_cast<float>(rect.width);
@@ -188,10 +185,10 @@ void AnimatedSprite::update(sf::Time deltaTime)
         m_currentTime += deltaTime;
 
         // if current time is bigger then the frame time advance one frame
-        if (m_currentTime >= m_frameTime)
+        if (m_currentTime >= m_animation->getFrameTime()/m_speed)
         {
             // reset time, but keep the remainder
-            m_currentTime = sf::microseconds(m_currentTime.asMicroseconds() % m_frameTime.asMicroseconds());
+            m_currentTime = sf::microseconds(m_currentTime.asMicroseconds() % (m_animation->getFrameTime().asMicroseconds())/m_speed);
 
             // get next Frame index
             if (m_currentFrame + 1 < m_animation->getSize())

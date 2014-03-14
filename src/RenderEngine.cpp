@@ -15,27 +15,26 @@ RenderEngine::RenderEngine() {
 }
 
 RenderEngine::~RenderEngine() {
-	//dtor
+	AnimatedSprite::setRendEngine(NULL); //Sets rendering engine to NULL
 }
 
-void RenderEngine::render() {
+void RenderEngine::render(sf::Time frameTime) {
     window.setView(view);
     window.clear();
-    for(deque<Drawable*>::iterator it = renderList.begin(); it != renderList.end(); it++) {
+    for(deque<AnimatedSprite*>::iterator it = renderList.begin(); it != renderList.end(); it++) {
+        (*it)->update(frameTime);
         window.draw(**it);
     }
     window.display();
 }
 
-void RenderEngine::removeSprite(Drawable* input) {
-    deque<Drawable*>::iterator it = find(renderList.begin(), renderList.end(), input);
+void RenderEngine::removeSprite(AnimatedSprite* input) {
+    deque<AnimatedSprite*>::iterator it = find(renderList.begin(), renderList.end(), input);
     if(it != renderList.end())
         renderList.erase(it);
-    else
-        throw(logic_error("Tried to delete a sprite that doesn't exist from render list"));
 }
 
-void RenderEngine::addSprite(Drawable* input) {
+void RenderEngine::addSprite(AnimatedSprite* input) {
     if(input!=NULL && find(renderList.begin(), renderList.end(), input)==renderList.end()) //Makes sure sprite dosen't already exist on list, to avoid double rendering
         renderList.push_back(input);\
 }

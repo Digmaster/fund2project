@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SpriteSheet file="assets/art/BraveAdventurer.png">
     <Sprite name="BraveAdventurer">
-        <Animation name="WalkDown">
+        <Animation name="WalkDown" FT=".2">
             <Frame LC="32" TC="0" W="32" H="32"></Frame>
             <Frame LC="64" TC="0" W="32" H="32"></Frame>
             <Frame LC="32" TC="0" W="32" H="32"></Frame>
             <Frame LC="0" TC="0" W="32" H="32"></Frame>
         </Animation>
-        <Animation name="WalkLeft">
+        <Animation name="WalkLeft" FT=".2">
             <Frame LC="32" TC="32" W="32" H="32"></Frame>
             <Frame LC="64" TC="32" W="32" H="32"></Frame>
             <Frame LC="32" TC="32" W="32" H="32"></Frame>
             <Frame LC="0" TC="32" W="32" H="32"></Frame>
         </Animation>
-        <Animation name="WalkUp">
+        <Animation name="WalkUp" FT=".2">
             <Frame LC="32" TC="96" W="32" H="32"></Frame>
             <Frame LC="64" TC="96" W="32" H="32"></Frame>
             <Frame LC="32" TC="96" W="32" H="32"></Frame>
             <Frame LC="0" TC="96" W="32" H="32"></Frame>
         </Animation>
-        <Animation name="WalkRight">
+        <Animation name="WalkRight" FT=".2">
             <Frame LC="32" TC="64" W="32" H="32"></Frame>
             <Frame LC="64" TC="64" W="32" H="32"></Frame>
             <Frame LC="32" TC="64" W="32" H="32"></Frame>

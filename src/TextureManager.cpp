@@ -7,16 +7,20 @@ TextureManager::TextureManager()
 {
     //Creates the error Image
     //TODO: Make this say ERROR or something
-    sf::Image errorImg;
-    errorImg.create(32,32, Color::Red);
-    Texture* errorTex = new Texture();
-    errorTex->loadFromImage(errorImg);
-    textureMap.emplace("error", errorTex);
+    if(textureMap.find("error") == textureMap.end()) {
+        sf::Image errorImg;
+        errorImg.create(32,32, Color::Red);
+        Texture* errorTex = new Texture();
+        errorTex->loadFromImage(errorImg);
+        textureMap.emplace("error", errorTex);
+    }
 }
+
+std::unordered_map<std::string, sf::Texture*> TextureManager::textureMap;
 
 TextureManager::~TextureManager()
 {
-    flush();
+
 }
 
 sf::Texture* TextureManager::addTexture(string input) {

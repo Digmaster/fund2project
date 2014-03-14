@@ -23,9 +23,9 @@
 
 #include "Animation.h"
 
-Animation::Animation() : m_texture(NULL)
+Animation::Animation(sf::Time frameTime) : m_texture(NULL)
 {
-
+    m_frameTime = frameTime;
 }
 
 void Animation::addFrame(sf::IntRect rect)
@@ -46,6 +46,14 @@ const sf::Texture* Animation::getSpriteSheet() const
 std::size_t Animation::getSize() const
 {
     return m_frames.size();
+}
+
+sf::Time Animation::getFrameTime() const {
+    return m_frameTime;
+}
+
+void Animation::setFrameTime(float input) {
+    m_frameTime = sf::seconds(input);
 }
 
 const sf::IntRect& Animation::getFrame(std::size_t n) const

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteSheet file="assets/art/ui_big_pieces_0.png">
+	<Sprite name="smallFrameTopL1">
+		<Default LC="16" TC="40" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="smallFrameTopM1">
+		<Default LC="49" TC="40" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="smallFrameTopR1">
+		<Default LC="82" TC="40" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="smallFrameTopL2">
+		<Default LC="120" TC="14" W="32" H="58"></Default>
+	</Sprite>
+	<Sprite name="smallFrameTopM2">
+		<Default LC="153" TC="14" W="32" H="58"></Default>
+	</Sprite>
+	<Sprite name="smallFrameTopL">
+		<Default LC="186" TC="478" W="32" H="58"></Default>
+	</Sprite>
+	<Sprite name="smallFrameTopM">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="smallFrameTopR">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="smallFrameBotL">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="smallFrameBotM">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="smallFrameBotR">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="HUDMain">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="HUDTubeEmpty">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="HUDHealthStart">
+		<Default LC="478" TC="24" W="32" H="32"></Default>
+	</Sprite>
+	<Sprite name="HUDHealthMid">
+		<Default LC="601" TC="186" W="8" H="12"></Default>
+	</Sprite>
+	<Sprite name="HUDHealthEnd">
+		<Default LC="551" TC="182" W="32" H="20"></Default>
+	</Sprite>
+smallFrameMidR,544,24,32,32,
+smallFrameBotL,478,80,32,32,
+smallFrameBotM,511,80,32,32,
+smallFrameBotR,544,80,32,32,
+HUDMain,448,180,84,64,
+HUDTubeEmpty,533,204,8,16,
+HUDHealthStart,592,186,8,12,
+HUDHealthMid,601,186,8,12
+HUDHealthEnd,551,182,32,20

@@ -41,7 +41,7 @@ class RenderEngine;
 class AnimatedSprite : public sf::Drawable, public sf::Transformable
 {
 public:
-    explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);
+    explicit AnimatedSprite(float speed = 1, bool paused = false, bool looped = true);
         AnimatedSprite(const AnimatedSprite &copyFrom); //Copy Constructor
         AnimatedSprite& operator=( const AnimatedSprite& rhs );
     ~AnimatedSprite();
@@ -51,7 +51,8 @@ public:
         void addAnimation(std::string name, Animation& animation);
         bool doesAnimationExist(std::string name);
         void render(bool input = true);
-    void setFrameTime(sf::Time time);
+        void setSpeed(float input) {m_speed = input;}
+        float getSpeed() {return m_speed;}
     void play();
     void play(const Animation& animation);
     void pause();
@@ -63,14 +64,12 @@ public:
     sf::FloatRect getGlobalBounds() const;
     bool isLooped() const;
     bool isPlaying() const;
-    sf::Time getFrameTime() const;
     void setFrame(std::size_t newFrame, bool resetTime = true);
         static void setRendEngine(RenderEngine* input) {
             AnimatedSprite::rendEng = input;
         }
 private:
     const Animation* m_animation;
-    sf::Time m_frameTime;
     sf::Time m_currentTime;
     std::size_t m_currentFrame;
     bool m_isPaused;
@@ -79,6 +78,7 @@ private:
     sf::Vertex m_vertices[4];
         std::unordered_map<std::string, Animation> animationMap;
         static RenderEngine* rendEng;
+        float m_speed;
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 };

@@ -8,6 +8,9 @@ SpriteManager::SpriteManager() {
 
 }
 
+std::unordered_map<std::string, AnimatedSprite> SpriteManager::spriteMap;
+TextureManager SpriteManager::texMan;
+
 SpriteManager::~SpriteManager() {
 	//dtor
 }
@@ -35,31 +38,47 @@ void SpriteManager::loadFile(string input) {
 		root_node = doc.first_node("SpriteSheet");
 
 		//Top level with the imagefile
-		// TODO (Thomas Luppi#1#): Enable multiple spritesheets per file? Should we do this?
+		// TODO (Thomas Luppi#1#): Enable multiple spritesheets per file? Should we do this? Note that this may break other things
 		string textureFile = root_node->first_attribute("file")->value();
-		Texture *texture = TextureManager::inst().getTexture(textureFile);
+		Texture *texture = texMan.getTexture(textureFile);
 
 		//Iterate through sprites
 		int numSprites=0;
 		for (xml_node<> * sprite_node = root_node->first_node("Sprite"); sprite_node; sprite_node = sprite_node->next_sibling()) {
 			string spriteName = sprite_node->first_attribute("name")->value();
 
-			AnimatedSprite animatedSprite(sf::seconds(0.2), true, false);
+			AnimatedSprite animatedSprite(true, false);
 			//Iterate through all animations in sprite
 			for(xml_node<> * animation_node = sprite_node->first_node("Animation"); animation_node; animation_node = animation_node->next_sibling()) {
 				string animationName = animation_node->first_attribute("name")->value();
-				Animation animation;
+				xml_attribute<>* timePtr = animation_node->first_attribute("FT");
+				float time = 0.2f;
+				if(timePtr!=NULL)
+                    time = atof(timePtr->value());
+				Animation animation(sf::seconds(time));
+				animation.setSpriteSheet(*texture);
 
 				//Add all frames
 				for(xml_node<> * frame_node = animation_node->first_node("Frame"); frame_node; frame_node = frame_node->next_sibling()) {
-					animation.setSpriteSheet(*texture);
-					int LC = atoi(frame_node->first_attribute("LC")->value());
-					int TC = atoi(frame_node->first_attribute("TC")->value());
-					int W = atoi(frame_node->first_attribute("W")->value());
-					int H = atoi(frame_node->first_attribute("H")->value());
-					animation.addFrame(sf::IntRect(LC, TC, W, H)); //Add fram to animation
+                        int LC = atoi(frame_node->first_attribute("LC")->value());
+                        int TC = atoi(frame_node->first_attribute("TC")->value());
+                        int W = atoi(frame_node->first_attribute("W")->value());
+                        int H = atoi(frame_node->first_attribute("H")->value());
+                        animation.addFrame(sf::IntRect(LC, TC, W, H)); //Add frame to animation
 				}
 				animatedSprite.addAnimation(animationName, animation); //Add animation to sprite
+			}
+			//Add default if it exists (Useful for single image sprites)
+			xml_node<> * default_node = sprite_node->first_node("Default");
+			if(default_node!=NULL) {
+			    Animation animation(sf::seconds(.02f));
+				animation.setSpriteSheet(*texture);
+                int LC = atoi(default_node->first_attribute("LC")->value());
+                int TC = atoi(default_node->first_attribute("TC")->value());
+                int W = atoi(default_node->first_attribute("W")->value());
+                int H = atoi(default_node->first_attribute("H")->value());
+                animation.addFrame(sf::IntRect(LC, TC, W, H)); //Add frame to animation
+                animatedSprite.addAnimation("default", animation); //Add animation to sprite
 			}
 			addSprite(spriteName, animatedSprite); //add sprite to spritemap
 			numSprites++;

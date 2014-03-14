@@ -12,15 +12,15 @@ class RenderEngine
     public:
         RenderEngine();
         ~RenderEngine();
-        void render();
-        void addSprite(sf::Drawable* input);
-        void removeSprite(sf::Drawable* input);
+        void render(sf::Time frameTime);
+        void addSprite(AnimatedSprite* input);
+        void removeSprite(AnimatedSprite* input);
         void flush() {renderList.clear();}
         sf::RenderWindow window;
         sf::View view;
     protected:
     private:
-        deque<sf::Drawable*> renderList;
+        deque<AnimatedSprite*> renderList;
 };
 
 #endif // RENDERENGINE_H
