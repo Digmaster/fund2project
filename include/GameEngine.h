@@ -2,6 +2,7 @@
 #define GAMEENGINE_H
 
 #include "RenderEngine.h"
+#include "ComponentManager.h"
 
 class GameEngine
 {

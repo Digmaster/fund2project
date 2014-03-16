@@ -54,6 +54,9 @@
 		</Linker>
 		<Unit filename="include/AnimatedSprite.h" />
 		<Unit filename="include/Animation.h" />
+		<Unit filename="include/BaseActor.h" />
+		<Unit filename="include/EntityList.h" />
+		<Unit filename="include/GameEngine.h" />
 		<Unit filename="include/Options.h" />
 		<Unit filename="include/RenderEngine.h" />
 		<Unit filename="include/RichText.hpp" />
@@ -61,6 +64,9 @@
 		<Unit filename="include/TextureManager.h" />
 		<Unit filename="src/AnimatedSprite.cpp" />
 		<Unit filename="src/Animation.cpp" />
+		<Unit filename="src/BaseActor.cpp" />
+		<Unit filename="src/EntityList.cpp" />
+		<Unit filename="src/GameEngine.cpp" />
 		<Unit filename="src/Options.cpp" />
 		<Unit filename="src/RenderEngine.cpp" />
 		<Unit filename="src/RichText.cpp" />

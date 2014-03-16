@@ -22,6 +22,8 @@ void GameEngine::gameLoop() {
     sf::Clock frameClock;
     while (rendEng.window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
+        ComponentManager* comp = &ComponentManager::getInst();
+        comp->rendSym.process(frameTime);
         //entList.update();
         //Input goes here
         //Any sort of physics stuff
