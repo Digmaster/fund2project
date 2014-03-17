@@ -9,25 +9,25 @@
 #include <algorithm>
 #include <stdexcept>
 
-using namespace std;
+
 
 class Options {
 public:
-	Options(string name="options.txt");
-	string get(string name); //Gets an option
-	void set(string name, string set) {settings[name] = set;} //Sets an option to something, or creates a new one
+	Options(std::string name="options.txt");
+	std::string get(std::string name); //Gets an option
+	void set(std::string name, std::string set) {settings[name] = set;} //Sets an option to something, or creates a new one
 	void reset(); //Default settings file
 	void save(); //Saves the settings to a file
 	void debugOut(); //lists all settings
-	void load(string name);
+	void load(std::string name);
 	static Options& instance() {
 		static Options INSTANCE;
 		return INSTANCE;
 	}
 private:
-	string fileName;
-	unordered_map<string,string> settings;
-	unordered_map<string,string> defaultSettings;
+	std::string fileName;
+	std::unordered_map<std::string,std::string> settings;
+	std::unordered_map<std::string,std::string> defaultSettings;
 	void fillDefault();
 };
 

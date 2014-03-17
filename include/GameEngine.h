@@ -1,8 +1,8 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#include "RenderEngine.h"
-#include "ComponentManager.h"
+#include "Rendering/RenderEngine.h"
+#include "Components/ComponentManager.h"
 
 class GameEngine
 {

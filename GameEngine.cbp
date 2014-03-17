@@ -5,6 +5,7 @@
 		<Option title="GameEngine" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="src\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/fund2Project" prefix_auto="1" extension_auto="1" />
@@ -16,6 +17,7 @@
 					<Add option="-g" />
 					<Add directory="Dependancies/include" />
 					<Add directory="include" />
+					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
@@ -32,6 +34,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
+					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -52,26 +55,46 @@
 		<Linker>
 			<Add directory="Dependancies/lib" />
 		</Linker>
-		<Unit filename="include/AnimatedSprite.h" />
-		<Unit filename="include/Animation.h" />
-		<Unit filename="include/BaseActor.h" />
-		<Unit filename="include/EntityList.h" />
+		<Unit filename="include/Components/ComponentBase.h" />
+		<Unit filename="include/Components/ComponentManager.h" />
+		<Unit filename="include/Components/ComponentSystem.h" />
+		<Unit filename="include/Components/Input/BraveAdventurerInput.h" />
+		<Unit filename="include/Components/Input/DumbKeyboardInputComponent.h" />
+		<Unit filename="include/Components/Input/InputComponent.h" />
+		<Unit filename="include/Components/Movement/BraveAdventurerMovement.h" />
+		<Unit filename="include/Components/Movement/MovementComponent.h" />
+		<Unit filename="include/Components/Positional/WorldPositionComponent.h" />
+		<Unit filename="include/Components/Render/AnimatedComponent.h" />
+		<Unit filename="include/Components/Render/BraveAdventurerAnimatedComponent.h" />
+		<Unit filename="include/Components/Render/RenderComponent.h" />
 		<Unit filename="include/GameEngine.h" />
 		<Unit filename="include/Options.h" />
-		<Unit filename="include/RenderEngine.h" />
+		<Unit filename="include/Rendering/AnimatedSprite.h" />
+		<Unit filename="include/Rendering/Animation.h" />
+		<Unit filename="include/Rendering/AnimationHolder.h" />
+		<Unit filename="include/Rendering/RenderEngine.h" />
+		<Unit filename="include/Rendering/SpriteManager.h" />
+		<Unit filename="include/Rendering/TextureManager.h" />
 		<Unit filename="include/RichText.hpp" />
-		<Unit filename="include/SpriteManager.h" />
-		<Unit filename="include/TextureManager.h" />
-		<Unit filename="src/AnimatedSprite.cpp" />
-		<Unit filename="src/Animation.cpp" />
-		<Unit filename="src/BaseActor.cpp" />
-		<Unit filename="src/EntityList.cpp" />
+		<Unit filename="src/Components/ComponentBase.cpp" />
+		<Unit filename="src/Components/ComponentManager.cpp" />
+		<Unit filename="src/Components/Input/BraveAdventurerInput.cpp" />
+		<Unit filename="src/Components/Input/DumbKeyboardInputComponent.cpp" />
+		<Unit filename="src/Components/Input/InputComponent.cpp" />
+		<Unit filename="src/Components/Movement/BraveAdventurerMovement.cpp" />
+		<Unit filename="src/Components/Movement/MovementComponent.cpp" />
+		<Unit filename="src/Components/Positional/WorldPositionComponent.cpp" />
+		<Unit filename="src/Components/Render/AnimatedComponent.cpp" />
+		<Unit filename="src/Components/Render/BraveAdventurerAnimatedComponent.cpp" />
+		<Unit filename="src/Components/Render/RenderComponent.cpp" />
 		<Unit filename="src/GameEngine.cpp" />
 		<Unit filename="src/Options.cpp" />
-		<Unit filename="src/RenderEngine.cpp" />
+		<Unit filename="src/Rendering/AnimatedSprite.cpp" />
+		<Unit filename="src/Rendering/Animation.cpp" />
+		<Unit filename="src/Rendering/RenderEngine.cpp" />
+		<Unit filename="src/Rendering/SpriteManager.cpp" />
+		<Unit filename="src/Rendering/TextureManager.cpp" />
 		<Unit filename="src/RichText.cpp" />
-		<Unit filename="src/SpriteManager.cpp" />
-		<Unit filename="src/TextureManager.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
