@@ -864,7 +864,7 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1395013745 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1395014532 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1026,7 +1026,7 @@
 	"Components/ComponentBase.h"
 	<iostream>
 
-1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\componentmanager.cpp
+1395113846 source:c:\users\thomas luppi\documents\fund2project\src\components\componentmanager.cpp
 	"Components/ComponentManager.h"
 
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\input\braveadventurerinput.cpp
@@ -1126,7 +1126,7 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 
-1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
+1395024557 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
 	"Rendering/SpriteManager.h"
 
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
