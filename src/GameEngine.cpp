@@ -7,7 +7,7 @@
 #include "Components/Render/BraveAdventurerAnimatedComponent.h"
 #include "Components/Input/BraveAdventurerInput.h"
 #include "Components/Movement/BraveAdventurerMovement.h"
-#include "SimpleBoxPhysics.h"
+#include "Components/Physics/SimpleBoxPhysics.h"
 
 GameEngine::GameEngine()
     : rendEng() {

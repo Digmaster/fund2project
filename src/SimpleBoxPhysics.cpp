@@ -1,4 +1,4 @@
-#include "SimpleBoxPhysics.h"
+#include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/ComponentManager.h"
 
 SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID) : PhysicsComponent(ID), physBody()
@@ -11,6 +11,7 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID) : PhysicsComponent(ID), phys
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
     physBody->CreateFixture(&boxFixtureDef);
+    screenHeight = atoi(Options::instance().get("screen_height").c_str());
 }
 
 SimpleBoxPhysics::~SimpleBoxPhysics()
@@ -20,6 +21,7 @@ SimpleBoxPhysics::~SimpleBoxPhysics()
 
 void SimpleBoxPhysics::go(sf::Time frameTime) {
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
-    position->setPosition(sf::Vector2f(physBodyDef.position.x,physBodyDef.position.y));
+    //The body is the one that contains the position, velocity, etc. not the body definition
+    position->setPosition(sf::Vector2f(physBody->GetPosition().x, screenHeight-physBody->GetPosition().y));
     cout << physBodyDef.position.x << " " << physBodyDef.position.y << " " << physBodyDef.awake << endl;
 }

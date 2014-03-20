@@ -3,7 +3,7 @@
 
 #include "Rendering/RenderEngine.h"
 #include "Components/ComponentManager.h"
-#include "PhysicsEngine.h"
+#include "physics/PhysicsEngine.h"
 
 class GameEngine
 {

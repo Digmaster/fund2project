@@ -2,6 +2,7 @@
 #define SIMPLEBOXPHYSICS_H
 
 #include "Components\Physics\PhysicsComponent.h"
+#include "Options.h"
 
 
 class SimpleBoxPhysics : public PhysicsComponent
@@ -18,6 +19,7 @@ class SimpleBoxPhysics : public PhysicsComponent
         b2Body* physBody;
         b2PolygonShape boxShape;
         b2FixtureDef boxFixtureDef;
+        int screenHeight; //Need to convert Box2d to SFML coordinates
 };
 
 #endif // SIMPLEBOXPHYSICS_H
