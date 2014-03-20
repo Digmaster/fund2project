@@ -17,7 +17,7 @@ public:
 	SpriteManager();
 	/** Default destructor */
 	~SpriteManager();
-	void loadFile(std::string input);
+	int loadFile(std::string input);
 	AnimatedSprite getSprite(std::string input);
 	void addSprite(std::string name, AnimatedSprite sprite);
 protected:

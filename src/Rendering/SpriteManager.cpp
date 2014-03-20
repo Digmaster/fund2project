@@ -14,15 +14,17 @@ TextureManager SpriteManager::texMan;
 SpriteManager::~SpriteManager() {
 	//dtor
 }
-
-void SpriteManager::loadFile(string input) { // NOTE (Thomas Luppi#7#03/16/14): Change to lazyloading somehow: Some sort of map, filled by going through all the files and looking for stuff perhaps?
+// TODO (Thomas Luppi#1#03/19/14): Rewrite to use darkFunction editor output, so we don't have to manually make sprites.
+int SpriteManager::loadFile(string input) { // NOTE (Thomas Luppi#7#03/16/14): Change to lazyloading somehow: Some sort of map, filled by going through all the files and looking for stuff perhaps?
 	//Parse XML shiiiiiiiiiit
 	xml_document<> doc;
 	xml_node<> * root_node;
 	// Read the xml file into a vector
 	ifstream file (input);
-	if(!file.good())
-		throw runtime_error("Unable to open XML file");
+	if(!file.good()) {
+		cout << "Can not open file " << input << " to read file" << endl;
+		return 1;
+	}
 	else {
 		vector<char> buffer((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
 		buffer.push_back('\0');
@@ -31,8 +33,8 @@ void SpriteManager::loadFile(string input) { // NOTE (Thomas Luppi#7#03/16/14): 
             doc.parse<0>(&buffer[0]);
 		}
 		catch(std::exception& e) {
-            cout << "Error in parsing XML file " << input << ": "
-            << e.what() << endl;
+            cout << "Error in parsing XML file " << input << ": " << e.what() << endl;
+            return 1;
 		}
 		//find root node
 		root_node = doc.first_node("SpriteSheet");
@@ -85,6 +87,7 @@ void SpriteManager::loadFile(string input) { // NOTE (Thomas Luppi#7#03/16/14): 
 		}
 		cout << numSprites << " sprites loaded from " << input << '.' << endl;
 	}
+	return 0;
 
 }
 

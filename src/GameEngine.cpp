@@ -7,6 +7,7 @@
 #include "Components/Render/BraveAdventurerAnimatedComponent.h"
 #include "Components/Input/BraveAdventurerInput.h"
 #include "Components/Movement/BraveAdventurerMovement.h"
+#include "SimpleBoxPhysics.h"
 
 GameEngine::GameEngine()
     : rendEng() {
@@ -45,29 +46,14 @@ void GameEngine::gameLoop() {
     BraveAdventurerInput testInput(id);
 
     BraveAdventurerMovement testMovement(id);
+
+    SimpleBoxPhysics testPhys(id);
     //DumbKeyboardInputComponent testInput(id);
+    ComponentManager::getInst().physSym.addComponent(&testPhys);
     ComponentManager::getInst().inputSym.addComponent(&testInput);
     ComponentManager::getInst().posSym.addComponent(&testPosition);
     ComponentManager::getInst().rendSym.addComponent(&testSprite);
     ComponentManager::getInst().moveSym.addComponent(&testMovement);
-
-    id = ComponentManager::getInst().getNewID();
-    //AnimatedComponent testSprite(id);
-    BraveAdventurerAnimatedComponent testSprite2(id);
-    testSprite2.setSprite(spriteMan.getSprite("Samus"));
-    testSprite2.sprite.setAnimation("WalkUp");
-
-    WorldPositionComponent testPosition2(id);
-    testPosition2.setPosition(sf::Vector2f(20,20));
-
-    DumbKeyboardInputComponent testInput2(id);
-
-    BraveAdventurerMovement testMovement2(id);
-    //DumbKeyboardInputComponent testInput(id);
-    ComponentManager::getInst().inputSym.addComponent(&testInput2);
-    ComponentManager::getInst().posSym.addComponent(&testPosition2);
-    ComponentManager::getInst().rendSym.addComponent(&testSprite2);
-    ComponentManager::getInst().moveSym.addComponent(&testMovement2);
 
     while (rendEng.window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
@@ -79,5 +65,6 @@ void GameEngine::gameLoop() {
         //Any sort of physics stuff
         //Actor Updates go here
         rendEng.render(frameTime);
+        physEng.step(frameTime);
     }
 }

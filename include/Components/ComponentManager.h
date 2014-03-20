@@ -6,6 +6,7 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Input/InputComponent.h"
 #include "Components/Movement/MovementComponent.h"
+#include "Components/Physics/PhysicsComponent.h"
 
 #include "Components/ComponentSystem.h"
 
@@ -21,6 +22,7 @@ class ComponentManager
         ComponentSystem<WorldPositionComponent> posSym;
         ComponentSystem<InputComponent> inputSym;
         ComponentSystem<MovementComponent> moveSym;
+        ComponentSystem<PhysicsComponent> physSym;
         static unsigned int getNewID();
 
         static ComponentManager& getInst() {

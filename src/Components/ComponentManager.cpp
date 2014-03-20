@@ -9,14 +9,15 @@ unsigned int ComponentManager::getNewID() {
 }
 
 void ComponentManager::processAll(sf::Time frameTime) {
-    cout << "Position" << endl;
+    physSym.process(frameTime);
+//    cout << "Position" << endl;
     posSym.process(frameTime);
-    cout << "Input" << endl;
+//    cout << "Input" << endl;
     inputSym.process(frameTime);
-    cout << "Movement" << endl;
+//    cout << "Movement" << endl;
     moveSym.process(frameTime);
-    cout << "Etcetera" << endl;
+//    cout << "Etcetera" << endl;
     etcSym.process(frameTime);
-    cout << "Rendering" << endl;
+//    cout << "Rendering" << endl;
     rendSym.process(frameTime);
 }

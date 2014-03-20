@@ -3,6 +3,7 @@
 
 #include "Rendering/RenderEngine.h"
 #include "Components/ComponentManager.h"
+#include "PhysicsEngine.h"
 
 class GameEngine
 {
@@ -13,8 +14,7 @@ class GameEngine
         ~GameEngine();
         void go();
         RenderEngine rendEng;
-        //EntityList entList;
-        //CommandQueve commQueve;
+        PhysicsEngine physEng;
     protected:
     private:
         void init();

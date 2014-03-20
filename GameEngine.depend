@@ -864,7 +864,7 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1395014532 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1395290103 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -873,10 +873,12 @@
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
 	"Components/Input/BraveAdventurerInput.h"
 	"Components/Movement/BraveAdventurerMovement.h"
+	"SimpleBoxPhysics.h"
 
-1395013025 c:\users\thomas luppi\documents\fund2project\include\gameengine.h
+1395290088 c:\users\thomas luppi\documents\fund2project\include\gameengine.h
 	"Rendering/RenderEngine.h"
 	"Components/ComponentManager.h"
+	"PhysicsEngine.h"
 
 1394994073 source:c:\users\thomas luppi\documents\fund2project\src\animatedcomponent.cpp
 	"AnimatedComponent.h"
@@ -996,12 +998,13 @@
 	<string>
 	<deque>
 
-1395013025 c:\users\thomas luppi\documents\fund2project\include\components\componentmanager.h
+1395289815 c:\users\thomas luppi\documents\fund2project\include\components\componentmanager.h
 	<map>
 	"Components/Render/RenderComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/Input/InputComponent.h"
 	"Components/Movement/MovementComponent.h"
+	"Components/Physics/PhysicsComponent.h"
 	"Components/ComponentSystem.h"
 
 1395013025 c:\users\thomas luppi\documents\fund2project\include\components\positional\worldpositioncomponent.h
@@ -1026,7 +1029,7 @@
 	"Components/ComponentBase.h"
 	<iostream>
 
-1395113846 source:c:\users\thomas luppi\documents\fund2project\src\components\componentmanager.cpp
+1395290389 source:c:\users\thomas luppi\documents\fund2project\src\components\componentmanager.cpp
 	"Components/ComponentManager.h"
 
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\input\braveadventurerinput.cpp
@@ -1100,7 +1103,7 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\render\rendercomponent.cpp
 	"Components/Render/RenderComponent.h"
 
-1395013025 c:\users\thomas luppi\documents\fund2project\include\rendering\spritemanager.h
+1395210032 c:\users\thomas luppi\documents\fund2project\include\rendering\spritemanager.h
 	"Rendering/AnimatedSprite.h"
 	<string>
 	<unordered_map>
@@ -1126,9 +1129,194 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 
-1395024557 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
+1395275738 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
 	"Rendering/SpriteManager.h"
 
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
 	"Rendering/TextureManager.h"
+
+1395294558 source:c:\users\thomas luppi\documents\fund2project\src\physics\physicsengine.cpp
+	"Physics/PhysicsEngine.h"
+	"Components/Physics/PhysicsComponent.h"
+	<iostream>
+
+1395276024 c:\users\thomas luppi\documents\fund2project\include\physics\physicsengine.h
+	<SFML/System/Time.hpp>
+	<Box2D/Box2D.h>
+
+1332140411 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\box2d.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Common/b2Draw.h>
+	<Box2D/Common/b2Timer.h>
+	<Box2D/Collision/Shapes/b2CircleShape.h>
+	<Box2D/Collision/Shapes/b2EdgeShape.h>
+	<Box2D/Collision/Shapes/b2ChainShape.h>
+	<Box2D/Collision/Shapes/b2PolygonShape.h>
+	<Box2D/Collision/b2BroadPhase.h>
+	<Box2D/Collision/b2Distance.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<Box2D/Collision/b2TimeOfImpact.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2Fixture.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+	<Box2D/Dynamics/b2World.h>
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
+	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
+	<Box2D/Dynamics/Joints/b2GearJoint.h>
+	<Box2D/Dynamics/Joints/b2MotorJoint.h>
+	<Box2D/Dynamics/Joints/b2MouseJoint.h>
+	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
+	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
+	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
+	<Box2D/Dynamics/Joints/b2RopeJoint.h>
+	<Box2D/Dynamics/Joints/b2WeldJoint.h>
+	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+
+1382859699 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\common\b2settings.h
+	<stddef.h>
+	<assert.h>
+	<float.h>
+
+1322356123 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\common\b2draw.h
+	<Box2D/Common/b2Math.h>
+
+1382859660 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\common\b2math.h
+	<Box2D/Common/b2Settings.h>
+	<math.h>
+
+1375429343 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\common\b2timer.h
+	<Box2D/Common/b2Settings.h>
+
+1300990618 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\shapes\b2circleshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1313984992 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\shapes\b2shape.h
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+
+1300990618 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\common\b2blockallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1382858126 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\b2collision.h
+	<Box2D/Common/b2Math.h>
+	<limits.h>
+
+1314863586 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\shapes\b2edgeshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1382861218 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\shapes\b2chainshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1324253090 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\shapes\b2polygonshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1332058090 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\b2broadphase.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<algorithm>
+
+1332058096 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\b2dynamictree.h
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Common/b2GrowableStack.h>
+
+1383029530 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\common\b2growablestack.h
+	<Box2D/Common/b2Settings.h>
+	<memory.h>
+
+1300990618 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\b2distance.h
+	<Box2D/Common/b2Math.h>
+
+1375429334 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\collision\b2timeofimpact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Distance.h>
+
+1382857690 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\b2body.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<memory>
+
+1315075941 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\b2fixture.h
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1314077200 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\b2worldcallbacks.h
+	<Box2D/Common/b2Settings.h>
+
+1315812730 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\b2timestep.h
+	<Box2D/Common/b2Math.h>
+
+1383023695 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\b2world.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2StackAllocator.h>
+	<Box2D/Dynamics/b2ContactManager.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
+1300990618 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\common\b2stackallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1300990618 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\b2contactmanager.h
+	<Box2D/Collision/b2BroadPhase.h>
+
+1383029530 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\contacts\b2contact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<Box2D/Dynamics/b2Fixture.h>
+
+1315166582 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2distancejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1332140363 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2joint.h
+	<Box2D/Common/b2Math.h>
+
+1315177877 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2frictionjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315178132 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2gearjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1382490782 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2motorjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1332055482 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2mousejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315369526 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2prismaticjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1382550044 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2pulleyjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315175972 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2revolutejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315197813 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2ropejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315174263 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2weldjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1382550100 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2wheeljoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1395288529 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\physicscomponent.cpp
+	"PhysicsComponent.h"
+
+1395288524 c:\users\thomas luppi\documents\fund2project\include\components\physics\physicscomponent.h
+	"Components/ComponentBase.h"
+	<Box2D/Box2D.h>
+
+1395291196 source:c:\users\thomas luppi\documents\fund2project\src\simpleboxphysics.cpp
+	"SimpleBoxPhysics.h"
+	"Components/ComponentManager.h"
+
+1395289735 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
+	"Components\Physics\PhysicsComponent.h"
 
