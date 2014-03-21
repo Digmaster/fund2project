@@ -29,8 +29,3 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
         message = getMessage();
     }
 }
-
-std::string BraveAdventurerMovement::getCurrentMovement()
-{
-
-}

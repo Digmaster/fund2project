@@ -17,7 +17,7 @@ class RenderComponent : public ComponentBase
         /** Default destructor */
         virtual ~RenderComponent();
         static void setRenderEngine(RenderEngine* input) {rendEng = input;}
-        virtual void go(sf::Time) {std::cout << "You shouldn't see me";}
+        virtual void go(sf::Time) {}
     protected:
         static RenderEngine* rendEng;
     private:

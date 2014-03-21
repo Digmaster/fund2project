@@ -987,7 +987,7 @@
 	<SFML/Graphics.hpp>
 	<deque>
 
-1395012586 c:\users\thomas luppi\documents\fund2project\include\components\render\rendercomponent.h
+1395378555 c:\users\thomas luppi\documents\fund2project\include\components\render\rendercomponent.h
 	"Components/ComponentBase.h"
 	"Rendering/RenderEngine.h"
 	<SFML/System/Time.hpp>
@@ -1040,7 +1040,7 @@
 1395013025 c:\users\thomas luppi\documents\fund2project\include\components\input\braveadventurerinput.h
 	"Components/Input/InputComponent.h"
 
-1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\input\dumbkeyboardinputcomponent.cpp
+1395379215 source:c:\users\thomas luppi\documents\fund2project\src\components\input\dumbkeyboardinputcomponent.cpp
 	"Components/Input/DumbKeyboardInputComponent.h"
 	"Components/ComponentManager.h"
 
@@ -1053,7 +1053,7 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\input\inputcomponent.cpp
 	"Components/Input/InputComponent.h"
 
-1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
+1395379199 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
@@ -1126,7 +1126,7 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
+1395378547 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 
 1395275738 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
@@ -1314,7 +1314,7 @@
 	"Components/ComponentBase.h"
 	<Box2D/Box2D.h>
 
-1395369486 source:c:\users\thomas luppi\documents\fund2project\src\simpleboxphysics.cpp
+1395369703 source:c:\users\thomas luppi\documents\fund2project\src\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 
@@ -2044,4 +2044,12 @@
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Text.hpp>
 	<SFML/System/Vector2.hpp>
+
+1395379066 source:c:\users\thomas luppi\documents\fund2project\src\components\render\staticspritecomponent.cpp
+	"Components/Render/StaticSpriteComponent.h"
+	"Components/ComponentManager.h"
+
+1395379031 c:\users\thomas luppi\documents\fund2project\include\components\render\staticspritecomponent.h
+	"Components/Render/RenderComponent.h"
+	"SFML/Graphics.hpp"
 
