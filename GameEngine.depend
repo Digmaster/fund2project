@@ -987,11 +987,12 @@
 	<SFML/Graphics.hpp>
 	<deque>
 
-1395378555 c:\users\thomas luppi\documents\fund2project\include\components\render\rendercomponent.h
+1395382765 c:\users\thomas luppi\documents\fund2project\include\components\render\rendercomponent.h
 	"Components/ComponentBase.h"
 	"Rendering/RenderEngine.h"
 	<SFML/System/Time.hpp>
 	<iostream>
+	"Rendering/TextureManager.h"
 
 1394997096 c:\users\thomas luppi\documents\fund2project\include\components\componentbase.h
 	<SFML/System/Time.hpp>
@@ -1100,7 +1101,7 @@
 1395013025 c:\users\thomas luppi\documents\fund2project\include\components\render\braveadventureranimatedcomponent.h
 	"Components/Render/AnimatedComponent.h"
 
-1395013025 source:c:\users\thomas luppi\documents\fund2project\src\components\render\rendercomponent.cpp
+1395382684 source:c:\users\thomas luppi\documents\fund2project\src\components\render\rendercomponent.cpp
 	"Components/Render/RenderComponent.h"
 
 1395210032 c:\users\thomas luppi\documents\fund2project\include\rendering\spritemanager.h
@@ -2049,7 +2050,12 @@
 	"Components/Render/StaticSpriteComponent.h"
 	"Components/ComponentManager.h"
 
-1395379031 c:\users\thomas luppi\documents\fund2project\include\components\render\staticspritecomponent.h
+1395382443 c:\users\thomas luppi\documents\fund2project\include\components\render\staticspritecomponent.h
 	"Components/Render/RenderComponent.h"
 	"SFML/Graphics.hpp"
+	<string>
+
+1395369703 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
+	"Components/Physics/SimpleBoxPhysics.h"
+	"Components/ComponentManager.h"
 

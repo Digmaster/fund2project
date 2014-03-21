@@ -5,6 +5,7 @@
 #include "Rendering/RenderEngine.h"
 #include <SFML/System/Time.hpp>
 #include <iostream>
+#include "Rendering/TextureManager.h"
 
 class RenderEngine;
 
@@ -20,6 +21,7 @@ class RenderComponent : public ComponentBase
         virtual void go(sf::Time) {}
     protected:
         static RenderEngine* rendEng;
+        static TextureManager texMan;
     private:
 };
 
