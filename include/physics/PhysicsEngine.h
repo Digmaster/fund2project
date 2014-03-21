@@ -2,7 +2,10 @@
 #define PHYSICSENGINE_H
 
 #include <SFML/System/Time.hpp>
+#include<SFML/System.hpp>
+#include<SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
+#include"Components/Render/DebugDraw.h"
 
 
 class PhysicsEngine
@@ -11,6 +14,8 @@ class PhysicsEngine
         PhysicsEngine();
         virtual ~PhysicsEngine();
         void step(sf::Time);
+        void debugDraw();
+        void setDebugDraw(sf::RenderWindow&);
         void init();
     protected:
     private:

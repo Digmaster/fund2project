@@ -4,7 +4,7 @@
 SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y) : PhysicsComponent(ID)
 {
     physBodyDef.type = b2_dynamicBody;
-    physBodyDef.position.Set(0,0);
+    physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
     physBody = _world->CreateBody(&physBodyDef);
     boxShape.SetAsBox(x/pixelsPerMeter,y/pixelsPerMeter);
