@@ -12,6 +12,7 @@ StaticSpriteComponent::~StaticSpriteComponent()
 StaticSpriteComponent::StaticSpriteComponent(string texture, const IntRect &rectangle, unsigned int ID) : RenderComponent(ID) {
     sprite.setTexture(*texMan.getTexture(texture));
     sprite.setTextureRect(rectangle);
+    // NOTE (Thomas Luppi#1#03/21/14): Check if the texturemanager actually works here
 }
 
 void StaticSpriteComponent::go(sf::Time) {
