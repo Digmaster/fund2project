@@ -20,7 +20,6 @@ void PhysicsEngine::step(sf::Time frameTime)
 {
     float updatetime = frameTime.asMicroseconds()/1000000.0f;
     _world->Step(updatetime, _velocityIterations, _positionIterations);
-    std::cout << _world->GetBodyCount() << std::endl;
 }
 
 void PhysicsEngine::init()

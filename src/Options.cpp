@@ -62,6 +62,7 @@ void Options::fillDefault() {
     defaultSettings["screen_bbp"]="32";
     defaultSettings["verbose"]="false";
     defaultSettings["maxFPS"]="60";
+    defaultSettings["pixels_per_meter"]="32";
 }
 
 void Options::save() {
