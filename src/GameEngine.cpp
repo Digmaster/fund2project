@@ -10,6 +10,7 @@
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Physics/BoundaryPhysics.h"
 #include "Components/Render/StaticSpriteComponent.h"
+#include "Components/Render/Camera.h"
 #include "LevelLoader.h"
 
 
@@ -67,6 +68,7 @@ void GameEngine::gameLoop() {
     testPhys.setRotatable(false);
 
 
+
     ///THIS IS IMPORTANT!!!
     /// I changed it so that when you create a component it's automatically added to the right component system!!!!!
     /// yaaaaaaaaaaay
@@ -74,16 +76,17 @@ void GameEngine::gameLoop() {
 
     //DumbKeyboardInputComponent testInput(id);
 
-    id = ComponentManager::getInst().getNewID();
+  /*  id = ComponentManager::getInst().getNewID();
 
     BoundaryPhysics floor(id, 0.0f, 400.0f, 900.0f, 400.0f);
 
     WorldPositionComponent floorPosition(id);
-    //floorPosition.setPosition(sf::Vector2f(0,0));
+    floorPosition.setPosition(sf::Vector2f(0,0)); */
 
     Level testLevel;
-    testLevel.loadLevel("test.tmx");
+    testLevel.loadLevel("longtest.tmx");
 
+    Camera testCamera(id, testLevel.width, testLevel.height);
 
     while (rendEng.window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
@@ -96,6 +99,9 @@ void GameEngine::gameLoop() {
         //Actor Updates go here
         rendEng.render(frameTime, &physEng);
         physEng.step(frameTime);
+
+        //View has to be set again every frame
+        rendEng.view.setCenter(testCamera.getCamera().getCenter());
 
         sf::Event event;
         while (rendEng.window.pollEvent(event))

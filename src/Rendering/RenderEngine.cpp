@@ -50,3 +50,4 @@ void RenderEngine::removeSprite(Drawable* input) {
 void RenderEngine::addSprite(Drawable* input) {
     renderList.push_back(input);\
 }
+

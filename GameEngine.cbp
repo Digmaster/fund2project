@@ -15,6 +15,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-std=gnu++11" />
 					<Add directory="Dependancies/include" />
 					<Add directory="include" />
 					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
@@ -75,6 +76,7 @@
 		<Unit filename="include/Components/Positional/WorldPositionComponent.h" />
 		<Unit filename="include/Components/Render/AnimatedComponent.h" />
 		<Unit filename="include/Components/Render/BraveAdventurerAnimatedComponent.h" />
+		<Unit filename="include/Components/Render/Camera.h" />
 		<Unit filename="include/Components/Render/DebugDraw.h" />
 		<Unit filename="include/Components/Render/RenderComponent.h" />
 		<Unit filename="include/Components/Render/StaticSpriteComponent.h" />
@@ -103,6 +105,7 @@
 		<Unit filename="src/Components/Positional/WorldPositionComponent.cpp" />
 		<Unit filename="src/Components/Render/AnimatedComponent.cpp" />
 		<Unit filename="src/Components/Render/BraveAdventurerAnimatedComponent.cpp" />
+		<Unit filename="src/Components/Render/Camera.cpp" />
 		<Unit filename="src/Components/Render/DebugDraw.cpp" />
 		<Unit filename="src/Components/Render/RenderComponent.cpp" />
 		<Unit filename="src/Components/Render/StaticSpriteComponent.cpp" />

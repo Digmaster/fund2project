@@ -12,11 +12,12 @@
 class Level {
 public:
     void loadLevel(std::string filename);
+    int width;
+    int height;
 private:
     std::string version;
     std::string orientation;
-    int width;
-    int height;
+
     int tilewidth;
     int tileheight;
 
