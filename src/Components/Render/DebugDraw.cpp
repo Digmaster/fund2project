@@ -42,7 +42,6 @@ void DebugDraw::DrawAABB(b2AABB* aabb, const b2Color& color)
     //polygon.setOutlineColor(this->B2SFColor(color, 255));
 
 	this->window->draw(polygon);
-    std::cout << "DrawAABB\n";
 }
 
 
@@ -94,7 +93,6 @@ void DebugDraw::DrawTransform(const b2Transform& xf)
 
     this->window->draw(redLine, 1, sf::Lines);
     this->window->draw(greenLine, 1, sf::Lines);
-    std::cout << "Draw Transform" << std::endl;
 }
 void DebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color)
 {
@@ -106,7 +104,6 @@ void DebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& c
     };
 
    this->window->draw(line, 2, sf::Lines);
-    std::cout << "Drawing Segments" << std::endl;
 }
 
 void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color)
@@ -128,8 +125,6 @@ void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Ve
 
     this->window->draw(circle);
     this->window->draw(line, 2, sf::Lines);
-
-    std::cout << "Draw Solid Circle" << std::endl;
 }
 
 void DebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)
@@ -158,23 +153,9 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 	polygon.setFillColor(this->B2SFColor(color, 50));
 	polygon.setOutlineColor(this->B2SFColor(color));
 
-    std::cout << "Drawing a Solid Polygon" << std::endl;
 
     //rendEng->addSprite(&polygon);
 	this->window->draw(polygon);
-	/*
-    sf::ConvexShape polygon;
-    polygon.setPointCount(vertexCount);
-    for (int32 i=0; i<vertexCount; i++)
-    {
-        polygon.setPoint(i, sf::Vector2f(vertices[i].x * PPM, vertices[i].y * PPM));
-        sf::Color color;
-        color.Green;
-        polygon.setFillColor(color);
-    }
-    polygon.setOutlineThickness(1.f);
-    this->window->draw(polygon);
-    */
 }
 
 void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
@@ -194,7 +175,6 @@ void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2C
 	polygon.setOutlineColor(this->B2SFColor(color));
 
 	//rendEng->addSprite(&polygon);
-	std::cout << "Drawing a Polygon" << std::endl;
 	this->window->draw(polygon);
 }
 

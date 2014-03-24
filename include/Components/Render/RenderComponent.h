@@ -4,6 +4,7 @@
 #include "Components/ComponentBase.h"
 #include "Rendering/RenderEngine.h"
 #include <SFML/System/Time.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Rendering/TextureManager.h"
 
@@ -18,6 +19,7 @@ class RenderComponent : public ComponentBase
         /** Default destructor */
         virtual ~RenderComponent();
         static void setRenderEngine(RenderEngine* input) {rendEng = input;}
+        virtual sf::Drawable* getDrawable() {}
         virtual void go(sf::Time) {}
     protected:
         static RenderEngine* rendEng;

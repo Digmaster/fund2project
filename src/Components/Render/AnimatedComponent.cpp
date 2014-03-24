@@ -31,3 +31,7 @@ void AnimatedComponent::go(sf::Time fps) {
 
     //Add code here to see if the animation has to change!!!
 }
+
+sf::Drawable* AnimatedComponent::getDrawable() {
+    return &sprite;
+}

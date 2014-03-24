@@ -33,3 +33,7 @@ void StaticSpriteComponent::go(sf::Time) {
         cout << "No world position" << endl;
     }
 }
+
+sf::Drawable* StaticSpriteComponent::getDrawable() {
+    return &sprite;
+}

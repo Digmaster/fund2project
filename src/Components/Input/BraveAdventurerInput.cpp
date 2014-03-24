@@ -31,4 +31,7 @@ void BraveAdventurerInput::go(sf::Time) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
         movement->sendMessage("Jump");
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+        movement->sendMessage("GoPlace");
+	}
 }

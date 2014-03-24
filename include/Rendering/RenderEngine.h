@@ -2,11 +2,11 @@
 #define RENDERENGINE_H
 
 #include "Components/Render/RenderComponent.h"
-#include "physics/PhysicsEngine.h"
 #include "Options.h"
 #include <SFML/Graphics.hpp>
 #include <deque>
 class AnimatedSprite;
+class PhysicsEngine;
 
 class RenderEngine
 {

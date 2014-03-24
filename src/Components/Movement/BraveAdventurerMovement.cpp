@@ -1,5 +1,6 @@
 #include "Components/Movement/BraveAdventurerMovement.h"
 #include "Components/Physics/PhysicsComponent.h"
+#include "Components/Positional/WorldPositionComponent.h"
 #include "Components/ComponentManager.h"
 
 using namespace std;
@@ -12,6 +13,7 @@ BraveAdventurerMovement::BraveAdventurerMovement()
 void BraveAdventurerMovement::go(sf::Time frameTime) {
     string message = getMessage();
     PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
+    WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
     if(message == "NOMESSAGE")
         currMovement = "none";
     while(message!="NOMESSAGE") {
@@ -30,6 +32,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 //position->move(sf::Vector2f(2,0));
             if(message == "Jump")
                 body->ApplyLinearImpulse(b2Vec2(0,2),body->GetWorldCenter(),true);
+            if(message == "GoPlace")
+                position->setPosition(sf::Vector2f(100,100));
         }
         currMovement = message;
         message = getMessage();

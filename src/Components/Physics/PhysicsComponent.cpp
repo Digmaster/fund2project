@@ -1,5 +1,6 @@
 #include "Components/Physics/PhysicsComponent.h"
 #include "Options.h"
+#include "Components/Positional/WorldPositionComponent.h"
 #include "Components/ComponentManager.h"
 
 PhysicsComponent::PhysicsComponent(unsigned int ID) : ComponentBase(ID) {

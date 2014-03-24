@@ -45,7 +45,7 @@ void GameEngine::gameLoop() {
     StaticSpriteComponent testSprite2("assets/art/box.png", rec, id2);
 
     WorldPositionComponent testPosition2(id2);
-    testPosition2.setPosition(sf::Vector2f(40,40));
+    testPosition2.setPosition(sf::Vector2f(200,100));
 
     SimpleBoxPhysics testPhys2(id2, 40, 40);
 
@@ -63,6 +63,7 @@ void GameEngine::gameLoop() {
     BraveAdventurerMovement testMovement(id);
 
     SimpleBoxPhysics testPhys(id);
+    testPhys.setRotatable(false);
 
 
     ///THIS IS IMPORTANT!!!

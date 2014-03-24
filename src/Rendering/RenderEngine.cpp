@@ -1,4 +1,5 @@
 #include "Rendering/RenderEngine.h"
+#include "physics/PhysicsEngine.h"
 
 using namespace sf;
 using namespace std;

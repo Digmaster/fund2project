@@ -11,7 +11,7 @@ class WorldPositionComponent : public ComponentBase {
         WorldPositionComponent(unsigned int ID);
         /** Default destructor */
         void go(sf::Time frameTime);
-        void setPosition(sf::Vector2f input) {position = input;}
+        void setPosition(sf::Vector2f input);
         void move(sf::Vector2f input) {position+=input;};
         sf::Vector2f getPosition() {return position;}
     protected:

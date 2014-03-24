@@ -13,6 +13,7 @@ class StaticSpriteComponent : public RenderComponent
         StaticSpriteComponent(std::string texture, const sf::IntRect &rectangle, unsigned int ID = 0);
         virtual ~StaticSpriteComponent();
         virtual void go(sf::Time);
+        sf::Drawable* getDrawable();
     protected:
     private:
         sf::Sprite sprite;

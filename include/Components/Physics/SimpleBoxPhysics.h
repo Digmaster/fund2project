@@ -11,7 +11,7 @@ class SimpleBoxPhysics : public PhysicsComponent
         SimpleBoxPhysics() : PhysicsComponent() {}
         SimpleBoxPhysics(unsigned int, int x = 32, int y = 32);
         virtual ~SimpleBoxPhysics();
-
+        void setRotatable(bool);
         void go(sf::Time);
     protected:
     private:
