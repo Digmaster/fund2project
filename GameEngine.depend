@@ -864,7 +864,7 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1395630782 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1395646583 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -876,6 +876,7 @@
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/Physics/BoundaryPhysics.h"
 	"Components/Render/StaticSpriteComponent.h"
+	"LevelLoader.h"
 
 1395368280 c:\users\thomas luppi\documents\fund2project\include\gameengine.h
 	"Rendering/RenderEngine.h"
@@ -2130,5 +2131,44 @@
 
 1395627715 source:c:\users\thomas luppi\documents\fund2project\src\components\render\debugdraw.cpp
 	"Components/Render/DebugDraw.h"
+	"Options.h"
+
+1395645125 source:c:\users\thomas luppi\documents\fund2project\levelloader.cpp
+	"LevelLoader.h"
+	<rapidxml.hpp>
+	<iostream>
+	"Components/ComponentManager.h"
+	"Components/Physics/SimpleBoxPhysics.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/Render/StaticSpriteComponent.h"
+
+1395644219 c:\users\thomas luppi\documents\fund2project\levelloader.h
+	<string>
+	"Rendering/TextureManager.h"
+	<map>
+	<SFML/Graphics.hpp>
+
+1395644219 c:\users\thomas luppi\documents\fund2project\include\levelloader.h
+	<string>
+	"Rendering/TextureManager.h"
+	<map>
+	<SFML/Graphics.hpp>
+
+1395648620 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+	"LevelLoader.h"
+	<rapidxml.hpp>
+	<iostream>
+	"Components/ComponentManager.h"
+	"Components/Physics/SimpleStaticBoxPhysics.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/Render/StaticSpriteComponent.h"
+	"Components/Render/BraveAdventurerAnimatedComponent.h"
+
+1395647561 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simplestaticboxphysics.cpp
+	"Components/Physics/SimpleStaticBoxPhysics.h"
+	"Components/ComponentManager.h"
+
+1395647579 c:\users\thomas luppi\documents\fund2project\include\components\physics\simplestaticboxphysics.h
+	"Components\Physics\PhysicsComponent.h"
 	"Options.h"
 

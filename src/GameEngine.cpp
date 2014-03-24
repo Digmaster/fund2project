@@ -10,6 +10,7 @@
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Physics/BoundaryPhysics.h"
 #include "Components/Render/StaticSpriteComponent.h"
+#include "LevelLoader.h"
 
 
 GameEngine::GameEngine()
@@ -79,6 +80,9 @@ void GameEngine::gameLoop() {
 
     WorldPositionComponent floorPosition(id);
     //floorPosition.setPosition(sf::Vector2f(0,0));
+
+    Level testLevel;
+    testLevel.loadLevel("test.tmx");
 
 
     while (rendEng.window.isOpen()) {
