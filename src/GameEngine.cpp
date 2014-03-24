@@ -65,6 +65,10 @@ void GameEngine::gameLoop() {
     SimpleBoxPhysics testPhys(id);
 
 
+    ///THIS IS IMPORTANT!!!
+    /// I changed it so that when you create a component it's automatically added to the right component system!!!!!
+    /// yaaaaaaaaaaay
+
 
     //DumbKeyboardInputComponent testInput(id);
 

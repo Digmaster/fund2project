@@ -66,11 +66,13 @@
 		<Unit filename="include/Components/Input/InputComponent.h" />
 		<Unit filename="include/Components/Movement/BraveAdventurerMovement.h" />
 		<Unit filename="include/Components/Movement/MovementComponent.h" />
+		<Unit filename="include/Components/Physics/BoundaryPhysics.h" />
 		<Unit filename="include/Components/Physics/PhysicsComponent.h" />
 		<Unit filename="include/Components/Physics/SimpleBoxPhysics.h" />
 		<Unit filename="include/Components/Positional/WorldPositionComponent.h" />
 		<Unit filename="include/Components/Render/AnimatedComponent.h" />
 		<Unit filename="include/Components/Render/BraveAdventurerAnimatedComponent.h" />
+		<Unit filename="include/Components/Render/DebugDraw.h" />
 		<Unit filename="include/Components/Render/RenderComponent.h" />
 		<Unit filename="include/Components/Render/StaticSpriteComponent.h" />
 		<Unit filename="include/GameEngine.h" />
@@ -90,11 +92,13 @@
 		<Unit filename="src/Components/Input/InputComponent.cpp" />
 		<Unit filename="src/Components/Movement/BraveAdventurerMovement.cpp" />
 		<Unit filename="src/Components/Movement/MovementComponent.cpp" />
+		<Unit filename="src/Components/Physics/BoundaryPhysics.cpp" />
 		<Unit filename="src/Components/Physics/PhysicsComponent.cpp" />
 		<Unit filename="src/Components/Physics/SimpleBoxPhysics.cpp" />
 		<Unit filename="src/Components/Positional/WorldPositionComponent.cpp" />
 		<Unit filename="src/Components/Render/AnimatedComponent.cpp" />
 		<Unit filename="src/Components/Render/BraveAdventurerAnimatedComponent.cpp" />
+		<Unit filename="src/Components/Render/DebugDraw.cpp" />
 		<Unit filename="src/Components/Render/RenderComponent.cpp" />
 		<Unit filename="src/Components/Render/StaticSpriteComponent.cpp" />
 		<Unit filename="src/GameEngine.cpp" />
