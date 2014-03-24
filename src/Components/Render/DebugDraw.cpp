@@ -1,4 +1,5 @@
 #include "Components/Render/DebugDraw.h"
+#include "Options.h"
 
 DebugDraw::DebugDraw(sf::RenderWindow& app)
 {
@@ -10,7 +11,7 @@ DebugDraw::DebugDraw(sf::RenderWindow& app)
         }
         uint32 flags = b2Draw::e_shapeBit;
         //windowHeight = window->getSize().y; //Use to convert SFML y-axis to Box2D coordinates
-        PPM = 32;
+        PPM = atoi(Options::instance().get("pixels_per_meter").c_str());
 }
 
 //convert a Box2D (float 0.0f - 1.0f range) color to a SFML color (uint8 0 - 255 range)
@@ -143,7 +144,6 @@ void DebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& 
 
 void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
-
     sf::ConvexShape polygon;
     sf::Vector2f polygonVec[vertexCount];
     polygon.setPointCount(vertexCount);
@@ -162,11 +162,24 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 
     //rendEng->addSprite(&polygon);
 	this->window->draw(polygon);
+	/*
+    sf::ConvexShape polygon;
+    polygon.setPointCount(vertexCount);
+    for (int32 i=0; i<vertexCount; i++)
+    {
+        polygon.setPoint(i, sf::Vector2f(vertices[i].x * PPM, vertices[i].y * PPM));
+        sf::Color color;
+        color.Green;
+        polygon.setFillColor(color);
+    }
+    polygon.setOutlineThickness(1.f);
+    this->window->draw(polygon);
+    */
 }
 
 void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
-        sf::ConvexShape polygon;
+    sf::ConvexShape polygon;
     sf::Vector2f polygonVec[vertexCount];
     polygon.setPointCount(vertexCount);
 

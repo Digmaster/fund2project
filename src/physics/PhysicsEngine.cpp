@@ -31,7 +31,7 @@ void PhysicsEngine::debugDraw(){
 
 void PhysicsEngine::setDebugDraw(sf::RenderWindow& window){
     // Create a new instance of our DebugDraw class
-    DebugDraw debugdraw(window);
+    DebugDraw* debugdraw = new DebugDraw(window);
 
     //Set the needed flags for the DebugDraw class
     uint32 flags = b2Draw::e_shapeBit;
@@ -39,9 +39,9 @@ void PhysicsEngine::setDebugDraw(sf::RenderWindow& window){
     flags += b2Draw::e_centerOfMassBit;
     flags += b2Draw::e_jointBit;
     flags += b2Draw::e_aabbBit;
-    debugdraw.SetFlags(flags);
+    debugdraw->SetFlags(flags);
     //Set the physics worlds to use our DebugDraw class instead of the default one
-    _world->SetDebugDraw( &debugdraw );
+    _world->SetDebugDraw( debugdraw );
 }
 
 void PhysicsEngine::init()

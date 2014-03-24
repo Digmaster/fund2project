@@ -2,6 +2,7 @@
 #define RENDERENGINE_H
 
 #include "Components/Render/RenderComponent.h"
+#include "physics/PhysicsEngine.h"
 #include "Options.h"
 #include <SFML/Graphics.hpp>
 #include <deque>
@@ -12,7 +13,7 @@ class RenderEngine
     public:
         RenderEngine();
         ~RenderEngine();
-        void render(sf::Time frameTime);
+        void render(sf::Time frameTime, PhysicsEngine*);
         void addSprite(sf::Drawable* input);
         void addScreenSprite(sf::Drawable* input);
         void removeSprite(sf::Drawable* input);

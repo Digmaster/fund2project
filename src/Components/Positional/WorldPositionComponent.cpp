@@ -1,4 +1,9 @@
 #include "Components/Positional/WorldPositionComponent.h"
+#include "Components/ComponentManager.h"
+
+WorldPositionComponent::WorldPositionComponent(unsigned int ID) : ComponentBase(ID) {
+    compMan->posSym.addComponent(this);
+}
 
 void WorldPositionComponent::go(sf::Time frameTime) {
     /* //Updates position based on velocity of physics component

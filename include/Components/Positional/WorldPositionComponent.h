@@ -8,7 +8,7 @@ class WorldPositionComponent : public ComponentBase {
     public:
         /** Default constructor */
         WorldPositionComponent() {}
-        WorldPositionComponent(unsigned int ID) : ComponentBase(ID) {}
+        WorldPositionComponent(unsigned int ID);
         /** Default destructor */
         void go(sf::Time frameTime);
         void setPosition(sf::Vector2f input) {position = input;}

@@ -14,7 +14,7 @@ class RenderComponent : public ComponentBase
     public:
         /** Default constructor */
         RenderComponent();
-        RenderComponent(unsigned int ID) : ComponentBase(ID) {}
+        RenderComponent(unsigned int ID);
         /** Default destructor */
         virtual ~RenderComponent();
         static void setRenderEngine(RenderEngine* input) {rendEng = input;}

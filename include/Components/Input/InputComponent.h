@@ -7,7 +7,7 @@
 class InputComponent : public ComponentBase {
     public:
         InputComponent();
-        InputComponent(unsigned int ID) : ComponentBase(ID) {}
+        InputComponent(unsigned int ID);
         virtual ~InputComponent();
         virtual void go(sf::Time) {}
     protected:

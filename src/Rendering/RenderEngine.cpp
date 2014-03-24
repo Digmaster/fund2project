@@ -29,13 +29,14 @@ RenderEngine::~RenderEngine() {
 	RenderComponent::setRenderEngine(NULL); //Sets rendering engine to NULL
 }
 
-void RenderEngine::render(sf::Time frameTime) {
+void RenderEngine::render(sf::Time frameTime, PhysicsEngine* physEng) {
     window.setView(view);
     window.clear();
     while(renderList.size() > 0) {
         window.draw(*renderList.back());
         renderList.pop_back();
     }
+    physEng->debugDraw();
     window.display();
 }
 

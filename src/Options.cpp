@@ -63,6 +63,7 @@ void Options::fillDefault() {
     defaultSettings["verbose"]="false";
     defaultSettings["maxFPS"]="60";
     defaultSettings["pixels_per_meter"]="32";
+    defaultSettings["physics_debug"]="false";
 }
 
 void Options::save() {

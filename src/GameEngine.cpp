@@ -28,6 +28,7 @@ void GameEngine::go() {
 
 void GameEngine::init() {
     //rendEng.init();
+    physEng.setDebugDraw(rendEng.window);
 }
 
 void GameEngine::gameLoop() {
@@ -43,7 +44,7 @@ void GameEngine::gameLoop() {
     unsigned int id2 = ComponentManager::getInst().getNewID();
     StaticSpriteComponent testSprite2("assets/art/box.png", rec, id2);
 
-     WorldPositionComponent testPosition2(id2);
+    WorldPositionComponent testPosition2(id2);
     testPosition2.setPosition(sf::Vector2f(40,40));
 
     SimpleBoxPhysics testPhys2(id2, 40, 40);
@@ -66,17 +67,6 @@ void GameEngine::gameLoop() {
 
 
     //DumbKeyboardInputComponent testInput(id);
-    ComponentManager::getInst().physSym.addComponent(&testPhys);
-    ComponentManager::getInst().inputSym.addComponent(&testInput);
-    ComponentManager::getInst().posSym.addComponent(&testPosition);
-
-    ComponentManager::getInst().rendSym.addComponent(&testSprite);
-
-    ComponentManager::getInst().moveSym.addComponent(&testMovement);
-
-    ComponentManager::getInst().posSym.addComponent(&testPosition2);
-    ComponentManager::getInst().rendSym.addComponent(&testSprite2);
-    ComponentManager::getInst().physSym.addComponent(&testPhys2);
 
     id = ComponentManager::getInst().getNewID();
 
@@ -85,10 +75,6 @@ void GameEngine::gameLoop() {
     WorldPositionComponent floorPosition(id);
     //floorPosition.setPosition(sf::Vector2f(0,0));
 
-    ComponentManager::getInst().physSym.addComponent(&floor);
-     ComponentManager::getInst().posSym.addComponent(&floorPosition);
-
-    physEng.setDebugDraw(rendEng.window);
 
     while (rendEng.window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
@@ -99,8 +85,7 @@ void GameEngine::gameLoop() {
         //Input goes here
         //Any sort of physics stuff
         //Actor Updates go here
-        rendEng.render(frameTime);
+        rendEng.render(frameTime, &physEng);
         physEng.step(frameTime);
-        physEng.debugDraw();
     }
 }

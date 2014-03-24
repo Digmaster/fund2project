@@ -2,10 +2,10 @@
 #define PHYSICSENGINE_H
 
 #include <SFML/System/Time.hpp>
-#include<SFML/System.hpp>
-#include<SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
-#include"Components/Render/DebugDraw.h"
+#include "Components/Render/DebugDraw.h"
 
 
 class PhysicsEngine

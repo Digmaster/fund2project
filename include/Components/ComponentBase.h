@@ -5,6 +5,8 @@
 #include <string>
 #include <deque>
 
+class ComponentManager; //Forward declaration
+
 class ComponentBase {
     public:
         /** Constructors */
@@ -22,6 +24,7 @@ class ComponentBase {
     protected:
         unsigned int ID;
         std::deque<std::string> messages;
+        static ComponentManager* compMan;
     private:
 };
 

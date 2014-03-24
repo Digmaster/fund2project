@@ -9,7 +9,7 @@ class PhysicsComponent : public ComponentBase
 {
     public:
         PhysicsComponent() : ComponentBase() {}
-        PhysicsComponent(unsigned int ID) : ComponentBase(ID) {}
+        PhysicsComponent(unsigned int ID);
         virtual ~PhysicsComponent();
         static void setWorld(b2World* world) {_world=world;}
         bool onGround() {return false;}

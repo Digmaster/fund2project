@@ -8,7 +8,7 @@ class MovementComponent : public ComponentBase
 {
     public:
         MovementComponent();
-        MovementComponent(unsigned int ID) : ComponentBase(ID) {}
+        MovementComponent(unsigned int ID);
         virtual ~MovementComponent();
         std::string getCurrentMovement() {return currMovement;}
     protected:
