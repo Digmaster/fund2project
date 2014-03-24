@@ -47,7 +47,7 @@ void GameEngine::gameLoop() {
     WorldPositionComponent testPosition2(id2);
     testPosition2.setPosition(sf::Vector2f(200,100));
 
-    SimpleBoxPhysics testPhys2(id2, 40, 40);
+    SimpleBoxPhysics testPhys2(id2, 32, 32);
 
     unsigned int id = ComponentManager::getInst().getNewID();
     //AnimatedComponent testSprite(id);
@@ -62,7 +62,7 @@ void GameEngine::gameLoop() {
 
     BraveAdventurerMovement testMovement(id);
 
-    SimpleBoxPhysics testPhys(id);
+    SimpleBoxPhysics testPhys(id,32,32);
     testPhys.setRotatable(false);
 
 

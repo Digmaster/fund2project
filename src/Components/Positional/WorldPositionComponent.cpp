@@ -17,10 +17,13 @@ void WorldPositionComponent::go(sf::Time frameTime) {
     */
 }
 
-void WorldPositionComponent::setPosition(sf::Vector2f input) {
+void WorldPositionComponent::setPosition(sf::Vector2f input, bool awaken) {
     position = input;
     PhysicsComponent* phys = compMan->physSym.getComponent(getID());
     if(phys!=NULL) {
         phys->getBody()->SetTransform(b2Vec2(position.x/32, -position.y/32),phys->getBody()->GetAngle());
+        if(awaken) {
+            phys->getBody()->SetAwake(true);
+        }
     }
 }
