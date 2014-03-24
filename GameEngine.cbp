@@ -58,6 +58,8 @@
 		<Linker>
 			<Add directory="Dependancies/lib" />
 		</Linker>
+		<Unit filename="LevelLoader.cpp" />
+		<Unit filename="LevelLoader.h" />
 		<Unit filename="include/Components/ComponentBase.h" />
 		<Unit filename="include/Components/ComponentManager.h" />
 		<Unit filename="include/Components/ComponentSystem.h" />
