@@ -175,12 +175,11 @@ void Level::loadLevel(std::string filename) {
             for (xml_node<>* tile_node = data_node->first_node("tile"); tile_node; tile_node = tile_node->next_sibling()) {
                 int tileGid = 0;
                 attribute = tile_node->first_attribute("gid");
-                cout << i%layerWidth << " " << i/layerHeight << endl;
                 if(attribute!=NULL)
                     tileGid = atoi(attribute->value());
                 if(tileGid!=0) {
-                    Vector2f position = Vector2f((i%layerWidth)*tilewidth, (i/layerHeight)*tileheight);
-                    cout << layerWidth << " " << layerHeight << endl;
+                    Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth, (int)(i/layerWidth)*tileheight);
+                    cout << layerWidth << " " << layerHeight << " " << i << " " << position.x/tilewidth << " " << position.y/tileheight << endl;
                     int id = ComponentManager::getInst().getNewID();
                     WorldPositionComponent* posComp = new WorldPositionComponent(id);
                     posComp->setPosition(position);
