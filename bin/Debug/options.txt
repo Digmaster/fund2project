@@ -1,0 +1,2 @@
+screen_width = 1000
+pixels_per_meter = 32

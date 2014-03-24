@@ -20,7 +20,9 @@ void StaticSpriteComponent::go(sf::Time) {
     sprite.setOrigin(sprite.getTextureRect().width/2,sprite.getTextureRect().height/2);
     if(posCom!=NULL) {
         sf::Vector2f position = posCom->getPosition();
+        float angle = posCom->getRotation();
         sprite.setPosition(position);
+        sprite.setRotation(-angle*57.2957795);
         if(rendEng==NULL) {
             throw logic_error("Render engine not initialized yet");
         }

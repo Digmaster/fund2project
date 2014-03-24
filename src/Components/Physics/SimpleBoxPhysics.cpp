@@ -6,12 +6,12 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y) : PhysicsCompo
     physBodyDef.type = b2_dynamicBody;
     physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
-    physBodyDef.fixedRotation = true;// FIXME (Thomas Luppi#9#03/23/14): Nothing rotates now :( FIXMEEEEEEEE
+//    physBodyDef.fixedRotation = true;// FIXME (Thomas Luppi#9#03/23/14): Nothing rotates now :( FIXMEEEEEEEE
     physBody = _world->CreateBody(&physBodyDef);
     boxShape.SetAsBox(.5*x/pixelsPerMeter,.5*y/pixelsPerMeter);
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
-    boxFixtureDef.friction = 10;
+    boxFixtureDef.friction = 1;
     physBody->CreateFixture(&boxFixtureDef);
     screenHeight = atoi(Options::instance().get("screen_height").c_str());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
@@ -41,6 +41,7 @@ void SimpleBoxPhysics::go(sf::Time frameTime) {
     //screenHeight
     //Times 32, as 32 pixels is ~one meter
     position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)),false);
+    position->setRotation(physBody->GetAngle());
     //cout << physBody->GetPosition().x << " " << physBody->GetPosition().y << " " << physBodyDef.awake << endl;
 }
 

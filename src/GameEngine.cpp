@@ -96,5 +96,16 @@ void GameEngine::gameLoop() {
         //Actor Updates go here
         rendEng.render(frameTime, &physEng);
         physEng.step(frameTime);
+
+        sf::Event event;
+        while (rendEng.window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                rendEng.window.close();
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+                rendEng.window.close();
+            if (event.type == sf::Event::Resized)
+                rendEng.view.setSize(event.size.width, event.size.height);
+        }
     }
 }

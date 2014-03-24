@@ -11,7 +11,7 @@ SimpleStaticBoxPhysics::SimpleStaticBoxPhysics(unsigned int ID, int x, int y) : 
     boxShape.SetAsBox(.5*x/pixelsPerMeter,.5*y/pixelsPerMeter);
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
-    boxFixtureDef.friction = 10;
+    boxFixtureDef.friction = 5;
     physBody->CreateFixture(&boxFixtureDef);
     screenHeight = atoi(Options::instance().get("screen_height").c_str());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());

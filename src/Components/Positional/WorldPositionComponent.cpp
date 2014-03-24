@@ -4,6 +4,9 @@
 
 WorldPositionComponent::WorldPositionComponent(unsigned int ID) : ComponentBase(ID) {
     compMan->posSym.addComponent(this);
+    position.x=0;
+    position.y=0;
+    rotation=0;
 }
 
 void WorldPositionComponent::go(sf::Time frameTime) {

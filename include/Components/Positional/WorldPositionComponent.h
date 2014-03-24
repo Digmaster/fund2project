@@ -14,9 +14,12 @@ class WorldPositionComponent : public ComponentBase {
         void setPosition(sf::Vector2f input, bool awaken = true);
         void move(sf::Vector2f input) {position+=input;};
         sf::Vector2f getPosition() {return position;}
+        void setRotation(float input) {rotation = input;}
+        float getRotation() {return rotation;}
     protected:
     private:
         sf::Vector2f position;
+        float rotation;
 };
 
 #endif // WORLDPOSITIONCOMPONENT_H
