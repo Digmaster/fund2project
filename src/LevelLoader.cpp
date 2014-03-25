@@ -164,6 +164,23 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
     int layerNum = 1;
     for (xml_node<>* layer_node = root_node->first_node(); layer_node; layer_node = layer_node->next_sibling()) {
         string nodename = layer_node->name();
+
+        ///Layer Properties
+        map<string, string> properties;
+        for (xml_node<>* properties_node = layer_node->first_node("properties"); properties_node; properties_node = properties_node->next_sibling()) {
+            for (xml_node<>* property_node = properties_node->first_node("property"); property_node; property_node = property_node->next_sibling()) {
+                string propertyName;
+                auto attribute = property_node->first_attribute("name");
+                if(attribute!=NULL)
+                    propertyName = attribute->value();
+                string propertyValue;
+                attribute = property_node->first_attribute("value");
+                if(attribute!=NULL)
+                    propertyValue = attribute->value();
+                properties[propertyName]=propertyValue;
+            }
+        }
+
         if(nodename=="layer") {
             auto attribute = layer_node->first_attribute("name");
             if(attribute!=NULL) {
@@ -180,21 +197,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
             if(attribute!=NULL)
                 layerHeight = atoi(attribute->value());
 
-            ///Layer Properties
-            map<string, string> properties;
-            for (xml_node<>* properties_node = layer_node->first_node("properties"); properties_node; properties_node = properties_node->next_sibling()) {
-                for (xml_node<>* property_node = properties_node->first_node("property"); property_node; property_node = property_node->next_sibling()) {
-                    string propertyName;
-                    attribute = property_node->first_attribute("name");
-                    if(attribute!=NULL)
-                        propertyName = attribute->value();
-                    string propertyValue;
-                    attribute = property_node->first_attribute("value");
-                    if(attribute!=NULL)
-                        propertyValue = attribute->value();
-                    properties[propertyName]=propertyValue;
-                }
-            }
 
             ///Data!! // TODO (Thomas Luppi#1#03/24/14): Allow compression
             for (xml_node<>* data_node = layer_node->first_node("data"); data_node; data_node = data_node->next_sibling()) {
@@ -226,12 +228,26 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 auto attribute = image_node->first_attribute("source");
                 if(attribute!=NULL) {
                     texture = texMan->getTexture(attribute->value());
-                    int id = ComponentBase::getNewID();
-                    WorldPositionComponent* posComp = new WorldPositionComponent(id);
-                    posComp->setPosition(Vector2f(texture->getSize().x/2-tilewidth/2,texture->getSize().y/2-tileheight/2));
-                    posComp->setLayer(layerNum);
-                    Sprite imageSprite(*texture);
-                    StaticSpriteComponent* sprite = new StaticSpriteComponent(imageSprite, id);
+                    if(properties["tiled"]!="no") {
+                        for(int i = texture->getSize().x/2-tilewidth/2; i < width*tilewidth+texture->getSize().x/2; i+=texture->getSize().x) {
+                            for(int j = texture->getSize().y/2-tileheight/2; j < height*tileheight+texture->getSize().y/2; j+=texture->getSize().y) {
+                                int id = ComponentBase::getNewID();
+                                WorldPositionComponent* posComp = new WorldPositionComponent(id);
+                                posComp->setPosition(Vector2f(i,j));
+                                posComp->setLayer(layerNum);
+                                Sprite imageSprite(*texture);
+                                StaticSpriteComponent* sprite = new StaticSpriteComponent(imageSprite, id);
+                            }
+                        }
+                    }
+                    else {
+                        int id = ComponentBase::getNewID();
+                        WorldPositionComponent* posComp = new WorldPositionComponent(id);
+                        posComp->setPosition(Vector2f(texture->getSize().x/2-tilewidth/2,texture->getSize().y/2-tileheight/2));
+                        posComp->setLayer(layerNum);
+                        Sprite imageSprite(*texture);
+                        StaticSpriteComponent* sprite = new StaticSpriteComponent(imageSprite, id);
+                    }
                 }
             }
         }
@@ -262,7 +278,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if(attribute!=NULL)
                     objectY = atoi(attribute->value());
 
-                map<string, string> properties;
+                map<string, string> objProperties;
                 for (xml_node<>* properties_node = object_node->first_node("properties"); properties_node; properties_node = properties_node->next_sibling()) {
                     for (xml_node<>* property_node = properties_node->first_node("property"); property_node; property_node = property_node->next_sibling()) {
                         string propertyName;
@@ -273,16 +289,16 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         attribute = property_node->first_attribute("value");
                         if(attribute!=NULL)
                             propertyValue = attribute->value();
-                        properties[propertyName]=propertyValue;
+                        objProperties[propertyName]=propertyValue;
                     }
                 }
 
                 if(type=="box")
-                    makeBox(sprites[objGid],Vector2f(objectX,objectY), properties, layerNum, objectName);
+                    makeBox(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
                 if(type=="camera")
-                    makeCamera(sprites[objGid],Vector2f(objectX,objectY), properties, layerNum, objectName);
+                    makeCamera(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
                 if(type=="BraveAdventurer")
-                    makeBraveAdventurer(sprites[objGid],Vector2f(objectX,objectY), properties, layerNum, objectName);
+                    makeBraveAdventurer(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
             }
         }
         layerNum++;

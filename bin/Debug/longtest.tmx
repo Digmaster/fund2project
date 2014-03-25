@@ -9,8 +9,11 @@
  <tileset firstgid="230" name="BraveAdventurer" tilewidth="32" tileheight="32">
   <image source="assets/art/BraveAdventurer.png" trans="b3ff9b" width="96" height="128"/>
  </tileset>
- <imagelayer name="oeou" width="200" height="40" visible="0">
-  <image source="assets/art/sky_107.bmp"/>
+ <imagelayer name="oeou" width="200" height="40">
+  <image source="assets/art/0f10d_Pattern_Seamless_4718496223_5847f34c28.jpg"/>
+  <properties>
+   <property name="tiled" value="yes"/>
+  </properties>
  </imagelayer>
  <objectgroup name="uu" width="200" height="40">
   <object type="box" gid="1" x="281" y="324"/>
@@ -8019,7 +8022,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <layer name="Static" width="200" height="40" opacity="0.16">
+ <layer name="Static" width="200" height="40">
   <properties>
    <property name="solid" value="yes"/>
   </properties>
@@ -16037,7 +16040,7 @@
   </object>
   <object type="box" gid="1" x="896" y="308"/>
   <object type="box" gid="1" x="874" y="268"/>
-  <object name="MainChar" type="BraveAdventurer" gid="230" x="1070" y="234"/>
+  <object name="MainChar" type="BraveAdventurer" gid="230" x="750" y="320"/>
   <object type="box" gid="1" x="1172" y="204">
    <properties>
     <property name="TestProp" value="TestVal"/>

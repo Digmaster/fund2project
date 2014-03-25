@@ -7,8 +7,6 @@
 
 Camera::Camera(unsigned int ID, int xlimit, int ylimit) : ScriptComponent(ID) {
     compMan->etcSym.addComponent(this);
-    screenWidth = atoi(Options::instance().get("screen_width").c_str());
-	screenHeight = atoi(Options::instance().get("screen_height").c_str());
 	xMax = (xlimit*pixelsPerMeter) - (pixelsPerMeter/2);
 	yMax = (ylimit*pixelsPerMeter) - (pixelsPerMeter/2);
 }
@@ -21,8 +19,8 @@ void Camera::go(sf::Time frameTime) {
         //PhysicsComponent* phys = compMan->physSym.getComponent(tarComp->getTarget());
         WorldPositionComponent* pos = compMan->posSym.getComponent(tarComp->getTarget());
         if(pos!=NULL) {
-            //int pos_x= phys->getBody()->GetWorldCenter().x*pixelsPerMeter;
-            //int pos_y= -phys->getBody()->GetWorldCenter().y*pixelsPerMeter;
+            screenWidth = rendEng->window.getSize().x;
+            screenHeight = rendEng->window.getSize().y;
             int pos_x = pos->getPosition().x;
             int pos_y = pos->getPosition().y;
             // HACK (Thomas Luppi#5#03/25/14): Changed float to int to remove those weird line errors. Probably a better way to do it.

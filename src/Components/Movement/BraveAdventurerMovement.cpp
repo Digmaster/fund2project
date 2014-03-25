@@ -25,10 +25,16 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
             //if(message == "WalkDown")
                 //position->move(sf::Vector2f(0,2));
             if(message == "WalkLeft")
-                body->SetLinearVelocity(b2Vec2(-5,velocity.y));
+                if(body->GetLinearVelocity().y==0)
+                    body->SetLinearVelocity(b2Vec2(-5,velocity.y));
+                else
+                    body->ApplyLinearImpulse(b2Vec2(-.5,0),body->GetWorldCenter(),true);
                 //position->move(sf::Vector2f(-2,0));
             if(message == "WalkRight")
-                body->SetLinearVelocity(b2Vec2(5,velocity.y));
+                if(body->GetLinearVelocity().y==0)
+                    body->SetLinearVelocity(b2Vec2(5,velocity.y));
+                else
+                    body->ApplyLinearImpulse(b2Vec2(.5,0),body->GetWorldCenter(),true);
                 //position->move(sf::Vector2f(2,0));
             if(message == "Jump")
                 if(body->GetLinearVelocity().y==0)
