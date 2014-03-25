@@ -2,7 +2,6 @@
 
 #include "Components/Render/AnimatedComponent.h"
 #include "Components/Positional/WorldPositionComponent.h"
-#include "Components/Input/DumbKeyboardInputComponent.h"
 #include "Components/Render/BraveAdventurerAnimatedComponent.h"
 #include "Components/Input/BraveAdventurerInput.h"
 #include "Components/Movement/BraveAdventurerMovement.h"
