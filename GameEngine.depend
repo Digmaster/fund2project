@@ -865,7 +865,7 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1395735726 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1395735886 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1021,7 +1021,7 @@
 	"Components/ComponentBase.h"
 	<string>
 
-1395732041 c:\users\thomas luppi\documents\fund2project\include\components\componentsystem.h
+1395737836 c:\users\thomas luppi\documents\fund2project\include\components\componentsystem.h
 	<SFML/System/Time.hpp>
 	"Components/ComponentBase.h"
 	<cassert>
@@ -1148,7 +1148,7 @@
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
-1395275738 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
+1395737824 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
 	"Rendering/SpriteManager.h"
 
 1395705854 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
@@ -2265,10 +2265,11 @@
 	"TargetComponent.h"
 	"Components/ComponentManager.h"
 
-1395735388 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\camera.cpp
+1395737978 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\camera.cpp
 	"Components/Script/Camera.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
 	"Rendering/RenderEngine.h"
 
 1395732783 c:\users\thomas luppi\documents\fund2project\include\components\script\camera.h

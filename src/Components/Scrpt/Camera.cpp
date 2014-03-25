@@ -1,6 +1,7 @@
 #include "Components/Script/Camera.h"
 #include "Components/ComponentManager.h"
 #include "Components/Physics/PhysicsComponent.h"
+#include "Components/Positional/WorldPositionComponent.h"
 #include "Rendering/RenderEngine.h"
 
 
@@ -17,10 +18,14 @@ int Camera::pixelsPerMeter = atoi(Options::instance().get("pixels_per_meter").c_
 void Camera::go(sf::Time frameTime) {
     TargetComponent* tarComp = compMan->targetSym.getComponent(getID());
     if(tarComp != NULL) {
-        PhysicsComponent* phys = compMan->physSym.getComponent(tarComp->getTarget());
-        if(phys!=NULL) {
-            float pos_x= phys->getBody()->GetWorldCenter().x*pixelsPerMeter;
-            float pos_y= -phys->getBody()->GetWorldCenter().y*pixelsPerMeter;
+        //PhysicsComponent* phys = compMan->physSym.getComponent(tarComp->getTarget());
+        WorldPositionComponent* pos = compMan->posSym.getComponent(tarComp->getTarget());
+        if(pos!=NULL) {
+            //int pos_x= phys->getBody()->GetWorldCenter().x*pixelsPerMeter;
+            //int pos_y= -phys->getBody()->GetWorldCenter().y*pixelsPerMeter;
+            int pos_x = pos->getPosition().x;
+            int pos_y = pos->getPosition().y;
+            // HACK (Thomas Luppi#5#03/25/14): Changed float to int to remove those weird line errors. Probably a better way to do it.
 
             // The view limits are suppose to depend on the limits of the tile map not on the screen but for now works
             if(pos_x < screenWidth/2){    //Limits the View so that it doesnt follow to the left if the character moves there

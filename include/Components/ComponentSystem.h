@@ -16,7 +16,6 @@
 #include "Components/Script/ScriptComponent.h"
 
 using namespace std;
-// NOTE (Thomas Luppi#5#03/16/14): Allow multiple of each type per ID number, unified message system between all of them, etc etc. Basically a big old rewrite
 
 //In essense, this allows us to combine componnets without worry. Add a jetpack without modifying the base movement component!!!!
 

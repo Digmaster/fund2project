@@ -228,7 +228,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     texture = texMan->getTexture(attribute->value());
                     int id = ComponentBase::getNewID();
                     WorldPositionComponent* posComp = new WorldPositionComponent(id);
-                    posComp->setPosition(Vector2f(0,0));
+                    posComp->setPosition(Vector2f(texture->getSize().x/2-tilewidth/2,texture->getSize().y/2-tileheight/2));
                     posComp->setLayer(layerNum);
                     Sprite imageSprite(*texture);
                     StaticSpriteComponent* sprite = new StaticSpriteComponent(imageSprite, id);
@@ -314,6 +314,8 @@ sf::Color Level::HexToColor(std::string input) {
 }
 
 void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
+    //position.x +=sprite.getGlobalBounds().width/2;
+    position.y -=sprite.getGlobalBounds().height/2;
     unsigned int id = ComponentBase::getNewID();
     StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 

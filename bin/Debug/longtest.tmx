@@ -9,6 +9,12 @@
  <tileset firstgid="230" name="BraveAdventurer" tilewidth="32" tileheight="32">
   <image source="assets/art/BraveAdventurer.png" trans="b3ff9b" width="96" height="128"/>
  </tileset>
+ <imagelayer name="oeou" width="200" height="40" visible="0">
+  <image source="assets/art/sky_107.bmp"/>
+ </imagelayer>
+ <objectgroup name="uu" width="200" height="40">
+  <object type="box" gid="1" x="281" y="324"/>
+ </objectgroup>
  <layer name="Tile Layer 2" width="200" height="40">
   <data>
    <tile gid="45"/>
@@ -2650,7 +2656,7 @@
    <tile gid="2"/>
    <tile gid="2"/>
    <tile gid="2"/>
-   <tile gid="0"/>
+   <tile gid="2"/>
    <tile gid="2"/>
    <tile gid="2"/>
    <tile gid="2"/>
@@ -8013,7 +8019,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <layer name="Static" width="200" height="40">
+ <layer name="Static" width="200" height="40" opacity="0.16">
   <properties>
    <property name="solid" value="yes"/>
   </properties>
@@ -16022,19 +16028,28 @@
  </layer>
  <objectgroup name="weee" width="200" height="40">
   <object name="box" type="box" gid="1" x="850" y="308"/>
-  <object name="box" type="box" gid="1" x="894" y="350"/>
-  <object name="box" type="box" gid="1" x="844" y="356"/>
-  <object name="WEEEEEEEEEEEe" type="box" gid="1" x="874" y="222">
+  <object type="box" gid="1" x="894" y="350"/>
+  <object type="box" gid="1" x="844" y="356"/>
+  <object name="WEEEEEEEEEEEe" type="box" gid="1" x="228" y="334">
    <properties>
     <property name="TestProp" value="TestVal"/>
    </properties>
   </object>
-  <object name="box" type="box" gid="1" x="896" y="308"/>
-  <object name="box" type="box" gid="1" x="874" y="268"/>
-  <object name="MainChar" type="BraveAdventurer" gid="230" x="164" y="308"/>
+  <object type="box" gid="1" x="896" y="308"/>
+  <object type="box" gid="1" x="874" y="268"/>
+  <object name="MainChar" type="BraveAdventurer" gid="230" x="1070" y="234"/>
+  <object type="box" gid="1" x="1172" y="204">
+   <properties>
+    <property name="TestProp" value="TestVal"/>
+   </properties>
+  </object>
+  <object x="83" y="329" width="20" height="48"/>
+  <object x="489" y="307" width="44" height="20"/>
+  <object x="1369" y="621" width="18" height="38"/>
+  <object x="1175" y="1098" width="20" height="44"/>
  </objectgroup>
  <objectgroup name="GameLogic" width="200" height="40">
-  <object type="camera" gid="1" x="12" y="42">
+  <object type="camera" gid="1" x="4" y="36">
    <properties>
     <property name="target" value="MainChar"/>
    </properties>
