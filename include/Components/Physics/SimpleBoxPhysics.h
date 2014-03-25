@@ -8,7 +8,7 @@ class SimpleBoxPhysics : public PhysicsComponent
 {
     public:
         SimpleBoxPhysics() : PhysicsComponent() {}
-        SimpleBoxPhysics(unsigned int, int x = 32, int y = 32, bool isStatic = false, bool rotatable = true, bool roundedCorners = false);
+        SimpleBoxPhysics(unsigned int, int x = 32, int y = 32, bool isStatic = false, bool rotatable = true, bool roundedCorners = false, bool isSensor = false);
         virtual ~SimpleBoxPhysics();
         void setRotatable(bool);
         void go(sf::Time);

@@ -2,7 +2,7 @@
 #include "Components/ComponentManager.h"
 #include "Options.h"
 
-SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic, bool rotatable, bool roundedCorners) : PhysicsComponent(ID)
+SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic, bool rotatable, bool roundedCorners, bool isSensor) : PhysicsComponent(ID)
 {
     if(isStatic)
         physBodyDef.type = b2_staticBody;
@@ -31,6 +31,7 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
     boxFixtureDef.friction = 1;
+    boxFixtureDef.isSensor = isSensor;
     physBody->CreateFixture(&boxFixtureDef);
     screenHeight = atoi(Options::instance().get("screen_height").c_str());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());

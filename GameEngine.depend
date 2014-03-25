@@ -1345,12 +1345,13 @@
 1395721839 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
 	"Components\Physics\PhysicsComponent.h"
 
-1395633105 source:d:\programming\fund2project\src\components\componentbase.cpp
+1395768997 source:d:\programming\fund2project\src\components\componentbase.cpp
 	"Components/ComponentBase.h"
 	"Components/ComponentManager.h"
+	"Rendering/RenderEngine.h"
 	<iostream>
 
-1395633103 d:\programming\fund2project\include\components\componentbase.h
+1395768996 d:\programming\fund2project\include\components\componentbase.h
 	<SFML/System/Time.hpp>
 	<string>
 	<deque>
@@ -1363,31 +1364,26 @@
 
 1395633100 d:\programming\fund2project\dependancies\include\sfml\config.hpp
 
-1395633105 source:d:\programming\fund2project\src\components\componentmanager.cpp
+1395768997 source:d:\programming\fund2project\src\components\componentmanager.cpp
 	"Components/ComponentManager.h"
 
-1395633103 d:\programming\fund2project\include\components\componentmanager.h
+1395768996 d:\programming\fund2project\include\components\componentmanager.h
 	<map>
-	"Components/Render/RenderComponent.h"
-	"Components/Positional/WorldPositionComponent.h"
-	"Components/Input/InputComponent.h"
-	"Components/Movement/MovementComponent.h"
-	"Components/Physics/PhysicsComponent.h"
 	"Components/ComponentSystem.h"
 
-1395633102 d:\programming\fund2project\include\components\render\rendercomponent.h
+1395768995 d:\programming\fund2project\include\components\render\rendercomponent.h
 	"Components/ComponentBase.h"
-	"Rendering/RenderEngine.h"
 	<SFML/System/Time.hpp>
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Rendering/TextureManager.h"
 
-1395688425 d:\programming\fund2project\include\rendering\renderengine.h
+1395768996 d:\programming\fund2project\include\rendering\renderengine.h
 	"Components/Render/RenderComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
 	<deque>
+	<map>
 
 1395633102 d:\programming\fund2project\include\options.h
 	<string>
@@ -1724,7 +1720,7 @@
 	<string>
 	<vector>
 
-1395684646 d:\programming\fund2project\include\components\positional\worldpositioncomponent.h
+1395768996 d:\programming\fund2project\include\components\positional\worldpositioncomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Vector2.hpp>
 
@@ -1902,11 +1898,19 @@
 1395633100 d:\programming\fund2project\dependancies\include\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1395633103 d:\programming\fund2project\include\components\componentsystem.h
+1395768996 d:\programming\fund2project\include\components\componentsystem.h
 	<SFML/System/Time.hpp>
 	"Components/ComponentBase.h"
 	<cassert>
 	<map>
+	"Components/Render/RenderComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/Input/InputComponent.h"
+	"Components/Movement/MovementComponent.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Components/Identification/IDComponent.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Script/ScriptComponent.h"
 
 1395633104 source:d:\programming\fund2project\src\components\input\braveadventurerinput.cpp
 	"Components/Input/BraveAdventurerInput.h"
@@ -1930,7 +1934,7 @@
 	"Components/Input/InputComponent.h"
 	"Components/ComponentManager.h"
 
-1395633105 source:d:\programming\fund2project\src\components\movement\braveadventurermovement.cpp
+1395785209 source:d:\programming\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/PhysicsComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1949,12 +1953,12 @@
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 
-1395684646 source:d:\programming\fund2project\src\components\positional\worldpositioncomponent.cpp
+1395768997 source:d:\programming\fund2project\src\components\positional\worldpositioncomponent.cpp
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
 
-1395633104 source:d:\programming\fund2project\src\components\render\animatedcomponent.cpp
+1395768997 source:d:\programming\fund2project\src\components\render\animatedcomponent.cpp
 	"Components/Render/AnimatedComponent.h"
 	"Components/ComponentManager.h"
 
@@ -1987,29 +1991,29 @@
 1395633102 d:\programming\fund2project\include\components\render\braveadventureranimatedcomponent.h
 	"Components/Render/AnimatedComponent.h"
 
-1395633104 source:d:\programming\fund2project\src\components\render\rendercomponent.cpp
+1395768997 source:d:\programming\fund2project\src\components\render\rendercomponent.cpp
 	"Components/Render/RenderComponent.h"
 	"Components/ComponentManager.h"
 
-1395692132 source:d:\programming\fund2project\src\gameengine.cpp
+1395769612 source:d:\programming\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
-	"Rendering/SpriteManager.h"
-	"Components/Input/DumbKeyboardInputComponent.h"
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
 	"Components/Input/BraveAdventurerInput.h"
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/Physics/BoundaryPhysics.h"
 	"Components/Render/StaticSpriteComponent.h"
-	"Components/Render/Camera.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Script/Camera.h"
 	"LevelLoader.h"
-
-1395633102 d:\programming\fund2project\include\gameengine.h
+	"Rendering/SpriteManager.h"
 	"Rendering/RenderEngine.h"
 	"Components/ComponentManager.h"
 	"physics/PhysicsEngine.h"
+
+1395768996 d:\programming\fund2project\include\gameengine.h
 
 1395633102 d:\programming\fund2project\include\physics\physicsengine.h
 	<SFML/System/Time.hpp>
@@ -2041,18 +2045,18 @@
 	<iostream>
 	<exception>
 
-1395633103 d:\programming\fund2project\include\components\physics\simpleboxphysics.h
+1395785793 d:\programming\fund2project\include\components\physics\simpleboxphysics.h
 	"Components\Physics\PhysicsComponent.h"
-	"Options.h"
 
-1395633104 source:d:\programming\fund2project\src\main.cpp
+1395768997 source:d:\programming\fund2project\src\main.cpp
 	"GameEngine.h"
 	<exception>
+	<iostream>
 
 1395633105 source:d:\programming\fund2project\src\options.cpp
 	"Options.h"
 
-1395633104 source:d:\programming\fund2project\src\physics\physicsengine.cpp
+1395768997 source:d:\programming\fund2project\src\physics\physicsengine.cpp
 	"Physics/PhysicsEngine.h"
 	"Components/Physics/PhysicsComponent.h"
 	<iostream>
@@ -2063,11 +2067,11 @@
 1395633105 source:d:\programming\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1395688449 source:d:\programming\fund2project\src\rendering\renderengine.cpp
+1395768996 source:d:\programming\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
-1395633105 source:d:\programming\fund2project\src\rendering\spritemanager.cpp
+1395768996 source:d:\programming\fund2project\src\rendering\spritemanager.cpp
 	"Rendering/SpriteManager.h"
 
 1395633105 source:d:\programming\fund2project\src\rendering\texturemanager.cpp
@@ -2104,13 +2108,16 @@
 	"Components/ComponentManager.h"
 	"Options.h"
 
-1395684647 source:d:\programming\fund2project\src\components\physics\simpleboxphysics.cpp
+1395785732 source:d:\programming\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
+	"Options.h"
 
-1395684646 source:d:\programming\fund2project\src\components\render\staticspritecomponent.cpp
+1395768997 source:d:\programming\fund2project\src\components\render\staticspritecomponent.cpp
 	"Components/Render/StaticSpriteComponent.h"
 	"Components/ComponentManager.h"
+	"Rendering/RenderEngine.h"
+	<stdexcept>
 
 1395633102 d:\programming\fund2project\include\components\render\staticspritecomponent.h
 	"Components/Render/RenderComponent.h"
@@ -2208,19 +2215,25 @@
 	"Components\Physics\PhysicsComponent.h"
 	"Options.h"
 
-1395684646 source:d:\programming\fund2project\src\levelloader.cpp
+1395789554 source:d:\programming\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
-	"Components/ComponentManager.h"
-	"Components/Physics/SimpleStaticBoxPhysics.h"
+	<stdexcept>
+	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/Render/StaticSpriteComponent.h"
+	"Rendering/RenderEngine.h"
+	"Components/Identification/IDComponent.h"
+	"Components/Script/Camera.h"
+	"Components/Target/TargetComponent.h"
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
+	"Components/Movement/BraveAdventurerMovement.h"
+	"Rendering/SpriteManager.h"
+	"Components/Input/BraveAdventurerInput.h"
 
-1395692050 d:\programming\fund2project\include\levelloader.h
+1395786835 d:\programming\fund2project\include\levelloader.h
 	<string>
-	"Rendering/TextureManager.h"
 	<map>
 	<SFML/Graphics.hpp>
 
@@ -2276,4 +2289,37 @@
 	"Components/Script/ScriptComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
+
+1395768996 d:\programming\fund2project\include\components\identification\idcomponent.h
+	"Components/ComponentBase.h"
+
+1395768996 d:\programming\fund2project\include\components\target\targetcomponent.h
+	"Components/ComponentBase.h"
+
+1395768996 d:\programming\fund2project\include\components\script\scriptcomponent.h
+	"Components/ComponentBase.h"
+
+1395768997 source:d:\programming\fund2project\src\components\identification\idcomponent.cpp
+	"IDComponent.h"
+	"Components/ComponentManager.h"
+
+1395785209 source:d:\programming\fund2project\src\components\scrpt\camera.cpp
+	"Components/Script/Camera.h"
+	"Components/ComponentManager.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Rendering/RenderEngine.h"
+
+1395768996 d:\programming\fund2project\include\components\script\camera.h
+	"Components/Script/ScriptComponent.h"
+	"Options.h"
+	<SFML/Graphics.hpp>
+
+1395768997 source:d:\programming\fund2project\src\components\scrpt\scriptcomponent.cpp
+	"ScriptComponent.h"
+	"Components/ComponentManager.h"
+
+1395768997 source:d:\programming\fund2project\src\components\target\targetcomponent.cpp
+	"TargetComponent.h"
+	"Components/ComponentManager.h"
 

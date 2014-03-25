@@ -66,6 +66,7 @@ void GameEngine::gameLoop() {
     TargetComponent testTarget(id3, id);
     */
 
+
     while (rendEng->window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
         ComponentManager::getInst().processAll(frameTime);

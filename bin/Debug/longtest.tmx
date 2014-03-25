@@ -16,7 +16,7 @@
   </properties>
  </imagelayer>
  <objectgroup name="uu" width="200" height="40">
-  <object type="box" gid="1" x="281" y="324"/>
+  <object type="box" gid="1" x="296" y="321"/>
  </objectgroup>
  <layer name="Tile Layer 2" width="200" height="40">
   <data>
@@ -16040,16 +16040,16 @@
   </object>
   <object type="box" gid="1" x="896" y="308"/>
   <object type="box" gid="1" x="874" y="268"/>
-  <object name="MainChar" type="BraveAdventurer" gid="230" x="750" y="320"/>
+  <object name="MainChar" type="BraveAdventurer" gid="230" x="2593" y="339"/>
   <object type="box" gid="1" x="1172" y="204">
    <properties>
     <property name="TestProp" value="TestVal"/>
    </properties>
   </object>
-  <object x="83" y="329" width="20" height="48"/>
-  <object x="489" y="307" width="44" height="20"/>
-  <object x="1369" y="621" width="18" height="38"/>
-  <object x="1175" y="1098" width="20" height="44"/>
+  <object type="sensor" x="83" y="329" width="20" height="48"/>
+  <object type="sensor" x="489" y="307" width="44" height="20"/>
+  <object type="sensor" x="1369" y="621" width="18" height="38"/>
+  <object type="sensor" x="1171" y="1098" width="20" height="44"/>
  </objectgroup>
  <objectgroup name="GameLogic" width="200" height="40">
   <object type="camera" gid="1" x="4" y="36">
@@ -16057,5 +16057,8 @@
     <property name="target" value="MainChar"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="Sensors/Ladder" width="200" height="40">
+  <object name="sensor" type="sensor" x="2657" y="1" width="30" height="382"/>
  </objectgroup>
 </map>

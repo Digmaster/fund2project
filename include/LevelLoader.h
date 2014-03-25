@@ -20,6 +20,7 @@ public:
     void loadLevel(std::string filename, RenderEngine*);
 
     void makeBox(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
+    void makeSensor(sf::Vector2f, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
     void makeCamera(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
     void makeBraveAdventurer(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
 

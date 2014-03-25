@@ -278,6 +278,16 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if(attribute!=NULL)
                     objectY = atoi(attribute->value());
 
+                int objectHeight;
+                attribute = object_node->first_attribute("height");
+                if(attribute!=NULL)
+                    objectHeight = atoi(attribute->value());
+
+                int objectWidth;
+                attribute = object_node->first_attribute("width");
+                if(attribute!=NULL)
+                    objectWidth = atoi(attribute->value());
+
                 map<string, string> objProperties;
                 for (xml_node<>* properties_node = object_node->first_node("properties"); properties_node; properties_node = properties_node->next_sibling()) {
                     for (xml_node<>* property_node = properties_node->first_node("property"); property_node; property_node = property_node->next_sibling()) {
@@ -295,6 +305,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                 if(type=="box")
                     makeBox(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
+                if(type=="sensor")
+                    makeSensor(Vector2f(objectWidth, objectHeight),Vector2f(objectX,objectY), objProperties, layerNum, objectName);
                 if(type=="camera")
                     makeCamera(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
                 if(type=="BraveAdventurer")
@@ -339,7 +351,33 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
     posComp->setPosition(position);
     posComp->setLayer(layer);
 
-    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, sprite.getGlobalBounds().width, sprite.getGlobalBounds().height, false, true, false);
+    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, sprite.getGlobalBounds().width, sprite.getGlobalBounds().height, false, true, false, false);
+
+    if (name!="none")
+        IDComponent* identification = new IDComponent(id, name);
+}
+
+void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
+
+    //Simple makeSensor without a sprite. Cannot figure out why the position is messed up.
+
+    /*if(dimension.x > dimension.y){
+        position.x +=dimension.x/8;
+        position.y -=dimension.y/8;
+    }
+    else{
+        position.x -=dimension.x/8;
+        position.y +=dimension.y/8;
+
+    }*/
+    unsigned int id = ComponentBase::getNewID();
+    //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
+
+    WorldPositionComponent* posComp= new WorldPositionComponent(id);
+    posComp->setPosition(position);
+    posComp->setLayer(layer);
+
+    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, dimension.x, dimension.y, true, false, false, true);
 
     if (name!="none")
         IDComponent* identification = new IDComponent(id, name);
@@ -371,7 +409,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
 
     BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
 
-    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,32,32,false, false, true);
+    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,32,32,false, false, true, false);
     testPhys->setRotatable(false);
 
     if (properties.find("target") != properties.end()) {
