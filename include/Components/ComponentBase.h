@@ -17,6 +17,8 @@ class ComponentBase {
         void setID(unsigned int ID) { this->ID = ID; }
         unsigned int getID() { return ID; }
 
+        static unsigned int getNewID();
+
         void sendMessage(std::string input) {messages.push_back(input);}
         std::string getMessage();
 

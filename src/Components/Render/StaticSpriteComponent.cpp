@@ -1,5 +1,8 @@
 #include "Components/Render/StaticSpriteComponent.h"
 #include "Components/ComponentManager.h"
+#include "Rendering/RenderEngine.h"
+
+#include <stdexcept>
 
 using namespace std;
 using namespace sf;

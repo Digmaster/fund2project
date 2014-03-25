@@ -6,6 +6,12 @@
 #include <cassert>
 #include <map>
 
+#include "Components/Render/RenderComponent.h"
+#include "Components/Positional/WorldPositionComponent.h"
+#include "Components/Input/InputComponent.h"
+#include "Components/Movement/MovementComponent.h"
+#include "Components/Physics/PhysicsComponent.h"
+
 using namespace std;
 // NOTE (Thomas Luppi#5#03/16/14): Allow multiple of each type per ID number, unified message system between all of them, etc etc. Basically a big old rewrite
 
@@ -15,32 +21,32 @@ template <class T> class ComponentSystem
 {
     public:
         void process(sf::Time);
-        void addComponent(T*);
-        T* getComponent(unsigned int ID);
+        void addComponent(T);
+        T getComponent(unsigned int ID);
     protected:
-        std::map<unsigned int, T*> components;
+        std::map<unsigned int, T> components;
     private:
 };
 
 template<class T>
 void ComponentSystem<T>::process(sf::Time frameTime) {
-    for(typename std::map<unsigned int, T*>::iterator it = components.begin(); it!=components.end(); it++) {
+    for(typename std::map<unsigned int, T>::iterator it = components.begin(); it!=components.end(); it++) {
         it->second->go(frameTime);
     }
 }
 
 template<class T>
-void ComponentSystem<T>::addComponent(T* input) {
+void ComponentSystem<T>::addComponent(T input) {
     components[input->getID()]=input;
 }
 
 template<class T>
-T* ComponentSystem<T>::getComponent(unsigned int ID) {
-    typename map<unsigned int,T*>::iterator it = components.find(ID);
+T ComponentSystem<T>::getComponent(unsigned int ID) {
+    typename map<unsigned int,T>::iterator it = components.find(ID);
     if(it!=components.end())
         return it->second;
     else
-        return nullptr;
+        return NULL;
 }
 
 #endif // COMPONENTSYSTEM_H

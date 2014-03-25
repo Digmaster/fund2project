@@ -16,6 +16,7 @@ RenderEngine::RenderEngine() {
 	view.reset(FloatRect(0,0,screenWidth, screenHeight));
 
 	bkColor = sf::Color::Black;
+	debugEnabled = false;
 }
 
 void RenderEngine::addScreenSprite(sf::Drawable* input){
@@ -41,8 +42,7 @@ void RenderEngine::render(sf::Time frameTime, PhysicsEngine* physEng) {
             renderList[i].pop_back();
         }
     }
-    if(debugEnabled==189) {
-
+    if(debugEnabled) {
         physEng->debugDraw();
     }
     window.display();

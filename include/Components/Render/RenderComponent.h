@@ -2,7 +2,6 @@
 #define RENDERCOMPONENT_H
 
 #include "Components/ComponentBase.h"
-#include "Rendering/RenderEngine.h"
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>

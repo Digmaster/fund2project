@@ -15,3 +15,7 @@ std::string ComponentBase::getMessage() {
         output = "NOMESSAGE";
     return output;
 }
+
+unsigned int ComponentBase::getNewID() {
+    return ComponentManager::getNewID();
+}

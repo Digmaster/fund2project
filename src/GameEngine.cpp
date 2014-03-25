@@ -12,10 +12,14 @@
 #include "Components/Render/Camera.h"
 #include "LevelLoader.h"
 #include "Rendering/SpriteManager.h"
+#include "Rendering/RenderEngine.h"
+#include "Components/ComponentManager.h"
+#include "physics/PhysicsEngine.h"
 
 
-GameEngine::GameEngine()
-    : rendEng() {
+GameEngine::GameEngine(){
+    rendEng = new RenderEngine;
+    physEng = new PhysicsEngine;
 }
 
 GameEngine::~GameEngine()
@@ -30,7 +34,7 @@ void GameEngine::go() {
 
 void GameEngine::init() {
     //rendEng.init();
-    physEng.setDebugDraw(rendEng.window);
+    physEng->setDebugDraw(rendEng->window);
 }
 
 void GameEngine::gameLoop() {
@@ -85,11 +89,11 @@ void GameEngine::gameLoop() {
     WorldPositionComponent floorPosition(id);
     floorPosition.setPosition(sf::Vector2f(0,0)); */
     Level testLevel;
-    testLevel.loadLevel("longtest.tmx", &rendEng);
+    testLevel.loadLevel("longtest.tmx", rendEng);
 
     Camera testCamera(id, testLevel.width, testLevel.height);
 
-    while (rendEng.window.isOpen()) {
+    while (rendEng->window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
         ComponentManager::getInst().processAll(frameTime);
 
@@ -98,23 +102,23 @@ void GameEngine::gameLoop() {
         //Input goes here
         //Any sort of physics stuff
         //Actor Updates go here
-        rendEng.render(frameTime, &physEng);
-        physEng.step(frameTime);
+        rendEng->render(frameTime, physEng);
+        physEng->step(frameTime);
 
         //View has to be set again every frame
-        rendEng.view.setCenter(testCamera.getCamera().getCenter());
+        rendEng->view.setCenter(testCamera.getCamera().getCenter());
 
         sf::Event event;
-        while (rendEng.window.pollEvent(event))
+        while (rendEng->window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                rendEng.window.close();
+                rendEng->window.close();
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
-                rendEng.window.close();
+                rendEng->window.close();
             if (event.type == sf::Event::Resized)
-                rendEng.view.setSize(event.size.width, event.size.height);
+                rendEng->view.setSize(event.size.width, event.size.height);
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F2)
-                rendEng.toggleDebug();
+                rendEng->toggleDebug();
         }
     }
 }

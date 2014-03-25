@@ -2,9 +2,12 @@
 #include "Components/ComponentManager.h"
 #include "Options.h"
 
-SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool rotatable, bool roundedCorners) : PhysicsComponent(ID)
+SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic, bool rotatable, bool roundedCorners) : PhysicsComponent(ID)
 {
-    physBodyDef.type = b2_dynamicBody;
+    if(isStatic)
+        physBodyDef.type = b2_staticBody;
+    else
+        physBodyDef.type = b2_dynamicBody;
     physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
     physBodyDef.fixedRotation = !rotatable;

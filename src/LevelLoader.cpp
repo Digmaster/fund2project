@@ -2,8 +2,8 @@
 #include <rapidxml.hpp>
 #include <iostream>
 
-#include "Components/ComponentManager.h"
-#include "Components/Physics/SimpleStaticBoxPhysics.h"
+
+#include <stdexcept>
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Render/StaticSpriteComponent.h"
@@ -14,6 +14,11 @@
 using namespace std;
 using namespace sf;
 using namespace rapidxml;
+
+Level::Level() {
+    texMan = new TextureManager;
+
+}
 
 void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
     /******************************
@@ -114,7 +119,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     sf::Texture* texture;
                     attribute = image_node->first_attribute("source");
                     if(attribute!=NULL) {
-                        texture = texMan.getTexture(attribute->value());
+                        texture = texMan->getTexture(attribute->value());
                     }
 
 
@@ -194,14 +199,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         tileGid = atoi(attribute->value());
                     if(tileGid!=0) {
                         Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth, (int)(i/layerWidth)*tileheight);
-                        int id = ComponentManager::getInst().getNewID();
+                        int id = ComponentBase::getNewID();
                         WorldPositionComponent* posComp = new WorldPositionComponent(id);
                         posComp->setPosition(position);
                         posComp->setLayer(layerNum);
                         StaticSpriteComponent* sprite = new StaticSpriteComponent(sprites[tileGid], id);
                         if (properties.find("solid") != properties.end()) {
                             if(properties["solid"]!="no")
-                              SimpleStaticBoxPhysics* phys = new SimpleStaticBoxPhysics(id,tilewidth,tileheight);
+                              SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
                         } //issolid
                     } //is actually a tile
                     i++;
@@ -213,8 +218,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 sf::Texture* texture;
                 auto attribute = image_node->first_attribute("source");
                 if(attribute!=NULL) {
-                    texture = texMan.getTexture(attribute->value());
-                    int id = ComponentManager::getInst().getNewID();
+                    texture = texMan->getTexture(attribute->value());
+                    int id = ComponentBase::getNewID();
                     WorldPositionComponent* posComp = new WorldPositionComponent(id);
                     posComp->setPosition(Vector2f(0,0));
                     posComp->setLayer(layerNum);
@@ -281,13 +286,13 @@ sf::Color Level::HexToColor(std::string input) {
 }
 
 void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer) {
-    unsigned int id = ComponentManager::getInst().getNewID();
+    unsigned int id = ComponentBase::getNewID();
     StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
     WorldPositionComponent* posComp= new WorldPositionComponent(id);
     posComp->setPosition(position);
     posComp->setLayer(layer);
 
-    //SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, sprite.getGlobalBounds().width, sprite.getGlobalBounds().height);
+    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, sprite.getGlobalBounds().width, sprite.getGlobalBounds().height, false, true, false);
 }
 

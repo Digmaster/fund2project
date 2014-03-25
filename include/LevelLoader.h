@@ -8,7 +8,6 @@
 **************************************************************************/
 
 #include <string>
-#include "Rendering/TextureManager.h"
 #include <map>
 #include <SFML/Graphics.hpp>
 
@@ -17,6 +16,7 @@ class TextureManager;
 
 class Level {
 public:
+    Level();
     void loadLevel(std::string filename, RenderEngine*);
 
     void makeBox(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer);
@@ -32,7 +32,7 @@ private:
     int tilewidth;
     int tileheight;
 
-    TextureManager texMan;
+    TextureManager* texMan;
 
     std::map<int, sf::Sprite> sprites;
 };

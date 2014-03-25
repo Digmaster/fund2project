@@ -2,11 +2,11 @@
 #define COMPONENTMANAGER_H
 
 #include <map>
-#include "Components/Render/RenderComponent.h"
-#include "Components/Positional/WorldPositionComponent.h"
-#include "Components/Input/InputComponent.h"
-#include "Components/Movement/MovementComponent.h"
-#include "Components/Physics/PhysicsComponent.h"
+class RenderComponent;
+class WorldPositionComponent;
+class InputComponent;
+class MovementComponent;
+class PhysicsComponent;
 
 #include "Components/ComponentSystem.h"
 
@@ -16,13 +16,13 @@ class ComponentManager
         /** Default destructor */
         virtual ~ComponentManager();
 
-        ComponentSystem<ComponentBase> etcSym;
+        ComponentSystem<ComponentBase*> etcSym;
         void processAll(sf::Time frameTime);
-        ComponentSystem<RenderComponent> rendSym;
-        ComponentSystem<WorldPositionComponent> posSym;
-        ComponentSystem<InputComponent> inputSym;
-        ComponentSystem<MovementComponent> moveSym;
-        ComponentSystem<PhysicsComponent> physSym;
+        ComponentSystem<RenderComponent*> rendSym;
+        ComponentSystem<WorldPositionComponent*> posSym;
+        ComponentSystem<InputComponent*> inputSym;
+        ComponentSystem<MovementComponent*> moveSym;
+        ComponentSystem<PhysicsComponent*> physSym;
         static unsigned int getNewID();
 
         static ComponentManager& getInst() {

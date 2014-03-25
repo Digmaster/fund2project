@@ -1,9 +1,8 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#include "Rendering/RenderEngine.h"
-#include "Components/ComponentManager.h"
-#include "physics/PhysicsEngine.h"
+class RenderEngine;
+class PhysicsEngine;
 
 class GameEngine
 {
@@ -13,8 +12,8 @@ class GameEngine
         /** Default destructor */
         ~GameEngine();
         void go();
-        RenderEngine rendEng;
-        PhysicsEngine physEng;
+        RenderEngine* rendEng;
+        PhysicsEngine* physEng;
     protected:
     private:
         void init();
