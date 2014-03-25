@@ -5,7 +5,7 @@ using namespace sf;
 using namespace std;
 
 RenderEngine::RenderEngine() {
-	RenderComponent::setRenderEngine(this); //Set this as the RenderEngine for the sprites
+	ComponentBase::setRenderEngine(this); //Set this as the RenderEngine for the sprites
 	int screenWidth = atoi(Options::instance().get("screen_width").c_str());
 	int screenHeight = atoi(Options::instance().get("screen_height").c_str());
 	int screenBBP = atoi(Options::instance().get("screen_bbp").c_str());
@@ -30,7 +30,7 @@ void RenderEngine::removeScreenSprite(sf::Drawable* input){
 }
 
 RenderEngine::~RenderEngine() {
-	RenderComponent::setRenderEngine(NULL); //Sets rendering engine to NULL
+	ComponentBase::setRenderEngine(NULL); //Sets rendering engine to NULL
 }
 
 void RenderEngine::render(sf::Time frameTime, PhysicsEngine* physEng) {

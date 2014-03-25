@@ -11,6 +11,9 @@
 #include "Components/Input/InputComponent.h"
 #include "Components/Movement/MovementComponent.h"
 #include "Components/Physics/PhysicsComponent.h"
+#include "Components/Identification/IDComponent.h"
+#include "Components/Target/TargetComponent.h"
+#include "Components/Script/ScriptComponent.h"
 
 using namespace std;
 // NOTE (Thomas Luppi#5#03/16/14): Allow multiple of each type per ID number, unified message system between all of them, etc etc. Basically a big old rewrite
@@ -23,8 +26,9 @@ template <class T> class ComponentSystem
         void process(sf::Time);
         void addComponent(T);
         T getComponent(unsigned int ID);
-    protected:
+
         std::map<unsigned int, T> components;
+    protected:
     private:
 };
 

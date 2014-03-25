@@ -6,6 +6,7 @@
 #include <deque>
 
 class ComponentManager; //Forward declaration
+class RenderEngine;
 
 class ComponentBase {
     public:
@@ -23,10 +24,13 @@ class ComponentBase {
         std::string getMessage();
 
         virtual void go(sf::Time) {}
+
+        static void setRenderEngine(RenderEngine* RE) {rendEng = RE;}
     protected:
         unsigned int ID;
         std::deque<std::string> messages;
         static ComponentManager* compMan;
+        static RenderEngine* rendEng;
     private:
 };
 

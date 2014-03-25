@@ -865,18 +865,18 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1395718166 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1395735726 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
-	"Components/Input/DumbKeyboardInputComponent.h"
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
 	"Components/Input/BraveAdventurerInput.h"
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/Physics/BoundaryPhysics.h"
 	"Components/Render/StaticSpriteComponent.h"
-	"Components/Render/Camera.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Script/Camera.h"
 	"LevelLoader.h"
 	"Rendering/SpriteManager.h"
 	"Rendering/RenderEngine.h"
@@ -993,19 +993,19 @@
 	<deque>
 	<map>
 
-1395717461 c:\users\thomas luppi\documents\fund2project\include\components\render\rendercomponent.h
+1395733150 c:\users\thomas luppi\documents\fund2project\include\components\render\rendercomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Time.hpp>
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Rendering/TextureManager.h"
 
-1395720981 c:\users\thomas luppi\documents\fund2project\include\components\componentbase.h
+1395733215 c:\users\thomas luppi\documents\fund2project\include\components\componentbase.h
 	<SFML/System/Time.hpp>
 	<string>
 	<deque>
 
-1395720065 c:\users\thomas luppi\documents\fund2project\include\components\componentmanager.h
+1395731711 c:\users\thomas luppi\documents\fund2project\include\components\componentmanager.h
 	<map>
 	"Components/ComponentSystem.h"
 
@@ -1021,7 +1021,7 @@
 	"Components/ComponentBase.h"
 	<string>
 
-1395719865 c:\users\thomas luppi\documents\fund2project\include\components\componentsystem.h
+1395732041 c:\users\thomas luppi\documents\fund2project\include\components\componentsystem.h
 	<SFML/System/Time.hpp>
 	"Components/ComponentBase.h"
 	<cassert>
@@ -1031,13 +1031,17 @@
 	"Components/Input/InputComponent.h"
 	"Components/Movement/MovementComponent.h"
 	"Components/Physics/PhysicsComponent.h"
+	"Components/Identification/IDComponent.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Script/ScriptComponent.h"
 
-1395720901 source:c:\users\thomas luppi\documents\fund2project\src\components\componentbase.cpp
+1395733086 source:c:\users\thomas luppi\documents\fund2project\src\components\componentbase.cpp
 	"Components/ComponentBase.h"
 	"Components/ComponentManager.h"
+	"Rendering/RenderEngine.h"
 	<iostream>
 
-1395720098 source:c:\users\thomas luppi\documents\fund2project\src\components\componentmanager.cpp
+1395731672 source:c:\users\thomas luppi\documents\fund2project\src\components\componentmanager.cpp
 	"Components/ComponentManager.h"
 
 1395627894 source:c:\users\thomas luppi\documents\fund2project\src\components\input\braveadventurerinput.cpp
@@ -1062,7 +1066,7 @@
 	"Components/Input/InputComponent.h"
 	"Components/ComponentManager.h"
 
-1395651185 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
+1395732235 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/PhysicsComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1113,7 +1117,7 @@
 1395626916 c:\users\thomas luppi\documents\fund2project\include\components\render\braveadventureranimatedcomponent.h
 	"Components/Render/AnimatedComponent.h"
 
-1395624269 source:c:\users\thomas luppi\documents\fund2project\src\components\render\rendercomponent.cpp
+1395733356 source:c:\users\thomas luppi\documents\fund2project\src\components\render\rendercomponent.cpp
 	"Components/Render/RenderComponent.h"
 	"Components/ComponentManager.h"
 
@@ -1140,7 +1144,7 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1395722483 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
+1395733207 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
@@ -2166,12 +2170,12 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1395717942 c:\users\thomas luppi\documents\fund2project\include\levelloader.h
+1395735483 c:\users\thomas luppi\documents\fund2project\include\levelloader.h
 	<string>
 	<map>
 	<SFML/Graphics.hpp>
 
-1395722115 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+1395735853 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -2180,6 +2184,13 @@
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/Render/StaticSpriteComponent.h"
 	"Rendering/RenderEngine.h"
+	"Components/Identification/IDComponent.h"
+	"Components/Script/Camera.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Render/BraveAdventurerAnimatedComponent.h"
+	"Components/Movement/BraveAdventurerMovement.h"
+	"Rendering/SpriteManager.h"
+	"Components/Input/BraveAdventurerInput.h"
 
 1395700059 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simplestaticboxphysics.cpp
 	"Components/Physics/SimpleStaticBoxPhysics.h"
@@ -2230,6 +2241,38 @@
 
 1395712663 c:\users\thomas luppi\documents\fund2project\include\components\render\camera.h
 	"Components/ComponentBase.h"
+	"Options.h"
+	<SFML/Graphics.hpp>
+
+1395729463 c:\users\thomas luppi\documents\fund2project\include\components\identification\idcomponent.h
+	"Components/ComponentBase.h"
+
+1395729745 source:c:\users\thomas luppi\documents\fund2project\src\components\identification\idcomponent.cpp
+	"IDComponent.h"
+	"Components/ComponentManager.h"
+
+1395734796 c:\users\thomas luppi\documents\fund2project\include\components\target\targetcomponent.h
+	"Components/ComponentBase.h"
+
+1395731658 c:\users\thomas luppi\documents\fund2project\include\components\script\scriptcomponent.h
+	"Components/ComponentBase.h"
+
+1395732096 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\scriptcomponent.cpp
+	"ScriptComponent.h"
+	"Components/ComponentManager.h"
+
+1395734241 source:c:\users\thomas luppi\documents\fund2project\src\components\target\targetcomponent.cpp
+	"TargetComponent.h"
+	"Components/ComponentManager.h"
+
+1395735388 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\camera.cpp
+	"Components/Script/Camera.h"
+	"Components/ComponentManager.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Rendering/RenderEngine.h"
+
+1395732783 c:\users\thomas luppi\documents\fund2project\include\components\script\camera.h
+	"Components/Script/ScriptComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
 

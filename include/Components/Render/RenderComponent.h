@@ -17,11 +17,9 @@ class RenderComponent : public ComponentBase
         RenderComponent(unsigned int ID);
         /** Default destructor */
         virtual ~RenderComponent();
-        static void setRenderEngine(RenderEngine* input) {rendEng = input;}
         virtual sf::Drawable* getDrawable() {}
         virtual void go(sf::Time) {}
     protected:
-        static RenderEngine* rendEng;
         static TextureManager texMan;
     private:
 };

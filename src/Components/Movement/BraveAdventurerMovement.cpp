@@ -31,7 +31,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 body->SetLinearVelocity(b2Vec2(5,velocity.y));
                 //position->move(sf::Vector2f(2,0));
             if(message == "Jump")
-                body->ApplyLinearImpulse(b2Vec2(0,1),body->GetWorldCenter(),true);
+                if(body->GetLinearVelocity().y==0)
+                    body->ApplyLinearImpulse(b2Vec2(0,10),body->GetWorldCenter(),true);
             if(message == "GoPlace")
                 position->setPosition(sf::Vector2f(100,100));
         }

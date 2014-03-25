@@ -8,6 +8,13 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Render/StaticSpriteComponent.h"
 #include "Rendering/RenderEngine.h"
+#include "Components/Identification/IDComponent.h"
+#include "Components/Script/Camera.h"
+#include "Components/Target/TargetComponent.h"
+#include "Components/Render/BraveAdventurerAnimatedComponent.h"
+#include "Components/Movement/BraveAdventurerMovement.h"
+#include "Rendering/SpriteManager.h"
+#include "Components/Input/BraveAdventurerInput.h"
 
 
 
@@ -235,6 +242,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if(attribute!=NULL)
                     type = attribute->value();
 
+                string objectName = "none";
+                attribute = object_node->first_attribute("name");
+                if(attribute!=NULL)
+                    objectName = attribute->value();
+
                 int objGid=0;
                 attribute = object_node->first_attribute("gid");
                 if(attribute!=NULL)
@@ -251,10 +263,26 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     objectY = atoi(attribute->value());
 
                 map<string, string> properties;
-                // TODO (Thomas Luppi#1#03/24/14): Load properties here
-                if(type=="box") {
-                    makeBox(sprites[objGid],Vector2f(objectX,objectY), properties, layerNum);
+                for (xml_node<>* properties_node = object_node->first_node("properties"); properties_node; properties_node = properties_node->next_sibling()) {
+                    for (xml_node<>* property_node = properties_node->first_node("property"); property_node; property_node = property_node->next_sibling()) {
+                        string propertyName;
+                        attribute = property_node->first_attribute("name");
+                        if(attribute!=NULL)
+                            propertyName = attribute->value();
+                        string propertyValue;
+                        attribute = property_node->first_attribute("value");
+                        if(attribute!=NULL)
+                            propertyValue = attribute->value();
+                        properties[propertyName]=propertyValue;
+                    }
                 }
+
+                if(type=="box")
+                    makeBox(sprites[objGid],Vector2f(objectX,objectY), properties, layerNum, objectName);
+                if(type=="camera")
+                    makeCamera(sprites[objGid],Vector2f(objectX,objectY), properties, layerNum, objectName);
+                if(type=="BraveAdventurer")
+                    makeBraveAdventurer(sprites[objGid],Vector2f(objectX,objectY), properties, layerNum, objectName);
             }
         }
         layerNum++;
@@ -285,7 +313,7 @@ sf::Color Level::HexToColor(std::string input) {
     return sf::Color(red, blue, green);
 }
 
-void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer) {
+void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
     unsigned int id = ComponentBase::getNewID();
     StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
@@ -294,5 +322,43 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
     posComp->setLayer(layer);
 
     SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, sprite.getGlobalBounds().width, sprite.getGlobalBounds().height, false, true, false);
+
+    if (name!="none")
+        IDComponent* identification = new IDComponent(id, name);
 }
 
+void Level::makeCamera(sf::Sprite sprite, sf::Vector2f position, std::map<std::string, std::string> properties, int layer, std::string name) {
+    unsigned int id = ComponentBase::getNewID();
+    Camera* camComp = new Camera(id, width, height);
+    if (properties.find("target") != properties.end()) {
+        TargetComponent* tarComp = new TargetComponent(id, properties["target"]);
+    }
+    if (name!="none")
+        IDComponent* identification = new IDComponent(id, name);
+
+}
+
+void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::map<std::string, std::string> properties, int layer, std::string name) {
+    unsigned int id = ComponentBase::getNewID();
+    BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
+    SpriteManager spriteMan;
+    testSprite->setSprite(spriteMan.getSprite("BraveAdventurer"));
+    testSprite->sprite.setAnimation("WalkUp");
+
+    WorldPositionComponent* testPosition = new WorldPositionComponent(id);
+    testPosition->setPosition(position);
+    testPosition->setLayer(layer);
+
+    BraveAdventurerInput* testInput = new BraveAdventurerInput(id);
+
+    BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
+
+    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,32,32,false, false, true);
+    testPhys->setRotatable(false);
+
+    if (properties.find("target") != properties.end()) {
+        TargetComponent* tarComp = new TargetComponent(id, properties["target"]);
+    }
+    if (name!="none")
+        IDComponent* identification = new IDComponent(id, name);
+}

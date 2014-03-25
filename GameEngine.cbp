@@ -20,6 +20,9 @@
 					<Add directory="include" />
 					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
 					<Add directory="include/Components/Physics" />
+					<Add directory="include/Components/Identification" />
+					<Add directory="include/Components/Script" />
+					<Add directory="include/Components/Target" />
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
@@ -41,6 +44,9 @@
 					<Add directory="include" />
 					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
 					<Add directory="include/Components/Physics" />
+					<Add directory="include/Components/Identification" />
+					<Add directory="include/Components/Script" />
+					<Add directory="include/Components/Target" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -64,6 +70,7 @@
 		<Unit filename="include/Components/ComponentBase.h" />
 		<Unit filename="include/Components/ComponentManager.h" />
 		<Unit filename="include/Components/ComponentSystem.h" />
+		<Unit filename="include/Components/Identification/IDComponent.h" />
 		<Unit filename="include/Components/Input/BraveAdventurerInput.h" />
 		<Unit filename="include/Components/Input/DumbKeyboardInputComponent.h" />
 		<Unit filename="include/Components/Input/InputComponent.h" />
@@ -75,10 +82,12 @@
 		<Unit filename="include/Components/Positional/WorldPositionComponent.h" />
 		<Unit filename="include/Components/Render/AnimatedComponent.h" />
 		<Unit filename="include/Components/Render/BraveAdventurerAnimatedComponent.h" />
-		<Unit filename="include/Components/Render/Camera.h" />
 		<Unit filename="include/Components/Render/DebugDraw.h" />
 		<Unit filename="include/Components/Render/RenderComponent.h" />
 		<Unit filename="include/Components/Render/StaticSpriteComponent.h" />
+		<Unit filename="include/Components/Script/Camera.h" />
+		<Unit filename="include/Components/Script/ScriptComponent.h" />
+		<Unit filename="include/Components/Target/TargetComponent.h" />
 		<Unit filename="include/GameEngine.h" />
 		<Unit filename="include/LevelLoader.h" />
 		<Unit filename="include/Options.h" />
@@ -91,6 +100,7 @@
 		<Unit filename="include/physics/PhysicsEngine.h" />
 		<Unit filename="src/Components/ComponentBase.cpp" />
 		<Unit filename="src/Components/ComponentManager.cpp" />
+		<Unit filename="src/Components/Identification/IDComponent.cpp" />
 		<Unit filename="src/Components/Input/BraveAdventurerInput.cpp" />
 		<Unit filename="src/Components/Input/DumbKeyboardInputComponent.cpp" />
 		<Unit filename="src/Components/Input/InputComponent.cpp" />
@@ -102,10 +112,12 @@
 		<Unit filename="src/Components/Positional/WorldPositionComponent.cpp" />
 		<Unit filename="src/Components/Render/AnimatedComponent.cpp" />
 		<Unit filename="src/Components/Render/BraveAdventurerAnimatedComponent.cpp" />
-		<Unit filename="src/Components/Render/Camera.cpp" />
 		<Unit filename="src/Components/Render/DebugDraw.cpp" />
 		<Unit filename="src/Components/Render/RenderComponent.cpp" />
 		<Unit filename="src/Components/Render/StaticSpriteComponent.cpp" />
+		<Unit filename="src/Components/Scrpt/Camera.cpp" />
+		<Unit filename="src/Components/Scrpt/ScriptComponent.cpp" />
+		<Unit filename="src/Components/Target/TargetComponent.cpp" />
 		<Unit filename="src/GameEngine.cpp" />
 		<Unit filename="src/LevelLoader.cpp" />
 		<Unit filename="src/Options.cpp" />
