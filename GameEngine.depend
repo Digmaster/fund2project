@@ -864,11 +864,10 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1395651171 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1395712164 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
-	"Rendering/SpriteManager.h"
 	"Components/Input/DumbKeyboardInputComponent.h"
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
 	"Components/Input/BraveAdventurerInput.h"
@@ -877,6 +876,7 @@
 	"Components/Physics/BoundaryPhysics.h"
 	"Components/Render/StaticSpriteComponent.h"
 	"LevelLoader.h"
+	"Rendering/SpriteManager.h"
 
 1395368280 c:\users\thomas luppi\documents\fund2project\include\gameengine.h
 	"Rendering/RenderEngine.h"
@@ -984,11 +984,12 @@
 1394999258 c:\users\thomas luppi\documents\fund2project\include\braveadventureranimatedcomponent.h
 	"AnimatedComponent.h"
 
-1395626459 c:\users\thomas luppi\documents\fund2project\include\rendering\renderengine.h
+1395709625 c:\users\thomas luppi\documents\fund2project\include\rendering\renderengine.h
 	"Components/Render/RenderComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
 	<deque>
+	<map>
 
 1395626930 c:\users\thomas luppi\documents\fund2project\include\components\render\rendercomponent.h
 	"Components/ComponentBase.h"
@@ -1012,7 +1013,7 @@
 	"Components/Physics/PhysicsComponent.h"
 	"Components/ComponentSystem.h"
 
-1395651440 c:\users\thomas luppi\documents\fund2project\include\components\positional\worldpositioncomponent.h
+1395701414 c:\users\thomas luppi\documents\fund2project\include\components\positional\worldpositioncomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Vector2.hpp>
 
@@ -1073,12 +1074,12 @@
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
 
-1395654561 source:c:\users\thomas luppi\documents\fund2project\src\components\positional\worldpositioncomponent.cpp
+1395701222 source:c:\users\thomas luppi\documents\fund2project\src\components\positional\worldpositioncomponent.cpp
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
 
-1395626907 source:c:\users\thomas luppi\documents\fund2project\src\components\render\animatedcomponent.cpp
+1395701450 source:c:\users\thomas luppi\documents\fund2project\src\components\render\animatedcomponent.cpp
 	"Components/Render/AnimatedComponent.h"
 	"Components/ComponentManager.h"
 
@@ -1138,17 +1139,17 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1395626302 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
+1395709943 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
 1395275738 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
 	"Rendering/SpriteManager.h"
 
-1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
+1395705854 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
 	"Rendering/TextureManager.h"
 
-1395650507 source:c:\users\thomas luppi\documents\fund2project\src\physics\physicsengine.cpp
+1395709997 source:c:\users\thomas luppi\documents\fund2project\src\physics\physicsengine.cpp
 	"Physics/PhysicsEngine.h"
 	"Components/Physics/PhysicsComponent.h"
 	<iostream>
@@ -1336,9 +1337,8 @@
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 
-1395628854 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
+1395711575 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
 	"Components\Physics\PhysicsComponent.h"
-	"Options.h"
 
 1395633105 source:d:\programming\fund2project\src\components\componentbase.cpp
 	"Components/ComponentBase.h"
@@ -2083,7 +2083,7 @@
 	<SFML/Graphics/Text.hpp>
 	<SFML/System/Vector2.hpp>
 
-1395651914 source:c:\users\thomas luppi\documents\fund2project\src\components\render\staticspritecomponent.cpp
+1395701466 source:c:\users\thomas luppi\documents\fund2project\src\components\render\staticspritecomponent.cpp
 	"Components/Render/StaticSpriteComponent.h"
 	"Components/ComponentManager.h"
 
@@ -2092,9 +2092,10 @@
 	"SFML/Graphics.hpp"
 	<string>
 
-1395651561 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
+1395711580 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
+	"Options.h"
 
 1395684647 source:d:\programming\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
@@ -2162,23 +2163,24 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1395644219 c:\users\thomas luppi\documents\fund2project\include\levelloader.h
+1395712108 c:\users\thomas luppi\documents\fund2project\include\levelloader.h
 	<string>
 	"Rendering/TextureManager.h"
 	<map>
 	<SFML/Graphics.hpp>
 
-1395689303 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+1395712130 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
 	"Components/ComponentManager.h"
 	"Components/Physics/SimpleStaticBoxPhysics.h"
+	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/Render/StaticSpriteComponent.h"
-	"Components/Render/BraveAdventurerAnimatedComponent.h"
+	"Rendering/RenderEngine.h"
 
-1395650283 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simplestaticboxphysics.cpp
+1395700059 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simplestaticboxphysics.cpp
 	"Components/Physics/SimpleStaticBoxPhysics.h"
 	"Components/ComponentManager.h"
 

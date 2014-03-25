@@ -2,7 +2,6 @@
 
 #include "Components/Render/AnimatedComponent.h"
 #include "Components/Positional/WorldPositionComponent.h"
-#include "Rendering/SpriteManager.h"
 #include "Components/Input/DumbKeyboardInputComponent.h"
 #include "Components/Render/BraveAdventurerAnimatedComponent.h"
 #include "Components/Input/BraveAdventurerInput.h"
@@ -12,6 +11,7 @@
 #include "Components/Render/StaticSpriteComponent.h"
 #include "Components/Render/Camera.h"
 #include "LevelLoader.h"
+#include "Rendering/SpriteManager.h"
 
 
 GameEngine::GameEngine()
@@ -48,6 +48,7 @@ void GameEngine::gameLoop() {
 
     WorldPositionComponent testPosition2(id2);
     testPosition2.setPosition(sf::Vector2f(200,100));
+    testPosition2.setLayer(5);
 
     SimpleBoxPhysics testPhys2(id2, 32, 32);
 
@@ -59,12 +60,13 @@ void GameEngine::gameLoop() {
 
     WorldPositionComponent testPosition(id);
     testPosition.setPosition(sf::Vector2f(100,10));
+    testPosition.setLayer(5);
 
     BraveAdventurerInput testInput(id);
 
     BraveAdventurerMovement testMovement(id);
 
-    SimpleBoxPhysics testPhys(id,32,32);
+    SimpleBoxPhysics testPhys(id,32,32,false,true);
     testPhys.setRotatable(false);
 
 
@@ -82,9 +84,8 @@ void GameEngine::gameLoop() {
 
     WorldPositionComponent floorPosition(id);
     floorPosition.setPosition(sf::Vector2f(0,0)); */
-
     Level testLevel;
-    testLevel.loadLevel("longtest.tmx");
+    testLevel.loadLevel("longtest.tmx", &rendEng);
 
     Camera testCamera(id, testLevel.width, testLevel.height);
 
@@ -112,6 +113,8 @@ void GameEngine::gameLoop() {
                 rendEng.window.close();
             if (event.type == sf::Event::Resized)
                 rendEng.view.setSize(event.size.width, event.size.height);
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F2)
+                rendEng.toggleDebug();
         }
     }
 }

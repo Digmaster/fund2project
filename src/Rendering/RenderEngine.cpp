@@ -14,6 +14,8 @@ RenderEngine::RenderEngine() {
 	window.setFramerateLimit(maxFPS);
 
 	view.reset(FloatRect(0,0,screenWidth, screenHeight));
+
+	bkColor = sf::Color::Black;
 }
 
 void RenderEngine::addScreenSprite(sf::Drawable* input){
@@ -32,22 +34,31 @@ RenderEngine::~RenderEngine() {
 
 void RenderEngine::render(sf::Time frameTime, PhysicsEngine* physEng) {
     window.setView(view);
-    window.clear();
-    while(renderList.size() > 0) {
-        window.draw(*renderList.back());
-        renderList.pop_back();
+    window.clear(bkColor);
+    for(int i = 1; i <= renderList.size(); i++) {
+        while(renderList[i].size() > 0) {
+            window.draw(*renderList[i].back());
+            renderList[i].pop_back();
+        }
     }
-    physEng->debugDraw();
+    if(debugEnabled==189) {
+
+        physEng->debugDraw();
+    }
     window.display();
 }
 
-void RenderEngine::removeSprite(Drawable* input) {
-    deque<Drawable*>::iterator it = find(renderList.begin(), renderList.end(), input);
-    if(it != renderList.end())
-        renderList.erase(it);
+void RenderEngine::removeSprite(Drawable* input, int layer) {
+    deque<Drawable*>::iterator it = find(renderList[layer].begin(), renderList[layer].end(), input);
+    if(it != renderList[layer].end())
+        renderList[layer].erase(it);
 }
 
-void RenderEngine::addSprite(Drawable* input) {
-    renderList.push_back(input);\
+void RenderEngine::addSprite(Drawable* input, int layer) {
+    renderList[layer].push_back(input);\
 }
 
+void RenderEngine::toggleDebug() {
+    cout << "Debug mode toggled" << endl;
+    debugEnabled = !debugEnabled;
+}

@@ -2,14 +2,13 @@
 #define SIMPLEBOXPHYSICS_H
 
 #include "Components\Physics\PhysicsComponent.h"
-#include "Options.h"
 
 
 class SimpleBoxPhysics : public PhysicsComponent
 {
     public:
         SimpleBoxPhysics() : PhysicsComponent() {}
-        SimpleBoxPhysics(unsigned int, int x = 32, int y = 32);
+        SimpleBoxPhysics(unsigned int, int x = 32, int y = 32, bool rotatable = true, bool roundedCorners = false);
         virtual ~SimpleBoxPhysics();
         void setRotatable(bool);
         void go(sf::Time);

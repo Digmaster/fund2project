@@ -1,14 +1,30 @@
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/ComponentManager.h"
+#include "Options.h"
 
-SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y) : PhysicsComponent(ID)
+SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool rotatable, bool roundedCorners) : PhysicsComponent(ID)
 {
     physBodyDef.type = b2_dynamicBody;
     physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
-//    physBodyDef.fixedRotation = true;// FIXME (Thomas Luppi#9#03/23/14): Nothing rotates now :( FIXMEEEEEEEE
+    physBodyDef.fixedRotation = !rotatable;
     physBody = _world->CreateBody(&physBodyDef);
-    boxShape.SetAsBox(.5*x/pixelsPerMeter,.5*y/pixelsPerMeter);
+    if(roundedCorners) {
+        b2Vec2 boxVertices[8];
+        boxVertices[0].Set(-0.5f, -0.75f);
+        boxVertices[1].Set(-0.25f, -0.975f);
+        boxVertices[2].Set(0.25f, -0.975f);
+        boxVertices[3].Set(0.5f, -0.75f);
+        boxVertices[4].Set(0.5f, 0.9f);
+        boxVertices[5].Set(0.4f, 0.975f);
+        boxVertices[6].Set(-0.4f, 0.975f);
+        boxVertices[7].Set(-0.5f, 0.9f);
+
+        boxShape.Set(boxVertices, 8);
+    }
+    else {
+        boxShape.SetAsBox(.5*x/pixelsPerMeter,.5*y/pixelsPerMeter);
+    }
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
     boxFixtureDef.friction = 1;

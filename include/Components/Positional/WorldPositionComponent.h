@@ -16,10 +16,13 @@ class WorldPositionComponent : public ComponentBase {
         sf::Vector2f getPosition() {return position;}
         void setRotation(float input) {rotation = input;}
         float getRotation() {return rotation;}
+        int getLayer();
+        void setLayer(int);
     protected:
     private:
         sf::Vector2f position;
         float rotation;
+        int layer;
 };
 
 #endif // WORLDPOSITIONCOMPONENT_H

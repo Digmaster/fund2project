@@ -7,6 +7,7 @@ WorldPositionComponent::WorldPositionComponent(unsigned int ID) : ComponentBase(
     position.x=0;
     position.y=0;
     rotation=0;
+    layer=0;
 }
 
 void WorldPositionComponent::go(sf::Time frameTime) {
@@ -29,4 +30,12 @@ void WorldPositionComponent::setPosition(sf::Vector2f input, bool awaken) {
             phys->getBody()->SetAwake(true);
         }
     }
+}
+
+int WorldPositionComponent::getLayer() {
+    return layer;
+}
+
+void WorldPositionComponent::setLayer(int input) {
+    layer = input;
 }

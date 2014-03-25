@@ -21,12 +21,10 @@ void AnimatedComponent::go(sf::Time fps) {
             throw logic_error("Render engine not initialized yet");
         }
         else {
-            rendEng->addSprite(&sprite);
+            rendEng->addSprite(&sprite, posCom->getLayer());
         }
     }
     else { //No world position? // TODO (Thomas Luppi#1#03/16/14): Add checks for screen position, which requires changing the rendering code a bit
-        rendEng->removeSprite(&sprite);
-        cout << "No world position" << endl;
     }
 
     //Add code here to see if the animation has to change!!!

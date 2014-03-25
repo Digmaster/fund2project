@@ -40,6 +40,7 @@ void PhysicsEngine::setDebugDraw(sf::RenderWindow& window){
     flags += b2Draw::e_jointBit;
     //flags += b2Draw::e_aabbBit;
     debugdraw->SetFlags(flags);
+
     //Set the physics worlds to use our DebugDraw class instead of the default one
     _world->SetDebugDraw( debugdraw );
 }
