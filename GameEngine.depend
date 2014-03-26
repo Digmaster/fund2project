@@ -1009,7 +1009,7 @@
 	<map>
 	"Components/ComponentSystem.h"
 
-1395701414 c:\users\thomas luppi\documents\fund2project\include\components\positional\worldpositioncomponent.h
+1395788073 c:\users\thomas luppi\documents\fund2project\include\components\positional\worldpositioncomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Vector2.hpp>
 
@@ -1066,7 +1066,7 @@
 	"Components/Input/InputComponent.h"
 	"Components/ComponentManager.h"
 
-1395779938 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
+1395809527 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/PhysicsComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1079,10 +1079,11 @@
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
 
-1395701222 source:c:\users\thomas luppi\documents\fund2project\src\components\positional\worldpositioncomponent.cpp
+1395788103 source:c:\users\thomas luppi\documents\fund2project\src\components\positional\worldpositioncomponent.cpp
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
+	"Options.h"
 
 1395701450 source:c:\users\thomas luppi\documents\fund2project\src\components\render\animatedcomponent.cpp
 	"Components/Render/AnimatedComponent.h"
@@ -1144,7 +1145,7 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1395733207 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
+1395809628 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
@@ -1334,7 +1335,7 @@
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 
-1395623958 c:\users\thomas luppi\documents\fund2project\include\components\physics\physicscomponent.h
+1395808911 c:\users\thomas luppi\documents\fund2project\include\components\physics\physicscomponent.h
 	"Components/ComponentBase.h"
 	<Box2D/Box2D.h>
 
@@ -1342,7 +1343,7 @@
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 
-1395721839 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
+1395809280 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
 	"Components\Physics\PhysicsComponent.h"
 
 1395768997 source:d:\programming\fund2project\src\components\componentbase.cpp
@@ -2103,7 +2104,7 @@
 	"SFML/Graphics.hpp"
 	<string>
 
-1395721849 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
+1395809335 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 	"Options.h"
@@ -2182,7 +2183,7 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1395780344 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+1395804881 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -2278,7 +2279,7 @@
 	"TargetComponent.h"
 	"Components/ComponentManager.h"
 
-1395737978 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\camera.cpp
+1395781987 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\camera.cpp
 	"Components/Script/Camera.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"

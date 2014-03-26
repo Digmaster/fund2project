@@ -14,16 +14,27 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     physBody = _world->CreateBody(&physBodyDef);
     if(roundedCorners) {
         b2Vec2 boxVertices[8];
-        boxVertices[0].Set(-0.5f, -0.75f);
+        float ax = .5f*x/pixelsPerMeter;
+        float ay = .5f*y/pixelsPerMeter;
+        boxVertices[0].Set(-ax*.95f, -ay);
+        boxVertices[1].Set(-ax, -ay*.95f);
+        boxVertices[2].Set(ax*.95f, -ay);
+        boxVertices[3].Set(ax, -ay*.95f);
+        boxVertices[4].Set(ax, ay*.95f);
+        boxVertices[5].Set(ax*.95f, ay);
+        boxVertices[6].Set(-ax*.95f, ay);
+        boxVertices[7].Set(-ax, ay*.95f);
+        /*boxVertices[0].Set(-0.5f, -0.75f);
         boxVertices[1].Set(-0.25f, -0.975f);
         boxVertices[2].Set(0.25f, -0.975f);
         boxVertices[3].Set(0.5f, -0.75f);
         boxVertices[4].Set(0.5f, 0.9f);
         boxVertices[5].Set(0.4f, 0.975f);
         boxVertices[6].Set(-0.4f, 0.975f);
-        boxVertices[7].Set(-0.5f, 0.9f);
+        boxVertices[7].Set(-0.5f, 0.9f);*/
 
         boxShape.Set(boxVertices, 8);
+        footListener = NULL;
     }
     else {
         boxShape.SetAsBox(.5*x/pixelsPerMeter,.5*y/pixelsPerMeter);
@@ -36,14 +47,14 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     screenHeight = atoi(Options::instance().get("screen_height").c_str());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
 
-    //add foot sensor fixture
-    /*b2PolygonShape polygonShape;
-    polygonShape.SetAsBox(0.3, 0.3, b2Vec2(0,-2), 0);
-    b2FixtureDef myFixtureDef;
-    myFixtureDef.isSensor = true;
-    b2Fixture* footSensorFixture = physBody->CreateFixture(&myFixtureDef);
-    footSensorFixture->SetUserData( (void*)3 );
-    */
+    if(!isStatic && !rotatable) {
+        boxShape.SetAsBox(x*.45/pixelsPerMeter, 0.2, b2Vec2(0,-x/(2.0f*pixelsPerMeter)), 0);
+        boxFixtureDef.isSensor = true;
+        b2Fixture* footSensorFixture = physBody->CreateFixture(&boxFixtureDef);
+        footSensorFixture->SetUserData( (void*)(getID()*10) );
+        footListener = new FootContactListener(getID()*10, this);
+        _world->SetContactListener(footListener);
+    }
 
     if(position!=NULL) {
         physBody->SetTransform(b2Vec2(position->getPosition().x/pixelsPerMeter, -position->getPosition().y/pixelsPerMeter),physBody->GetAngle());
@@ -53,6 +64,13 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
 SimpleBoxPhysics::~SimpleBoxPhysics()
 {
     //dtor
+}
+
+bool SimpleBoxPhysics::onGround() {
+    if(footListener!=NULL)
+        return footListener->onGround();
+    else
+        return true;
 }
 
 void SimpleBoxPhysics::go(sf::Time frameTime) {
@@ -67,4 +85,27 @@ void SimpleBoxPhysics::go(sf::Time frameTime) {
 
 void SimpleBoxPhysics::setRotatable(bool input) {
     //physBodyDef.fixedRotation = !input;
+}
+
+
+void FootContactListener::BeginContact(b2Contact* contact) {
+  //check if fixture A was the foot sensor
+  void* fixtureUserData = contact->GetFixtureA()->GetUserData();
+  if ( (int)fixtureUserData == findID )
+      onGroundNum++;
+  //check if fixture B was the foot sensor
+  fixtureUserData = contact->GetFixtureB()->GetUserData();
+  if ( (int)fixtureUserData == findID )
+      onGroundNum++;
+}
+
+void FootContactListener::EndContact(b2Contact* contact) {
+  //check if fixture A was the foot sensor
+  void* fixtureUserData = contact->GetFixtureA()->GetUserData();
+  if ( (int)fixtureUserData == findID )
+      onGroundNum--;
+  //check if fixture B was the foot sensor
+  fixtureUserData = contact->GetFixtureB()->GetUserData();
+  if ( (int)fixtureUserData == findID )
+      onGroundNum--;
 }

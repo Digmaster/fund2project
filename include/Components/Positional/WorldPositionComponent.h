@@ -23,6 +23,7 @@ class WorldPositionComponent : public ComponentBase {
         sf::Vector2f position;
         float rotation;
         int layer;
+        static int PPM;
 };
 
 #endif // WORLDPOSITIONCOMPONENT_H

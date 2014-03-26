@@ -12,7 +12,7 @@ class PhysicsComponent : public ComponentBase
         PhysicsComponent(unsigned int ID);
         virtual ~PhysicsComponent();
         static void setWorld(b2World* world) {_world=world;}
-        bool onGround() {return false;}
+        virtual bool onGround() {return false;}
         b2Body* getBody() {return physBody;}
     protected:
         static int pixelsPerMeter;

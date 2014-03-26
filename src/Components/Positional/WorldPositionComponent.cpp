@@ -1,6 +1,7 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/ComponentManager.h"
 #include "Components/Physics/PhysicsComponent.h"
+#include "Options.h"
 
 WorldPositionComponent::WorldPositionComponent(unsigned int ID) : ComponentBase(ID) {
     compMan->posSym.addComponent(this);
@@ -9,6 +10,8 @@ WorldPositionComponent::WorldPositionComponent(unsigned int ID) : ComponentBase(
     rotation=0;
     layer=0;
 }
+
+int WorldPositionComponent::PPM = atoi(Options::instance().get("pixels_per_meter").c_str());
 
 void WorldPositionComponent::go(sf::Time frameTime) {
     /* //Updates position based on velocity of physics component
@@ -25,7 +28,7 @@ void WorldPositionComponent::setPosition(sf::Vector2f input, bool awaken) {
     position = input;
     PhysicsComponent* phys = compMan->physSym.getComponent(getID());
     if(phys!=NULL) {
-        phys->getBody()->SetTransform(b2Vec2(position.x/32, -position.y/32),phys->getBody()->GetAngle());
+        phys->getBody()->SetTransform(b2Vec2(position.x/PPM, -position.y/PPM),phys->getBody()->GetAngle());
         if(awaken) {
             phys->getBody()->SetAwake(true);
         }

@@ -19,8 +19,8 @@ void Camera::go(sf::Time frameTime) {
         //PhysicsComponent* phys = compMan->physSym.getComponent(tarComp->getTarget());
         WorldPositionComponent* pos = compMan->posSym.getComponent(tarComp->getTarget());
         if(pos!=NULL) {
-            screenWidth = rendEng->window.getSize().x;
-            screenHeight = rendEng->window.getSize().y;
+            screenWidth = rendEng->view.getSize().x;
+            screenHeight = rendEng->view.getSize().y;
             int pos_x = pos->getPosition().x;
             int pos_y = pos->getPosition().y;
             // HACK (Thomas Luppi#5#03/25/14): Changed float to int to remove those weird line errors. Probably a better way to do it.
