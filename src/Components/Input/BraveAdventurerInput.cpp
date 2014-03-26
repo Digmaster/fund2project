@@ -14,15 +14,13 @@ BraveAdventurerInput::~BraveAdventurerInput()
 
 void BraveAdventurerInput::go(sf::Time) {
     MovementComponent* movement = ComponentManager::getInst().moveSym.getComponent(getID());
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-		movement->sendMessage("WalkUp");
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		movement->sendMessage("WalkDown");
-	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		movement->sendMessage("WalkLeft");
+	}
+	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		movement->sendMessage("Still");
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{

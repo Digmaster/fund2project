@@ -12,6 +12,7 @@ class BraveAdventurerAnimatedComponent : public AnimatedComponent
         void go(sf::Time fps);
     protected:
     private:
+        int currDir;
 };
 
 #endif // BRAVEADVENTURERANIMATEDCOMPONENT_H

@@ -5,23 +5,26 @@
 
 BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent()
 {
-    //ctor
+    currDir = 1;
 }
 
 void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
     AnimatedComponent::go(fps);
     MovementComponent* movement = ComponentManager::getInst().moveSym.getComponent(getID());
     if(movement!=NULL) {
-        if(movement->getCurrentMovement() == "WalkUp")
-            sprite.setAnimation("WalkUp");
-        if(movement->getCurrentMovement() == "WalkDown")
-            sprite.setAnimation("WalkDown");
-        if(movement->getCurrentMovement() == "WalkLeft")
+        if(movement->getCurrentMovement() == "WalkLeft") {
             sprite.setAnimation("WalkLeft");
-        if(movement->getCurrentMovement() == "WalkRight")
+            currDir = 1;
+        }
+        if(movement->getCurrentMovement() == "WalkRight") {
             sprite.setAnimation("WalkRight");
+            currDir = 0;
+        }
         sprite.play();
         if(movement->getCurrentMovement() == "none")
-            sprite.stop();
+            if(currDir)
+                sprite.setAnimation("StandLeft");
+            else
+                sprite.setAnimation("StandRight");
     }
 }
