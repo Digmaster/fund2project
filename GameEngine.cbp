@@ -26,6 +26,7 @@
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
+					<Add library="libsfml-audio-s-d.a" />
 					<Add library="libsfml-window-s-d" />
 					<Add library="libsfml-system-s-d" />
 					<Add library="libBox2D.a" />

@@ -17,6 +17,7 @@ RenderEngine::RenderEngine() {
 
 	bkColor = sf::Color::Black;
 	debugEnabled = false;
+	//view.zoom(.5);
 }
 
 void RenderEngine::addScreenSprite(sf::Drawable* input){

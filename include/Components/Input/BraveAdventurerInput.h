@@ -11,6 +11,7 @@ class BraveAdventurerInput : public InputComponent
         BraveAdventurerInput(unsigned int ID) : InputComponent(ID) {}
         virtual ~BraveAdventurerInput();
         void go(sf::Time);
+        void func();
     protected:
     private:
 };

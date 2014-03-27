@@ -398,7 +398,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
     unsigned int id = ComponentBase::getNewID();
     BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
     SpriteManager spriteMan;
-    testSprite->setSprite(spriteMan.getSprite("BraveAdventurer"));
+    testSprite->setSprite(spriteMan.getSprite("Samus"));
     testSprite->sprite.setAnimation("WalkUp");
 
     WorldPositionComponent* testPosition = new WorldPositionComponent(id);
@@ -408,7 +408,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
     BraveAdventurerInput* testInput = new BraveAdventurerInput(id);
 
     BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
-    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,32,32,false, false, false, false);
+    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,34,42,false, false, false, false);
     testPhys->setRotatable(false);
 
     if (properties.find("target") != properties.end()) {

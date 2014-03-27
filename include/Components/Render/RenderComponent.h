@@ -17,7 +17,7 @@ class RenderComponent : public ComponentBase
         RenderComponent(unsigned int ID);
         /** Default destructor */
         virtual ~RenderComponent();
-        virtual sf::Drawable* getDrawable() {}
+      //  virtual sf::Drawable* getDrawable() {}
         virtual void go(sf::Time) {}
     protected:
         static TextureManager texMan;

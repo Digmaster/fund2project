@@ -20,11 +20,17 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
             sprite.setAnimation("WalkRight");
             currDir = 0;
         }
-        sprite.play();
-        if(movement->getCurrentMovement() == "none")
-            if(currDir)
+        //cout<<movement->getCurrentMovement()<<endl;
+        if(movement->getCurrentMovement() == "none"){
+            if(currDir){
                 sprite.setAnimation("StandLeft");
-            else
+               // cout<<"Standing Right"<<endl;
+            }
+            else{
                 sprite.setAnimation("StandRight");
+               // cout<<"standing Left"<<endl;
+            }
+        }
+        sprite.play();
     }
 }

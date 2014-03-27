@@ -9,23 +9,49 @@
             <Frame LC="986" TC="32" W="65" H="80"></Frame>
             <Frame LC="1055" TC="25" W="70" H="90"></Frame>
         </Animation>
-        <Animation name="WalkLeft" FT=".2">
-            <Frame LC="32" TC="32" W="32" H="32"></Frame>
-            <Frame LC="64" TC="32" W="32" H="32"></Frame>
-            <Frame LC="32" TC="32" W="32" H="32"></Frame>
-            <Frame LC="0" TC="32" W="32" H="32"></Frame>
+        <Animation name="WalkLeft" FT="0.07">
+            <Frame LC="559" TC="237" W="23" H="42"></Frame>
+            <Frame LC="598" TC="236" W="29" H="43"></Frame>
+            <Frame LC="638" TC="236" W="35" H="43"></Frame>
+            <Frame LC="687" TC="237" W="32" H="42"></Frame>
+	    <Frame LC="738" TC="237" W="19" H="42"></Frame>
+	    <Frame LC="768" TC="237" W="22" H="42"></Frame>
+	    <Frame LC="798" TC="236" W="29" H="43"></Frame>
+	    <Frame LC="841" TC="236" W="35" H="43"></Frame>
+	    <Frame LC="889" TC="237" W="32" H="42"></Frame>
+	    <Frame LC="933" TC="237" W="18" H="42"></Frame>
         </Animation>
+	<Animation name="StandLeft" FT="0.4">
+	    <Frame LC="111" TC="68" W="26" H="43"></Frame>
+	    <Frame LC="140" TC="68" W="26" H="43"></Frame>
+	    <Frame LC="169" TC="68" W="26" H="43"></Frame>
+	    <Frame LC="203" TC="68" W="26" H="43"></Frame>
+	    <Frame LC="231" TC="68" W="26" H="43"></Frame>
+	    <Frame LC="260" TC="68" W="26" H="43"></Frame>
+	</Animation>
         <Animation name="WalkUp" FT=".2">
             <Frame LC="32" TC="96" W="32" H="32"></Frame>
             <Frame LC="64" TC="96" W="32" H="32"></Frame>
             <Frame LC="32" TC="96" W="32" H="32"></Frame>
             <Frame LC="0" TC="96" W="32" H="32"></Frame>
         </Animation>
-        <Animation name="WalkRight" FT=".2">
-            <Frame LC="32" TC="64" W="32" H="32"></Frame>
-            <Frame LC="64" TC="64" W="32" H="32"></Frame>
-            <Frame LC="32" TC="64" W="32" H="32"></Frame>
-            <Frame LC="0" TC="64" W="32" H="32"></Frame>
+        <Animation name="WalkRight" FT="0.07">
+            <Frame LC="9" TC="293" W="24" H="42"></Frame>
+            <Frame LC="47" TC="292" W="30" H="43"></Frame>
+            <Frame LC="88" TC="292" W="36" H="43"></Frame>
+            <Frame LC="131" TC="293" W="33" H="42"></Frame>
+	    <Frame LC="181" TC="293" W="19" H="42"></Frame>
+	    <Frame LC="219" TC="293" W="22" H="42"></Frame>
+	    <Frame LC="255" TC="292" W="30" H="43"></Frame>
+	    <Frame LC="297" TC="292" W="36" H="43"></Frame>
+	    <Frame LC="347" TC="293" W="33" H="42"></Frame>
+	    <Frame LC="396" TC="293" W="19" H="42"></Frame>
         </Animation>
+	<Animation name="StandRight" FT="0.4">
+	    <Frame LC="45" TC="12" W="26" H="43"></Frame>
+	    <Frame LC="80" TC="12" W="26" H="43"></Frame>
+	    <Frame LC="112" TC="12" W="26" H="43"></Frame>
+	    <Frame LC="144" TC="12" W="26" H="43"></Frame>
+	</Animation>
     </Sprite>
 </SpriteSheet>

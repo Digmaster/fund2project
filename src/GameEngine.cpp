@@ -44,8 +44,45 @@ void GameEngine::gameLoop() {
     spriteMan.loadFile("assets/testSprite.xml");
     spriteMan.loadFile("assets/SamusSprites.xml");
 
+/*<<<<<<< .mine
+    sf::IntRect rec(0, 0, 70, 100);
+=======
+>>>>>>> .r34
+
+    //Create Shaq
+<<<<<<< .mine
+    unsigned int id2 = ComponentManager::getInst().getNewID();
+    StaticSpriteComponent testSprite2("assets/art/shaq.png", rec, id2);
+
+    WorldPositionComponent testPosition2(id2);
+    testPosition2.setPosition(sf::Vector2f(200,100));
+    testPosition2.setLayer(5);
+
+    SimpleBoxPhysics testPhys2(id2, 70, 100, true, false);
+    //wtestPhys2.setRotatable(false);
+
+    //Create Brave Adventurer
+    unsigned int id = ComponentManager::getInst().getNewID();
+    //AnimatedComponent testSprite(id);
+    BraveAdventurerAnimatedComponent testSprite(id);
+    testSprite.setSprite(spriteMan.getSprite("BraveAdventurer"));
+    testSprite.sprite.setAnimation("WalkUp");
+
+    WorldPositionComponent testPosition(id);
+    testPosition.setPosition(sf::Vector2f(100,10));
+    testPosition.setLayer(5);
+
+    BraveAdventurerInput testInput(id);
+
+    BraveAdventurerMovement testMovement(id);
+
+    SimpleBoxPhysics testPhys(id,32,32,false,false);
+    testPhys.setRotatable(false);
 
 
+
+=======
+>>>>>>> .r34*/
     ///THIS IS IMPORTANT!!!
     /// I changed it so that when you create a component it's automatically added to the right component system!!!!!
     /// yaaaaaaaaaaay
@@ -66,8 +103,12 @@ void GameEngine::gameLoop() {
     TargetComponent testTarget(id3, id);
     */
 
-
+/*<<<<<<< .mine
+    while (rendEng.window.isOpen() && !sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+=======
+*/
     while (rendEng->window.isOpen()) {
+//>>>>>>> .r34
         sf::Time frameTime = frameClock.restart();
         ComponentManager::getInst().processAll(frameTime);
 
@@ -78,7 +119,6 @@ void GameEngine::gameLoop() {
         //Actor Updates go here
         rendEng->render(frameTime, physEng);
         physEng->step(frameTime);
-
         sf::Event event;
         while (rendEng->window.pollEvent(event))
         {

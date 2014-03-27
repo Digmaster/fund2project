@@ -8,7 +8,6 @@
 #include <map>
 class AnimatedSprite;
 class PhysicsEngine;
-
 class RenderEngine
 {
     public:
