@@ -15,6 +15,7 @@
 #include "Components/Movement/BraveAdventurerMovement.h"
 #include "Rendering/SpriteManager.h"
 #include "Components/Input/BraveAdventurerInput.h"
+#include "Components/Physics/BoundaryPhysics.h"
 
 
 
@@ -198,9 +199,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 layerHeight = atoi(attribute->value());
 
 
-            ///Data!! // TODO (Thomas Luppi#1#03/24/14): Allow compression
+            ///Data!!
+            // TODO (Thomas Luppi#1#03/24/14): Allow compression
             for (xml_node<>* data_node = layer_node->first_node("data"); data_node; data_node = data_node->next_sibling()) {
                 int i = 0;
+                vector< vector<bool> >collissionMap(layerWidth+1, vector<bool>(layerHeight+1, false));
                 for (xml_node<>* tile_node = data_node->first_node("tile"); tile_node; tile_node = tile_node->next_sibling()) {
                     int tileGid = 0;
                     attribute = tile_node->first_attribute("gid");
@@ -215,11 +218,110 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         StaticSpriteComponent* sprite = new StaticSpriteComponent(sprites[tileGid], id);
                         if (properties.find("solid") != properties.end()) {
                             if(properties["solid"]!="no")
-                              SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
+                              //SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
+                              collissionMap[(int)(i%layerWidth)][(int)(i/layerWidth)] = true;
                         } //issolid
                     } //is actually a tile
                     i++;
                 } //every tile
+                ///Creating collision boundaries based on Collission map
+                //on X surfaces
+                for(int i = 1; i <= layerHeight; i++) {
+                    bool lastCollission = false;
+                    int startPoint = 0;
+                    for(int j = 1; j <= layerWidth; j++) {
+                        if(lastCollission && collissionMap[j][i]==true && collissionMap[j][i-1]==false) {
+                            lastCollission = true;
+                        }
+                        else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i-1]==false) {
+                            //Start the collission line
+                            startPoint = j*tilewidth-tilewidth/2;
+                            lastCollission = true;
+                        }
+                        else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i-1]==true)) {
+                            //End it, and create it
+                            int id = ComponentBase::getNewID();
+
+                            BoundaryPhysics floor(id, startPoint, i*tileheight-tileheight/2, j*tilewidth-tilewidth/2, i*tileheight-tileheight/2);
+
+                            WorldPositionComponent floorPosition(id);
+                            floorPosition.setPosition(sf::Vector2f(0,0));
+                            lastCollission = false;
+                        }
+                    }
+                }
+                for(int i = 0; i <= layerHeight; i++) {
+                    bool lastCollission = false;
+                    int startPoint = 0;
+                    for(int j = 0; j <= layerWidth; j++) {
+                        if(lastCollission && collissionMap[j][i]==true && collissionMap[j][i+1]==false) {
+                            lastCollission = true;
+                        }
+                        else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i+1]==false) {
+                            //Start the collission line
+                            startPoint = j*tilewidth-tilewidth/2;
+                            lastCollission = true;
+                        }
+                        else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i+1]==true)) {
+                            //End it, and create it
+                            int id = ComponentBase::getNewID();
+
+                            BoundaryPhysics floor(id, startPoint, i*tileheight+tileheight/2, j*tilewidth-tilewidth/2, i*tileheight+tileheight/2);
+
+                            WorldPositionComponent floorPosition(id);
+                            floorPosition.setPosition(sf::Vector2f(0,0));
+                            lastCollission = false;
+                        }
+                    }
+                }
+                for(int i = 1; i <= layerWidth; i++) {
+                    bool lastCollission = false;
+                    int startPoint = 0;
+                    for(int j = 1; j <= layerHeight; j++) {
+                        if(lastCollission && collissionMap[i][j]==true && collissionMap[i-1][j]==false) {
+                            lastCollission = true;
+                        }
+                        else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i-1][j]==false) {
+                            //Start the collission line
+                            startPoint = j*tilewidth-tilewidth/2;
+                            lastCollission = true;
+                        }
+                        else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i-1][j]==true)) {
+                            //End it, and create it
+                            int id = ComponentBase::getNewID();
+
+                            BoundaryPhysics floor(id, i*tilewidth-tilewidth/2, startPoint, i*tilewidth-tilewidth/2, j*tileheight-tileheight/2);
+
+                            WorldPositionComponent floorPosition(id);
+                            floorPosition.setPosition(sf::Vector2f(0,0));
+                            lastCollission = false;
+                        }
+                    }
+                }
+                for(int i = 0; i <= layerWidth; i++) {
+                    bool lastCollission = false;
+                    int startPoint = 0;
+                    for(int j = 0; j <= layerHeight; j++) {
+                        if(lastCollission && collissionMap[i][j]==true && collissionMap[i+1][j]==false) {
+                            lastCollission = true;
+                        }
+                        else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i+1][j]==false) {
+                            //Start the collission line
+                            startPoint = j*tilewidth-tilewidth/2;
+                            lastCollission = true;
+                        }
+                        else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i+1][j]==true)) {
+                            //End it, and create it
+                            int id = ComponentBase::getNewID();
+
+                            BoundaryPhysics floor(id, i*tilewidth+tilewidth/2, startPoint, i*tilewidth+tilewidth/2, j*tileheight-tileheight/2);
+
+                            WorldPositionComponent floorPosition(id);
+                            floorPosition.setPosition(sf::Vector2f(0,0));
+                            lastCollission = false;
+                        }
+                    }
+                }
             } //every data node in layer (Should always be one)
         }
         else if(nodename=="imagelayer") {
@@ -398,6 +500,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
     unsigned int id = ComponentBase::getNewID();
     BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
     SpriteManager spriteMan;
+    //testSprite->setSprite(spriteMan.getSprite("BraveAdventurer"));
     testSprite->setSprite(spriteMan.getSprite("Samus"));
     testSprite->sprite.setAnimation("WalkUp");
 
@@ -408,6 +511,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
     BraveAdventurerInput* testInput = new BraveAdventurerInput(id);
 
     BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
+
     SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,34,42,false, false, false, false);
     testPhys->setRotatable(false);
 
