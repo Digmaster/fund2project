@@ -512,7 +512,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
 
     BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
 
-    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,34,42,false, false, false, false);
+    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,34,42,false, false, true, false);
     testPhys->setRotatable(false);
 
     if (properties.find("target") != properties.end()) {

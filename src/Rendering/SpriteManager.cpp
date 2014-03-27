@@ -40,7 +40,6 @@ int SpriteManager::loadFile(string input) { // NOTE (Thomas Luppi#3#03/16/14): C
 		root_node = doc.first_node("SpriteSheet");
 
 		//Top level with the imagefile
-		// TODO (Thomas Luppi#1#): Enable multiple spritesheets per file? Should we do this? Note that this may break other things
 		string textureFile = root_node->first_attribute("file")->value();
 		Texture *texture = texMan.getTexture(textureFile);
 

@@ -9,6 +9,7 @@ class SimpleBoxPhysics : public PhysicsComponent
 {
     public:
         SimpleBoxPhysics() : PhysicsComponent() {}
+        // TODO (Thomas Luppi#5#03/27/14): Use flags here instead of parameters; we're getting tons of bools here, should clean it up a bit
         SimpleBoxPhysics(unsigned int, int x = 32, int y = 32, bool isStatic = false, bool rotatable = true, bool roundedCorners = false, bool isSensor = false);
         virtual ~SimpleBoxPhysics();
         void setRotatable(bool);
@@ -19,7 +20,7 @@ class SimpleBoxPhysics : public PhysicsComponent
         bool onTop();
     protected:
     private:
-        FootContactListener* footListener; // TODO (Thomas Luppi#1#03/25/14): Add sensors all the way arround
+        FootContactListener* footListener;
         FootContactListener* headListener;
         FootContactListener* leftListener;
         FootContactListener* rightListener;

@@ -107,29 +107,34 @@ void GameEngine::gameLoop() {
     while (rendEng.window.isOpen() && !sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
 =======
 */
+    bool paused = false;
     while (rendEng->window.isOpen()) {
 //>>>>>>> .r34
         sf::Time frameTime = frameClock.restart();
+        cout << 1000/frameTime.asMilliseconds() << endl;
+
         ComponentManager::getInst().processAll(frameTime);
 
 
-        //entList.update();
-        //Input goes here
-        //Any sort of physics stuff
-        //Actor Updates go here
         rendEng->render(frameTime, physEng);
         physEng->step(frameTime);
         sf::Event event;
-        while (rendEng->window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                rendEng->window.close();
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
-                rendEng->window.close();
-            if (event.type == sf::Event::Resized)
-                rendEng->view.setSize(event.size.width, event.size.height);
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F2)
-                rendEng->toggleDebug();
-        }
+        do {
+            while (rendEng->window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                    rendEng->window.close();
+                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+                    rendEng->window.close();
+                if (event.type == sf::Event::Resized)
+                    rendEng->view.setSize(event.size.width, event.size.height);
+                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F2)
+                    rendEng->toggleDebug();
+                if (event.type == sf::Event::LostFocus)
+                    paused = true;
+                if (event.type == sf::Event::GainedFocus)
+                    paused = false;
+            }
+        } while(paused && rendEng->window.isOpen());
     }
 }
