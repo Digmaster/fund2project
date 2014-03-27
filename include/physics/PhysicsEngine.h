@@ -6,7 +6,17 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 #include "Components/Render/DebugDraw.h"
+#include <deque>
 
+class ContactListener : public b2ContactListener {
+public:
+    void BeginContact(b2Contact* contact);
+    void EndContact(b2Contact* contact);
+    void addListener(b2ContactListener*);
+    void removeListener(b2ContactListener*);
+private:
+    std::deque< b2ContactListener* > listenerList;
+};
 
 class PhysicsEngine
 {
@@ -17,9 +27,10 @@ class PhysicsEngine
         void debugDraw();
         void setDebugDraw(sf::RenderWindow&);
         void init();
+        ContactListener contactListeners;
+        b2World* _world;
     protected:
     private:
-        b2World* _world;
         int _velocityIterations;
         int _positionIterations;
 };

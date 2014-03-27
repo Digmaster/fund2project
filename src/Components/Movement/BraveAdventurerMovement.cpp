@@ -27,18 +27,18 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
             if(message == "WalkLeft")
                 if(physics->onGround())
                     body->SetLinearVelocity(b2Vec2(-5,velocity.y));
-                else if(body->GetContactList()==NULL)
+                else if(physics->onLeft()==false)
                     body->ApplyLinearImpulse(b2Vec2(-.25,0),body->GetWorldCenter(),true);
                 //position->move(sf::Vector2f(-2,0));
             if(message == "WalkRight")
                 if(physics->onGround())
                     body->SetLinearVelocity(b2Vec2(5,velocity.y));
-                else if(body->GetContactList()==NULL)
+                else if(physics->onRight()==false)
                     body->ApplyLinearImpulse(b2Vec2(.25,0),body->GetWorldCenter(),true);
                 //position->move(sf::Vector2f(2,0));
             if(message == "Jump")
                 if(physics->onGround())
-                    body->ApplyLinearImpulse(b2Vec2(0,3),body->GetWorldCenter(),true);
+                    body->ApplyLinearImpulse(b2Vec2(0,6),body->GetWorldCenter(),true);
             if(message == "GoPlace")
                 position->setPosition(sf::Vector2f(100,100));
         }

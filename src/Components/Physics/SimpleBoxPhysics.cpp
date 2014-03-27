@@ -1,6 +1,7 @@
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/ComponentManager.h"
 #include "Options.h"
+#include "physics/PhysicsEngine.h"
 
 SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic, bool rotatable, bool roundedCorners, bool isSensor) : PhysicsComponent(ID)
 {
@@ -11,7 +12,7 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
     physBodyDef.fixedRotation = !rotatable;
-    physBody = _world->CreateBody(&physBodyDef);
+    physBody = physEng->_world->CreateBody(&physBodyDef);
     if(roundedCorners) {
         b2Vec2 boxVertices[8];
         float ax = .5f*x/pixelsPerMeter;
@@ -47,13 +48,35 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     screenHeight = atoi(Options::instance().get("screen_height").c_str());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
 
-    if(!isStatic && !rotatable) {
-        boxShape.SetAsBox(x*.45/pixelsPerMeter, 0.2, b2Vec2(0,-x/(2.0f*pixelsPerMeter)), 0);
+    if(!isStatic && !rotatable) { //All of the sensors!!!
+        //foot
+        boxShape.SetAsBox(x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* footSensorFixture = physBody->CreateFixture(&boxFixtureDef);
-        footSensorFixture->SetUserData( (void*)(getID()*10) );
-        footListener = new FootContactListener(getID()*10, this);
-        _world->SetContactListener(footListener);
+        footSensorFixture->SetUserData( (void*)(getID()*10+1) );
+        footListener = new FootContactListener(getID()*10+1, this);
+        physEng->contactListeners.addListener(footListener);
+        //head
+        boxShape.SetAsBox(x*.45/pixelsPerMeter, 0.1, b2Vec2(0,y/(2.0f*pixelsPerMeter)), 0);
+        boxFixtureDef.isSensor = true;
+        b2Fixture* headSensorFixture = physBody->CreateFixture(&boxFixtureDef);
+        headSensorFixture->SetUserData( (void*)(getID()*10+2) );
+        headListener = new FootContactListener(getID()*10+2, this);
+        physEng->contactListeners.addListener(headListener);
+        //left
+        boxShape.SetAsBox(.1f, y*.45/pixelsPerMeter, b2Vec2(-x/(2.0f*pixelsPerMeter),0), 0);
+        boxFixtureDef.isSensor = true;
+        b2Fixture* leftSensorFixture = physBody->CreateFixture(&boxFixtureDef);
+        leftSensorFixture->SetUserData( (void*)(getID()*10+3) );
+        leftListener = new FootContactListener(getID()*10+3, this);
+        physEng->contactListeners.addListener(leftListener);
+        //right
+        boxShape.SetAsBox(.1f, y*.45/pixelsPerMeter, b2Vec2(x/(2.0f*pixelsPerMeter),0), 0);
+        boxFixtureDef.isSensor = true;
+        b2Fixture* rightSensorFixture = physBody->CreateFixture(&boxFixtureDef);
+        rightSensorFixture->SetUserData( (void*)(getID()*10+4) );
+        rightListener = new FootContactListener(getID()*10+4, this);
+        physEng->contactListeners.addListener(rightListener);
     }
 
     if(position!=NULL) {
@@ -69,6 +92,27 @@ SimpleBoxPhysics::~SimpleBoxPhysics()
 bool SimpleBoxPhysics::onGround() {
     if(footListener!=NULL)
         return footListener->onGround();
+    else
+        return true;
+}
+
+bool SimpleBoxPhysics::onLeft() {
+    if(left!=NULL)
+        return leftListener->onGround();
+    else
+        return true;
+}
+
+bool SimpleBoxPhysics::onRight() {
+    if(rightListener!=NULL)
+        return rightListener->onGround();
+    else
+        return true;
+}
+
+bool SimpleBoxPhysics::onTop() {
+    if(headListener!=NULL)
+        return headListener->onGround();
     else
         return true;
 }

@@ -1068,7 +1068,7 @@
 	"Components/Input/InputComponent.h"
 	"Components/ComponentManager.h"
 
-1395881428 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
+1395897822 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/PhysicsComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1157,17 +1157,18 @@
 1395705854 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
 	"Rendering/TextureManager.h"
 
-1395709997 source:c:\users\thomas luppi\documents\fund2project\src\physics\physicsengine.cpp
+1395897411 source:c:\users\thomas luppi\documents\fund2project\src\physics\physicsengine.cpp
 	"Physics/PhysicsEngine.h"
 	"Components/Physics/PhysicsComponent.h"
 	<iostream>
 
-1395610295 c:\users\thomas luppi\documents\fund2project\include\physics\physicsengine.h
+1395897156 c:\users\thomas luppi\documents\fund2project\include\physics\physicsengine.h
 	<SFML/System/Time.hpp>
 	<SFML/System.hpp>
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 	"Components/Render/DebugDraw.h"
+	<deque>
 
 1332140411 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\box2d.h
 	<Box2D/Common/b2Settings.h>
@@ -1331,13 +1332,13 @@
 1382550100 c:\users\thomas luppi\documents\fund2project\dependancies\include\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1395628129 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\physicscomponent.cpp
+1395897379 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\physicscomponent.cpp
 	"Components/Physics/PhysicsComponent.h"
 	"Options.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 
-1395808911 c:\users\thomas luppi\documents\fund2project\include\components\physics\physicscomponent.h
+1395897509 c:\users\thomas luppi\documents\fund2project\include\components\physics\physicscomponent.h
 	"Components/ComponentBase.h"
 	<Box2D/Box2D.h>
 
@@ -1345,7 +1346,7 @@
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 
-1395809765 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
+1395897560 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
 	"Components\Physics\PhysicsComponent.h"
 
 1395768997 source:d:\programming\fund2project\src\components\componentbase.cpp
@@ -2106,10 +2107,11 @@
 	"SFML/Graphics.hpp"
 	<string>
 
-1395890799 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
+1395897612 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 	"Options.h"
+	"physics/PhysicsEngine.h"
 
 1395785732 source:d:\programming\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
@@ -2157,9 +2159,10 @@
 	"Components\Physics\PhysicsComponent.h"
 	"Options.h"
 
-1395609585 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\boundaryphysics.cpp
+1395897357 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\boundaryphysics.cpp
 	"Components/Physics/BoundaryPhysics.h"
 	"Components/ComponentManager.h"
+	"physics/PhysicsEngine.h"
 
 1395627715 source:c:\users\thomas luppi\documents\fund2project\src\components\render\debugdraw.cpp
 	"Components/Render/DebugDraw.h"

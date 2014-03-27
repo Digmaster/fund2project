@@ -14,9 +14,15 @@ class SimpleBoxPhysics : public PhysicsComponent
         void setRotatable(bool);
         void go(sf::Time);
         bool onGround();
+        bool onLeft();
+        bool onRight();
+        bool onTop();
     protected:
     private:
         FootContactListener* footListener; // TODO (Thomas Luppi#1#03/25/14): Add sensors all the way arround
+        FootContactListener* headListener;
+        FootContactListener* leftListener;
+        FootContactListener* rightListener;
         b2BodyDef physBodyDef;
         b2PolygonShape boxShape;
         b2FixtureDef boxFixtureDef;

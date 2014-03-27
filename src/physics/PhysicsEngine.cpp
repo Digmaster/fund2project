@@ -2,14 +2,16 @@
 #include "Components/Physics/PhysicsComponent.h"
 #include <iostream>
 
+using namespace std;
+
 PhysicsEngine::PhysicsEngine()
 {
     b2Vec2 gravity = b2Vec2(0.0f, -9.8f);
     _world = new b2World(gravity);
     _velocityIterations = 8;
     _positionIterations = 3;
-    PhysicsComponent::setWorld(_world);
-
+    PhysicsComponent::setEngine(this);
+    _world->SetContactListener(&contactListeners);
 
 }
 
@@ -48,4 +50,24 @@ void PhysicsEngine::setDebugDraw(sf::RenderWindow& window){
 void PhysicsEngine::init()
 {
     delete _world;
+}
+
+void ContactListener::BeginContact(b2Contact* contact) {
+    for(deque<b2ContactListener*>::iterator it = listenerList.begin(); it != listenerList.end(); it++)
+        (*it)->BeginContact(contact);
+}
+
+void ContactListener::EndContact(b2Contact* contact) {
+    for(deque<b2ContactListener*>::iterator it = listenerList.begin(); it != listenerList.end(); it++)
+        (*it)->EndContact(contact);
+}
+
+void ContactListener::addListener(b2ContactListener* input) {
+    listenerList.push_back(input);
+}
+
+void ContactListener::removeListener(b2ContactListener* input){
+    deque<b2ContactListener*>::iterator it = find(listenerList.begin(), listenerList.end(), input);
+    if(it!=listenerList.end())
+        listenerList.erase(it);
 }
