@@ -92,10 +92,12 @@ void FootContactListener::BeginContact(b2Contact* contact) {
   //check if fixture A was the foot sensor
   void* fixtureUserData = contact->GetFixtureA()->GetUserData();
   if ( (int)fixtureUserData == findID )
+    if( !contact->GetFixtureB()->IsSensor())
       onGroundNum++;
   //check if fixture B was the foot sensor
   fixtureUserData = contact->GetFixtureB()->GetUserData();
   if ( (int)fixtureUserData == findID )
+    if(!contact->GetFixtureA()->IsSensor())
       onGroundNum++;
 }
 
@@ -103,9 +105,11 @@ void FootContactListener::EndContact(b2Contact* contact) {
   //check if fixture A was the foot sensor
   void* fixtureUserData = contact->GetFixtureA()->GetUserData();
   if ( (int)fixtureUserData == findID )
+    if(!contact->GetFixtureB()->IsSensor())
       onGroundNum--;
   //check if fixture B was the foot sensor
   fixtureUserData = contact->GetFixtureB()->GetUserData();
   if ( (int)fixtureUserData == findID )
+    if(!contact->GetFixtureA()->IsSensor())
       onGroundNum--;
 }
