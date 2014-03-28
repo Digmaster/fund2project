@@ -45,7 +45,8 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     boxFixtureDef.restitution = 0;
     boxFixtureDef.friction = 0;
     boxFixtureDef.isSensor = isSensor;
-    physBody->CreateFixture(&boxFixtureDef);
+    b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
+    fixture->SetUserData( (void*)(getID()*10+0) );
     screenHeight = atoi(Options::instance().get("screen_height").c_str());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
 

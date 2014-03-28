@@ -115,23 +115,15 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         //Left
         int id = ComponentBase::getNewID();
         BoundaryPhysics leftBoundary(id, 0, -1000, 0, height*tileheight-tileheight/2);
-        WorldPositionComponent leftPosition(id);
-        leftPosition.setPosition(sf::Vector2f(0,0));
         //right
         id = ComponentBase::getNewID();
         BoundaryPhysics rightBoundary(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
-        WorldPositionComponent floorPosition(id);
-        floorPosition.setPosition(sf::Vector2f(0,0));
         //bottom
         /*id = ComponentBase::getNewID();
-        BoundaryPhysics bottomBoundary(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
-        WorldPositionComponent bottomPosition(id);
-        bottomPosition.setPosition(sf::Vector2f(0,0));*/
+        BoundaryPhysics bottomBoundary(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);*/
         //top
         id = ComponentBase::getNewID();
         BoundaryPhysics topBoundary(id, 0, -1000, width*tilewidth-tilewidth/2, -1000);
-        WorldPositionComponent topPosition(id);
-        topPosition.setPosition(sf::Vector2f(0,0));
     }
 
 
@@ -287,9 +279,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             int id = ComponentBase::getNewID();
 
                             BoundaryPhysics floor(id, startPoint, i*tileheight-tileheight/2, j*tilewidth-tilewidth/2, i*tileheight-tileheight/2);
-
-                            WorldPositionComponent floorPosition(id);
-                            floorPosition.setPosition(sf::Vector2f(0,0));
                             lastCollission = false;
                         }
                     }
@@ -311,9 +300,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             int id = ComponentBase::getNewID();
 
                             BoundaryPhysics floor(id, startPoint, i*tileheight+tileheight/2, j*tilewidth-tilewidth/2, i*tileheight+tileheight/2);
-
-                            WorldPositionComponent floorPosition(id);
-                            floorPosition.setPosition(sf::Vector2f(0,0));
                             lastCollission = false;
                         }
                     }
@@ -336,8 +322,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             BoundaryPhysics floor(id, i*tilewidth-tilewidth/2, startPoint, i*tilewidth-tilewidth/2, j*tileheight-tileheight/2);
 
-                            WorldPositionComponent floorPosition(id);
-                            floorPosition.setPosition(sf::Vector2f(0,0));
                             lastCollission = false;
                         }
                     }
@@ -360,8 +344,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             BoundaryPhysics floor(id, i*tilewidth+tilewidth/2, startPoint, i*tilewidth+tilewidth/2, j*tileheight-tileheight/2);
 
-                            WorldPositionComponent floorPosition(id);
-                            floorPosition.setPosition(sf::Vector2f(0,0));
                             lastCollission = false;
                         }
                     }

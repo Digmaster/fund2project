@@ -53,6 +53,7 @@ void PhysicsEngine::init()
 }
 
 void ContactListener::BeginContact(b2Contact* contact) {
+    cout << (int)(contact->GetFixtureA()->GetUserData())/10 << " = " << (int)(contact->GetFixtureB()->GetUserData())/10 << endl;
     for(deque<b2ContactListener*>::iterator it = listenerList.begin(); it != listenerList.end(); it++)
         (*it)->BeginContact(contact);
 }

@@ -15,7 +15,8 @@ BoundaryPhysics::BoundaryPhysics(unsigned int ID, float x, float y, float endx, 
     boundaryShape.Set(floorvec[0],floorvec[1]);
     boundaryFixtureDef.shape = &boundaryShape;
     boundaryFixtureDef.friction = 10;
-    physBody->CreateFixture(&boundaryFixtureDef);
+    b2Fixture* fixture = physBody->CreateFixture(&boundaryFixtureDef);
+    fixture->SetUserData( (void*)(getID()*10+2) );
     //screenHeight = atoi(Options::instance().get("screen_height").c_str());
 }
 
