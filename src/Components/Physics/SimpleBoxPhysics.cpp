@@ -42,7 +42,8 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     }
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
-    boxFixtureDef.friction = 1;
+    boxFixtureDef.restitution = 0;
+    boxFixtureDef.friction = 0;
     boxFixtureDef.isSensor = isSensor;
     physBody->CreateFixture(&boxFixtureDef);
     screenHeight = atoi(Options::instance().get("screen_height").c_str());
@@ -64,14 +65,14 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
         headListener = new FootContactListener(getID()*10+2, this);
         physEng->contactListeners.addListener(headListener);
         //left
-        boxShape.SetAsBox(.1f, y*.45/pixelsPerMeter, b2Vec2(-x/(2.0f*pixelsPerMeter),0), 0);
+        boxShape.SetAsBox(.1f, y*.35/pixelsPerMeter, b2Vec2(-x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* leftSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         leftSensorFixture->SetUserData( (void*)(getID()*10+3) );
         leftListener = new FootContactListener(getID()*10+3, this);
         physEng->contactListeners.addListener(leftListener);
         //right
-        boxShape.SetAsBox(.1f, y*.45/pixelsPerMeter, b2Vec2(x/(2.0f*pixelsPerMeter),0), 0);
+        boxShape.SetAsBox(.1f, y*.35/pixelsPerMeter, b2Vec2(x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* rightSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         rightSensorFixture->SetUserData( (void*)(getID()*10+4) );

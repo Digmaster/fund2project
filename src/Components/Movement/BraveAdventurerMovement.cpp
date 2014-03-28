@@ -24,11 +24,11 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
             /* TODO (Thomas Luppi#1#03/27/14): Use force instead of impulse here, should work better? */
 
             if(message == "WalkLeft")
-                if(physics->onLeft()==false) {
-                    if(physics->onGround())
-                        body->ApplyLinearImpulse(b2Vec2(-3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
-                    else
-                        body->ApplyLinearImpulse(b2Vec2(-1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
+                if(physics->onGround()) {
+                    body->ApplyLinearImpulse(b2Vec2(-3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
+                }
+                else if(physics->onLeft()==false) {
+                    body->ApplyLinearImpulse(b2Vec2(-1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
                 }
 
                 //position->move(sf::Vector2f(-2,0));

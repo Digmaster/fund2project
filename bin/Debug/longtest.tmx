@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="200" height="40" tilewidth="32" tileheight="32" backgroundcolor="#1ee1eb">
+ <properties>
+  <property name="boundaries" value="yes"/>
+ </properties>
  <tileset firstgid="1" name="box" tilewidth="32" tileheight="32">
   <image source="assets/art/box.png" trans="b3ff9b" width="32" height="32"/>
  </tileset>

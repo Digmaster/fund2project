@@ -38,6 +38,7 @@ private:
     TextureManager* texMan;
 
     std::map<int, sf::Sprite> sprites;
+    std::map<std::string, std::string> mapProperties;
 };
 
 //DUN DUN DUN DUUUUUNNNNNNNNNNNN

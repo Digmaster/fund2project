@@ -111,7 +111,7 @@ void GameEngine::gameLoop() {
     while (rendEng->window.isOpen()) {
 //>>>>>>> .r34
         sf::Time frameTime = frameClock.restart();
-        cout << 1000/frameTime.asMilliseconds() << endl;
+        //cout << 1000/frameTime.asMilliseconds() << endl; //fps
 
         ComponentManager::getInst().processAll(frameTime);
 

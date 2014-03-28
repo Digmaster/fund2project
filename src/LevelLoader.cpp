@@ -88,9 +88,53 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         if(attribute!=NULL)
             rendEng->setBackgroundColor(HexToColor(attribute->value()));
 
+        for (xml_node<>* properties_node = root_node->first_node("properties"); properties_node; properties_node = properties_node->next_sibling()) {
+            for (xml_node<>* property_node = properties_node->first_node("property"); property_node; property_node = property_node->next_sibling()) {
+                string propertyName;
+                attribute = property_node->first_attribute("name");
+                if(attribute!=NULL)
+                    propertyName = attribute->value();
+                string propertyValue;
+                attribute = property_node->first_attribute("value");
+                if(attribute!=NULL)
+                    propertyValue = attribute->value();
+                mapProperties[propertyName]=propertyValue;
+            }
+        }
     }
     else
         throw runtime_error("Could not find root map node");
+    bool doBoundaries = true;
+    if (mapProperties.find("boundaries") != mapProperties.end()) {
+        if(mapProperties["boundaries"]=="no") {
+            doBoundaries=false;
+        }
+    }
+    if(doBoundaries) {
+        ///Collision Boundaries
+        //Left
+        int id = ComponentBase::getNewID();
+        BoundaryPhysics leftBoundary(id, 0, -1000, 0, height*tileheight-tileheight/2);
+        WorldPositionComponent leftPosition(id);
+        leftPosition.setPosition(sf::Vector2f(0,0));
+        //right
+        id = ComponentBase::getNewID();
+        BoundaryPhysics rightBoundary(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
+        WorldPositionComponent floorPosition(id);
+        floorPosition.setPosition(sf::Vector2f(0,0));
+        //bottom
+        /*id = ComponentBase::getNewID();
+        BoundaryPhysics bottomBoundary(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
+        WorldPositionComponent bottomPosition(id);
+        bottomPosition.setPosition(sf::Vector2f(0,0));*/
+        //top
+        id = ComponentBase::getNewID();
+        BoundaryPhysics topBoundary(id, 0, -1000, width*tilewidth-tilewidth/2, -1000);
+        WorldPositionComponent topPosition(id);
+        topPosition.setPosition(sf::Vector2f(0,0));
+    }
+
+
     ///Tilesets!
     for (xml_node<>* tileset_node = root_node->first_node("tileset"); tileset_node; tileset_node = tileset_node->next_sibling()) {
         auto attribute = tileset_node->first_attribute("firstgid");
