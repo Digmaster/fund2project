@@ -39,6 +39,19 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                     else
                         body->ApplyLinearImpulse(b2Vec2(1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
                 }
+
+            if(message == "ClimbUp"){
+
+                if(physics->overLadder()==true) {
+                        body->ApplyLinearImpulse(b2Vec2(0,1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
+                }
+            }
+            if(message == "ClimbDown"){
+
+                if(physics->overLadder()==true) {
+                        body->ApplyLinearImpulse(b2Vec2(0,-1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
+                }
+            }
                 //position->move(sf::Vector2f(2,0));
             if(message == "Jump")
                 if(physics->onGround()) {

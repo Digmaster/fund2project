@@ -16062,6 +16062,6 @@
   </object>
  </objectgroup>
  <objectgroup name="Sensors/Ladder" width="200" height="40">
-  <object name="sensor" type="sensor" x="2657" y="1" width="30" height="382"/>
+  <object name="ladder" type="sensor" x="2657" y="1" width="30" height="382"/>
  </objectgroup>
 </map>

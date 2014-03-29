@@ -1,9 +1,14 @@
 #ifndef SIMPLEBOXPHYSICS_H
 #define SIMPLEBOXPHYSICS_H
 
+#include "Components/ComponentManager.h"
 #include "Components\Physics\PhysicsComponent.h"
 
+#include "Components\Identification\IDComponent.h"
+
+
 class FootContactListener;
+class LadderContactListener;
 
 class SimpleBoxPhysics : public PhysicsComponent
 {
@@ -18,12 +23,14 @@ class SimpleBoxPhysics : public PhysicsComponent
         bool onLeft();
         bool onRight();
         bool onTop();
+        bool overLadder();
     protected:
     private:
         FootContactListener* footListener;
         FootContactListener* headListener;
         FootContactListener* leftListener;
         FootContactListener* rightListener;
+        LadderContactListener* ladderListener;
         b2BodyDef physBodyDef;
         b2PolygonShape boxShape;
         b2FixtureDef boxFixtureDef;
@@ -40,6 +47,21 @@ public:
     bool onGround() {return onGroundNum>0;}
 private:
     int onGroundNum;
+    unsigned int findID;
+    PhysicsComponent* origin;
+};
+
+class LadderContactListener : public b2ContactListener
+{
+public:
+    LadderContactListener() : findID(0), origin(0) {}
+    LadderContactListener(unsigned int findID, PhysicsComponent* origin) : findID(findID), origin(origin), overLadderNum(0) {}
+    void BeginContact(b2Contact* contact);
+    void EndContact(b2Contact* contact);
+    bool overLadder() {return overLadderNum>0;}
+private:
+    int overLadderNum;
+    float currentGravity;
     unsigned int findID;
     PhysicsComponent* origin;
 };

@@ -43,11 +43,10 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
     boxFixtureDef.restitution = 0;
-    boxFixtureDef.friction = 0;
+    boxFixtureDef.friction = 1;
     boxFixtureDef.isSensor = isSensor;
     b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
     fixture->SetUserData( (void*)(getID()*10+0) );
-    screenHeight = atoi(Options::instance().get("screen_height").c_str());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
 
     if(!isStatic && !rotatable) { //All of the sensors!!!
@@ -79,6 +78,9 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
         rightSensorFixture->SetUserData( (void*)(getID()*10+4) );
         rightListener = new FootContactListener(getID()*10+4, this);
         physEng->contactListeners.addListener(rightListener);
+        //ladder
+        ladderListener = new LadderContactListener(getID()*10+0, this);
+        physEng->contactListeners.addListener(ladderListener);
     }
 
     if(position!=NULL) {
@@ -117,6 +119,13 @@ bool SimpleBoxPhysics::onTop() {
         return headListener->onGround();
     else
         return true;
+}
+
+bool SimpleBoxPhysics::overLadder() {
+    if(ladderListener!=NULL)
+        return ladderListener->overLadder();
+    else
+        return false;
 }
 
 void SimpleBoxPhysics::go(sf::Time frameTime) {
@@ -159,3 +168,69 @@ void FootContactListener::EndContact(b2Contact* contact) {
     if(!contact->GetFixtureA()->IsSensor())
       onGroundNum--;
 }
+
+void LadderContactListener::BeginContact(b2Contact* contact) {
+  //check if fixture A was the foot sensor
+  void* fixtureUserDataA = contact->GetFixtureA()->GetUserData();
+  void* fixtureUserDataB = contact->GetFixtureB()->GetUserData();
+  IDComponent* idCompA = ComponentManager::getInst().idSym.getComponent(findID);
+  IDComponent* idCompB = ComponentManager::getInst().idSym.getComponent(findID);
+
+    string nameA = "ladder";
+    string nameB = "ladder";
+
+    if(idCompA != NULL){
+        std::cout << "isComp are not NUll" << std::endl;
+        //nameA = idCompA->getName();
+    }
+
+    if(idCompB != NULL){
+        std::cout << "isComp are not NUll" << std::endl;
+        nameB = idCompB->getName();
+    }
+
+
+
+  if ( (int)fixtureUserDataA == findID || (int)fixtureUserDataB == findID){
+//std::cout << "LadderListerner BeginContact" << std::endl;
+    if( contact->GetFixtureA()->IsSensor() && nameA == "ladder" && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
+      overLadderNum++;
+      contact->GetFixtureB()->GetBody()->SetGravityScale(0);
+      contact->GetFixtureB()->GetBody()->SetLinearDamping(8.0f);
+    }
+      if( contact->GetFixtureB()->IsSensor() && nameB == "ladder" && (contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody)){
+      overLadderNum++;
+      contact->GetFixtureA()->GetBody()->SetGravityScale(0);
+      contact->GetFixtureA()->GetBody()->SetLinearDamping(8.0f);
+      }
+    }
+
+}
+
+void LadderContactListener::EndContact(b2Contact* contact) {
+
+  void* fixtureUserDataA = contact->GetFixtureA()->GetUserData();
+  void* fixtureUserDataB = contact->GetFixtureB()->GetUserData();
+
+    /*idCompA = compMan->idSym.getComponent((int)fixtureUserDataA);
+    idCompB = compMan->idSym.getComponent((int)fixtureUserDataB);
+
+  /*string nameA = idCompA->getName();
+  string nameB = idCompB->getName();*/
+      string nameA = "ladder";
+  string nameB = "ladder";
+
+  if ( (int)fixtureUserDataA == findID || (int)fixtureUserDataB == findID){
+    if( contact->GetFixtureA()->IsSensor() && nameA == "ladder"  && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
+        overLadderNum--;
+        contact->GetFixtureA()->GetBody()->SetGravityScale(1);
+        contact->GetFixtureA()->GetBody()->SetLinearDamping(0.0f);
+    }
+    if( contact->GetFixtureB()->IsSensor() && nameB == "ladder" && (contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody)){
+        overLadderNum--;
+        contact->GetFixtureA()->GetBody()->SetGravityScale(1);
+        contact->GetFixtureA()->GetBody()->SetLinearDamping(0.0f);
+    }
+    }
+}
+

@@ -38,6 +38,16 @@ void BraveAdventurerInput::go(sf::Time) {
 		movement->sendMessage("WalkRight");
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+		movement->sendMessage("ClimbUp");
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+		movement->sendMessage("ClimbDown");
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
        /* sf::Thread thread(&func);
         thread.launch();*/

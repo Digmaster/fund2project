@@ -1375,14 +1375,14 @@
 	<map>
 	"Components/ComponentSystem.h"
 
-1395768995 d:\programming\fund2project\include\components\render\rendercomponent.h
+1395946863 d:\programming\fund2project\include\components\render\rendercomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Time.hpp>
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Rendering/TextureManager.h"
 
-1395768996 d:\programming\fund2project\include\rendering\renderengine.h
+1395946863 d:\programming\fund2project\include\rendering\renderengine.h
 	"Components/Render/RenderComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
@@ -1724,7 +1724,7 @@
 	<string>
 	<vector>
 
-1395768996 d:\programming\fund2project\include\components\positional\worldpositioncomponent.h
+1395852386 d:\programming\fund2project\include\components\positional\worldpositioncomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Vector2.hpp>
 
@@ -1736,7 +1736,7 @@
 	"Components/ComponentBase.h"
 	<string>
 
-1395633103 d:\programming\fund2project\include\components\physics\physicscomponent.h
+1396049319 d:\programming\fund2project\include\components\physics\physicscomponent.h
 	"Components/ComponentBase.h"
 	<Box2D/Box2D.h>
 
@@ -1916,12 +1916,14 @@
 	"Components/Target/TargetComponent.h"
 	"Components/Script/ScriptComponent.h"
 
-1395633104 source:d:\programming\fund2project\src\components\input\braveadventurerinput.cpp
+1396049091 source:d:\programming\fund2project\src\components\input\braveadventurerinput.cpp
 	"Components/Input/BraveAdventurerInput.h"
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
+	<SFML/Audio.hpp>
+	<SFML/System.hpp>
 
-1395633102 d:\programming\fund2project\include\components\input\braveadventurerinput.h
+1395946863 d:\programming\fund2project\include\components\input\braveadventurerinput.h
 	"Components/Input/InputComponent.h"
 
 1395633104 source:d:\programming\fund2project\src\components\input\dumbkeyboardinputcomponent.cpp
@@ -1938,7 +1940,7 @@
 	"Components/Input/InputComponent.h"
 	"Components/ComponentManager.h"
 
-1395785209 source:d:\programming\fund2project\src\components\movement\braveadventurermovement.cpp
+1396060556 source:d:\programming\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/PhysicsComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1951,16 +1953,17 @@
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
 
-1395633104 source:d:\programming\fund2project\src\components\physics\physicscomponent.cpp
+1395946864 source:d:\programming\fund2project\src\components\physics\physicscomponent.cpp
 	"Components/Physics/PhysicsComponent.h"
 	"Options.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 
-1395768997 source:d:\programming\fund2project\src\components\positional\worldpositioncomponent.cpp
+1395852386 source:d:\programming\fund2project\src\components\positional\worldpositioncomponent.cpp
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
+	"Options.h"
 
 1395768997 source:d:\programming\fund2project\src\components\render\animatedcomponent.cpp
 	"Components/Render/AnimatedComponent.h"
@@ -1987,19 +1990,19 @@
 	<SFML/System/Time.hpp>
 	<stdexcept>
 
-1395633104 source:d:\programming\fund2project\src\components\render\braveadventureranimatedcomponent.cpp
+1395946863 source:d:\programming\fund2project\src\components\render\braveadventureranimatedcomponent.cpp
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
 
-1395633102 d:\programming\fund2project\include\components\render\braveadventureranimatedcomponent.h
+1395946863 d:\programming\fund2project\include\components\render\braveadventureranimatedcomponent.h
 	"Components/Render/AnimatedComponent.h"
 
 1395768997 source:d:\programming\fund2project\src\components\render\rendercomponent.cpp
 	"Components/Render/RenderComponent.h"
 	"Components/ComponentManager.h"
 
-1395769612 source:d:\programming\fund2project\src\gameengine.cpp
+1396046870 source:d:\programming\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -2019,12 +2022,13 @@
 
 1395768996 d:\programming\fund2project\include\gameengine.h
 
-1395633102 d:\programming\fund2project\include\physics\physicsengine.h
+1395946862 d:\programming\fund2project\include\physics\physicsengine.h
 	<SFML/System/Time.hpp>
 	<SFML/System.hpp>
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 	"Components/Render/DebugDraw.h"
+	<deque>
 
 1395633104 d:\programming\fund2project\include\rendering\spritemanager.h
 	"Rendering/AnimatedSprite.h"
@@ -2049,8 +2053,10 @@
 	<iostream>
 	<exception>
 
-1395785793 d:\programming\fund2project\include\components\physics\simpleboxphysics.h
+1396068173 d:\programming\fund2project\include\components\physics\simpleboxphysics.h
+	"Components/ComponentManager.h"
 	"Components\Physics\PhysicsComponent.h"
+	"Components\Identification\IDComponent.h"
 
 1395768997 source:d:\programming\fund2project\src\main.cpp
 	"GameEngine.h"
@@ -2060,7 +2066,7 @@
 1395633105 source:d:\programming\fund2project\src\options.cpp
 	"Options.h"
 
-1395768997 source:d:\programming\fund2project\src\physics\physicsengine.cpp
+1396046870 source:d:\programming\fund2project\src\physics\physicsengine.cpp
 	"Physics/PhysicsEngine.h"
 	"Components/Physics/PhysicsComponent.h"
 	<iostream>
@@ -2071,11 +2077,11 @@
 1395633105 source:d:\programming\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1395768996 source:d:\programming\fund2project\src\rendering\renderengine.cpp
+1395946864 source:d:\programming\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
-1395768996 source:d:\programming\fund2project\src\rendering\spritemanager.cpp
+1395946864 source:d:\programming\fund2project\src\rendering\spritemanager.cpp
 	"Rendering/SpriteManager.h"
 
 1395633105 source:d:\programming\fund2project\src\rendering\texturemanager.cpp
@@ -2113,10 +2119,11 @@
 	"Options.h"
 	"physics/PhysicsEngine.h"
 
-1395785732 source:d:\programming\fund2project\src\components\physics\simpleboxphysics.cpp
+1396065187 source:d:\programming\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 	"Options.h"
+	"physics/PhysicsEngine.h"
 
 1395768997 source:d:\programming\fund2project\src\components\render\staticspritecomponent.cpp
 	"Components/Render/StaticSpriteComponent.h"
@@ -2129,9 +2136,10 @@
 	"SFML/Graphics.hpp"
 	<string>
 
-1395633104 source:d:\programming\fund2project\src\components\physics\boundaryphysics.cpp
+1396046870 source:d:\programming\fund2project\src\components\physics\boundaryphysics.cpp
 	"Components/Physics/BoundaryPhysics.h"
 	"Components/ComponentManager.h"
+	"physics/PhysicsEngine.h"
 
 1395633103 d:\programming\fund2project\include\components\physics\boundaryphysics.h
 	"Components\Physics\PhysicsComponent.h"
@@ -3105,7 +3113,7 @@
 	"Components\Physics\PhysicsComponent.h"
 	"Options.h"
 
-1395789554 source:d:\programming\fund2project\src\levelloader.cpp
+1396058133 source:d:\programming\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -3121,8 +3129,9 @@
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Rendering/SpriteManager.h"
 	"Components/Input/BraveAdventurerInput.h"
+	"Components/Physics/BoundaryPhysics.h"
 
-1395786835 d:\programming\fund2project\include\levelloader.h
+1396046870 d:\programming\fund2project\include\levelloader.h
 	<string>
 	<map>
 	<SFML/Graphics.hpp>
@@ -3204,18 +3213,11 @@
 	"Components/ComponentBase.h"
 	"Components/ComponentBase.h"
 
-1395768997 source:d:\programming\fund2project\src\components\identification\idcomponent.cpp
-	"IDComponent.h"
-	"Components/ComponentManager.h"
+1396065891 source:d:\programming\fund2project\src\components\identification\idcomponent.cpp
 	"IDComponent.h"
 	"Components/ComponentManager.h"
 
-1395785209 source:d:\programming\fund2project\src\components\scrpt\camera.cpp
-	"Components/Script/Camera.h"
-	"Components/ComponentManager.h"
-	"Components/Physics/PhysicsComponent.h"
-	"Components/Positional/WorldPositionComponent.h"
-	"Rendering/RenderEngine.h"
+1395852386 source:d:\programming\fund2project\src\components\scrpt\camera.cpp
 	"Components/Script/Camera.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
@@ -3335,6 +3337,66 @@
 	<vector>
 
 1394047909 c:\users\thomas luppi\documents\fund2project\dependancies\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Thread.hpp>
+	<vector>
+
+1395633099 d:\programming\fund2project\dependancies\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1395633098 d:\programming\fund2project\dependancies\include\sfml\audio\soundrecorder.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Thread.hpp>
 	<vector>

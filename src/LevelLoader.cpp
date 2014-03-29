@@ -488,8 +488,8 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
 void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
 
     //Simple makeSensor without a sprite. Cannot figure out why the position is messed up.
-
-    /*if(dimension.x > dimension.y){
+    position.y +=dimension.y/2;
+   /* if(dimension.x > dimension.y){
         position.x +=dimension.x/8;
         position.y -=dimension.y/8;
     }
@@ -497,7 +497,7 @@ void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<s
         position.x -=dimension.x/8;
         position.y +=dimension.y/8;
 
-    }*/
+    } */
     unsigned int id = ComponentBase::getNewID();
     //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 

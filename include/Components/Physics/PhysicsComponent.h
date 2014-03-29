@@ -17,6 +17,7 @@ class PhysicsComponent : public ComponentBase
         virtual bool onLeft() {return false;}
         virtual bool onRight() {return false;}
         virtual bool onTop() {return false;}
+        virtual bool overLadder() { return false;}
         b2Body* getBody() {return physBody;}
     protected:
         static int pixelsPerMeter;
