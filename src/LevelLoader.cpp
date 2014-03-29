@@ -507,8 +507,9 @@ void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<s
 
     SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, dimension.x, dimension.y, true, false, false, true);
 
-    if (name!="none")
+    if (name!="none") {
         IDComponent* identification = new IDComponent(id, name);
+    }
 }
 
 void Level::makeCamera(sf::Sprite sprite, sf::Vector2f position, std::map<std::string, std::string> properties, int layer, std::string name) {

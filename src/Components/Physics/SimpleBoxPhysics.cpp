@@ -171,21 +171,19 @@ void FootContactListener::EndContact(b2Contact* contact) {
 
 void LadderContactListener::BeginContact(b2Contact* contact) {
   //check if fixture A was the foot sensor
-  void* fixtureUserDataA = contact->GetFixtureA()->GetUserData();
-  void* fixtureUserDataB = contact->GetFixtureB()->GetUserData();
-  IDComponent* idCompA = ComponentManager::getInst().idSym.getComponent(findID);
-  IDComponent* idCompB = ComponentManager::getInst().idSym.getComponent(findID);
+  int fixtureUserDataA = (int)contact->GetFixtureA()->GetUserData();
+  int fixtureUserDataB = (int)contact->GetFixtureB()->GetUserData();
+  IDComponent* idCompA = ComponentManager::getInst().idSym.getComponent(fixtureUserDataA/10); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
+  IDComponent* idCompB = ComponentManager::getInst().idSym.getComponent(fixtureUserDataB/10);
 
-    string nameA = "ladder";
-    string nameB = "ladder";
+    string nameA;
+    string nameB;
 
     if(idCompA != NULL){
-        std::cout << "isComp are not NUll" << std::endl;
-        //nameA = idCompA->getName();
+        nameA = idCompA->getName();
     }
 
     if(idCompB != NULL){
-        std::cout << "isComp are not NUll" << std::endl;
         nameB = idCompB->getName();
     }
 
@@ -209,16 +207,18 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
 
 void LadderContactListener::EndContact(b2Contact* contact) {
 
-  void* fixtureUserDataA = contact->GetFixtureA()->GetUserData();
-  void* fixtureUserDataB = contact->GetFixtureB()->GetUserData();
+    int fixtureUserDataA = (int)contact->GetFixtureA()->GetUserData();
+    int fixtureUserDataB = (int)contact->GetFixtureB()->GetUserData();
 
-    /*idCompA = compMan->idSym.getComponent((int)fixtureUserDataA);
-    idCompB = compMan->idSym.getComponent((int)fixtureUserDataB);
+    IDComponent* idCompA = ComponentManager::getInst().idSym.getComponent(fixtureUserDataA/10);
+    IDComponent* idCompB = ComponentManager::getInst().idSym.getComponent(fixtureUserDataB/10);
 
-  /*string nameA = idCompA->getName();
-  string nameB = idCompB->getName();*/
-      string nameA = "ladder";
-  string nameB = "ladder";
+    string nameA;
+    string nameB;
+    if(idCompA)
+        nameA = idCompA->getName();
+    if(idCompB)
+        nameB = idCompB->getName();
 
   if ( (int)fixtureUserDataA == findID || (int)fixtureUserDataB == findID){
     if( contact->GetFixtureA()->IsSensor() && nameA == "ladder"  && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){

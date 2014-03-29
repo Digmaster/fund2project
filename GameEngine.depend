@@ -1044,7 +1044,7 @@
 1395731672 source:c:\users\thomas luppi\documents\fund2project\src\components\componentmanager.cpp
 	"Components/ComponentManager.h"
 
-1395889606 source:c:\users\thomas luppi\documents\fund2project\src\components\input\braveadventurerinput.cpp
+1396083687 source:c:\users\thomas luppi\documents\fund2project\src\components\input\braveadventurerinput.cpp
 	"Components/Input/BraveAdventurerInput.h"
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
@@ -1068,7 +1068,7 @@
 	"Components/Input/InputComponent.h"
 	"Components/ComponentManager.h"
 
-1395959239 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
+1396083687 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/PhysicsComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -1157,7 +1157,7 @@
 1395705854 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
 	"Rendering/TextureManager.h"
 
-1395897411 source:c:\users\thomas luppi\documents\fund2project\src\physics\physicsengine.cpp
+1395988884 source:c:\users\thomas luppi\documents\fund2project\src\physics\physicsengine.cpp
 	"Physics/PhysicsEngine.h"
 	"Components/Physics/PhysicsComponent.h"
 	<iostream>
@@ -1338,7 +1338,7 @@
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 
-1395897509 c:\users\thomas luppi\documents\fund2project\include\components\physics\physicscomponent.h
+1396083686 c:\users\thomas luppi\documents\fund2project\include\components\physics\physicscomponent.h
 	"Components/ComponentBase.h"
 	<Box2D/Box2D.h>
 
@@ -1346,8 +1346,10 @@
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 
-1395904769 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
+1396083686 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
+	"Components/ComponentManager.h"
 	"Components\Physics\PhysicsComponent.h"
+	"Components\Identification\IDComponent.h"
 
 1395768997 source:d:\programming\fund2project\src\components\componentbase.cpp
 	"Components/ComponentBase.h"
@@ -2113,7 +2115,7 @@
 	"SFML/Graphics.hpp"
 	<string>
 
-1395988807 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
+1396085437 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 	"Options.h"
@@ -3045,7 +3047,7 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1395988186 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+1396084934 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -3171,7 +3173,7 @@
 1395729463 c:\users\thomas luppi\documents\fund2project\include\components\identification\idcomponent.h
 	"Components/ComponentBase.h"
 
-1395729745 source:c:\users\thomas luppi\documents\fund2project\src\components\identification\idcomponent.cpp
+1396084967 source:c:\users\thomas luppi\documents\fund2project\src\components\identification\idcomponent.cpp
 	"IDComponent.h"
 	"Components/ComponentManager.h"
 
