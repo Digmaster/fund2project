@@ -8,13 +8,13 @@ class WorldPositionComponent : public ComponentBase {
     public:
         /** Default constructor */
         WorldPositionComponent() {}
-        WorldPositionComponent(unsigned int ID);
+        WorldPositionComponent(unsigned int ID, sf::Vector2f = sf::Vector2f(0,0), int = 0, float = 0);
         /** Default destructor */
         void go(sf::Time frameTime);
         void setPosition(sf::Vector2f input, bool awaken = true);
-        void move(sf::Vector2f input) {position+=input;};
+        void move(sf::Vector2f input, bool awaken = true);
         sf::Vector2f getPosition() {return position;}
-        void setRotation(float input) {rotation = input;}
+        void setRotation(float input, bool awaken = true);
         float getRotation() {return rotation;}
         int getLayer();
         void setLayer(int);

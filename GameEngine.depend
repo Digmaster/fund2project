@@ -1009,7 +1009,7 @@
 	<map>
 	"Components/ComponentSystem.h"
 
-1395788073 c:\users\thomas luppi\documents\fund2project\include\components\positional\worldpositioncomponent.h
+1396248942 c:\users\thomas luppi\documents\fund2project\include\components\positional\worldpositioncomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Vector2.hpp>
 
@@ -1083,7 +1083,7 @@
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
 
-1395788103 source:c:\users\thomas luppi\documents\fund2project\src\components\positional\worldpositioncomponent.cpp
+1396249254 source:c:\users\thomas luppi\documents\fund2project\src\components\positional\worldpositioncomponent.cpp
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
@@ -3049,7 +3049,7 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1396248066 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+1396249288 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -3172,10 +3172,10 @@
 	"Options.h"
 	<SFML/Graphics.hpp>
 
-1395729463 c:\users\thomas luppi\documents\fund2project\include\components\identification\idcomponent.h
+1396248577 c:\users\thomas luppi\documents\fund2project\include\components\identification\idcomponent.h
 	"Components/ComponentBase.h"
 
-1396084967 source:c:\users\thomas luppi\documents\fund2project\src\components\identification\idcomponent.cpp
+1396248597 source:c:\users\thomas luppi\documents\fund2project\src\components\identification\idcomponent.cpp
 	"IDComponent.h"
 	"Components/ComponentManager.h"
 

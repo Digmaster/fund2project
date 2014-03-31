@@ -486,9 +486,7 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
     unsigned int id = ComponentBase::getNewID();
     StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
-    WorldPositionComponent* posComp= new WorldPositionComponent(id);
-    posComp->setPosition(position);
-    posComp->setLayer(layer);
+    WorldPositionComponent* posComp= new WorldPositionComponent(id, position, layer);
 
     SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(sprite.getGlobalBounds().width, sprite.getGlobalBounds().height), 1, 0x00 );
 
@@ -505,9 +503,7 @@ void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<s
     unsigned int id = ComponentBase::getNewID();
     //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
-    WorldPositionComponent* posComp= new WorldPositionComponent(id);
-    posComp->setPosition(position);
-    posComp->setLayer(layer);
+    WorldPositionComponent* posComp= new WorldPositionComponent(id, position, layer);
 
     SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(dimension.x, dimension.y), 0, PO::sensor | PO::isStatic);
 
@@ -535,9 +531,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
     testSprite->setSprite(spriteMan.getSprite("Samus"));
     testSprite->sprite.setAnimation("WalkUp");
 
-    WorldPositionComponent* testPosition = new WorldPositionComponent(id);
-    testPosition->setPosition(position);
-    testPosition->setLayer(layer);
+    WorldPositionComponent* testPosition = new WorldPositionComponent(id, position, layer);
 
     KeyboardInput* testInput = new KeyboardInput(id);
 
