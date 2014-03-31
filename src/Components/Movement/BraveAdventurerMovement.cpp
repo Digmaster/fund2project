@@ -19,21 +19,17 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
         b2Body* body = physics->getBody();
         b2Vec2 velocity = body->GetLinearVelocity();
         if(input->walkLeft) {
-            if(physics->onGround()) {
+            if(physics->onGround())
                 body->ApplyLinearImpulse(b2Vec2(-3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
-            }
-            else if(physics->onLeft()==false) {
+            else
                 body->ApplyLinearImpulse(b2Vec2(-1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
-            }
             currMovement = "WalkLeft";
         }
         if(input->walkRight) {
-            if(physics->onRight()==false) {
-                if(physics->onGround())
-                    body->ApplyLinearImpulse(b2Vec2(3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
-                else
-                    body->ApplyLinearImpulse(b2Vec2(1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
-            }
+            if(physics->onGround())
+                body->ApplyLinearImpulse(b2Vec2(3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
+            else
+                body->ApplyLinearImpulse(b2Vec2(1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
             currMovement = "WalkRight";
         }
         if(input->climbUp){
@@ -48,6 +44,7 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
             }
             currMovement = "ClimbDown";
         }
+        // TODO (Thomas Luppi#1#03/31/14): Add timer for jump
         if(input->jump) {
             if(physics->onGround()) {
                 body->ApplyLinearImpulse(b2Vec2(0,6),body->GetWorldCenter(),true);
@@ -56,6 +53,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
         }
         if(input->activate)
             position->setPosition(sf::Vector2f(100,100));
-        //cout << currMovement << endl;
+        if(!(input->jump || input->activate || input->climbDown || input->climbUp || input->walkLeft || input->walkRight))
+            currMovement = "still";
+        cout << currMovement << endl;
     }
 }

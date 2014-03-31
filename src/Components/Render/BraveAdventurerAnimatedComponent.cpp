@@ -11,23 +11,36 @@ BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent()
 void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
     AnimatedComponent::go(fps);
     MovementComponent* movement = ComponentManager::getInst().moveSym.getComponent(getID());
+    PhysicsComponent* phys = ComponentManager::getInst().physSym.getComponent(getID());
     if(movement!=NULL) {
-        if(movement->getCurrentMovement() == "WalkLeft") {
-            sprite.setAnimation("WalkLeft");
+        if(movement->getCurrentMovement()=="WalkLeft") {
+            if(phys->onGround())
+                sprite.setAnimation("WalkLeft");
+            else
+                sprite.setAnimation("FallLeft");
             currDir = 1;
         }
-        if(movement->getCurrentMovement() == "WalkRight") {
-            sprite.setAnimation("WalkRight");
+        if(movement->getCurrentMovement()=="WalkRight") {
+            if(phys->onGround())
+                sprite.setAnimation("WalkRight");
+            else
+                sprite.setAnimation("FallRight");
             currDir = 0;
         }
         //cout<<movement->getCurrentMovement()<<endl;
-        if(movement->getCurrentMovement() == "none"){
+        if(movement->getCurrentMovement() == "still"){
             if(currDir){
-                sprite.setAnimation("StandLeft");
+                if(phys->onGround())
+                    sprite.setAnimation("StandLeft");
+                else
+                    sprite.setAnimation("FallLeft");
                // cout<<"Standing Right"<<endl;
             }
             else{
-                sprite.setAnimation("StandRight");
+                if(phys->onGround())
+                    sprite.setAnimation("StandRight");
+                else
+                    sprite.setAnimation("FallLeft");
                // cout<<"standing Left"<<endl;
             }
         }
