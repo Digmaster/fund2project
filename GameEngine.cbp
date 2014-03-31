@@ -23,6 +23,7 @@
 					<Add directory="include/Components/Identification" />
 					<Add directory="include/Components/Script" />
 					<Add directory="include/Components/Target" />
+					<Add directory="include/Components/Input" />
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
@@ -48,6 +49,7 @@
 					<Add directory="include/Components/Identification" />
 					<Add directory="include/Components/Script" />
 					<Add directory="include/Components/Target" />
+					<Add directory="include/Components/Input" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -75,6 +77,7 @@
 		<Unit filename="include/Components/Input/BraveAdventurerInput.h" />
 		<Unit filename="include/Components/Input/DumbKeyboardInputComponent.h" />
 		<Unit filename="include/Components/Input/InputComponent.h" />
+		<Unit filename="include/Components/Input/KeyboardInput.h" />
 		<Unit filename="include/Components/Movement/BraveAdventurerMovement.h" />
 		<Unit filename="include/Components/Movement/MovementComponent.h" />
 		<Unit filename="include/Components/Physics/BoundaryPhysics.h" />
@@ -90,6 +93,7 @@
 		<Unit filename="include/Components/Script/ScriptComponent.h" />
 		<Unit filename="include/Components/Target/TargetComponent.h" />
 		<Unit filename="include/GameEngine.h" />
+		<Unit filename="include/InputEngine.h" />
 		<Unit filename="include/LevelLoader.h" />
 		<Unit filename="include/Options.h" />
 		<Unit filename="include/Rendering/AnimatedSprite.h" />
@@ -105,6 +109,7 @@
 		<Unit filename="src/Components/Input/BraveAdventurerInput.cpp" />
 		<Unit filename="src/Components/Input/DumbKeyboardInputComponent.cpp" />
 		<Unit filename="src/Components/Input/InputComponent.cpp" />
+		<Unit filename="src/Components/Input/KeyboardInput.cpp" />
 		<Unit filename="src/Components/Movement/BraveAdventurerMovement.cpp" />
 		<Unit filename="src/Components/Movement/MovementComponent.cpp" />
 		<Unit filename="src/Components/Physics/BoundaryPhysics.cpp" />
@@ -120,6 +125,7 @@
 		<Unit filename="src/Components/Scrpt/ScriptComponent.cpp" />
 		<Unit filename="src/Components/Target/TargetComponent.cpp" />
 		<Unit filename="src/GameEngine.cpp" />
+		<Unit filename="src/InputEngine.cpp" />
 		<Unit filename="src/LevelLoader.cpp" />
 		<Unit filename="src/Options.cpp" />
 		<Unit filename="src/Rendering/AnimatedSprite.cpp" />

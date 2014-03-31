@@ -865,7 +865,7 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1395970114 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1396228748 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -882,8 +882,9 @@
 	"Rendering/RenderEngine.h"
 	"Components/ComponentManager.h"
 	"physics/PhysicsEngine.h"
+	"InputEngine.h"
 
-1395718011 c:\users\thomas luppi\documents\fund2project\include\gameengine.h
+1396228567 c:\users\thomas luppi\documents\fund2project\include\gameengine.h
 
 1394994073 source:c:\users\thomas luppi\documents\fund2project\src\animatedcomponent.cpp
 	"AnimatedComponent.h"
@@ -1000,7 +1001,7 @@
 	<iostream>
 	"Rendering/TextureManager.h"
 
-1395733215 c:\users\thomas luppi\documents\fund2project\include\components\componentbase.h
+1396235700 c:\users\thomas luppi\documents\fund2project\include\components\componentbase.h
 	<SFML/System/Time.hpp>
 	<string>
 	<deque>
@@ -1013,7 +1014,7 @@
 	"Components/ComponentBase.h"
 	<SFML/System/Vector2.hpp>
 
-1395622611 c:\users\thomas luppi\documents\fund2project\include\components\input\inputcomponent.h
+1396172405 c:\users\thomas luppi\documents\fund2project\include\components\input\inputcomponent.h
 	<SFML/System/Time.hpp>
 	"Components/ComponentBase.h"
 
@@ -1035,7 +1036,7 @@
 	"Components/Target/TargetComponent.h"
 	"Components/Script/ScriptComponent.h"
 
-1395733086 source:c:\users\thomas luppi\documents\fund2project\src\components\componentbase.cpp
+1396228775 source:c:\users\thomas luppi\documents\fund2project\src\components\componentbase.cpp
 	"Components/ComponentBase.h"
 	"Components/ComponentManager.h"
 	"Rendering/RenderEngine.h"
@@ -1054,7 +1055,7 @@
 1395889615 c:\users\thomas luppi\documents\fund2project\include\components\input\braveadventurerinput.h
 	"Components/Input/InputComponent.h"
 
-1395379215 source:c:\users\thomas luppi\documents\fund2project\src\components\input\dumbkeyboardinputcomponent.cpp
+1396158133 source:c:\users\thomas luppi\documents\fund2project\src\components\input\dumbkeyboardinputcomponent.cpp
 	"Components/Input/DumbKeyboardInputComponent.h"
 	"Components/ComponentManager.h"
 
@@ -1064,15 +1065,17 @@
 	<SFML/Graphics.hpp>
 	"Components/Positional/WorldPositionComponent.h"
 
-1395624109 source:c:\users\thomas luppi\documents\fund2project\src\components\input\inputcomponent.cpp
+1396235613 source:c:\users\thomas luppi\documents\fund2project\src\components\input\inputcomponent.cpp
 	"Components/Input/InputComponent.h"
 	"Components/ComponentManager.h"
+	"Rendering/RenderEngine.h"
 
-1396083687 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
+1396172519 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\braveadventurermovement.cpp
 	"Components/Movement/BraveAdventurerMovement.h"
 	"Components/Physics/PhysicsComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/ComponentManager.h"
+	"Components/Input/InputComponent.h"
 
 1395013025 c:\users\thomas luppi\documents\fund2project\include\components\movement\braveadventurermovement.h
 	"Components/Movement/MovementComponent.h"
@@ -2115,7 +2118,7 @@
 	"SFML/Graphics.hpp"
 	<string>
 
-1396085437 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
+1396085510 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 	"Options.h"
@@ -3047,7 +3050,7 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1396084934 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+1396172607 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -3064,6 +3067,7 @@
 	"Rendering/SpriteManager.h"
 	"Components/Input/BraveAdventurerInput.h"
 	"Components/Physics/BoundaryPhysics.h"
+	"Components/Input/KeyboardInput.h"
 
 1395700059 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simplestaticboxphysics.cpp
 	"Components/Physics/SimpleStaticBoxPhysics.h"
@@ -3180,7 +3184,7 @@
 1395734796 c:\users\thomas luppi\documents\fund2project\include\components\target\targetcomponent.h
 	"Components/ComponentBase.h"
 
-1395731658 c:\users\thomas luppi\documents\fund2project\include\components\script\scriptcomponent.h
+1396158230 c:\users\thomas luppi\documents\fund2project\include\components\script\scriptcomponent.h
 	"Components/ComponentBase.h"
 
 1395732096 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\scriptcomponent.cpp
@@ -3402,4 +3406,25 @@
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Thread.hpp>
 	<vector>
+
+1396235766 source:c:\users\thomas luppi\documents\fund2project\src\components\input\keyboardinput.cpp
+	"KeyboardInput.h"
+	<cmath>
+	<SFML/Graphics.hpp>
+	"Rendering/RenderEngine.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/ComponentManager.h"
+	"InputEngine.h"
+	"GameEngine.h"
+
+1396235740 c:\users\thomas luppi\documents\fund2project\include\components\input\keyboardinput.h
+	"Components/Input/InputComponent.h"
+
+1396228501 source:c:\users\thomas luppi\documents\fund2project\src\inputengine.cpp
+	"InputEngine.h"
+	"GameEngine.h"
+	"Rendering/RenderEngine.h"
+
+1396228333 c:\users\thomas luppi\documents\fund2project\include\inputengine.h
+	<SFML/Graphics.hpp>
 

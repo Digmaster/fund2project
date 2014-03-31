@@ -16,6 +16,7 @@
 #include "Rendering/SpriteManager.h"
 #include "Components/Input/BraveAdventurerInput.h"
 #include "Components/Physics/BoundaryPhysics.h"
+#include "Components/Input/KeyboardInput.h"
 
 
 
@@ -535,7 +536,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
     testPosition->setPosition(position);
     testPosition->setLayer(layer);
 
-    BraveAdventurerInput* testInput = new BraveAdventurerInput(id);
+    KeyboardInput* testInput = new KeyboardInput(id);
 
     BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
 

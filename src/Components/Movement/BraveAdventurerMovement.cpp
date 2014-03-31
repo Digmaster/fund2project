@@ -2,6 +2,7 @@
 #include "Components/Physics/PhysicsComponent.h"
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/ComponentManager.h"
+#include "Components/Input/InputComponent.h"
 
 using namespace std;
 
@@ -11,9 +12,47 @@ BraveAdventurerMovement::BraveAdventurerMovement()
 }
 
 void BraveAdventurerMovement::go(sf::Time frameTime) {
-    string message = getMessage();
+
     PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
+    InputComponent* input = compMan->inputSym.getComponent(getID());
+    if(physics!=NULL) {
+        b2Body* body = physics->getBody();
+        b2Vec2 velocity = body->GetLinearVelocity();
+        if(input->walkLeft) {
+            if(physics->onGround()) {
+                body->ApplyLinearImpulse(b2Vec2(-3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
+            }
+            else if(physics->onLeft()==false) {
+                body->ApplyLinearImpulse(b2Vec2(-1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
+            }
+        }
+        if(input->walkRight) {
+            if(physics->onRight()==false) {
+                if(physics->onGround())
+                    body->ApplyLinearImpulse(b2Vec2(3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
+                else
+                    body->ApplyLinearImpulse(b2Vec2(1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
+            }
+        }
+        if(input->climbUp){
+            if(physics->overLadder()==true) {
+                body->ApplyLinearImpulse(b2Vec2(0,1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
+            }
+        }
+        if(input->climbDown){
+            if(physics->overLadder()==true) {
+                    body->ApplyLinearImpulse(b2Vec2(0,-1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
+            }
+        }
+        if(input->jump)
+            if(physics->onGround()) {
+                body->ApplyLinearImpulse(b2Vec2(0,6),body->GetWorldCenter(),true);
+            }
+        if(input->activate)
+            position->setPosition(sf::Vector2f(100,100));
+
+    /*string message = getMessage();
     if(message == "NOMESSAGE")
         currMovement = "none";
     while(message!="NOMESSAGE") {
@@ -21,24 +60,26 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
             b2Body* body = physics->getBody();
             b2Vec2 velocity = body->GetLinearVelocity();
 
-            /* TODO (Thomas Luppi#1#03/27/14): Use force instead of impulse here, should work better? */
+            // TODO (Thomas Luppi#1#03/27/14): Use force instead of impulse here, should work better?
 
-            if(message == "WalkLeft")
+            if(message == "WalkLeft") {
                 if(physics->onGround()) {
                     body->ApplyLinearImpulse(b2Vec2(-3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
                 }
                 else if(physics->onLeft()==false) {
                     body->ApplyLinearImpulse(b2Vec2(-1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
                 }
+            }
 
                 //position->move(sf::Vector2f(-2,0));
-            if(message == "WalkRight")
+            if(message == "WalkRight") {
                 if(physics->onRight()==false) {
                     if(physics->onGround())
                         body->ApplyLinearImpulse(b2Vec2(3.0f-velocity.x*3.0f/15.0f,0),body->GetWorldCenter(),true);
                     else
                         body->ApplyLinearImpulse(b2Vec2(1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
                 }
+            }
 
             if(message == "ClimbUp"){
 
@@ -61,6 +102,6 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 position->setPosition(sf::Vector2f(100,100));
         }
         currMovement = message;
-        message = getMessage();
+        message = getMessage();*/
     }
 }

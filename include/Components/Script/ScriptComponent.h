@@ -11,8 +11,8 @@ class ScriptComponent : public ComponentBase
         ScriptComponent(unsigned int ID);
         virtual ~ScriptComponent();
         virtual bool isActive() {return active;}
-        virtual bool enable() {active = true;}
-        virtual bool disable() {active = false;}
+        virtual void enable() {active = true;}
+        virtual void disable() {active = false;}
     protected:
         bool active;
     private:

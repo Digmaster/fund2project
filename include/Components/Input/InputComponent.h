@@ -10,6 +10,17 @@ class InputComponent : public ComponentBase {
         InputComponent(unsigned int ID);
         virtual ~InputComponent();
         virtual void go(sf::Time) {}
+        bool walkLeft;
+        bool walkRight;
+        bool climbUp;
+        bool climbDown;
+        bool fire;
+        bool jump;
+        bool activate;
+        int currWeapon;
+        float fireDir;
+        float mouseX;
+        float mouseY;
     protected:
     private:
 };

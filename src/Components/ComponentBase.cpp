@@ -5,6 +5,7 @@
 
 ComponentManager* ComponentBase::compMan = &ComponentManager::getInst();
 RenderEngine* ComponentBase::rendEng = NULL;
+GameEngine* ComponentBase::eng = NULL;
 
 std::string ComponentBase::getMessage() {
     std::string output;
