@@ -431,6 +431,17 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         objProperties[propertyName]=propertyValue;
                     }
                 }
+                xml_node<>* polygon_node = object_node->first_node("polygon")
+                if(polygon_node) {
+                    vector<sf::Vector2i> points
+                    sf::string pointString
+                    attribute = object_node->first_attribute("points");
+                    if(attribute!=NULL) {
+                        pointString = attribute->value();
+                        //Turn string into paired points
+                    }
+
+                }
 
                 if(type=="box")
                     makeBox(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
@@ -485,20 +496,27 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
     if (name!="none")
         IDComponent* identification = new IDComponent(id, name);
 }
+/*void Level::makeSensor(vector<sf::Vector2i> points, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
+    position.y +=dimension.y/2;
 
+    unsigned int id = ComponentBase::getNewID();
+    //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
+
+    WorldPositionComponent* posComp= new WorldPositionComponent(id);
+    posComp->setPosition(position);
+    posComp->setLayer(layer);
+
+    SimpleVertexPhysics* physComp = new SimpleVertexPhysics(id, points, true, false, false, true);
+
+    if (name!="none") {
+        IDComponent* identification = new IDComponent(id, name);
+    }
+}*/
 void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
 
     //Simple makeSensor without a sprite. Cannot figure out why the position is messed up.
     position.y +=dimension.y/2;
-   /* if(dimension.x > dimension.y){
-        position.x +=dimension.x/8;
-        position.y -=dimension.y/8;
-    }
-    else{
-        position.x -=dimension.x/8;
-        position.y +=dimension.y/8;
 
-    } */
     unsigned int id = ComponentBase::getNewID();
     //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
