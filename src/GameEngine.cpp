@@ -3,7 +3,6 @@
 #include "Components/Render/AnimatedComponent.h"
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Render/BraveAdventurerAnimatedComponent.h"
-#include "Components/Input/BraveAdventurerInput.h"
 #include "Components/Movement/BraveAdventurerMovement.h"
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Physics/BoundaryPhysics.h"

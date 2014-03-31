@@ -14,10 +14,9 @@ class SimpleBoxPhysics : public PhysicsComponent
 {
     public:
         SimpleBoxPhysics() : PhysicsComponent() {}
-        // TODO (Thomas Luppi#5#03/27/14): Use flags here instead of parameters; we're getting tons of bools here, should clean it up a bit
-        SimpleBoxPhysics(unsigned int, int x = 32, int y = 32, bool isStatic = false, bool rotatable = true, bool roundedCorners = false, bool isSensor = false);
+        // Flags are defined in Physics Component
+        SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts );
         virtual ~SimpleBoxPhysics();
-        void setRotatable(bool);
         void go(sf::Time);
         bool onGround();
         bool onLeft();

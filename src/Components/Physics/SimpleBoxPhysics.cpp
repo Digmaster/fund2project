@@ -3,20 +3,20 @@
 #include "Options.h"
 #include "physics/PhysicsEngine.h"
 
-SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic, bool rotatable, bool roundedCorners, bool isSensor) : PhysicsComponent(ID)
+SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts ) : PhysicsComponent(ID)
 {
-    if(isStatic)
+    if(opts & PO::isStatic)
         physBodyDef.type = b2_staticBody;
     else
         physBodyDef.type = b2_dynamicBody;
     physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
-    physBodyDef.fixedRotation = !rotatable;
+    physBodyDef.fixedRotation = (opts & PO::notRotatable);
     physBody = physEng->_world->CreateBody(&physBodyDef);
-    if(roundedCorners) {
+    if(opts & PO::roundedCorners) {
         b2Vec2 boxVertices[8];
-        float ax = .5f*x/pixelsPerMeter;
-        float ay = .5f*y/pixelsPerMeter;
+        float ax = .5f*size.x/pixelsPerMeter;
+        float ay = .5f*size.y/pixelsPerMeter;
         boxVertices[0].Set(-ax*.8f, -ay);
         boxVertices[1].Set(-ax, -ay*.8f);
         boxVertices[2].Set(ax*.8f, -ay);
@@ -38,41 +38,41 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, int x, int y, bool isStatic,
         footListener = NULL;
     }
     else {
-        boxShape.SetAsBox(.5*x/pixelsPerMeter,.5*y/pixelsPerMeter);
+        boxShape.SetAsBox(.5*size.x/pixelsPerMeter,.5*size.y/pixelsPerMeter);
     }
     boxFixtureDef.shape = &boxShape;
     boxFixtureDef.density = 1;
     boxFixtureDef.restitution = 0;
-    boxFixtureDef.friction = 1;
-    boxFixtureDef.isSensor = isSensor;
+    boxFixtureDef.friction = friction;
+    boxFixtureDef.isSensor = (opts & PO::sensor);
     b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
     fixture->SetUserData( (void*)(getID()*10+0) );
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
 
-    if(!isStatic && !rotatable) { //All of the sensors!!!
+    if(opts & PO::sideSensors) { //All of the sensors!!!
         //foot
-        boxShape.SetAsBox(x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-y/(2.0f*pixelsPerMeter)), 0);
+        boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-size.y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* footSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         footSensorFixture->SetUserData( (void*)(getID()*10+1) );
         footListener = new FootContactListener(getID()*10+1, this);
         physEng->contactListeners.addListener(footListener);
         //head
-        boxShape.SetAsBox(x*.45/pixelsPerMeter, 0.1, b2Vec2(0,y/(2.0f*pixelsPerMeter)), 0);
+        boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,size.y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* headSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         headSensorFixture->SetUserData( (void*)(getID()*10+2) );
         headListener = new FootContactListener(getID()*10+2, this);
         physEng->contactListeners.addListener(headListener);
         //left
-        boxShape.SetAsBox(.1f, y*.35/pixelsPerMeter, b2Vec2(-x/(2.0f*pixelsPerMeter),0), 0);
+        boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(-size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* leftSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         leftSensorFixture->SetUserData( (void*)(getID()*10+3) );
         leftListener = new FootContactListener(getID()*10+3, this);
         physEng->contactListeners.addListener(leftListener);
         //right
-        boxShape.SetAsBox(.1f, y*.35/pixelsPerMeter, b2Vec2(x/(2.0f*pixelsPerMeter),0), 0);
+        boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* rightSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         rightSensorFixture->SetUserData( (void*)(getID()*10+4) );
@@ -136,10 +136,6 @@ void SimpleBoxPhysics::go(sf::Time frameTime) {
     position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)),false);
     position->setRotation(physBody->GetAngle());
     //cout << physBody->GetPosition().x << " " << physBody->GetPosition().y << " " << physBodyDef.awake << endl;
-}
-
-void SimpleBoxPhysics::setRotatable(bool input) {
-    //physBodyDef.fixedRotation = !input;
 }
 
 

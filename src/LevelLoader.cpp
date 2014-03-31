@@ -14,7 +14,6 @@
 #include "Components/Render/BraveAdventurerAnimatedComponent.h"
 #include "Components/Movement/BraveAdventurerMovement.h"
 #include "Rendering/SpriteManager.h"
-#include "Components/Input/BraveAdventurerInput.h"
 #include "Components/Physics/BoundaryPhysics.h"
 #include "Components/Input/KeyboardInput.h"
 
@@ -431,10 +430,10 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         objProperties[propertyName]=propertyValue;
                     }
                 }
-                xml_node<>* polygon_node = object_node->first_node("polygon")
+                xml_node<>* polygon_node = object_node->first_node("polygon");
                 if(polygon_node) {
-                    vector<sf::Vector2i> points
-                    sf::string pointString
+                    vector<sf::Vector2i> points;
+                    string pointString;
                     attribute = object_node->first_attribute("points");
                     if(attribute!=NULL) {
                         pointString = attribute->value();
@@ -482,8 +481,8 @@ sf::Color Level::HexToColor(std::string input) {
 }
 
 void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
-    //position.x +=sprite.getGlobalBounds().width/2;
-    position.y -=sprite.getGlobalBounds().height/2;
+    position.x +=sprite.getGlobalBounds().width/2-tilewidth/2;
+    position.x +=sprite.getGlobalBounds().height/2-tileheight/2;
     unsigned int id = ComponentBase::getNewID();
     StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
@@ -491,31 +490,17 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
     posComp->setPosition(position);
     posComp->setLayer(layer);
 
-    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, sprite.getGlobalBounds().width, sprite.getGlobalBounds().height, false, true, false, false);
+    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(sprite.getGlobalBounds().width, sprite.getGlobalBounds().height), 1, 0x00 );
 
     if (name!="none")
         IDComponent* identification = new IDComponent(id, name);
 }
-/*void Level::makeSensor(vector<sf::Vector2i> points, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
-    position.y +=dimension.y/2;
 
-    unsigned int id = ComponentBase::getNewID();
-    //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
-
-    WorldPositionComponent* posComp= new WorldPositionComponent(id);
-    posComp->setPosition(position);
-    posComp->setLayer(layer);
-
-    SimpleVertexPhysics* physComp = new SimpleVertexPhysics(id, points, true, false, false, true);
-
-    if (name!="none") {
-        IDComponent* identification = new IDComponent(id, name);
-    }
-}*/
 void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
 
     //Simple makeSensor without a sprite. Cannot figure out why the position is messed up.
-    position.y +=dimension.y/2;
+    position.x +=dimension.x/2-tilewidth/2;
+    position.y +=dimension.y/2-tileheight/2;
 
     unsigned int id = ComponentBase::getNewID();
     //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
@@ -524,7 +509,7 @@ void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<s
     posComp->setPosition(position);
     posComp->setLayer(layer);
 
-    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, dimension.x, dimension.y, true, false, false, true);
+    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(dimension.x, dimension.y), 0, PO::sensor | PO::isStatic);
 
     if (name!="none") {
         IDComponent* identification = new IDComponent(id, name);
@@ -558,8 +543,7 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
 
     BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
 
-    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,34,42,false, false, true, false);
-    testPhys->setRotatable(false);
+    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PO::roundedCorners | PO::notRotatable | PO::sideSensors);
 
     if (properties.find("target") != properties.end()) {
         TargetComponent* tarComp = new TargetComponent(id, properties["target"]);

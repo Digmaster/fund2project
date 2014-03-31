@@ -26,4 +26,14 @@ class PhysicsComponent : public ComponentBase
     private:
 };
 
+namespace PO {
+    enum PhysicsOptions {
+        sensor = 0x01,
+        notRotatable = 0x02,
+        roundedCorners = 0x04,
+        isStatic = 0x08,
+        sideSensors = 0x16
+    };
+}
+
 #endif // PHYSICSCOMPONENT_H
