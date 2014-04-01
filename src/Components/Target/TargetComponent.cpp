@@ -23,5 +23,13 @@ TargetComponent::TargetComponent(unsigned int ID, unsigned int target) : Compone
 
 TargetComponent::TargetComponent(unsigned int ID, std::string name) : ComponentBase(ID) {
     compMan->targetSym.addComponent(this);
-    setTarget(name);
+    this->name = name;
+}
+
+void TargetComponent::go(sf::Time frameTime)
+{
+    if(name!="none") {
+        setTarget(name);
+        name = "none";
+    }
 }

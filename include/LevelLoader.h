@@ -2,9 +2,8 @@
 #define LEVEL_H
 
 /**************************************************************************
-* This is going to be a horrible, thus why it has it's own file
-* BUT HONESTLY HOLY JESUS
-* life. life is no fun.
+* The main go-to file for level loading
+* Cunningly crafted by Thomas Luppi
 **************************************************************************/
 
 #include <string>
@@ -23,7 +22,6 @@ public:
     void makeSensor(sf::Vector2f, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
     void makeCamera(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
     void makeBraveAdventurer(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
-
     int width;
     int height;
 private:

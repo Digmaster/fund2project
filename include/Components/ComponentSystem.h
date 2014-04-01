@@ -34,7 +34,8 @@ template <class T> class ComponentSystem
 template<class T>
 void ComponentSystem<T>::process(sf::Time frameTime) {
     for(typename std::map<unsigned int, T>::iterator it = components.begin(); it!=components.end(); it++) {
-        it->second->go(frameTime);
+        if(it->second->getID()!=0)
+            it->second->go(frameTime);
     }
 }
 

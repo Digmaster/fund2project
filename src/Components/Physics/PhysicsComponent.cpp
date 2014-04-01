@@ -5,6 +5,7 @@
 
 PhysicsComponent::PhysicsComponent(unsigned int ID) : ComponentBase(ID) {
     compMan->physSym.addComponent(this);
+    physBody=NULL;
 }
 
 PhysicsEngine* PhysicsComponent::physEng = NULL;

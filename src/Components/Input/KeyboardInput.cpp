@@ -42,4 +42,5 @@ void KeyboardInput::go(sf::Time) {
     WorldPositionComponent* posComp = compMan->posSym.getComponent(getID());
     if(posComp)
         fireDir=eng->inputEng->getMouseAngle(posComp->getPosition());
+    //cout << mouseY << " " << mouseX << " " << posComp->getPosition().x << " " << posComp->getPosition().y << endl;
 }

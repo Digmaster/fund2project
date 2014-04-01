@@ -5,6 +5,10 @@
 
 SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts ) : PhysicsComponent(ID)
 {
+    leftListener = NULL;
+    rightListener = NULL;
+    headListener = NULL;
+    footListener = NULL;
     if(opts & PO::isStatic)
         physBodyDef.type = b2_staticBody;
     else
@@ -55,28 +59,28 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
         boxFixtureDef.isSensor = true;
         b2Fixture* footSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         footSensorFixture->SetUserData( (void*)(getID()*10+1) );
-        footListener = new FootContactListener(getID()*10+1, this);
+        footListener = new FootContactListener(getID()*10+1);
         physEng->contactListeners.addListener(footListener);
         //head
         boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,size.y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* headSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         headSensorFixture->SetUserData( (void*)(getID()*10+2) );
-        headListener = new FootContactListener(getID()*10+2, this);
+        headListener = new FootContactListener(getID()*10+2);
         physEng->contactListeners.addListener(headListener);
         //left
         boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(-size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* leftSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         leftSensorFixture->SetUserData( (void*)(getID()*10+3) );
-        leftListener = new FootContactListener(getID()*10+3, this);
+        leftListener = new FootContactListener(getID()*10+3);
         physEng->contactListeners.addListener(leftListener);
         //right
         boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* rightSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         rightSensorFixture->SetUserData( (void*)(getID()*10+4) );
-        rightListener = new FootContactListener(getID()*10+4, this);
+        rightListener = new FootContactListener(getID()*10+4);
         physEng->contactListeners.addListener(rightListener);
         //ladder
         ladderListener = new LadderContactListener(getID()*10+0, this);
@@ -101,7 +105,7 @@ bool SimpleBoxPhysics::onGround() {
 }
 
 bool SimpleBoxPhysics::onLeft() {
-    if(left!=NULL)
+    if(leftListener!=NULL)
         return leftListener->onGround();
     else
         return true;
@@ -142,12 +146,12 @@ void SimpleBoxPhysics::go(sf::Time frameTime) {
 void FootContactListener::BeginContact(b2Contact* contact) {
   //check if fixture A was the foot sensor
   void* fixtureUserData = contact->GetFixtureA()->GetUserData();
-  if ( (int)fixtureUserData == findID )
+  if ( (unsigned int)fixtureUserData == findID )
     if( !contact->GetFixtureB()->IsSensor())
       onGroundNum++;
   //check if fixture B was the foot sensor
   fixtureUserData = contact->GetFixtureB()->GetUserData();
-  if ( (int)fixtureUserData == findID )
+  if ( (unsigned int)fixtureUserData == findID )
     if(!contact->GetFixtureA()->IsSensor())
       onGroundNum++;
 }
@@ -155,20 +159,20 @@ void FootContactListener::BeginContact(b2Contact* contact) {
 void FootContactListener::EndContact(b2Contact* contact) {
   //check if fixture A was the foot sensor
   void* fixtureUserData = contact->GetFixtureA()->GetUserData();
-  if ( (int)fixtureUserData == findID )
+  if ( (unsigned int)fixtureUserData == findID )
     if(!contact->GetFixtureB()->IsSensor())
       onGroundNum--;
   //check if fixture B was the foot sensor
   fixtureUserData = contact->GetFixtureB()->GetUserData();
-  if ( (int)fixtureUserData == findID )
+  if ( (unsigned int)fixtureUserData == findID )
     if(!contact->GetFixtureA()->IsSensor())
       onGroundNum--;
 }
 
 void LadderContactListener::BeginContact(b2Contact* contact) {
   //check if fixture A was the foot sensor
-  int fixtureUserDataA = (int)contact->GetFixtureA()->GetUserData();
-  int fixtureUserDataB = (int)contact->GetFixtureB()->GetUserData();
+  unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
+  unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
   IDComponent* idCompA = ComponentManager::getInst().idSym.getComponent(fixtureUserDataA/10); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
   IDComponent* idCompB = ComponentManager::getInst().idSym.getComponent(fixtureUserDataB/10);
 
@@ -176,16 +180,16 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
     string nameB;
 
     if(idCompA != NULL){
-        nameA = idCompA->getName();
+        nameA = idCompA->getType();
     }
 
     if(idCompB != NULL){
-        nameB = idCompB->getName();
+        nameB = idCompB->getType();
     }
 
 
 
-  if ( (int)fixtureUserDataA == findID || (int)fixtureUserDataB == findID){
+  if ( fixtureUserDataA == findID || fixtureUserDataB == findID){
 //std::cout << "LadderListerner BeginContact" << std::endl;
     if( contact->GetFixtureA()->IsSensor() && nameA == "ladder" && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
       overLadderNum++;
@@ -203,8 +207,8 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
 
 void LadderContactListener::EndContact(b2Contact* contact) {
 
-    int fixtureUserDataA = (int)contact->GetFixtureA()->GetUserData();
-    int fixtureUserDataB = (int)contact->GetFixtureB()->GetUserData();
+    unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
+    unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
 
     IDComponent* idCompA = ComponentManager::getInst().idSym.getComponent(fixtureUserDataA/10);
     IDComponent* idCompB = ComponentManager::getInst().idSym.getComponent(fixtureUserDataB/10);
@@ -212,11 +216,11 @@ void LadderContactListener::EndContact(b2Contact* contact) {
     string nameA;
     string nameB;
     if(idCompA)
-        nameA = idCompA->getName();
+        nameA = idCompA->getType();
     if(idCompB)
-        nameB = idCompB->getName();
+        nameB = idCompB->getType();
 
-  if ( (int)fixtureUserDataA == findID || (int)fixtureUserDataB == findID){
+  if ( fixtureUserDataA == findID || fixtureUserDataB == findID){
     if( contact->GetFixtureA()->IsSensor() && nameA == "ladder"  && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
         overLadderNum--;
         contact->GetFixtureA()->GetBody()->SetGravityScale(1);

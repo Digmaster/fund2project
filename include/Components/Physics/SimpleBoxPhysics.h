@@ -39,15 +39,14 @@ class SimpleBoxPhysics : public PhysicsComponent
 class FootContactListener : public b2ContactListener
 {
 public:
-    FootContactListener() : findID(0), origin(0) {}
-    FootContactListener(unsigned int findID, PhysicsComponent* origin) : findID(findID), origin(origin), onGroundNum(0) {}
+    FootContactListener() : findID(0) {}
+    FootContactListener(unsigned int findID) : findID(findID), onGroundNum(0) {}
     void BeginContact(b2Contact* contact);
     void EndContact(b2Contact* contact);
     bool onGround() {return onGroundNum>0;}
 private:
-    int onGroundNum;
     unsigned int findID;
-    PhysicsComponent* origin;
+    int onGroundNum;
 };
 
 class LadderContactListener : public b2ContactListener

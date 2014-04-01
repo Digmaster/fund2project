@@ -55,6 +55,6 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
             position->setPosition(sf::Vector2f(100,100));
         if(!(input->jump || input->activate || input->climbDown || input->climbUp || input->walkLeft || input->walkRight))
             currMovement = "still";
-        cout << currMovement << endl;
+        //cout << currMovement << endl;
     }
 }

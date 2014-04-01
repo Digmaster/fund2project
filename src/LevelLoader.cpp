@@ -248,10 +248,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     if(tileGid!=0) {
                         Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth, (int)(i/layerWidth)*tileheight);
                         int id = ComponentBase::getNewID();
-                        WorldPositionComponent* posComp = new WorldPositionComponent(id);
-                        posComp->setPosition(position);
-                        posComp->setLayer(layerNum);
-                        StaticSpriteComponent* sprite = new StaticSpriteComponent(sprites[tileGid], id);
+                        new WorldPositionComponent(id, position, layerNum);
+                        new StaticSpriteComponent(sprites[tileGid], id);
                         if (properties.find("solid") != properties.end()) {
                             if(properties["solid"]!="no")
                               //SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
@@ -360,28 +358,24 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         for(int i = texture->getSize().x/2-tilewidth/2; i < width*tilewidth+texture->getSize().x/2; i+=texture->getSize().x) {
                             for(int j = texture->getSize().y/2-tileheight/2; j < height*tileheight+texture->getSize().y/2; j+=texture->getSize().y) {
                                 int id = ComponentBase::getNewID();
-                                WorldPositionComponent* posComp = new WorldPositionComponent(id);
-                                posComp->setPosition(Vector2f(i,j));
-                                posComp->setLayer(layerNum);
+                                new WorldPositionComponent(id, Vector2f(i,j), layerNum);
                                 Sprite imageSprite(*texture);
-                                StaticSpriteComponent* sprite = new StaticSpriteComponent(imageSprite, id);
+                                new StaticSpriteComponent(imageSprite, id);
                             }
                         }
                     }
                     else {
                         int id = ComponentBase::getNewID();
-                        WorldPositionComponent* posComp = new WorldPositionComponent(id);
-                        posComp->setPosition(Vector2f(texture->getSize().x/2-tilewidth/2,texture->getSize().y/2-tileheight/2));
-                        posComp->setLayer(layerNum);
+                        new WorldPositionComponent(id, Vector2f(texture->getSize().x/2-tilewidth/2,texture->getSize().y/2-tileheight/2), layerNum);
                         Sprite imageSprite(*texture);
-                        StaticSpriteComponent* sprite = new StaticSpriteComponent(imageSprite, id);
+                        new StaticSpriteComponent(imageSprite, id);
                     }
                 }
             }
         }
         else if(nodename=="objectgroup") {
             for(xml_node<>* object_node = layer_node->first_node("object"); object_node; object_node=object_node->next_sibling()) {
-                string type;
+                string type = "none";
                 auto attribute = object_node->first_attribute("type");
                 if(attribute!=NULL)
                     type = attribute->value();
@@ -396,22 +390,22 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if(attribute!=NULL)
                     objGid = atoi(attribute->value());
 
-                int objectX;
+                int objectX=0;
                 attribute = object_node->first_attribute("x");
                 if(attribute!=NULL)
                     objectX = atoi(attribute->value());
 
-                int objectY;
+                int objectY=0;
                 attribute = object_node->first_attribute("y");
                 if(attribute!=NULL)
                     objectY = atoi(attribute->value());
 
-                int objectHeight;
+                int objectHeight=0;
                 attribute = object_node->first_attribute("height");
                 if(attribute!=NULL)
                     objectHeight = atoi(attribute->value());
 
-                int objectWidth;
+                int objectWidth=0;
                 attribute = object_node->first_attribute("width");
                 if(attribute!=NULL)
                     objectWidth = atoi(attribute->value());
@@ -431,17 +425,163 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     }
                 }
                 xml_node<>* polygon_node = object_node->first_node("polygon");
+                vector<sf::Vector2i> points;
                 if(polygon_node) {
-                    vector<sf::Vector2i> points;
                     string pointString;
-                    attribute = object_node->first_attribute("points");
+                    attribute = polygon_node->first_attribute("points");
                     if(attribute!=NULL) {
                         pointString = attribute->value();
-                        //Turn string into paired points
+                        cout << pointString << endl;
+                        istringstream iss(pointString);
+                        string s;
+                        //Splits every pair
+                        while ( getline( iss, s, ' ' )) {
+                            istringstream iss2(s);
+                            //Gets the x coord
+                            string t;
+                            getline( iss2, t, ',' );
+                            int x = atoi(t.c_str());
+                            //gets the y coord
+                            int y;
+                            iss2 >> y;
+                            points.push_back(sf::Vector2i(x,y));
+                            cout << x << " " << y << endl;
+                        }
                     }
 
                 }
 
+                xml_node<>* polyline_node = object_node->first_node("polyline");
+                if(polyline_node) {
+                    string pointString;
+                    attribute = polyline_node->first_attribute("points");
+                    if(attribute!=NULL) {
+                        pointString = attribute->value();
+                        cout << pointString << endl;
+                        istringstream iss(pointString);
+                        string s;
+                        //Splits every pair
+                        while ( getline( iss, s, ' ' )) {
+                            istringstream iss2(s);
+                            //Gets the x coord
+                            string t;
+                            getline( iss2, t, ',' );
+                            int x = atoi(t.c_str());
+                            //gets the y coord
+                            int y;
+                            iss2 >> y;
+                            points.push_back(sf::Vector2i(x,y));
+                            cout << x << " " << y << endl;
+                        }
+                    }
+                }
+
+                xml_node<>* ellipse_node = object_node->first_node("ellipse");
+
+                ///****************************************************///
+                ///        ADD STUFF HERE TO HAVE IT GET LOADED        ///
+                /// SIMPLY ADDING A SCRIPT TO THE PROJECT ISN'T ENOUGH ///
+                ///****************************************************///
+                unsigned int id = ComponentBase::getNewID(); //Prefetches ID
+
+                ///Commonly used options
+                if(objectName!="none" || type!="none") //Adds a name, if needed
+                    new IDComponent(id, objectName, type);
+                if (objProperties.find("target") != objProperties.end()) //Adds a target, if needed
+                    new TargetComponent(id, objProperties["target"]);
+                if (objProperties.find("script") != objProperties.end()) { //Adds a script, if needed
+                    string script = objProperties["script"]; //ADD MORE SCRIPTS TO THIS PART
+                    if(script=="camera") {
+                        new Camera(id, width, height);
+                    }
+                    //if(script=="BLAHBLAHBLAH")
+                }
+
+                ///Modify position based on what it is
+                if(objectHeight!=0 && objectWidth!=0) { //Has width and height, use that
+                    objectX +=objectWidth/2-tilewidth/2;
+                    objectY +=objectHeight/2-tileheight/2;
+                }
+                else if(objGid!=0) { //Has associated image, use that
+                    objectX +=sprites[objGid].getGlobalBounds().width/2-tilewidth/2;
+                    objectY +=sprites[objGid].getGlobalBounds().height/2-tileheight/2;
+                }
+                //otherwise, don't change it
+
+                ///Types!!
+                if(type=="sensor" || type=="ladder") { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
+                    //Position
+                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    //Physics Loading
+                    if(ellipse_node) {
+                        //Create ellipse here!
+                    }
+                    else if(polygon_node) {
+                        //Create polygon here!
+                    }
+                    else if(polyline_node) {
+                        //Create polyline here!
+                    }
+                    else {
+                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PO::sensor | PO::isStatic);
+                    }
+
+                }
+                else if(type=="target") { //Only has world position component
+                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                }
+                else if(type=="guideLine") { //Is only points, used for objects to travel along
+                    //Position
+                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    //Physics Loading - IMPORTANT: Needs special physics classes that only contain points
+                    if(ellipse_node) {
+                        //Create ellipse here!
+                    }
+                    else if(polygon_node) {
+                        //Create polygon here!
+                    }
+                    else if(polyline_node) {
+                        //Create polyline here!
+                    }
+                    else {
+                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PO::sensor | PO::isStatic);
+                    }
+                }
+                else if(type=="script") {//Only script and target
+                    //No further loaded is needed, covered by common loaders
+                }
+                else if(type=="clutter") {
+                    //Position
+                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    //Physics Loading
+                    if(objGid!=0)
+                    new SimpleBoxPhysics(id, Vector2f(sprites[objGid].getGlobalBounds().width, sprites[objGid].getGlobalBounds().height), 1, 0x00);
+                    //Sprite
+                    new StaticSpriteComponent(sprites[objGid], id);
+
+                }
+                else if(type=="mob") { //any sort of enemy, player, etc. Has everything basically
+                    if (objProperties.find("type") != objProperties.end()) { //Adds a target, if needed
+                        string mobType = objProperties["type"];
+                        new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                        if(mobType=="Samus") {
+                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
+                            SpriteManager spriteMan;
+
+                            testSprite->setSprite(spriteMan.getSprite("Samus"));
+                            testSprite->sprite.setAnimation("WalkUp");
+
+                            KeyboardInput* testInput = new KeyboardInput(id);
+
+                            BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
+
+                            SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PO::roundedCorners | PO::notRotatable | PO::sideSensors);
+                        }
+                    }
+                    else
+                        throw runtime_error("No type associated with mob!");
+                }
+                /*
                 if(type=="box")
                     makeBox(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
                 if(type=="sensor")
@@ -450,6 +590,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     makeCamera(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
                 if(type=="BraveAdventurer")
                     makeBraveAdventurer(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
+                */
             }
         }
         layerNum++;
@@ -481,9 +622,9 @@ sf::Color Level::HexToColor(std::string input) {
 }
 
 void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
+    unsigned int id = ComponentBase::getNewID();
     position.x +=sprite.getGlobalBounds().width/2-tilewidth/2;
     position.x +=sprite.getGlobalBounds().height/2-tileheight/2;
-    unsigned int id = ComponentBase::getNewID();
     StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
     WorldPositionComponent* posComp= new WorldPositionComponent(id, position, layer);

@@ -19,6 +19,7 @@ class PhysicsComponent : public ComponentBase
         virtual bool onTop() {return false;}
         virtual bool overLadder() { return false;}
         b2Body* getBody() {return physBody;}
+        //virtual b2PolygonShape* getShape() {return physBody->Get}
     protected:
         static int pixelsPerMeter;
         static PhysicsEngine* physEng;
