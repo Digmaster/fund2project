@@ -4,7 +4,15 @@
 
 InputEngine::InputEngine()
 {
-    //ctor
+    eng = NULL;
+    walkLeft=false;
+    walkRight=false;
+    climbUp=false;
+    climbDown=false;
+    activate=false;
+    fire=false;
+    jump=false;
+    mousePos = sf::Vector2f(0,0);
 }
 
 InputEngine::~InputEngine()
@@ -14,6 +22,7 @@ InputEngine::~InputEngine()
 
 void InputEngine::update(GameEngine* eng)
 {
+    this->eng=eng;
     sf::Event event;
     while(eng->rendEng->window.pollEvent(event)) {
         switch(event.type) {
@@ -89,8 +98,7 @@ void InputEngine::update(GameEngine* eng)
             }
             break;
         case sf::Event::MouseMoved:
-            mouseX = event.mouseMove.x;
-            mouseY = event.mouseMove.y;
+            scrMousePos = sf::Vector2i(event.mouseMove.x, event.mouseMove.y);
             break;
         case sf::Event::Closed:
             eng->rendEng->window.close();
@@ -108,10 +116,12 @@ void InputEngine::update(GameEngine* eng)
             break;
         }
     }
+    mousePos = eng->rendEng->window.mapPixelToCoords(scrMousePos);
 }
 
 float InputEngine::getMouseAngle(sf::Vector2f position){
-    float xDif = position.x-mouseX;
-    float yDif = position.y-mouseY;
-    return atan(yDif/xDif) * 180.0f/3.14159265f;
+    float yDif = mousePos.y-position.y;
+    float xDif = mousePos.x-position.x;
+    if(xDif==0) xDif=.1;
+    return atan2(yDif,xDif) * -180.0f/3.14159265f;
 }

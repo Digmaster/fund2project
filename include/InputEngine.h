@@ -17,11 +17,11 @@ class InputEngine
         bool getActivate() { return activate; }
         bool getFire() { return fire; }
         bool getJump() { return jump; }
-        int getMouseX() { return mouseX; }
-        int getMouseY() { return mouseY; }
+        sf::Vector2f getMousePos() {return mousePos;}
         float getMouseAngle(sf::Vector2f);
     protected:
     private:
+        GameEngine* eng;
         bool walkLeft;
         bool walkRight;
         bool climbUp;
@@ -29,8 +29,8 @@ class InputEngine
         bool activate;
         bool fire;
         bool jump;
-        int mouseX;
-        int mouseY;
+        sf::Vector2i scrMousePos;
+        sf::Vector2f mousePos;
 };
 
 #endif // INPUTENGINE_H

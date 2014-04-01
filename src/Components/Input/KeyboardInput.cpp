@@ -16,8 +16,8 @@ KeyboardInput::KeyboardInput(unsigned int ID) : InputComponent(ID) {
     jump=eng->inputEng->getJump();
     activate=eng->inputEng->getActivate();
     currWeapon=0;
-    mouseX = eng->inputEng->getMouseX();
-    mouseY = eng->inputEng->getMouseY();
+    mouseX = eng->inputEng->getMousePos().x;
+    mouseY = eng->inputEng->getMousePos().y;
     WorldPositionComponent* posComp = compMan->posSym.getComponent(getID());
     if(posComp)
         fireDir=eng->inputEng->getMouseAngle(posComp->getPosition());
@@ -37,10 +37,10 @@ void KeyboardInput::go(sf::Time) {
     jump=eng->inputEng->getJump();
     activate=eng->inputEng->getActivate();
     currWeapon=0;
-    mouseX = eng->inputEng->getMouseX();
-    mouseY = eng->inputEng->getMouseY();
+    mouseX = eng->inputEng->getMousePos().x;
+    mouseY = eng->inputEng->getMousePos().y;
     WorldPositionComponent* posComp = compMan->posSym.getComponent(getID());
     if(posComp)
         fireDir=eng->inputEng->getMouseAngle(posComp->getPosition());
-    //cout << mouseY << " " << mouseX << " " << posComp->getPosition().x << " " << posComp->getPosition().y << endl;
+    cout << mouseY << " " << mouseX << " " << posComp->getPosition().x << " " << posComp->getPosition().y << " " << fireDir << endl;
 }
