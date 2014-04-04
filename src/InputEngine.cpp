@@ -104,7 +104,7 @@ void InputEngine::update(GameEngine* eng)
             eng->rendEng->window.close();
             break;
         case sf::Event::Resized:
-            eng->rendEng->view.setSize(event.size.width, event.size.height);
+            eng->rendEng->resizeViews(sf::Vector2i(event.size.width, event.size.height));
             break;
         case sf::Event::LostFocus:
             eng->pause();

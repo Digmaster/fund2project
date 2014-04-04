@@ -8,6 +8,14 @@
 #include <map>
 class AnimatedSprite;
 class PhysicsEngine;
+
+struct layerStruct {
+    float zoom;
+    std::deque<sf::Drawable*> renderList;
+    sf::View view;
+    layerStruct() : zoom(1) {}
+};
+
 class RenderEngine
 {
     public:
@@ -18,17 +26,25 @@ class RenderEngine
         void addScreenSprite(sf::Drawable* input);
         void removeSprite(sf::Drawable* input, int layer);
         void removeScreenSprite(sf::Drawable* input);
-        void flush() {renderList.clear();}
+        void flush() {layerList.clear();}
         void setBackgroundColor(sf::Color input) {bkColor = input;}
         void toggleDebug();
+        void centerViews(sf::Vector2f);
+        void zoomViews(float);
+        void resizeViews(sf::Vector2i);
+        void resetViews();
+        void setLayerZoom(int, float);
+        void addLayer(int, float = 1);
         sf::RenderWindow window;
-        sf::View view;
     protected:
     private:
         bool debugEnabled;
         sf::Color bkColor;
 
-        std::map<int, std::deque<sf::Drawable*> > renderList;
+        int screenWidth;
+        int screenHeight;
+
+        std::map<int, layerStruct> layerList;
         std::deque<sf::Drawable*> screenRenderList;
 };
 

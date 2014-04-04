@@ -865,7 +865,7 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1396247728 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1396583036 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -986,7 +986,7 @@
 1394999258 c:\users\thomas luppi\documents\fund2project\include\braveadventureranimatedcomponent.h
 	"AnimatedComponent.h"
 
-1395889616 c:\users\thomas luppi\documents\fund2project\include\rendering\renderengine.h
+1396582726 c:\users\thomas luppi\documents\fund2project\include\rendering\renderengine.h
 	"Components/Render/RenderComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
@@ -1126,7 +1126,7 @@
 	"Components/Render/RenderComponent.h"
 	"Components/ComponentManager.h"
 
-1395210032 c:\users\thomas luppi\documents\fund2project\include\rendering\spritemanager.h
+1396578536 c:\users\thomas luppi\documents\fund2project\include\rendering\spritemanager.h
 	"Rendering/AnimatedSprite.h"
 	<string>
 	<unordered_map>
@@ -1149,11 +1149,11 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1395903704 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
+1396582777 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
-1395904606 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
+1396579022 source:c:\users\thomas luppi\documents\fund2project\src\rendering\spritemanager.cpp
 	"Rendering/SpriteManager.h"
 
 1395705854 source:c:\users\thomas luppi\documents\fund2project\src\rendering\texturemanager.cpp
@@ -3193,7 +3193,7 @@
 	"TargetComponent.h"
 	"Components/ComponentManager.h"
 
-1395781987 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\camera.cpp
+1396582254 source:c:\users\thomas luppi\documents\fund2project\src\components\scrpt\camera.cpp
 	"Components/Script/Camera.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
@@ -3405,7 +3405,7 @@
 	<SFML/System/Thread.hpp>
 	<vector>
 
-1396392411 source:c:\users\thomas luppi\documents\fund2project\src\components\input\keyboardinput.cpp
+1396562611 source:c:\users\thomas luppi\documents\fund2project\src\components\input\keyboardinput.cpp
 	"KeyboardInput.h"
 	<cmath>
 	<SFML/Graphics.hpp>
@@ -3418,7 +3418,7 @@
 1396235740 c:\users\thomas luppi\documents\fund2project\include\components\input\keyboardinput.h
 	"Components/Input/InputComponent.h"
 
-1396392357 source:c:\users\thomas luppi\documents\fund2project\src\inputengine.cpp
+1396582306 source:c:\users\thomas luppi\documents\fund2project\src\inputengine.cpp
 	"InputEngine.h"
 	"GameEngine.h"
 	"Rendering/RenderEngine.h"

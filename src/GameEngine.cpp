@@ -46,6 +46,7 @@ void GameEngine::gameLoop() {
     SpriteManager spriteMan;
     spriteMan.loadFile("assets/testSprite.xml");
     spriteMan.loadFile("assets/SamusSprites.xml");
+    spriteMan.loadSpriteFile("assets/art/testSpriteSheet.sprites");
 
     ///THIS IS IMPORTANT!!!
     /// I changed it so that when you create a component it's automatically added to the right component system!!!!!

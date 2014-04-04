@@ -17,7 +17,11 @@ public:
 	SpriteManager();
 	/** Default destructor */
 	~SpriteManager();
+
 	int loadFile(std::string input);
+	void loadSpriteDirectory(std::string, rapidxml::xml_node<>*);
+	void loadSpriteFile(std::string);
+
 	AnimatedSprite getSprite(std::string input);
 	void addSprite(std::string name, AnimatedSprite sprite);
 protected:

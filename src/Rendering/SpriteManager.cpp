@@ -90,6 +90,54 @@ int SpriteManager::loadFile(string input) { // NOTE (Thomas Luppi#3#03/16/14): C
 
 }
 
+void SpriteManager::loadSpriteFile(string filename) {
+    //Parse XML shiiiiiiiiiit
+	xml_document<> doc;
+	xml_node<> * root_node;
+	// Read the xml file into a vector
+	ifstream file (filename);
+	if(!file.good())
+		throw runtime_error("Could not find file");
+    vector<char> buffer((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
+    buffer.push_back('\0');
+    // Parse the buffer using the xml file parsing library into doc
+    try {
+        doc.parse<0>(&buffer[0]);
+    }
+    catch(std::exception& e) {
+        throw runtime_error("Error in parsing XML file " + filename + ": " + e.what());
+    }
+    //find root node
+    root_node = doc.first_node("img");
+    string textureFile = root_node->first_attribute("name")->value();
+    Texture *texture = texMan.getTexture(textureFile);
+
+    xml_node<>* defNode = root_node->first_node("definitions");
+    if(!defNode)
+        throw runtime_error("Could not find defNode in" + filename);
+    for (xml_node<> * dirNode = defNode->first_node("dir"); dirNode; dirNode = dirNode->next_sibling("dir")) {
+        loadSpriteDirectory(filename, dirNode);
+    }
+
+}
+
+void SpriteManager::loadSpriteDirectory(string currDir, xml_node<>* currNode) {
+    string newDir = currNode->first_attribute("name")->value();
+    if(newDir=="/") newDir = ""; //Removes root node slash
+    string directory = currDir + "/" + newDir;
+    for (xml_node<> * dirNode = currNode->first_node("dir"); dirNode; dirNode = dirNode->next_sibling("dir")) {
+        loadSpriteDirectory(directory, dirNode);
+    }
+    for (xml_node<> * sprNode = currNode->first_node("spr"); sprNode; sprNode = sprNode->next_sibling("spr")) {
+        int x = atoi(sprNode->first_attribute("x")->value());
+        int y = atoi(sprNode->first_attribute("y")->value());
+        int w = atoi(sprNode->first_attribute("w")->value());
+        int h = atoi(sprNode->first_attribute("h")->value());
+        string sprName = directory + sprNode->first_attribute("name")->value();
+        cout << sprName << endl;
+    }
+}
+
 void SpriteManager::addSprite(std::string name, AnimatedSprite sprite) {
     spriteMap.emplace(name, sprite); //add sprite to spritemap
 }

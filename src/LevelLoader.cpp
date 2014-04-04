@@ -217,6 +217,10 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 properties[propertyName]=propertyValue;
             }
         }
+        float layerZoom = 1;
+        if (properties.find("zoom") != properties.end()) //Adds a script, if needed
+            layerZoom = atof(properties["zoom"].c_str()); //ADD MORE SCRIPTS TO THIS PART
+        rendEng->setLayerZoom(layerNum,layerZoom);
 
         if(nodename=="layer") {
             auto attribute = layer_node->first_attribute("name");
@@ -595,6 +599,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         }
         layerNum++;
     } //every layer
+    rendEng->resizeViews(sf::Vector2i(rendEng->window.getSize()));
 }
 
 
