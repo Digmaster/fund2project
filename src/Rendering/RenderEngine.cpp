@@ -12,6 +12,7 @@ RenderEngine::RenderEngine() {
 	int maxFPS = atoi(Options::instance().get("maxFPS").c_str());
     window.create(sf::VideoMode(screenWidth, screenHeight, screenBBP), "Fund2 Engine");
 	window.setFramerateLimit(maxFPS);
+	addLayer(99,1,0); //Layer used for physics debug, with 1 zoom as hopefully high enough layer to be on the forefront
 
 	//view.reset(FloatRect(0,0,screenWidth, screenHeight));
 
@@ -36,14 +37,15 @@ RenderEngine::~RenderEngine() {
 
 void RenderEngine::render(sf::Time frameTime, PhysicsEngine* physEng) {
     window.clear(bkColor);
-    for(int i = 1; i <= layerList.size(); i++) {
-        window.setView(layerList[i].view);
-        while(layerList[i].renderList.size() > 0) {
-            window.draw(*layerList[i].renderList.back());
-            layerList[i].renderList.pop_back();
+    for(map<int, layerStruct>::iterator it = layerList.begin(); it!=layerList.end(); it++) {
+        window.setView(it->second.view);
+        while(it->second.renderList.size() > 0) {
+            window.draw(*it->second.renderList.back());
+            it->second.renderList.pop_back();
         }
     }
     if(debugEnabled) {
+        window.setView(layerList[99].view); //99 is the physics debug view. Don't mess with it.
         physEng->debugDraw();
     }
     window.display();
@@ -63,7 +65,8 @@ void RenderEngine::addSprite(Drawable* input, int layer) {
 void RenderEngine::centerViews(sf::Vector2f center)
 {
     for(map<int, layerStruct>::iterator it = layerList.begin(); it!=layerList.end(); it++) {
-        it->second.view.setCenter(center.x, center.y);
+        if(!it->second.noMove)
+            it->second.view.setCenter(center.x, center.y);
     }
 }
 
@@ -89,11 +92,17 @@ void RenderEngine::setLayerZoom(int layer, float zoom)
     layerList[layer].zoom = zoom;
 }
 
-void RenderEngine::addLayer(int layer, float zoom)
+void RenderEngine::setLayerMove(int layer, bool noMove)
+{
+    layerList[layer].noMove = noMove;
+}
+
+void RenderEngine::addLayer(int layer, float zoom, bool noMove)
 {
     layerList[layer].view.reset(FloatRect(0,0,screenWidth, screenHeight));
     layerList[layer].zoom = zoom;
     layerList[layer].view.zoom(zoom);
+    layerList[layer].noMove = noMove;
 }
 
 

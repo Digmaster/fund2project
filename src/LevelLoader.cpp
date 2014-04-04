@@ -221,6 +221,23 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         if (properties.find("zoom") != properties.end()) //Adds a script, if needed
             layerZoom = atof(properties["zoom"].c_str()); //ADD MORE SCRIPTS TO THIS PART
         rendEng->setLayerZoom(layerNum,layerZoom);
+        bool noMove;
+        if (properties.find("static") != properties.end()) //Adds a script, if needed
+            noMove = atoi(properties["static"].c_str()); //ADD MORE SCRIPTS TO THIS PART
+        rendEng->setLayerMove(layerNum,noMove);
+
+        float transparency=1;
+        auto attribute = layer_node->first_attribute("opacity");
+        if(attribute!=NULL) {
+            transparency = atof(attribute->value());
+        }
+
+        bool visible=1;
+        attribute = layer_node->first_attribute("visible");
+        if(attribute!=NULL) {
+            visible = atoi(attribute->value());
+        }
+
 
         if(nodename=="layer") {
             auto attribute = layer_node->first_attribute("name");
@@ -253,7 +270,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth, (int)(i/layerWidth)*tileheight);
                         int id = ComponentBase::getNewID();
                         new WorldPositionComponent(id, position, layerNum);
-                        new StaticSpriteComponent(sprites[tileGid], id);
+                        if(visible) {
+                            sf::Sprite intermSpr(sprites[tileGid]);
+                            intermSpr.setColor(sf::Color(255, 255, 255, transparency*255)); //Applies transparency mask
+                            new StaticSpriteComponent(intermSpr, id);
+                        }
                         if (properties.find("solid") != properties.end()) {
                             if(properties["solid"]!="no")
                               //SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
@@ -359,8 +380,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if(attribute!=NULL) {
                     texture = texMan->getTexture(attribute->value());
                     if(properties["tiled"]!="no") {
-                        for(int i = texture->getSize().x/2-tilewidth/2; i < width*tilewidth+texture->getSize().x/2; i+=texture->getSize().x) {
-                            for(int j = texture->getSize().y/2-tileheight/2; j < height*tileheight+texture->getSize().y/2; j+=texture->getSize().y) {
+                        for(int i = texture->getSize().x/2-tilewidth/2; i < width*tilewidth*layerZoom+texture->getSize().x/2; i+=texture->getSize().x) {
+                            for(int j = texture->getSize().y/2-tileheight/2; j < height*tileheight*layerZoom+texture->getSize().y/2; j+=texture->getSize().y) {
                                 int id = ComponentBase::getNewID();
                                 new WorldPositionComponent(id, Vector2f(i,j), layerNum);
                                 Sprite imageSprite(*texture);

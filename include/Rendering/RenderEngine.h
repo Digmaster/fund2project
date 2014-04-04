@@ -14,6 +14,7 @@ struct layerStruct {
     std::deque<sf::Drawable*> renderList;
     sf::View view;
     layerStruct() : zoom(1) {}
+    bool noMove;
 };
 
 class RenderEngine
@@ -34,7 +35,8 @@ class RenderEngine
         void resizeViews(sf::Vector2i);
         void resetViews();
         void setLayerZoom(int, float);
-        void addLayer(int, float = 1);
+        void setLayerMove(int, bool);
+        void addLayer(int, float = 1, bool = false);
         sf::RenderWindow window;
     protected:
     private:
