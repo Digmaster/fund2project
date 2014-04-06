@@ -84,7 +84,7 @@ void Options::reset() {
 	ofstream file;
 	file.open(fileName.c_str());
 	if(!file.is_open())
-		cout << "Failed to open file for writting" << endl;
+		cout << "Failed to open option file for writing" << endl;
     for (unordered_map<string,string>::iterator it=defaultSettings.begin(); it!=defaultSettings.end(); ++it)
     	file << it->first << "=" << it->second << endl;
 	file.close();
