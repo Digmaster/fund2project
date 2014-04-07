@@ -12,7 +12,6 @@ class PhysicsComponent : public ComponentBase
         PhysicsComponent() : ComponentBase() {}
         PhysicsComponent(unsigned int ID);
         virtual ~PhysicsComponent();
-        static void setEngine(PhysicsEngine* input) {physEng=input;}
         virtual bool onGround() {return false;}
         virtual bool onLeft() {return false;}
         virtual bool onRight() {return false;}
@@ -22,7 +21,6 @@ class PhysicsComponent : public ComponentBase
         //virtual b2PolygonShape* getShape() {return physBody->Get}
     protected:
         static int pixelsPerMeter;
-        static PhysicsEngine* physEng;
         b2Body* physBody;
     private:
 };

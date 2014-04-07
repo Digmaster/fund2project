@@ -42,7 +42,7 @@ class InputEngine
         //! Returns the position of the mouse, relative to the GameWorld
         sf::Vector2f getMousePos() {return mousePos;}
         //! Returns the position of the mouse, relative to the Window
-        sf::Vector2f getScreenMousePos() {return srcMousePos;}
+        sf::Vector2i getScreenMousePos() {return scrMousePos;}
         //! Returns the angle of the courser relative to the position
         /*! Uses the Mouse Position, no method exists for a position relative to the window
             \param sf::Vector2f position to find angle relative to

@@ -1,11 +1,12 @@
 #include "Components/Physics/BoundaryPhysics.h"
 #include "Components/ComponentManager.h"
 #include "physics/PhysicsEngine.h"
+#include "GameEngine.h"
 
 BoundaryPhysics::BoundaryPhysics(unsigned int ID, float x, float y, float endx, float endy) : PhysicsComponent(ID)
 {
     physBodyDef.type = b2_staticBody;
-    physBody = physEng->_world->CreateBody(&physBodyDef);
+    physBody = eng->physEng->_world->CreateBody(&physBodyDef);
 
     b2Vec2 floorvec[2];
     floorvec[0].Set( x/pixelsPerMeter, -y/pixelsPerMeter );

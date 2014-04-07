@@ -2,6 +2,7 @@
 #include "Components/ComponentManager.h"
 #include "Options.h"
 #include "physics/PhysicsEngine.h"
+#include "GameEngine.h"
 
 SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts ) : PhysicsComponent(ID)
 {
@@ -16,7 +17,7 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
     physBodyDef.fixedRotation = (opts & PO::notRotatable);
-    physBody = physEng->_world->CreateBody(&physBodyDef);
+    physBody = eng->physEng->_world->CreateBody(&physBodyDef);
     if(opts & PO::roundedCorners) {
         b2Vec2 boxVertices[8];
         float ax = .5f*size.x/pixelsPerMeter;
@@ -60,31 +61,31 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
         b2Fixture* footSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         footSensorFixture->SetUserData( (void*)(getID()*10+1) );
         footListener = new FootContactListener(getID()*10+1);
-        physEng->contactListeners.addListener(footListener);
+        eng->physEng->contactListeners.addListener(footListener);
         //head
         boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,size.y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* headSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         headSensorFixture->SetUserData( (void*)(getID()*10+2) );
         headListener = new FootContactListener(getID()*10+2);
-        physEng->contactListeners.addListener(headListener);
+        eng->physEng->contactListeners.addListener(headListener);
         //left
         boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(-size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* leftSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         leftSensorFixture->SetUserData( (void*)(getID()*10+3) );
         leftListener = new FootContactListener(getID()*10+3);
-        physEng->contactListeners.addListener(leftListener);
+        eng->physEng->contactListeners.addListener(leftListener);
         //right
         boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* rightSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         rightSensorFixture->SetUserData( (void*)(getID()*10+4) );
         rightListener = new FootContactListener(getID()*10+4);
-        physEng->contactListeners.addListener(rightListener);
+        eng->physEng->contactListeners.addListener(rightListener);
         //ladder
         ladderListener = new LadderContactListener(getID()*10+0, this);
-        physEng->contactListeners.addListener(ladderListener);
+        eng->physEng->contactListeners.addListener(ladderListener);
     }
 
     if(position!=NULL) {

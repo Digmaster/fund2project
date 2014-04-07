@@ -10,7 +10,6 @@ PhysicsEngine::PhysicsEngine()
     _world = new b2World(gravity);
     _velocityIterations = 8;
     _positionIterations = 3;
-    PhysicsComponent::setEngine(this);
     _world->SetContactListener(&contactListeners);
 
 }
