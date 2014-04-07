@@ -130,7 +130,6 @@
 		<Unit filename="src/Rendering/SpriteManager.cpp" />
 		<Unit filename="src/Rendering/TextureManager.cpp" />
 		<Unit filename="src/RichText.cpp" />
-		<Unit filename="src/main.cpp" />
 		<Unit filename="src/physics/PhysicsEngine.cpp" />
 		<Extensions>
 			<code_completion />

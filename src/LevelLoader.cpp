@@ -16,6 +16,7 @@
 #include "Rendering/SpriteManager.h"
 #include "Components/Physics/BoundaryPhysics.h"
 #include "Components/Input/KeyboardInput.h"
+#include "Components/Physics/PolygonPhysics.h"
 
 
 
@@ -476,6 +477,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                 }
 
+
                 xml_node<>* polyline_node = object_node->first_node("polyline");
                 if(polyline_node) {
                     string pointString;
@@ -535,14 +537,13 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                 ///Types!!
                 if(type=="sensor" || type=="ladder") { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
-                    //Position
-                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+
                     //Physics Loading
                     if(ellipse_node) {
                         //Create ellipse here!
                     }
                     else if(polygon_node) {
-                        //Create polygon here!
+                        new PolygonPhysics(id, points);
                     }
                     else if(polyline_node) {
                         //Create polyline here!
@@ -550,6 +551,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     else {
                         new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PO::sensor | PO::isStatic);
                     }
+                    //Position
+                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
 
                 }
                 else if(type=="target") { //Only has world position component

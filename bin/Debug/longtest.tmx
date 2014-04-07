@@ -32104,6 +32104,9 @@
    <ellipse/>
   </object>
   <object type="movingObject" gid="112" x="1397" y="110"/>
+  <object type="sensor" x="1946" y="82">
+   <polygon points="0,0 147,-48 202,109 237,-20"/>
+  </object>
  </objectgroup>
  <objectgroup name="Sensors/Ladder" width="200" height="40">
   <object type="ladder" x="2657" y="1" width="30" height="382"/>

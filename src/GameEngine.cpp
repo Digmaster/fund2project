@@ -53,7 +53,7 @@ void GameEngine::gameLoop() {
     /// yaaaaaaaaaaay
 
     Level testLevel;
-    testLevel.loadLevel("scifi test.tmx", rendEng);
+    testLevel.loadLevel("longtest.tmx", rendEng);
 
     while (rendEng->window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
