@@ -17,7 +17,8 @@ class PolylinePhysics : public PhysicsComponent
     protected:
     private:
         b2BodyDef physBodyDef;
-        b2PolygonShape boundaryShape;
+        //b2PolygonShape boundaryShape;
+        b2ChainShape polylineChain;
         b2FixtureDef boundaryFixtureDef;
         //int screenHeight; //Need to convert Box2d to SFML coordinates
 };

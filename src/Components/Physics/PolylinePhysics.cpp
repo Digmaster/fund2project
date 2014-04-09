@@ -13,8 +13,8 @@ PolylinePhysics::PolylinePhysics(unsigned int ID, vector<sf::Vector2i> points) :
         polygons[i].Set( points[i].x/pixelsPerMeter, -points[i].y/pixelsPerMeter );
     }
 
-    boundaryShape.Set(polygons, points.size());
-    boundaryFixtureDef.shape = &boundaryShape;
+    polylineChain.CreateChain(polygons, points.size());
+    boundaryFixtureDef.shape = &polylineChain;
     boundaryFixtureDef.friction = 10;
     b2Fixture* fixture = physBody->CreateFixture(&boundaryFixtureDef);
     fixture->SetUserData( (void*)(getID()*10+2) );
