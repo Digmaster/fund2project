@@ -546,7 +546,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         new PolygonPhysics(id, points);
                     }
                     else if(polyline_node) {
-                        //Create polyline here!
+                        new PolylinePhysics(id, points);
                     }
                     else {
                         new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PO::sensor | PO::isStatic);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="3" height="3" tilewidth="32" tileheight="32">
+ <layer name="Tile Layer 1" width="3" height="3">
+  <data>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="3" height="3">
+  <object x="-82" y="-43">
+   <polyline points="0,0 105,-82 241,-8 187,131 80,11 -1,2"/>
+  </object>
+ </objectgroup>
+</map>
