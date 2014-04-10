@@ -10,7 +10,7 @@ class PolylinePhysics : public PhysicsComponent
 {
     public:
         PolylinePhysics() : PhysicsComponent() {}
-        Polygonline(unsigned int, std::vector<sf::Vector2i>);
+        PolylinePhysics(unsigned int, std::vector<sf::Vector2i>);
         virtual ~PolylinePhysics();
 
         void go(sf::Time);

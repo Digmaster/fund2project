@@ -25,6 +25,7 @@ template <class T> class ComponentSystem
         void process(sf::Time);
         void addComponent(T);
         T getComponent(unsigned int ID);
+        int getSize();
 
         std::map<unsigned int, T> components;
     protected:
@@ -34,9 +35,11 @@ template <class T> class ComponentSystem
 template<class T>
 void ComponentSystem<T>::process(sf::Time frameTime) {
     for(typename std::map<unsigned int, T>::iterator it = components.begin(); it!=components.end(); it++) {
-        if(it->second->getID()!=0)
+        if(it->second->getID()!=0) {
             it->second->go(frameTime);
+        }
     }
+    //cout << getSize() << endl;
 }
 
 template<class T>
@@ -47,10 +50,16 @@ void ComponentSystem<T>::addComponent(T input) {
 template<class T>
 T ComponentSystem<T>::getComponent(unsigned int ID) {
     typename map<unsigned int,T>::iterator it = components.find(ID);
-    if(it!=components.end())
+    if(it!=components.end()) {
         return it->second;
+    }
     else
         return NULL;
+}
+
+template<class T>
+int ComponentSystem<T>::getSize() {
+    return components.size();
 }
 
 #endif // COMPONENTSYSTEM_H

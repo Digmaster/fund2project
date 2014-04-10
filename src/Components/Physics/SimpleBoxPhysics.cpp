@@ -10,15 +10,15 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     rightListener = NULL;
     headListener = NULL;
     footListener = NULL;
-    if(opts & PO::isStatic)
+    if(opts & PhysicsOptions::isStatic)
         physBodyDef.type = b2_staticBody;
     else
         physBodyDef.type = b2_dynamicBody;
     physBodyDef.position.Set(1,1);
     physBodyDef.angle = 0;
-    physBodyDef.fixedRotation = (opts & PO::notRotatable);
+    physBodyDef.fixedRotation = (opts & PhysicsOptions::notRotatable);
     physBody = eng->physEng->_world->CreateBody(&physBodyDef);
-    if(opts & PO::roundedCorners) {
+    if(opts & PhysicsOptions::roundedCorners) {
         b2Vec2 boxVertices[8];
         float ax = .5f*size.x/pixelsPerMeter;
         float ay = .5f*size.y/pixelsPerMeter;
@@ -49,12 +49,12 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     boxFixtureDef.density = 1;
     boxFixtureDef.restitution = 0;
     boxFixtureDef.friction = friction;
-    boxFixtureDef.isSensor = (opts & PO::sensor);
+    boxFixtureDef.isSensor = (opts & PhysicsOptions::sensor);
     b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
     fixture->SetUserData( (void*)(getID()*10+0) );
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
 
-    if(opts & PO::sideSensors) { //All of the sensors!!!
+    if(opts & PhysicsOptions::sideSensors) { //All of the sensors!!!
         //foot
         boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-size.y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;

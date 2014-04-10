@@ -24,9 +24,8 @@ class PhysicsComponent : public ComponentBase
         b2Body* physBody;
     private:
 };
-
-namespace PO {
-    enum PhysicsOptions {
+namespace PhysicsOptions { // TODO (Thomas Luppi#1#04/09/14): FIND A WAY TO MAKE THIS NOT A NAMESPACE JESUS
+    enum {
         sensor = 0x01,
         notRotatable = 0x02,
         roundedCorners = 0x04,

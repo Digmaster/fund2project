@@ -24,14 +24,14 @@ class TextureManager
         /*! Force-adds a texture, for pre-loading . If the texture already exists it will be reloaded
             \param file The filename of the texture to be loaded
             \return A pointer to the loaded sf::Texture */
-        sf::Texture* addTexture(std::string file);
+        static sf::Texture* addTexture(std::string file);
         //! Removes all loaded textures
         static void flush();
         //! Returns a texture by that filename
         /*! If the texture has not already been loaded, it will be loaded. Otherwise the copy in memory will be used
             \param name The filename of the texture
             \return A pointer to the sf::Texture */
-        sf::Texture* getTexture(std::string name); //Will automatically load a texture if needed, just input the filename
+        static sf::Texture* getTexture(std::string name); //Will automatically load a texture if needed, just input the filename
 
     protected:
     private:

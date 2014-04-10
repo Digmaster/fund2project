@@ -17,6 +17,7 @@
 #include "Components/Physics/BoundaryPhysics.h"
 #include "Components/Input/KeyboardInput.h"
 #include "Components/Physics/PolygonPhysics.h"
+#include "Components/Physics/PolylinePhysics.h"
 
 
 
@@ -115,16 +116,16 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         ///Collision Boundaries
         //Left
         int id = ComponentBase::getNewID();
-        BoundaryPhysics leftBoundary(id, 0, -1000, 0, height*tileheight-tileheight/2);
+        new BoundaryPhysics(id, 0, -1000, 0, height*tileheight-tileheight/2);
         //right
         id = ComponentBase::getNewID();
-        BoundaryPhysics rightBoundary(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
+        new BoundaryPhysics(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
         //bottom
         /*id = ComponentBase::getNewID();
         BoundaryPhysics bottomBoundary(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);*/
         //top
         id = ComponentBase::getNewID();
-        BoundaryPhysics topBoundary(id, 0, -1000, width*tilewidth-tilewidth/2, -1000);
+        new BoundaryPhysics(id, 0, -1000, width*tilewidth-tilewidth/2, -1000);
     }
 
 
@@ -219,12 +220,12 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
             }
         }
         float layerZoom = 1;
-        if (properties.find("zoom") != properties.end()) //Adds a script, if needed
-            layerZoom = atof(properties["zoom"].c_str()); //ADD MORE SCRIPTS TO THIS PART
+        if (properties.find("zoom") != properties.end())
+            layerZoom = atof(properties["zoom"].c_str());
         rendEng->setLayerZoom(layerNum,layerZoom);
         bool noMove;
-        if (properties.find("static") != properties.end()) //Adds a script, if needed
-            noMove = atoi(properties["static"].c_str()); //ADD MORE SCRIPTS TO THIS PART
+        if (properties.find("static") != properties.end())
+            noMove = atoi(properties["static"].c_str());
         rendEng->setLayerMove(layerNum,noMove);
 
         float transparency=1;
@@ -302,7 +303,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            BoundaryPhysics floor(id, startPoint, i*tileheight-tileheight/2, j*tilewidth-tilewidth/2, i*tileheight-tileheight/2);
+                            new BoundaryPhysics(id, startPoint, i*tileheight-tileheight/2, j*tilewidth-tilewidth/2, i*tileheight-tileheight/2);
                             lastCollission = false;
                         }
                     }
@@ -323,7 +324,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            BoundaryPhysics floor(id, startPoint, i*tileheight+tileheight/2, j*tilewidth-tilewidth/2, i*tileheight+tileheight/2);
+                            new BoundaryPhysics(id, startPoint, i*tileheight+tileheight/2, j*tilewidth-tilewidth/2, i*tileheight+tileheight/2);
                             lastCollission = false;
                         }
                     }
@@ -344,7 +345,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            BoundaryPhysics floor(id, i*tilewidth-tilewidth/2, startPoint, i*tilewidth-tilewidth/2, j*tileheight-tileheight/2);
+                            new BoundaryPhysics(id, i*tilewidth-tilewidth/2, startPoint, i*tilewidth-tilewidth/2, j*tileheight-tileheight/2);
 
                             lastCollission = false;
                         }
@@ -366,7 +367,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            BoundaryPhysics floor(id, i*tilewidth+tilewidth/2, startPoint, i*tilewidth+tilewidth/2, j*tileheight-tileheight/2);
+                            new BoundaryPhysics(id, i*tilewidth+tilewidth/2, startPoint, i*tilewidth+tilewidth/2, j*tileheight-tileheight/2);
 
                             lastCollission = false;
                         }
@@ -544,12 +545,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     }
                     else if(polygon_node) {
                         new PolygonPhysics(id, points);
+                        objectX-=tilewidth/2; //move position based on stuff
+                        objectY-=tileheight/2;
                     }
                     else if(polyline_node) {
                         new PolylinePhysics(id, points);
                     }
                     else {
-                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PO::sensor | PO::isStatic);
+                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
                     }
                     //Position
                     new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
@@ -572,7 +575,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         //Create polyline here!
                     }
                     else {
-                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PO::sensor | PO::isStatic);
+                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
                     }
                 }
                 else if(type=="script") {//Only script and target
@@ -603,7 +606,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
 
-                            SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PO::roundedCorners | PO::notRotatable | PO::sideSensors);
+                            SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
                         }
                     }
                     else
@@ -627,28 +630,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 }
 
 
-
-sf::Color Level::HexToColor(std::string input) {
-    std::stringstream str;
-    str << input.at(1);
-    str << input.at(2);
-    int red;
-    str >> std::hex >> red;
-
-    std::stringstream str2;
-    str2 << input.at(3);
-    str2 << input.at(4);
-    int blue;
-    str2 >> std::hex >> blue;
-
-    std::stringstream str3;
-    str3 << input.at(5);
-    str3 << input.at(6);
-    int green;
-    str3 >> std::hex >> green;
-
-    return sf::Color(red, blue, green);
-}
 
 void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
     unsigned int id = ComponentBase::getNewID();
@@ -675,7 +656,7 @@ void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<s
 
     WorldPositionComponent* posComp= new WorldPositionComponent(id, position, layer);
 
-    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(dimension.x, dimension.y), 0, PO::sensor | PO::isStatic);
+    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(dimension.x, dimension.y), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
 
     if (name!="none") {
         IDComponent* identification = new IDComponent(id, name);
@@ -707,11 +688,33 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
 
     BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
 
-    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PO::roundedCorners | PO::notRotatable | PO::sideSensors);
+    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
 
     if (properties.find("target") != properties.end()) {
         TargetComponent* tarComp = new TargetComponent(id, properties["target"]);
     }
     if (name!="none")
         IDComponent* identification = new IDComponent(id, name);
+}
+
+sf::Color Level::HexToColor(std::string input) {
+    std::stringstream str;
+    str << input.at(1);
+    str << input.at(2);
+    int red;
+    str >> std::hex >> red;
+
+    std::stringstream str2;
+    str2 << input.at(3);
+    str2 << input.at(4);
+    int blue;
+    str2 >> std::hex >> blue;
+
+    std::stringstream str3;
+    str3 << input.at(5);
+    str3 << input.at(6);
+    int green;
+    str3 >> std::hex >> green;
+
+    return sf::Color(red, blue, green);
 }

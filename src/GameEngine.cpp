@@ -46,11 +46,7 @@ void GameEngine::gameLoop() {
     SpriteManager spriteMan;
     spriteMan.loadFile("assets/testSprite.xml");
     spriteMan.loadFile("assets/SamusSprites.xml");
-    spriteMan.loadSpriteFile("assets/art/testSpriteSheet.sprites");
-
-    ///THIS IS IMPORTANT!!!
-    /// I changed it so that when you create a component it's automatically added to the right component system!!!!!
-    /// yaaaaaaaaaaay
+    //spriteMan.loadSpriteFile("assets/art/testSpriteSheet.sprites");y
 
     Level testLevel;
     testLevel.loadLevel("longtest.tmx", rendEng);
@@ -59,11 +55,40 @@ void GameEngine::gameLoop() {
         sf::Time frameTime = frameClock.restart();
         //cout << 1000/frameTime.asMilliseconds() << endl; //fps
 
-        ComponentManager::getInst().processAll(frameTime);
+        //ComponentManager::getInst().processAll(frameTime);
+        //cout << "---------------------------------------------------" << endl;
+        ComponentManager::getInst().physSym.process(frameTime);
+        //cout << "Physics " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().posSym.process(frameTime);
+        //cout << "Position "  << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().idSym.process(frameTime);
+        //cout << "ID " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().inputSym.process(frameTime);
+        //cout << "Input " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().moveSym.process(frameTime);
+        //cout << "Movement " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().etcSym.process(frameTime);
+        //cout << "Etcetera " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().targetSym.process(frameTime);
+        //cout << "Target " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().scriptSym.process(frameTime);
+        //cout << "scripts " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
+        ComponentManager::getInst().rendSym.process(frameTime);
+        //cout << "Rendering " << frameClock.getElapsedTime().asMicroseconds() << endl;
+        //frameClock.restart();
 
 
         rendEng->render(frameTime, physEng);
         physEng->step(frameTime);
         inputEng->update(this);
+        //cout << "ENgs " << frameClock.getElapsedTime().asMicroseconds() << endl;
     }
 }

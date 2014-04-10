@@ -32,16 +32,12 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 body->ApplyLinearImpulse(b2Vec2(1.0f-velocity.x*1.0f/15.0f,0),body->GetWorldCenter(),true);
             currMovement = "WalkRight";
         }
-        if(input->climbUp){
-            if(physics->overLadder()==true) {
-                body->ApplyLinearImpulse(b2Vec2(0,1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
-            }
+        if(input->climbUp && physics->overLadder()==true){
+            body->ApplyLinearImpulse(b2Vec2(0,1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
             currMovement = "ClimbUp";
         }
-        if(input->climbDown){
-            if(physics->overLadder()==true) {
-                    body->ApplyLinearImpulse(b2Vec2(0,-1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
-            }
+        if(input->climbDown && physics->overLadder()==true){
+                body->ApplyLinearImpulse(b2Vec2(0,-1.0f-velocity.y*1.0f/15.0f),body->GetWorldCenter(),true);
             currMovement = "ClimbDown";
         }
         // TODO (Thomas Luppi#1#03/31/14): Add timer for jump
@@ -53,7 +49,7 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
         }
         if(input->activate)
             position->setPosition(sf::Vector2f(100,100));
-        if(!(input->jump || input->activate || input->climbDown || input->climbUp || input->walkLeft || input->walkRight))
+        if(!(input->jump || input->activate || input->climbDown || input->climbUp || input->walkLeft || input->walkRight) || (input->walkLeft && input->walkRight) || (input->climbUp && input->climbDown))
             currMovement = "still";
         //cout << currMovement << endl;
     }

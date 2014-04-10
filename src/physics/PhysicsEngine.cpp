@@ -16,7 +16,7 @@ PhysicsEngine::PhysicsEngine()
 
 PhysicsEngine::~PhysicsEngine()
 {
-    //dtor
+    delete _world;
 }
 
 void PhysicsEngine::step(sf::Time frameTime)
@@ -48,7 +48,7 @@ void PhysicsEngine::setDebugDraw(sf::RenderWindow& window){
 
 void PhysicsEngine::init()
 {
-    delete _world;
+
 }
 
 void ContactListener::BeginContact(b2Contact* contact) {

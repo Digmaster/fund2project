@@ -4,6 +4,7 @@
 #include <SFML/System/Time.hpp>
 #include <string>
 #include <deque>
+#include <iostream>
 
 class ComponentManager; //Forward declaration
 class RenderEngine;
@@ -19,7 +20,8 @@ class ComponentBase {
             \param ID Sets the ID of the object */
         ComponentBase(unsigned int ID = 0) : ID(ID) {}
         //! Default destructor
-        ~ComponentBase() {}
+        ~ComponentBase() {std::cout << "Someone has killed a component! As I haven't made component clean up work yet, this is a big big fatass problem! Whatever you changed, fix it!" << std::endl;}
+
 
         //! Sets the ID
         /*! \param ID The unisgned int to set the value of this component's ID to */

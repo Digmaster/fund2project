@@ -23,7 +23,6 @@ BoundaryPhysics::BoundaryPhysics(unsigned int ID, float x, float y, float endx, 
 
 BoundaryPhysics::~BoundaryPhysics()
 {
-    //dtor
 }
 
 void BoundaryPhysics::go(sf::Time frameTime) {
@@ -31,6 +30,7 @@ void BoundaryPhysics::go(sf::Time frameTime) {
     //The body is the one that contains the position, velocity, etc. not the body definition
     //screenHeight
     //Times 32, as 32 pixels is ~one meter
-    position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)));
+    if(position) //IMPORTANT!!! YOU NEVER KNOW IF A COMPONENT EXISTS, SO CHECK FOR IT!
+        position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)));
     //cout << physBody->GetPosition().x << " " << physBody->GetPosition().y << " " << physBodyDef.awake << endl;
 }
