@@ -4,15 +4,23 @@
 #include "Components/ComponentBase.h"
 #include <string>
 
+enum MoveState : int {
+    onGround,
+    jumping,
+    onLadder,
+    inAir,
+};
+
 class MovementComponent : public ComponentBase
 {
     public:
         MovementComponent();
         MovementComponent(unsigned int ID);
         virtual ~MovementComponent();
-        std::string getCurrentMovement() {return currMovement;}
+        MoveState getState() {return currState;}
     protected:
-        std::string currMovement;
+        MoveState currState;
+        MoveState nextState;
     private:
 };
 

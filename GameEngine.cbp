@@ -87,6 +87,7 @@
 		<Unit filename="include/Components/Physics/BoundaryPhysics.h" />
 		<Unit filename="include/Components/Physics/PhysicsComponent.h" />
 		<Unit filename="include/Components/Physics/PolygonPhysics.h" />
+		<Unit filename="include/Components/Physics/PolylinePhysics.h" />
 		<Unit filename="include/Components/Physics/SimpleBoxPhysics.h" />
 		<Unit filename="include/Components/Positional/WorldPositionComponent.h" />
 		<Unit filename="include/Components/Render/AnimatedComponent.h" />
@@ -99,6 +100,7 @@
 		<Unit filename="include/Components/Target/TargetComponent.h" />
 		<Unit filename="include/GameEngine.h" />
 		<Unit filename="include/InputEngine.h" />
+		<Unit filename="include/LevelLoader.h" />
 		<Unit filename="include/Level/ImageLayer.h" />
 		<Unit filename="include/Level/ImageTile.h" />
 		<Unit filename="include/Level/Layer.h" />
@@ -123,6 +125,7 @@
 		<Unit filename="src/Components/Physics/BoundaryPhysics.cpp" />
 		<Unit filename="src/Components/Physics/PhysicsComponent.cpp" />
 		<Unit filename="src/Components/Physics/PolygonPhysics.cpp" />
+		<Unit filename="src/Components/Physics/PolylinePhysics.cpp" />
 		<Unit filename="src/Components/Physics/SimpleBoxPhysics.cpp" />
 		<Unit filename="src/Components/Positional/WorldPositionComponent.cpp" />
 		<Unit filename="src/Components/Render/AnimatedComponent.cpp" />
@@ -135,12 +138,7 @@
 		<Unit filename="src/Components/Target/TargetComponent.cpp" />
 		<Unit filename="src/GameEngine.cpp" />
 		<Unit filename="src/InputEngine.cpp" />
-		<Unit filename="src/Level/ImageLayer.cpp" />
-		<Unit filename="src/Level/ImageTile.cpp" />
-		<Unit filename="src/Level/Layer.cpp" />
-		<Unit filename="src/Level/Level.cpp" />
-		<Unit filename="src/Level/ObjectLayer.cpp" />
-		<Unit filename="src/Level/TileLayer.cpp" />
+		<Unit filename="src/LevelLoader.cpp" />
 		<Unit filename="src/Options.cpp" />
 		<Unit filename="src/Rendering/AnimatedSprite.cpp" />
 		<Unit filename="src/Rendering/Animation.cpp" />

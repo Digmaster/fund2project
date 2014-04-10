@@ -10188,6 +10188,9 @@
   <object gid="493" x="336" y="448"/>
   <object gid="493" x="352" y="448"/>
   <object type="clutter" gid="493" x="336" y="432"/>
+  <object x="208" y="432">
+   <polyline points="0,0 16,-112 64,-16 320,-112 816,-112"/>
+  </object>
  </objectgroup>
  <layer name="forground" width="100" height="50">
   <properties>

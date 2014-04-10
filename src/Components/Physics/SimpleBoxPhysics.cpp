@@ -194,13 +194,9 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
 //std::cout << "LadderListerner BeginContact" << std::endl;
     if( contact->GetFixtureA()->IsSensor() && nameA == "ladder" && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
       overLadderNum++;
-      contact->GetFixtureB()->GetBody()->SetGravityScale(0);
-      contact->GetFixtureB()->GetBody()->SetLinearDamping(8.0f);
     }
       if( contact->GetFixtureB()->IsSensor() && nameB == "ladder" && (contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody)){
       overLadderNum++;
-      contact->GetFixtureA()->GetBody()->SetGravityScale(0);
-      contact->GetFixtureA()->GetBody()->SetLinearDamping(8.0f);
       }
     }
 
@@ -224,13 +220,9 @@ void LadderContactListener::EndContact(b2Contact* contact) {
   if ( fixtureUserDataA == findID || fixtureUserDataB == findID){
     if( contact->GetFixtureA()->IsSensor() && nameA == "ladder"  && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
         overLadderNum--;
-        contact->GetFixtureA()->GetBody()->SetGravityScale(1);
-        contact->GetFixtureA()->GetBody()->SetLinearDamping(0.0f);
     }
     if( contact->GetFixtureB()->IsSensor() && nameB == "ladder" && (contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody)){
         overLadderNum--;
-        contact->GetFixtureA()->GetBody()->SetGravityScale(1);
-        contact->GetFixtureA()->GetBody()->SetLinearDamping(0.0f);
     }
     }
 }

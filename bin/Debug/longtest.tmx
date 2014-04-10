@@ -7,7 +7,15 @@
   <image source="assets/art/box.png" trans="b3ff9b" width="32" height="32"/>
  </tileset>
  <tileset firstgid="2" name="Mario" tilewidth="32" tileheight="32">
+  <properties>
+   <property name="testValue" value="yaaay"/>
+  </properties>
   <image source="assets/art/Mario.png" trans="b3ff9b" width="608" height="384"/>
+  <tile id="2">
+   <properties>
+    <property name="solid" value="yes"/>
+   </properties>
+  </tile>
   <tile id="38">
    <properties>
     <property name="test" value="yes"/>
@@ -19,6 +27,9 @@
  </tileset>
  <tileset firstgid="242" name="tiles1_0" tilewidth="32" tileheight="32">
   <image source="assets/art/tiles1_0.png" trans="b3ff9b" width="224" height="96"/>
+ </tileset>
+ <tileset firstgid="263" name="shaq" tilewidth="45" tileheight="32">
+  <image source="assets/art/shaq.png" trans="b3ff9b" width="70" height="100"/>
  </tileset>
  <imagelayer name="oeou" width="200" height="40">
   <image source="assets/art/0f10d_Pattern_Seamless_4718496223_5847f34c28.jpg"/>
@@ -1652,6 +1663,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1849,6 +1862,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -4044,6 +4059,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="4"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -4243,6 +4259,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="4"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -4442,16 +4459,10 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -32085,6 +32096,9 @@
     <property name="target" value="bottompipe1"/>
    </properties>
   </object>
+  <object type="sensor" x="1152" y="224">
+   <polygon points="0,0 -160,160 0,160"/>
+  </object>
  </objectgroup>
  <objectgroup name="GameLogic" width="200" height="40">
   <object type="script" gid="1" x="4" y="36">
@@ -32104,9 +32118,6 @@
    <ellipse/>
   </object>
   <object type="movingObject" gid="112" x="1397" y="110"/>
-  <object type="sensor" x="1946" y="82">
-   <polygon points="0,0 147,-48 202,109 237,-20"/>
-  </object>
  </objectgroup>
  <objectgroup name="Sensors/Ladder" width="200" height="40">
   <object type="ladder" x="2657" y="1" width="30" height="382"/>

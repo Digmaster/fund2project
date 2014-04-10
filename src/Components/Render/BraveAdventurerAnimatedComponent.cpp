@@ -11,38 +11,50 @@ BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent()
 void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
     AnimatedComponent::go(fps);
     MovementComponent* movement = ComponentManager::getInst().moveSym.getComponent(getID());
-    PhysicsComponent* phys = ComponentManager::getInst().physSym.getComponent(getID());
-    if(movement!=NULL) {
-        if(movement->getCurrentMovement()=="WalkLeft") {
-            if(phys->onGround())
+    InputComponent* input = ComponentManager::getInst().inputSym.getComponent(getID());
+    if(movement!=NULL && input!=NULL) {
+        if(movement->getState()==MoveState::onGround) {
+            if(input->walkLeft && !input->walkRight)
                 sprite.setAnimation("WalkLeft");
-            else
-                sprite.setAnimation("FallLeft");
-            currDir = 1;
-        }
-        if(movement->getCurrentMovement()=="WalkRight") {
-            if(phys->onGround())
+            else if(input->walkRight && !input->walkLeft)
                 sprite.setAnimation("WalkRight");
-            else
-                sprite.setAnimation("FallRight");
-            currDir = 0;
-        }
-        //cout<<movement->getCurrentMovement()<<endl;
-        if(movement->getCurrentMovement() == "still"){
-            if(currDir){
-                if(phys->onGround())
-                    sprite.setAnimation("StandLeft");
-                else
-                    sprite.setAnimation("FallLeft");
-               // cout<<"Standing Right"<<endl;
-            }
-            else{
-                if(phys->onGround())
+            else {
+                if(input->fireDir < 90 && input->fireDir > -90)
                     sprite.setAnimation("StandRight");
                 else
-                    sprite.setAnimation("FallLeft");
-               // cout<<"standing Left"<<endl;
+                    sprite.setAnimation("StandLeft");
             }
+        }
+        if(movement->getState()==MoveState::inAir) {
+            if(input->walkLeft && !input->walkRight)
+                sprite.setAnimation("JumpLeft");
+            else if(input->walkRight && !input->walkLeft)
+                sprite.setAnimation("JumpRight");
+            else {
+                if(input->fireDir < 90 && input->fireDir > -90)
+                    sprite.setAnimation("FallRight");
+                else
+                    sprite.setAnimation("FallLeft");
+            }
+        }
+        if(movement->getState()==MoveState::onLadder) {
+            if(input->climbUp)
+                sprite.setAnimation("ClimbUp");
+            if(input->climbDown)
+                sprite.setAnimation("ClimbDown");
+            else if(input->walkLeft)
+                sprite.setAnimation("ClimbLeft");
+            else if(input->walkRight)
+                sprite.setAnimation("ClimbRight");
+            else {
+                sprite.setAnimation("ClimbStill");
+            }
+        }
+        if(movement->getState()==MoveState::jumping) {
+            if(input->walkLeft)
+                sprite.setAnimation("JumpLeft");
+            else
+                sprite.setAnimation("JumpRight");
         }
         sprite.play();
     }
