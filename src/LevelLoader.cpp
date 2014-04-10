@@ -269,7 +269,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     if(attribute!=NULL)
                         tileGid = atoi(attribute->value());
                     if(tileGid!=0) {
-                        Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth, (int)(i/layerWidth)*tileheight);
+                        Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth+tilewidth/2, (int)(i/layerWidth)*tileheight+tileheight/2);
                         int id = ComponentBase::getNewID();
                         new WorldPositionComponent(id, position, layerNum);
                         if(visible) {
@@ -296,14 +296,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         }
                         else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i-1]==false) {
                             //Start the collission line
-                            startPoint = j*tilewidth-tilewidth/2;
+                            startPoint = j*tilewidth;
                             lastCollission = true;
                         }
                         else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i-1]==true)) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            new BoundaryPhysics(id, startPoint, i*tileheight-tileheight/2, j*tilewidth-tilewidth/2, i*tileheight-tileheight/2);
+                            new BoundaryPhysics(id, startPoint, i*tileheight, j*tilewidth, i*tileheight);
                             lastCollission = false;
                         }
                     }
@@ -317,14 +317,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         }
                         else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i+1]==false) {
                             //Start the collission line
-                            startPoint = j*tilewidth-tilewidth/2;
+                            startPoint = j*tilewidth;
                             lastCollission = true;
                         }
                         else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i+1]==true)) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            new BoundaryPhysics(id, startPoint, i*tileheight+tileheight/2, j*tilewidth-tilewidth/2, i*tileheight+tileheight/2);
+                            new BoundaryPhysics(id, startPoint, i*tileheight+tileheight, j*tilewidth, i*tileheight+tileheight);
                             lastCollission = false;
                         }
                     }
@@ -338,14 +338,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         }
                         else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i-1][j]==false) {
                             //Start the collission line
-                            startPoint = j*tilewidth-tilewidth/2;
+                            startPoint = j*tilewidth;
                             lastCollission = true;
                         }
                         else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i-1][j]==true)) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            new BoundaryPhysics(id, i*tilewidth-tilewidth/2, startPoint, i*tilewidth-tilewidth/2, j*tileheight-tileheight/2);
+                            new BoundaryPhysics(id, i*tilewidth, startPoint, i*tilewidth, j*tileheight);
 
                             lastCollission = false;
                         }
@@ -360,14 +360,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         }
                         else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i+1][j]==false) {
                             //Start the collission line
-                            startPoint = j*tilewidth-tilewidth/2;
+                            startPoint = j*tilewidth;
                             lastCollission = true;
                         }
                         else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i+1][j]==true)) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            new BoundaryPhysics(id, i*tilewidth+tilewidth/2, startPoint, i*tilewidth+tilewidth/2, j*tileheight-tileheight/2);
+                            new BoundaryPhysics(id, i*tilewidth+tilewidth, startPoint, i*tilewidth+tilewidth, j*tileheight);
 
                             lastCollission = false;
                         }
@@ -382,8 +382,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if(attribute!=NULL) {
                     texture = texMan->getTexture(attribute->value());
                     if(properties["tiled"]!="no") {
-                        for(int i = texture->getSize().x/2-tilewidth/2; i < width*tilewidth*layerZoom+texture->getSize().x/2; i+=texture->getSize().x) {
-                            for(int j = texture->getSize().y/2-tileheight/2; j < height*tileheight*layerZoom+texture->getSize().y/2; j+=texture->getSize().y) {
+                        for(int i = texture->getSize().x/2; i < width*tilewidth*layerZoom+texture->getSize().x/2; i+=texture->getSize().x) {
+                            for(int j = texture->getSize().y/2; j < height*tileheight*layerZoom+texture->getSize().y/2; j+=texture->getSize().y) {
                                 int id = ComponentBase::getNewID();
                                 new WorldPositionComponent(id, Vector2f(i,j), layerNum);
                                 Sprite imageSprite(*texture);
@@ -393,7 +393,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     }
                     else {
                         int id = ComponentBase::getNewID();
-                        new WorldPositionComponent(id, Vector2f(texture->getSize().x/2-tilewidth/2,texture->getSize().y/2-tileheight/2), layerNum);
+                        new WorldPositionComponent(id, Vector2f(texture->getSize().x/2,texture->getSize().y/2), layerNum);
                         Sprite imageSprite(*texture);
                         new StaticSpriteComponent(imageSprite, id);
                     }
@@ -527,12 +527,12 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                 ///Modify position based on what it is
                 if(objectHeight!=0 && objectWidth!=0) { //Has width and height, use that
-                    objectX +=objectWidth/2-tilewidth/2;
-                    objectY +=objectHeight/2-tileheight/2;
+                    objectX +=objectWidth/2;
+                    objectY +=objectHeight/2;
                 }
                 else if(objGid!=0) { //Has associated image, use that
-                    objectX +=sprites[objGid].getGlobalBounds().width/2-tilewidth/2;
-                    objectY +=sprites[objGid].getGlobalBounds().height/2-tileheight/2;
+                    objectX +=sprites[objGid].getGlobalBounds().width/2;
+                    objectY +=sprites[objGid].getGlobalBounds().height/2;
                 }
                 //otherwise, don't change it
 
@@ -545,8 +545,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     }
                     else if(polygon_node) {
                         new PolygonPhysics(id, points);
-                        objectX-=tilewidth/2; //move position based on stuff
-                        objectY-=tileheight/2;
                     }
                     else if(polyline_node) {
                         new PolylinePhysics(id, points);
@@ -633,8 +631,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
 void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
     unsigned int id = ComponentBase::getNewID();
-    position.x +=sprite.getGlobalBounds().width/2-tilewidth/2;
-    position.x +=sprite.getGlobalBounds().height/2-tileheight/2;
+    position.x +=sprite.getGlobalBounds().width/2;
+    position.x +=sprite.getGlobalBounds().height/2;
     StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
     WorldPositionComponent* posComp= new WorldPositionComponent(id, position, layer);
@@ -648,8 +646,8 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
 void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
 
     //Simple makeSensor without a sprite. Cannot figure out why the position is messed up.
-    position.x +=dimension.x/2-tilewidth/2;
-    position.y +=dimension.y/2-tileheight/2;
+    position.x +=dimension.x/2;
+    position.y +=dimension.y/2;
 
     unsigned int id = ComponentBase::getNewID();
     //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
