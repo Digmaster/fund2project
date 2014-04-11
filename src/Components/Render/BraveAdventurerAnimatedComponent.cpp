@@ -14,42 +14,35 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
     InputComponent* input = ComponentManager::getInst().inputSym.getComponent(getID());
     if(movement!=NULL && input!=NULL) {
         if(movement->getState()==MoveState::onGround) {
-            if(input->walkLeft && !input->walkRight)
-                sprite.setAnimation("WalkLeft");
-            else if(input->walkRight && !input->walkLeft)
-                sprite.setAnimation("WalkRight");
-            else {
-                if(input->fireDir < 90 && input->fireDir > -90)
-                    sprite.setAnimation("StandRight");
-                else
-                    sprite.setAnimation("StandLeft");
-            }
+            if(input->fireDir < 90 && input->fireDir > -90)
+                sprite.setAnimation("StandRight");
+            else
+                sprite.setAnimation("StandLeft");
+        }
+        if(movement->getState()==MoveState::leftWalk) {
+            sprite.setAnimation("WalkLeft");
+        }
+        if(movement->getState()==MoveState::rightWalk) {
+            sprite.setAnimation("WalkRight");
         }
         if(movement->getState()==MoveState::inAir) {
-            if(input->walkLeft && !input->walkRight)
-                sprite.setAnimation("JumpLeft");
-            else if(input->walkRight && !input->walkLeft)
-                sprite.setAnimation("JumpRight");
-            else {
-                if(input->fireDir < 90 && input->fireDir > -90)
-                    sprite.setAnimation("FallRight");
-                else
-                    sprite.setAnimation("FallLeft");
-            }
+            if(input->fireDir < 90 && input->fireDir > -90)
+                sprite.setAnimation("FallRight");
+            else
+                sprite.setAnimation("FallLeft");
         }
-        if(movement->getState()==MoveState::onLadder) {
-            if(input->climbUp)
-                sprite.setAnimation("ClimbUp");
-            if(input->climbDown)
-                sprite.setAnimation("ClimbDown");
-            else if(input->walkLeft)
-                sprite.setAnimation("ClimbLeft");
-            else if(input->walkRight)
-                sprite.setAnimation("ClimbRight");
-            else {
-                sprite.setAnimation("ClimbStill");
-            }
-        }
+
+        if(movement->getState()==MoveState::onLadder)
+            sprite.setAnimation("ClimbStill");
+        if(movement->getState()==MoveState::ladderRight)
+            sprite.setAnimation("ClimbRight");
+        if(movement->getState()==MoveState::ladderLeft)
+            sprite.setAnimation("ClimbLeft");
+        if(movement->getState()==MoveState::ladderUp)
+            sprite.setAnimation("ClimbUp");
+        if(movement->getState()==MoveState::ladderDown)
+            sprite.setAnimation("ClimbDown");
+
         if(movement->getState()==MoveState::jumping) {
             if(input->walkLeft)
                 sprite.setAnimation("JumpLeft");

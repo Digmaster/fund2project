@@ -6,8 +6,15 @@
 
 enum MoveState : int {
     onGround,
+    leftWalk,
+    rightWalk,
+    attack,
     jumping,
     onLadder,
+    ladderLeft,
+    ladderRight,
+    ladderUp,
+    ladderDown,
     inAir,
 };
 
