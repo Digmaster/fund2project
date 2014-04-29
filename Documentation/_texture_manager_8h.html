@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Rendering/TextureManager.h File Reference</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Rendering/TextureManager.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_texture_manager_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_645b61aa635a2b12d7bc888d91ab0648.html">Rendering</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
@@ -94,6 +111,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;SFML/Graphics.hpp&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;exception&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for TextureManager.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_texture_manager_8h__incl.png" border="0" usemap="#_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_rendering_2_texture_manager_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_texture_manager_8h__dep__incl.png" border="0" usemap="#_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_rendering_2_texture_manager_8hdep" alt=""/></div>
+<map name="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_rendering_2_texture_manager_8hdep" id="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_rendering_2_texture_manager_8hdep">
+<area shape="rect" id="node2" href="_render_component_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Render\l/RenderComponent.h" alt="" coords="2692,110,2881,181"/><area shape="rect" id="node39" href="_sprite_manager_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Rendering/SpriteManager.h" alt="" coords="6002,477,6229,533"/><area shape="rect" id="node40" href="_graphical_engine_test_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/GraphicalEngineTest.cpp" alt="" coords="5693,597,5885,653"/><area shape="rect" id="node44" href="_texture_manager_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Rendering/TextureManager.cpp" alt="" coords="6053,117,6280,173"/><area shape="rect" id="node3" href="_component_system_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/ComponentSystem.h" alt="" coords="2651,237,2921,293"/><area shape="rect" id="node24" href="_render_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/RenderComponent.cpp" alt="" coords="1273,470,1439,541"/><area shape="rect" id="node29" href="_animated_component_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Render\l/AnimatedComponent.h" alt="" coords="5388,470,5577,541"/><area shape="rect" id="node31" href="_debug_draw_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Render\l/DebugDraw.h" alt="" coords="565,230,755,301"/><area shape="rect" id="node36" href="_static_sprite_component_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Render\l/StaticSpriteComponent.h" alt="" coords="1687,350,1876,421"/><area shape="rect" id="node37" href="_render_engine_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Rendering/RenderEngine.h" alt="" coords="4753,237,4977,293"/><area shape="rect" id="node4" href="_component_manager_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/ComponentManager.h" alt="" coords="2649,357,2924,413"/><area shape="rect" id="node5" href="_simple_box_physics_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Physics\l/SimpleBoxPhysics.h" alt="" coords="1775,470,1969,541"/><area shape="rect" id="node6" href="_simple_box_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/SimpleBoxPhysics.cpp" alt="" coords="1651,590,1823,661"/><area shape="rect" id="node7" href="_game_engine_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/GameEngine.cpp" alt="" coords="3205,717,3371,773"/><area shape="rect" id="node9" href="_audio_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Audio/AudioComponent.cpp" alt="" coords="3673,477,3959,533"/><area shape="rect" id="node10" href="_component_base_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/ComponentBase.cpp" alt="" coords="5117,477,5363,533"/><area shape="rect" id="node11" href="_component_manager_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/ComponentManager.cpp" alt="" coords="3984,477,4251,533"/><area shape="rect" id="node12" href="_i_d_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Identification\l/IDComponent.cpp" alt="" coords="2044,470,2241,541"/><area shape="rect" id="node13" href="_input_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Input/InputComponent.cpp" alt="" coords="4326,477,4601,533"/><area shape="rect" id="node14" href="_keyboard_input_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Input/Keyboard\lInput.cpp" alt="" coords="4881,470,5092,541"/><area shape="rect" id="node15" href="_brave_adventurer_movement_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Movement\l/BraveAdventurerMovement.cpp" alt="" coords="2265,470,2468,541"/><area shape="rect" id="node16" href="_movement_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Movement\l/MovementComponent.cpp" alt="" coords="2492,470,2676,541"/><area shape="rect" id="node17" href="_boundary_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/BoundaryPhysics.cpp" alt="" coords="581,470,752,541"/><area shape="rect" id="node18" href="_physics_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/PhysicsComponent.cpp" alt="" coords="2701,470,2872,541"/><area shape="rect" id="node19" href="_polygon_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/PolygonPhysics.cpp" alt="" coords="1077,470,1248,541"/><area shape="rect" id="node20" href="_polyline_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/PolylinePhysics.cpp" alt="" coords="829,470,1000,541"/><area shape="rect" id="node21" href="_world_position_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Positional\l/WorldPositionComponent.cpp" alt="" coords="2949,470,3147,541"/><area shape="rect" id="node22" href="_animated_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/AnimatedComponent.cpp" alt="" coords="4563,590,4735,661"/><area shape="rect" id="node23" href="_brave_adventurer_animated_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/BraveAdventurerAnimatedComponent.cpp" alt="" coords="1891,710,2156,781"/><area shape="rect" id="node25" href="_static_sprite_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/StaticSpriteComponent.cpp" alt="" coords="1463,470,1648,541"/><area shape="rect" id="node26" href="_camera_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Scrpt/Camera.cpp" alt="" coords="4626,477,4856,533"/><area shape="rect" id="node27" href="_script_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Scrpt/ScriptComponent.cpp" alt="" coords="3172,477,3457,533"/><area shape="rect" id="node28" href="_target_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Target\l/TargetComponent.cpp" alt="" coords="3482,470,3648,541"/><area shape="rect" id="node8" href="_level_loader_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/LevelLoader.cpp" alt="" coords="1701,717,1867,773"/><area shape="rect" id="node30" href="_brave_adventurer_animated_component_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Render\l/BraveAdventurerAnimatedComponent.h" alt="" coords="1899,590,2149,661"/><area shape="rect" id="node32" href="_physics_engine_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/physics/PhysicsEngine.h" alt="" coords="339,357,557,413"/><area shape="rect" id="node35" href="_debug_draw_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/DebugDraw.cpp" alt="" coords="582,350,748,421"/><area shape="rect" id="node33" href="_physics_engine_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/physics/PhysicsEngine.cpp" alt="" coords="5,477,213,533"/><area shape="rect" id="node34" href="_render_engine_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Rendering/RenderEngine.cpp" alt="" coords="340,477,556,533"/><area shape="rect" id="node38" href="_animated_sprite_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Rendering/AnimatedSprite.h" alt="" coords="5450,357,5683,413"/><area shape="rect" id="node43" href="_input_engine_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/InputEngine.cpp" alt="" coords="5759,357,5925,413"/><area shape="rect" id="node42" href="_animated_sprite_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Rendering/AnimatedSprite.cpp" alt="" coords="5652,477,5876,533"/><area shape="rect" id="node41" href="_sprite_manager_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Rendering/SpriteManager.cpp" alt="" coords="6012,597,6231,653"/></map>
+</div>
 </div>
 <p><a href="_texture_manager_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -104,11 +133,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_645b61aa635a2b12d7bc888d91ab0648.html">Rendering</a></li><li class="navelem"><a class="el" href="_texture_manager_8h.html">TextureManager.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:54 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

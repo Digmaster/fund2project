@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['worldpositioncomponent',['WorldPositionComponent',['../class_world_position_component.html#a1dbc9f811a5fb947916f5950e448b20a',1,'WorldPositionComponent::WorldPositionComponent()'],['../class_world_position_component.html#ac289c43e97c2f4066dfc34964188fe2a',1,'WorldPositionComponent::WorldPositionComponent(unsigned int ID, sf::Vector2f=sf::Vector2f(0, 0), int=0, float=0)']]]
+  ['unpause',['unpause',['../class_game_engine.html#a110d47edc9b9d6e9a426621954216acc',1,'GameEngine']]],
+  ['update',['update',['../class_input_engine.html#a1f1d0723482b1479bcc8825cb716c6d9',1,'InputEngine::update()'],['../class_animated_sprite.html#a17a41ff812631a9d8947d272933d6696',1,'AnimatedSprite::update()']]]
 ];

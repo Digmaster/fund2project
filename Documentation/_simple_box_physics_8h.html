@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Physics/SimpleBoxPhysics.h File Reference</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Physics/SimpleBoxPhysics.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_simple_box_physics_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_61a5cbc3c32dc4843a37850077de08ba.html">Physics</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
@@ -93,24 +110,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &quot;<a class="el" href="_component_manager_8h_source.html">Components/ComponentManager.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_physics_component_8h_source.html">Components\Physics\PhysicsComponent.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_i_d_component_8h_source.html">Components\Identification\IDComponent.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for SimpleBoxPhysics.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_simple_box_physics_8h__incl.png" border="0" usemap="#_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_simple_box_physics_8h" alt=""/></div>
+<map name="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_simple_box_physics_8h" id="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_simple_box_physics_8h">
+<area shape="rect" id="node2" href="_component_manager_8h.html" title="Components/ComponentManager.h" alt="" coords="973,125,1200,152"/><area shape="rect" id="node20" href="_physics_component_8h.html" title="Components/Physics\l/PhysicsComponent.h" alt="" coords="2137,275,2287,317"/><area shape="rect" id="node22" href="_i_d_component_8h.html" title="Components/Identification\l/IDComponent.h" alt="" coords="1671,275,1841,317"/><area shape="rect" id="node4" href="_component_system_8h.html" title="Components/ComponentSystem.h" alt="" coords="976,200,1197,227"/><area shape="rect" id="node6" href="_component_base_8h.html" title="Components/ComponentBase.h" alt="" coords="983,365,1189,392"/><area shape="rect" id="node11" href="_render_component_8h.html" title="Components/Render/Render\lComponent.h" alt="" coords="218,275,403,317"/><area shape="rect" id="node16" href="_world_position_component_8h.html" title="Components/Positional\l/WorldPositionComponent.h" alt="" coords="479,275,663,317"/><area shape="rect" id="node18" href="_input_component_8h.html" title="Components/Input/InputComponent.h" alt="" coords="687,283,923,309"/><area shape="rect" id="node19" href="_movement_component_8h.html" title="Components/Movement\l/MovementComponent.h" alt="" coords="1484,275,1647,317"/><area shape="rect" id="node23" href="_target_component_8h.html" title="Components/Target/Target\lComponent.h" alt="" coords="999,275,1173,317"/><area shape="rect" id="node24" href="_script_component_8h.html" title="Components/Script/Script\lComponent.h" alt="" coords="1199,275,1369,317"/><area shape="rect" id="node25" href="_audio_component_8h.html" title="Components/Audio/AudioComponent.h" alt="" coords="1866,283,2112,309"/><area shape="rect" id="node13" href="_texture_manager_8h.html" title="Rendering/TextureManager.h" alt="" coords="114,365,301,392"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_simple_box_physics_8h__dep__incl.png" border="0" usemap="#_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_simple_box_physics_8hdep" alt=""/></div>
+<map name="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_simple_box_physics_8hdep" id="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_simple_box_physics_8hdep">
+<area shape="rect" id="node2" href="_simple_box_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/SimpleBoxPhysics.cpp" alt="" coords="5,126,176,197"/><area shape="rect" id="node3" href="_game_engine_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/GameEngine.cpp" alt="" coords="201,133,367,189"/><area shape="rect" id="node4" href="_level_loader_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/LevelLoader.cpp" alt="" coords="391,133,557,189"/></map>
+</div>
 </div>
 <p><a href="_simple_box_physics_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_box_physics.html">SimpleBoxPhysics</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A note-so-simple component which creates a physics box.  <a href="class_simple_box_physics.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_foot_contact_listener.html">FootContactListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when in contact with anything.  <a href="class_foot_contact_listener.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ladder_contact_listener.html">LadderContactListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when in contact with anything of type "Ladder".  <a href="class_ladder_contact_listener.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_61a5cbc3c32dc4843a37850077de08ba.html">Physics</a></li><li class="navelem"><a class="el" href="_simple_box_physics_8h.html">SimpleBoxPhysics.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

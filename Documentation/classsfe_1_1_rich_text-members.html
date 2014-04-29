@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Member List</title>
+<title>Fund2Project: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,10 +69,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classsfe_1_1_rich_text.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,11 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacesfe.html">sfe</a></li><li class="navelem"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">sfe::RichText Member List</div>  </div>
@@ -96,23 +113,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a3e72a27564ba2b657a9f19f4ee51c3b3">clear</a>()</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a9be998595b568de3d47d4c3910417368">draw</a>(sf::RenderTarget &amp;target, sf::RenderStates states) const override</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a278e1474f17cfe3f7294e4a15f98b10b">getCharacterSize</a>() const </td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#aaae8d22b31d14a6cc86321f16b9fba68">getFont</a>() const </td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#adaf3cccc917f440ae05d76fb7ae805a0">getFont</a>() const </td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a6ac1282e371210117f403699b97f935f">getGlobalBounds</a>() const </td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a671b4aa25e51ae8005cdb3561153d5eb">getLines</a>() const </td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a379e49f39a6efb63a767642150f9b98d">getLines</a>() const </td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a78f085ec777e4ede29c55b5044154650">getLocalBounds</a>() const </td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a298a32f060b1ed002d6f842e28a05858">operator&lt;&lt;</a>(const sf::Color &amp;color)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a116a0a79539308602fa07a184b7fcbb5">operator&lt;&lt;</a>(sf::Text::Style style)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#adc8e2eb71ffb9875f1af065e0a8bac73">operator&lt;&lt;</a>(const sf::String &amp;string)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a95732ef39c38fcdb77e4291fb03fb556">operator&lt;&lt;</a>(const sf::Color &amp;color)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a1fa708689133e2a7d2f938112f1cc6b9">operator&lt;&lt;</a>(sf::Text::Style style)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a9285def7afe7919cb1213aaa170587c8">operator&lt;&lt;</a>(const sf::String &amp;string)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a2b1f017d5bf4e080ad1a36f60a0ff0e6">RichText</a>()</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#ab837e0edfc11186c3c65f59abe60c569">RichText</a>(const sf::Font &amp;font)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a06297b2e2c31b7f14e29b4854376bc9b">setCharacterSize</a>(unsigned int size)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html#a284f1104949a6de78785a68234abf92e">setFont</a>(const sf::Font &amp;font)</td><td class="entry"><a class="el" href="classsfe_1_1_rich_text.html">sfe::RichText</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Tue Apr 8 2014 22:12:35 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

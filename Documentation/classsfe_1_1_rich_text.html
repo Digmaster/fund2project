@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: sfe::RichText Class Reference</title>
+<title>Fund2Project: sfe::RichText Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,10 +69,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classsfe_1_1_rich_text.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,11 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacesfe.html">sfe</a></li><li class="navelem"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -100,11 +117,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for sfe::RichText:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classsfe_1_1_rich_text.png" usemap="#sfe::RichText_map" alt=""/>
-  <map id="sfe::RichText_map" name="sfe::RichText_map">
-</map>
- </div></div>
+<div class="center"><img src="classsfe_1_1_rich_text__inherit__graph.png" border="0" usemap="#sfe_1_1_rich_text_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for sfe::RichText:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text__coll__graph.png" border="0" usemap="#sfe_1_1_rich_text_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -117,24 +136,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2b1f017d5bf4e080ad1a36f60a0ff0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab837e0edfc11186c3c65f59abe60c569"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#ab837e0edfc11186c3c65f59abe60c569">RichText</a> (const sf::Font &amp;font)</td></tr>
 <tr class="separator:ab837e0edfc11186c3c65f59abe60c569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a298a32f060b1ed002d6f842e28a05858"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a298a32f060b1ed002d6f842e28a05858">operator&lt;&lt;</a> (const sf::Color &amp;color)</td></tr>
-<tr class="separator:a298a32f060b1ed002d6f842e28a05858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a116a0a79539308602fa07a184b7fcbb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a116a0a79539308602fa07a184b7fcbb5">operator&lt;&lt;</a> (sf::Text::Style style)</td></tr>
-<tr class="separator:a116a0a79539308602fa07a184b7fcbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc8e2eb71ffb9875f1af065e0a8bac73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#adc8e2eb71ffb9875f1af065e0a8bac73">operator&lt;&lt;</a> (const sf::String &amp;string)</td></tr>
-<tr class="separator:adc8e2eb71ffb9875f1af065e0a8bac73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95732ef39c38fcdb77e4291fb03fb556"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a95732ef39c38fcdb77e4291fb03fb556">operator&lt;&lt;</a> (const sf::Color &amp;color)</td></tr>
+<tr class="separator:a95732ef39c38fcdb77e4291fb03fb556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fa708689133e2a7d2f938112f1cc6b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a1fa708689133e2a7d2f938112f1cc6b9">operator&lt;&lt;</a> (sf::Text::Style style)</td></tr>
+<tr class="separator:a1fa708689133e2a7d2f938112f1cc6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9285def7afe7919cb1213aaa170587c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a9285def7afe7919cb1213aaa170587c8">operator&lt;&lt;</a> (const sf::String &amp;string)</td></tr>
+<tr class="separator:a9285def7afe7919cb1213aaa170587c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06297b2e2c31b7f14e29b4854376bc9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a06297b2e2c31b7f14e29b4854376bc9b">setCharacterSize</a> (unsigned int size)</td></tr>
 <tr class="separator:a06297b2e2c31b7f14e29b4854376bc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a284f1104949a6de78785a68234abf92e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a284f1104949a6de78785a68234abf92e">setFont</a> (const sf::Font &amp;font)</td></tr>
 <tr class="separator:a284f1104949a6de78785a68234abf92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e72a27564ba2b657a9f19f4ee51c3b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a3e72a27564ba2b657a9f19f4ee51c3b3">clear</a> ()</td></tr>
 <tr class="separator:a3e72a27564ba2b657a9f19f4ee51c3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a671b4aa25e51ae8005cdb3561153d5eb"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classsfe_1_1_rich_text_1_1_line.html">Line</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a671b4aa25e51ae8005cdb3561153d5eb">getLines</a> () const </td></tr>
-<tr class="separator:a671b4aa25e51ae8005cdb3561153d5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379e49f39a6efb63a767642150f9b98d"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classsfe_1_1_rich_text_1_1_line.html">Line</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a379e49f39a6efb63a767642150f9b98d">getLines</a> () const </td></tr>
+<tr class="separator:a379e49f39a6efb63a767642150f9b98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a278e1474f17cfe3f7294e4a15f98b10b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a278e1474f17cfe3f7294e4a15f98b10b">getCharacterSize</a> () const </td></tr>
 <tr class="separator:a278e1474f17cfe3f7294e4a15f98b10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaae8d22b31d14a6cc86321f16b9fba68"><td class="memItemLeft" align="right" valign="top">const sf::Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#aaae8d22b31d14a6cc86321f16b9fba68">getFont</a> () const </td></tr>
-<tr class="separator:aaae8d22b31d14a6cc86321f16b9fba68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf3cccc917f440ae05d76fb7ae805a0"><td class="memItemLeft" align="right" valign="top">const sf::Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#adaf3cccc917f440ae05d76fb7ae805a0">getFont</a> () const </td></tr>
+<tr class="separator:adaf3cccc917f440ae05d76fb7ae805a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78f085ec777e4ede29c55b5044154650"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesf.html#aed4e58f586b2eed2621c0365d0b7554e">sf::FloatRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a78f085ec777e4ede29c55b5044154650">getLocalBounds</a> () const </td></tr>
 <tr class="separator:a78f085ec777e4ede29c55b5044154650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ac1282e371210117f403699b97f935f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesf.html#aed4e58f586b2eed2621c0365d0b7554e">sf::FloatRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text.html#a6ac1282e371210117f403699b97f935f">getGlobalBounds</a> () const </td></tr>
@@ -242,12 +261,12 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaae8d22b31d14a6cc86321f16b9fba68"></a>
+<a class="anchor" id="adaf3cccc917f440ae05d76fb7ae805a0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::Font* sfe::RichText::getFont </td>
+          <td class="memname">const sf::Font * sfe::RichText::getFont </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -270,14 +289,23 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text_a6ac1282e371210117f403699b97f935f_cgraph.png" border="0" usemap="#classsfe_1_1_rich_text_a6ac1282e371210117f403699b97f935f_cgraph" alt=""/></div>
+<map name="classsfe_1_1_rich_text_a6ac1282e371210117f403699b97f935f_cgraph" id="classsfe_1_1_rich_text_a6ac1282e371210117f403699b97f935f_cgraph">
+<area shape="rect" id="node2" href="classsfe_1_1_rich_text.html#a78f085ec777e4ede29c55b5044154650" title="sfe::RichText::getLocalBounds" alt="" coords="217,12,415,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a671b4aa25e51ae8005cdb3561153d5eb"></a>
+<a class="anchor" id="a379e49f39a6efb63a767642150f9b98d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="classsfe_1_1_rich_text_1_1_line.html">Line</a>&gt;&amp; sfe::RichText::getLines </td>
+          <td class="memname">const std::vector&lt; <a class="el" href="classsfe_1_1_rich_text_1_1_line.html">RichText::Line</a> &gt; &amp; sfe::RichText::getLines </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -300,14 +328,23 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text_a78f085ec777e4ede29c55b5044154650_icgraph.png" border="0" usemap="#classsfe_1_1_rich_text_a78f085ec777e4ede29c55b5044154650_icgraph" alt=""/></div>
+<map name="classsfe_1_1_rich_text_a78f085ec777e4ede29c55b5044154650_icgraph" id="classsfe_1_1_rich_text_a78f085ec777e4ede29c55b5044154650_icgraph">
+<area shape="rect" id="node2" href="classsfe_1_1_rich_text_1_1_line.html#a297bd05f7d91f524268a77b873fcb927" title="sfe::RichText::Line\l::getGlobalBounds" alt="" coords="269,5,400,46"/><area shape="rect" id="node4" href="classsfe_1_1_rich_text.html#a6ac1282e371210117f403699b97f935f" title="sfe::RichText::getGlobal\lBounds" alt="" coords="254,70,415,111"/><area shape="rect" id="node3" href="classsfe_1_1_rich_text.html#a9285def7afe7919cb1213aaa170587c8" title="sfe::RichText::operator\&lt;\&lt;" alt="" coords="465,12,634,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a298a32f060b1ed002d6f842e28a05858"></a>
+<a class="anchor" id="a95732ef39c38fcdb77e4291fb03fb556"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a>&amp; sfe::RichText::operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp; sfe::RichText::operator&lt;&lt; </td>
           <td>(</td>
           <td class="paramtype">const sf::Color &amp;&#160;</td>
           <td class="paramname"><em>color</em></td><td>)</td>
@@ -318,12 +355,12 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a116a0a79539308602fa07a184b7fcbb5"></a>
+<a class="anchor" id="a1fa708689133e2a7d2f938112f1cc6b9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a>&amp; sfe::RichText::operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp; sfe::RichText::operator&lt;&lt; </td>
           <td>(</td>
           <td class="paramtype">sf::Text::Style&#160;</td>
           <td class="paramname"><em>style</em></td><td>)</td>
@@ -334,12 +371,12 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adc8e2eb71ffb9875f1af065e0a8bac73"></a>
+<a class="anchor" id="a9285def7afe7919cb1213aaa170587c8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a>&amp; sfe::RichText::operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a> &amp; sfe::RichText::operator&lt;&lt; </td>
           <td>(</td>
           <td class="paramtype">const sf::String &amp;&#160;</td>
           <td class="paramname"><em>string</em></td><td>)</td>
@@ -347,6 +384,15 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text_a9285def7afe7919cb1213aaa170587c8_cgraph.png" border="0" usemap="#classsfe_1_1_rich_text_a9285def7afe7919cb1213aaa170587c8_cgraph" alt=""/></div>
+<map name="classsfe_1_1_rich_text_a9285def7afe7919cb1213aaa170587c8_cgraph" id="classsfe_1_1_rich_text_a9285def7afe7919cb1213aaa170587c8_cgraph">
+<area shape="rect" id="node2" href="namespacesfe.html#a0432f4256c6af656dd1f80f5db6cea32" title="sfe::explode" alt="" coords="243,5,335,32"/><area shape="rect" id="node3" href="classsfe_1_1_rich_text_1_1_line.html#a297bd05f7d91f524268a77b873fcb927" title="sfe::RichText::Line\l::getGlobalBounds" alt="" coords="224,57,355,98"/><area shape="rect" id="node5" href="classsfe_1_1_rich_text_1_1_line.html#a40f1802ea798b2777d7fb838f6ba8c97" title="sfe::RichText::Line\l::appendText" alt="" coords="224,122,355,163"/><area shape="rect" id="node4" href="classsfe_1_1_rich_text.html#a78f085ec777e4ede29c55b5044154650" title="sfe::RichText::getLocalBounds" alt="" coords="403,64,602,91"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -382,15 +428,20 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/<a class="el" href="_rich_text_8hpp_source.html">RichText.hpp</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/<a class="el" href="_rich_text_8cpp.html">RichText.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacesfe.html">sfe</a></li><li class="navelem"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a></li>
+    <li class="footer">Generated on Tue Apr 8 2014 22:12:35 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

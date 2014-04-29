@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: SpriteManager Class Reference</title>
+<title>Fund2Project: SpriteManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_sprite_manager.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,11 +102,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="class_sprite_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SpriteManager Class Reference</div>  </div>
@@ -102,22 +124,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a757bd0abdc5551dd0420f7f7cfc81994"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae01a31b1c80f676604ba55c93b499e1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#ae01a31b1c80f676604ba55c93b499e1f">~SpriteManager</a> ()</td></tr>
 <tr class="separator:ae01a31b1c80f676604ba55c93b499e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd3cdf7bb5003ca31f27fdb8a76cf12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a9dd3cdf7bb5003ca31f27fdb8a76cf12">loadFile</a> (std::string input)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9dd3cdf7bb5003ca31f27fdb8a76cf12"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a9dd3cdf7bb5003ca31f27fdb8a76cf12">loadFile</a> (std::string input)</td></tr>
 <tr class="memdesc:a9dd3cdf7bb5003ca31f27fdb8a76cf12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a file formated in our self-made XML type.  <a href="#a9dd3cdf7bb5003ca31f27fdb8a76cf12">More...</a><br/></td></tr>
 <tr class="separator:a9dd3cdf7bb5003ca31f27fdb8a76cf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a6be1ffcb8a90192f490a412a8fc54a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a6a6be1ffcb8a90192f490a412a8fc54a">loadSpriteFile</a> (std::string)</td></tr>
+<tr class="memitem:a6a6be1ffcb8a90192f490a412a8fc54a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a6a6be1ffcb8a90192f490a412a8fc54a">loadSpriteFile</a> (std::string)</td></tr>
 <tr class="memdesc:a6a6be1ffcb8a90192f490a412a8fc54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a sprite file.  <a href="#a6a6be1ffcb8a90192f490a412a8fc54a">More...</a><br/></td></tr>
 <tr class="separator:a6a6be1ffcb8a90192f490a412a8fc54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47906406851f4f3dfa55db8668bd88ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_animated_sprite.html">AnimatedSprite</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a47906406851f4f3dfa55db8668bd88ab">getSprite</a> (std::string input)</td></tr>
+<tr class="memitem:a47906406851f4f3dfa55db8668bd88ab"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_animated_sprite.html">AnimatedSprite</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a47906406851f4f3dfa55db8668bd88ab">getSprite</a> (std::string input)</td></tr>
 <tr class="memdesc:a47906406851f4f3dfa55db8668bd88ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a sprite.  <a href="#a47906406851f4f3dfa55db8668bd88ab">More...</a><br/></td></tr>
 <tr class="separator:a47906406851f4f3dfa55db8668bd88ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48872c170c872ce6a2b404f1230ff9d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a48872c170c872ce6a2b404f1230ff9d1">addSprite</a> (std::string name, <a class="el" href="class_animated_sprite.html">AnimatedSprite</a> sprite)</td></tr>
+<tr class="memitem:a48872c170c872ce6a2b404f1230ff9d1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a48872c170c872ce6a2b404f1230ff9d1">addSprite</a> (std::string name, <a class="el" href="class_animated_sprite.html">AnimatedSprite</a> sprite)</td></tr>
 <tr class="memdesc:a48872c170c872ce6a2b404f1230ff9d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sprite to the manager.  <a href="#a48872c170c872ce6a2b404f1230ff9d1">More...</a><br/></td></tr>
 <tr class="separator:a48872c170c872ce6a2b404f1230ff9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1011d829327d6525c41e948489a6b823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a1011d829327d6525c41e948489a6b823">loadSpriteDirectory</a> (std::string, rapidxml::xml_node&lt;&gt; *)</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1011d829327d6525c41e948489a6b823"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_manager.html#a1011d829327d6525c41e948489a6b823">loadSpriteDirectory</a> (std::string, rapidxml::xml_node&lt;&gt; *)</td></tr>
 <tr class="separator:a1011d829327d6525c41e948489a6b823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -160,6 +185,9 @@ Protected Member Functions</h2></td></tr>
 <a class="anchor" id="a48872c170c872ce6a2b404f1230ff9d1"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SpriteManager::addSprite </td>
@@ -179,6 +207,11 @@ Protected Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Adds a sprite to the manager. </p>
@@ -195,6 +228,9 @@ Protected Member Functions</h2></td></tr>
 <a class="anchor" id="a47906406851f4f3dfa55db8668bd88ab"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_animated_sprite.html">AnimatedSprite</a> SpriteManager::getSprite </td>
@@ -204,6 +240,11 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns a sprite. </p>
@@ -214,11 +255,23 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sprite_manager_a47906406851f4f3dfa55db8668bd88ab_icgraph.png" border="0" usemap="#class_sprite_manager_a47906406851f4f3dfa55db8668bd88ab_icgraph" alt=""/></div>
+<map name="class_sprite_manager_a47906406851f4f3dfa55db8668bd88ab_icgraph" id="class_sprite_manager_a47906406851f4f3dfa55db8668bd88ab_icgraph">
+<area shape="rect" id="node2" href="_graphical_engine_test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="288,5,339,32"/><area shape="rect" id="node3" href="class_level.html#a918fc70acf9fe0c425354e4b2105ac33" title="Loads a level. " alt="" coords="257,56,369,83"/><area shape="rect" id="node4" href="class_level.html#aae738f64034e93defb1ecf129c9a5652" title="Level::makeBraveAdventurer" alt="" coords="221,107,405,133"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a9dd3cdf7bb5003ca31f27fdb8a76cf12"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int SpriteManager::loadFile </td>
@@ -228,6 +281,11 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Loads a file formated in our self-made XML type. </p>
@@ -239,6 +297,24 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A bool value if successfully loaded or not </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_cgraph.png" border="0" usemap="#class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_cgraph" alt=""/></div>
+<map name="class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_cgraph" id="class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_cgraph">
+<area shape="rect" id="node2" href="class_animated_sprite.html#a27300335fc5c414e29d5c8cd54a74f84" title="Adds an animation to the Animated Sprite. " alt="" coords="214,5,413,32"/><area shape="rect" id="node3" href="class_animation.html#a2fb16f452a323d51a0104c0aa454cab3" title="Sets the texture of the animation. " alt="" coords="226,56,401,83"/><area shape="rect" id="node4" href="class_animation.html#a486ee5fa2d40ae90f227a19866998c91" title="Adds a frame. " alt="" coords="240,107,387,133"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_icgraph.png" border="0" usemap="#class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_icgraph" alt=""/></div>
+<map name="class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_icgraph" id="class_sprite_manager_a9dd3cdf7bb5003ca31f27fdb8a76cf12_icgraph">
+<area shape="rect" id="node2" href="_graphical_engine_test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="213,5,264,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -269,7 +345,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -279,6 +355,9 @@ Protected Member Functions</h2></td></tr>
 <a class="anchor" id="a6a6be1ffcb8a90192f490a412a8fc54a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SpriteManager::loadSpriteFile </td>
@@ -288,6 +367,11 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Loads a sprite file. </p>
@@ -301,15 +385,20 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/Rendering/<a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/Rendering/<a class="el" href="_sprite_manager_8cpp.html">SpriteManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_sprite_manager.html">SpriteManager</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:58 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

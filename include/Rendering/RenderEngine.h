@@ -9,6 +9,7 @@
 class AnimatedSprite;
 class PhysicsEngine;
 
+///Contains all pertinent information about a layer
 struct layerStruct {
     float zoom;
     std::deque<sf::Drawable*> renderList;

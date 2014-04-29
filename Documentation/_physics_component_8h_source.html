@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Physics/PhysicsComponent.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Physics/PhysicsComponent.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_physics_component_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_61a5cbc3c32dc4843a37850077de08ba.html">Physics</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">PhysicsComponent.h</div>  </div>
@@ -96,67 +113,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_engine.html">PhysicsEngine</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_physics_component.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_component.html">PhysicsComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">   12</a></span>&#160;        <a class="code" href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">PhysicsComponent</a>() : <a class="code" href="class_component_base.html">ComponentBase</a>() {}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">PhysicsComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_physics_component.html#afadf481ee69c12d205435ede58da6121">~PhysicsComponent</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_physics_component.html#ae5e30141ecd320df8f289befffd31960">   15</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_component.html#ae5e30141ecd320df8f289befffd31960">setEngine</a>(<a class="code" href="class_physics_engine.html">PhysicsEngine</a>* input) {<a class="code" href="class_physics_component.html#a5b81577fbb36efa342ad7281b6600c74">physEng</a>=input;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_physics_component.html#a8733b6cea6eb36965755d8d205e7d3f5">   16</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a8733b6cea6eb36965755d8d205e7d3f5">onGround</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_physics_component.html#a135f2bafa9e8aabb9cdafb7d610ffc6b">   17</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a135f2bafa9e8aabb9cdafb7d610ffc6b">onLeft</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_physics_component.html#a3bdb2446514f5c24c3a3a077385a7f75">   18</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a3bdb2446514f5c24c3a3a077385a7f75">onRight</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_physics_component.html#a9d76866fc45ccbdd2d86ae823b3d31ac">   19</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a9d76866fc45ccbdd2d86ae823b3d31ac">onTop</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_physics_component.html#ab578ba910451fe801ceccf3517bf1c93">   20</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#ab578ba910451fe801ceccf3517bf1c93">overLadder</a>() { <span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_physics_component.html#a13d110608ad6109e7a5e0c7291bff30e">   21</a></span>&#160;        b2Body* <a class="code" href="class_physics_component.html#a13d110608ad6109e7a5e0c7291bff30e">getBody</a>() {<span class="keywordflow">return</span> <a class="code" href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">physBody</a>;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//virtual b2PolygonShape* getShape() {return physBody-&gt;Get}</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_physics_component.html#a904b1580f3d43d4dc73d6ce278a28d23">   24</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_physics_component.html#a904b1580f3d43d4dc73d6ce278a28d23">pixelsPerMeter</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_physics_component.html#a5b81577fbb36efa342ad7281b6600c74">   25</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="class_physics_engine.html">PhysicsEngine</a>* <a class="code" href="class_physics_component.html#a5b81577fbb36efa342ad7281b6600c74">physEng</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">   26</a></span>&#160;        b2Body* <a class="code" href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">physBody</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespace_p_o.html">   30</a></span>&#160;<span class="keyword">namespace </span>PO {</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9">   31</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9">PhysicsOptions</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9acde80cf2e155a70221d302be4fb9fd10">   32</a></span>&#160;        <a class="code" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9acde80cf2e155a70221d302be4fb9fd10">sensor</a> = 0x01,</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a7a7acc53c7fc8943eccffb91ce11a418">   33</a></span>&#160;        <a class="code" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a7a7acc53c7fc8943eccffb91ce11a418">notRotatable</a> = 0x02,</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a14f0f7a57a02f1af9149f399ff607f21">   34</a></span>&#160;        <a class="code" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a14f0f7a57a02f1af9149f399ff607f21">roundedCorners</a> = 0x04,</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9ae1fc6326acf16b62336a4048ef6ee927">   35</a></span>&#160;        <a class="code" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9ae1fc6326acf16b62336a4048ef6ee927">isStatic</a> = 0x08,</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a9e2713a1d98a1592ec90500fd90b7351">   36</a></span>&#160;        <a class="code" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a9e2713a1d98a1592ec90500fd90b7351">sideSensors</a> = 0x16</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif // PHYSICSCOMPONENT_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_physics_component.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_component.html">PhysicsComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">   13</a></span>&#160;        <a class="code" href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">PhysicsComponent</a>() : <a class="code" href="class_component_base.html">ComponentBase</a>() {}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">PhysicsComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_physics_component.html#ac77afe4cc81460ea6027e6c21739a4af">~PhysicsComponent</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_physics_component.html#a8733b6cea6eb36965755d8d205e7d3f5">   17</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a8733b6cea6eb36965755d8d205e7d3f5">onGround</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_physics_component.html#a135f2bafa9e8aabb9cdafb7d610ffc6b">   19</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a135f2bafa9e8aabb9cdafb7d610ffc6b">onLeft</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_physics_component.html#a3bdb2446514f5c24c3a3a077385a7f75">   21</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a3bdb2446514f5c24c3a3a077385a7f75">onRight</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_physics_component.html#a9d76866fc45ccbdd2d86ae823b3d31ac">   23</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#a9d76866fc45ccbdd2d86ae823b3d31ac">onTop</a>() {<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_physics_component.html#ab578ba910451fe801ceccf3517bf1c93">   25</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_physics_component.html#ab578ba910451fe801ceccf3517bf1c93">overLadder</a>() { <span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_physics_component.html#a13d110608ad6109e7a5e0c7291bff30e">   27</a></span>&#160;        b2Body* <a class="code" href="class_physics_component.html#a13d110608ad6109e7a5e0c7291bff30e">getBody</a>() {<span class="keywordflow">return</span> <a class="code" href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">physBody</a>;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment">//virtual b2PolygonShape* getShape() {return physBody-&gt;Get}</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_physics_component.html#a904b1580f3d43d4dc73d6ce278a28d23">   30</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_physics_component.html#a904b1580f3d43d4dc73d6ce278a28d23">pixelsPerMeter</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">   31</a></span>&#160;        b2Body* <a class="code" href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">physBody</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8b">   36</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8b">PhysicsOptions</a>{</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba453e0c47b275de77749e0feff404eb49">   37</a></span>&#160;    <a class="code" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba453e0c47b275de77749e0feff404eb49">sensor</a> = 0x01, <span class="comment">//Not solid</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba3068698c777845b35fdde9e264aefc51">   38</a></span>&#160;    <a class="code" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba3068698c777845b35fdde9e264aefc51">notRotatable</a> = 0x02, <span class="comment">//Not rotatable</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bae410b7b756c25d086f6104acb116d8da">   39</a></span>&#160;    <a class="code" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bae410b7b756c25d086f6104acb116d8da">roundedCorners</a> = 0x04, <span class="comment">//Rounds the corners somewhat</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bace5c87da4ce784e05039ab21ff46e2ff">   40</a></span>&#160;    <a class="code" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bace5c87da4ce784e05039ab21ff46e2ff">isStatic</a> = 0x08, <span class="comment">//Doesn&#39;t allow it to move</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba80daf1138da9bf359c5996efb4fc3013">   41</a></span>&#160;    <a class="code" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba80daf1138da9bf359c5996efb4fc3013">sideSensors</a> = 0x16 <span class="comment">//Adds side, top, and bottom sensors.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif // PHYSICSCOMPONENT_H</span></div>
 <div class="ttc" id="class_physics_engine_html"><div class="ttname"><a href="class_physics_engine.html">PhysicsEngine</a></div><div class="ttdoc">Contains all information relevant to physics simulation. </div><div class="ttdef"><b>Definition:</b> PhysicsEngine.h:29</div></div>
-<div class="ttc" id="namespace_p_o_html_a1e40bcbaab2a334f39cf15570fc441d9a9e2713a1d98a1592ec90500fd90b7351"><div class="ttname"><a href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a9e2713a1d98a1592ec90500fd90b7351">PO::sideSensors</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:36</div></div>
-<div class="ttc" id="namespace_p_o_html_a1e40bcbaab2a334f39cf15570fc441d9"><div class="ttname"><a href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9">PO::PhysicsOptions</a></div><div class="ttdeci">PhysicsOptions</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:31</div></div>
-<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:14</div></div>
-<div class="ttc" id="class_physics_component_html_ae6c2b556da67a1b71516b300670b0b73"><div class="ttname"><a href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">PhysicsComponent::physBody</a></div><div class="ttdeci">b2Body * physBody</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:26</div></div>
-<div class="ttc" id="class_physics_component_html_ae5e30141ecd320df8f289befffd31960"><div class="ttname"><a href="class_physics_component.html#ae5e30141ecd320df8f289befffd31960">PhysicsComponent::setEngine</a></div><div class="ttdeci">static void setEngine(PhysicsEngine *input)</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:15</div></div>
-<div class="ttc" id="class_physics_component_html_a5b81577fbb36efa342ad7281b6600c74"><div class="ttname"><a href="class_physics_component.html#a5b81577fbb36efa342ad7281b6600c74">PhysicsComponent::physEng</a></div><div class="ttdeci">static PhysicsEngine * physEng</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:25</div></div>
-<div class="ttc" id="class_physics_component_html_a9d76866fc45ccbdd2d86ae823b3d31ac"><div class="ttname"><a href="class_physics_component.html#a9d76866fc45ccbdd2d86ae823b3d31ac">PhysicsComponent::onTop</a></div><div class="ttdeci">virtual bool onTop()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:19</div></div>
+<div class="ttc" id="_physics_component_8h_html_af470953778eda300f9028c32e4a91d8bae410b7b756c25d086f6104acb116d8da"><div class="ttname"><a href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bae410b7b756c25d086f6104acb116d8da">roundedCorners</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:39</div></div>
+<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:15</div></div>
+<div class="ttc" id="_physics_component_8h_html_af470953778eda300f9028c32e4a91d8bace5c87da4ce784e05039ab21ff46e2ff"><div class="ttname"><a href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bace5c87da4ce784e05039ab21ff46e2ff">isStatic</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:40</div></div>
+<div class="ttc" id="class_physics_component_html_ae6c2b556da67a1b71516b300670b0b73"><div class="ttname"><a href="class_physics_component.html#ae6c2b556da67a1b71516b300670b0b73">PhysicsComponent::physBody</a></div><div class="ttdeci">b2Body * physBody</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:31</div></div>
+<div class="ttc" id="_physics_component_8h_html_af470953778eda300f9028c32e4a91d8ba453e0c47b275de77749e0feff404eb49"><div class="ttname"><a href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba453e0c47b275de77749e0feff404eb49">sensor</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:37</div></div>
+<div class="ttc" id="_physics_component_8h_html_af470953778eda300f9028c32e4a91d8ba3068698c777845b35fdde9e264aefc51"><div class="ttname"><a href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba3068698c777845b35fdde9e264aefc51">notRotatable</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:38</div></div>
+<div class="ttc" id="class_physics_component_html_a9d76866fc45ccbdd2d86ae823b3d31ac"><div class="ttname"><a href="class_physics_component.html#a9d76866fc45ccbdd2d86ae823b3d31ac">PhysicsComponent::onTop</a></div><div class="ttdeci">virtual bool onTop()</div><div class="ttdoc">Returns true if the physics object is touching something on the top. </div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:23</div></div>
 <div class="ttc" id="_component_base_8h_html"><div class="ttname"><a href="_component_base_8h.html">ComponentBase.h</a></div></div>
-<div class="ttc" id="namespace_p_o_html_a1e40bcbaab2a334f39cf15570fc441d9ae1fc6326acf16b62336a4048ef6ee927"><div class="ttname"><a href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9ae1fc6326acf16b62336a4048ef6ee927">PO::isStatic</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:35</div></div>
-<div class="ttc" id="class_physics_component_html_ab578ba910451fe801ceccf3517bf1c93"><div class="ttname"><a href="class_physics_component.html#ab578ba910451fe801ceccf3517bf1c93">PhysicsComponent::overLadder</a></div><div class="ttdeci">virtual bool overLadder()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:20</div></div>
-<div class="ttc" id="class_physics_component_html_a135f2bafa9e8aabb9cdafb7d610ffc6b"><div class="ttname"><a href="class_physics_component.html#a135f2bafa9e8aabb9cdafb7d610ffc6b">PhysicsComponent::onLeft</a></div><div class="ttdeci">virtual bool onLeft()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:17</div></div>
-<div class="ttc" id="class_physics_component_html_a8733b6cea6eb36965755d8d205e7d3f5"><div class="ttname"><a href="class_physics_component.html#a8733b6cea6eb36965755d8d205e7d3f5">PhysicsComponent::onGround</a></div><div class="ttdeci">virtual bool onGround()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:16</div></div>
-<div class="ttc" id="namespace_p_o_html_a1e40bcbaab2a334f39cf15570fc441d9a14f0f7a57a02f1af9149f399ff607f21"><div class="ttname"><a href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a14f0f7a57a02f1af9149f399ff607f21">PO::roundedCorners</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:34</div></div>
-<div class="ttc" id="class_physics_component_html_aeb544a2a04cde8f050c6a51ec436ec4e"><div class="ttname"><a href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">PhysicsComponent::PhysicsComponent</a></div><div class="ttdeci">PhysicsComponent()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:12</div></div>
-<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:54</div></div>
-<div class="ttc" id="class_physics_component_html_a3bdb2446514f5c24c3a3a077385a7f75"><div class="ttname"><a href="class_physics_component.html#a3bdb2446514f5c24c3a3a077385a7f75">PhysicsComponent::onRight</a></div><div class="ttdeci">virtual bool onRight()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:18</div></div>
-<div class="ttc" id="class_physics_component_html_afadf481ee69c12d205435ede58da6121"><div class="ttname"><a href="class_physics_component.html#afadf481ee69c12d205435ede58da6121">PhysicsComponent::~PhysicsComponent</a></div><div class="ttdeci">virtual ~PhysicsComponent()</div></div>
-<div class="ttc" id="class_physics_component_html"><div class="ttname"><a href="class_physics_component.html">PhysicsComponent</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:9</div></div>
-<div class="ttc" id="class_physics_component_html_a904b1580f3d43d4dc73d6ce278a28d23"><div class="ttname"><a href="class_physics_component.html#a904b1580f3d43d4dc73d6ce278a28d23">PhysicsComponent::pixelsPerMeter</a></div><div class="ttdeci">static int pixelsPerMeter</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:24</div></div>
-<div class="ttc" id="namespace_p_o_html_a1e40bcbaab2a334f39cf15570fc441d9a7a7acc53c7fc8943eccffb91ce11a418"><div class="ttname"><a href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a7a7acc53c7fc8943eccffb91ce11a418">PO::notRotatable</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:33</div></div>
-<div class="ttc" id="namespace_p_o_html_a1e40bcbaab2a334f39cf15570fc441d9acde80cf2e155a70221d302be4fb9fd10"><div class="ttname"><a href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9acde80cf2e155a70221d302be4fb9fd10">PO::sensor</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:32</div></div>
-<div class="ttc" id="class_physics_component_html_a13d110608ad6109e7a5e0c7291bff30e"><div class="ttname"><a href="class_physics_component.html#a13d110608ad6109e7a5e0c7291bff30e">PhysicsComponent::getBody</a></div><div class="ttdeci">b2Body * getBody()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:21</div></div>
+<div class="ttc" id="class_physics_component_html_ab578ba910451fe801ceccf3517bf1c93"><div class="ttname"><a href="class_physics_component.html#ab578ba910451fe801ceccf3517bf1c93">PhysicsComponent::overLadder</a></div><div class="ttdeci">virtual bool overLadder()</div><div class="ttdoc">Returns true if the physics body is over a sensor by the type &quot;Ladder&quot;. </div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:25</div></div>
+<div class="ttc" id="class_physics_component_html_a135f2bafa9e8aabb9cdafb7d610ffc6b"><div class="ttname"><a href="class_physics_component.html#a135f2bafa9e8aabb9cdafb7d610ffc6b">PhysicsComponent::onLeft</a></div><div class="ttdeci">virtual bool onLeft()</div><div class="ttdoc">Returns true if the physics object is touching something on the letf. </div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:19</div></div>
+<div class="ttc" id="class_physics_component_html_a8733b6cea6eb36965755d8d205e7d3f5"><div class="ttname"><a href="class_physics_component.html#a8733b6cea6eb36965755d8d205e7d3f5">PhysicsComponent::onGround</a></div><div class="ttdeci">virtual bool onGround()</div><div class="ttdoc">Returns true if the physics object is touching something on the bottom. </div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:17</div></div>
+<div class="ttc" id="_physics_component_8h_html_af470953778eda300f9028c32e4a91d8b"><div class="ttname"><a href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8b">PhysicsOptions</a></div><div class="ttdeci">PhysicsOptions</div><div class="ttdoc">An enumeration used for flags to physics component creation. </div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:36</div></div>
+<div class="ttc" id="class_physics_component_html_aeb544a2a04cde8f050c6a51ec436ec4e"><div class="ttname"><a href="class_physics_component.html#aeb544a2a04cde8f050c6a51ec436ec4e">PhysicsComponent::PhysicsComponent</a></div><div class="ttdeci">PhysicsComponent()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:13</div></div>
+<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:56</div></div>
+<div class="ttc" id="class_physics_component_html_a3bdb2446514f5c24c3a3a077385a7f75"><div class="ttname"><a href="class_physics_component.html#a3bdb2446514f5c24c3a3a077385a7f75">PhysicsComponent::onRight</a></div><div class="ttdeci">virtual bool onRight()</div><div class="ttdoc">Returns true if the physics object is touching something on the right. </div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:21</div></div>
+<div class="ttc" id="class_physics_component_html"><div class="ttname"><a href="class_physics_component.html">PhysicsComponent</a></div><div class="ttdoc">Simple physics components. Used for sensors, collision, etc. </div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:10</div></div>
+<div class="ttc" id="class_physics_component_html_a904b1580f3d43d4dc73d6ce278a28d23"><div class="ttname"><a href="class_physics_component.html#a904b1580f3d43d4dc73d6ce278a28d23">PhysicsComponent::pixelsPerMeter</a></div><div class="ttdeci">static int pixelsPerMeter</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:30</div></div>
+<div class="ttc" id="_physics_component_8h_html_af470953778eda300f9028c32e4a91d8ba80daf1138da9bf359c5996efb4fc3013"><div class="ttname"><a href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba80daf1138da9bf359c5996efb4fc3013">sideSensors</a></div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:41</div></div>
+<div class="ttc" id="class_physics_component_html_ac77afe4cc81460ea6027e6c21739a4af"><div class="ttname"><a href="class_physics_component.html#ac77afe4cc81460ea6027e6c21739a4af">PhysicsComponent::~PhysicsComponent</a></div><div class="ttdeci">virtual ~PhysicsComponent()</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.cpp:13</div></div>
+<div class="ttc" id="class_physics_component_html_a13d110608ad6109e7a5e0c7291bff30e"><div class="ttname"><a href="class_physics_component.html#a13d110608ad6109e7a5e0c7291bff30e">PhysicsComponent::getBody</a></div><div class="ttdeci">b2Body * getBody()</div><div class="ttdoc">Returns the physics body. If there are multiple physics bodies, the most important one will be return...</div><div class="ttdef"><b>Definition:</b> PhysicsComponent.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_61a5cbc3c32dc4843a37850077de08ba.html">Physics</a></li><li class="navelem"><a class="el" href="_physics_component_8h.html">PhysicsComponent.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

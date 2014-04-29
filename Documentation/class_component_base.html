@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: ComponentBase Class Reference</title>
+<title>Fund2Project: ComponentBase Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_component_base.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -100,19 +121,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for ComponentBase:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_component_base.png" usemap="#ComponentBase_map" alt=""/>
-  <map id="ComponentBase_map" name="ComponentBase_map">
-<area href="class_i_d_component.html" alt="IDComponent" shape="rect" coords="162,56,314,80"/>
-<area href="class_input_component.html" alt="InputComponent" shape="rect" coords="162,112,314,136"/>
-<area href="class_movement_component.html" alt="MovementComponent" shape="rect" coords="162,168,314,192"/>
-<area href="class_physics_component.html" alt="PhysicsComponent" shape="rect" coords="162,224,314,248"/>
-<area href="class_render_component.html" alt="RenderComponent" shape="rect" coords="162,280,314,304"/>
-<area href="class_script_component.html" alt="ScriptComponent" shape="rect" coords="162,336,314,360"/>
-<area href="class_target_component.html" alt="TargetComponent" shape="rect" coords="162,392,314,416"/>
-<area href="class_world_position_component.html" alt="WorldPositionComponent" shape="rect" coords="162,448,314,472"/>
-</map>
- </div></div>
+<div class="center"><img src="class_component_base__inherit__graph.png" border="0" usemap="#_component_base_inherit__map" alt="Inheritance graph"/></div>
+<map name="_component_base_inherit__map" id="_component_base_inherit__map">
+<area shape="rect" id="node2" href="class_audio_component.html" title="Super simple audio component which plays audio based on movement. " alt="" coords="198,5,319,32"/><area shape="rect" id="node3" href="class_i_d_component.html" title="Component which contains information useful to finding specific components. " alt="" coords="209,56,309,83"/><area shape="rect" id="node4" href="class_input_component.html" title="Drives a Movement Component. " alt="" coords="201,107,317,133"/><area shape="rect" id="node6" href="class_movement_component.html" title="Takes an input component and moves/modifies other components based on it. " alt="" coords="185,157,332,184"/><area shape="rect" id="node8" href="class_physics_component.html" title="Simple physics components. Used for sensors, collision, etc. " alt="" coords="191,208,326,235"/><area shape="rect" id="node13" href="class_render_component.html" title="Component type which outputs images to the screen. " alt="" coords="194,259,323,285"/><area shape="rect" id="node17" href="class_script_component.html" title="Component type which provides additionally functionality not given elsewhere. " alt="" coords="197,309,320,336"/><area shape="rect" id="node19" href="class_target_component.html" title="contains the ID of a target for scripts " alt="" coords="197,360,321,387"/><area shape="rect" id="node20" href="class_world_position_component.html" title="Simple components which contains information about the location of the object defined by the componen..." alt="" coords="174,411,343,437"/><area shape="rect" id="node5" href="class_keyboard_input.html" title="Simply grabs the appropriate input information from the Input Engine. " alt="" coords="427,5,533,32"/><area shape="rect" id="node7" href="class_brave_adventurer_movement.html" title="Simple movement file which takes any input and translates it into movement; nothing more complicated ..." alt="" coords="393,56,567,83"/><area shape="rect" id="node9" href="class_boundary_physics.html" title="Creates lines of physics&#45;ness. only two points though. " alt="" coords="418,107,542,133"/><area shape="rect" id="node10" href="class_polygon_physics.html" title="Creates a physics polygon from a set of points. " alt="" coords="422,157,538,184"/><area shape="rect" id="node11" href="class_polyline_physics.html" title="Creates a series of physics lines (rope) " alt="" coords="423,208,537,235"/><area shape="rect" id="node12" href="class_simple_box_physics.html" title="A note&#45;so&#45;simple component which creates a physics box. " alt="" coords="414,259,546,285"/><area shape="rect" id="node14" href="class_animated_component.html" title="Simple abstract class for animated components. " alt="" coords="409,309,551,336"/><area shape="rect" id="node16" href="class_static_sprite_component.html" title="Creates a simple, one image, non&#45;moving image. " alt="" coords="402,360,558,387"/><area shape="rect" id="node15" href="class_brave_adventurer_animated_component.html" title="Draws an animated component by looking at the movement component and a bit from input. " alt="" coords="617,309,853,336"/><area shape="rect" id="node18" href="class_camera.html" title="Keeps the camera (mostly) centered on the target. " alt="" coords="447,411,513,437"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for ComponentBase:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_base__coll__graph.png" border="0" usemap="#_component_base_coll__map" alt="Collaboration graph"/></div>
+<map name="_component_base_coll__map" id="_component_base_coll__map">
+<area shape="rect" id="node2" href="class_render_engine.html" title="Holds all information needed for rendering and renders frames. " alt="" coords="534,5,637,32"/><area shape="rect" id="node3" href="class_game_engine.html" title="The overruling class which encapsolates all nessesary objects for the game. " alt="" coords="858,73,955,100"/><area shape="rect" id="node4" href="class_physics_engine.html" title="Contains all information relevant to physics simulation. " alt="" coords="531,68,640,95"/><area shape="rect" id="node5" href="class_contact_listener.html" title="Stores all contact listeners and iterates through them whenever any objects collide. " alt="" coords="185,68,298,95"/><area shape="rect" id="node7" href="class_input_engine.html" title="Manages input to the window and provides a common interface to see the current input. " alt="" coords="540,119,631,145"/><area shape="rect" id="node8" href="class_component_manager.html" title="Manages/contains all components. " alt="" coords="837,403,976,429"/><area shape="rect" id="node9" href="class_component_system.html" title="ComponentSystem\&lt; RenderComponent * \&gt;" alt="" coords="449,169,722,196"/><area shape="rect" id="node10" href="class_component_system.html" title="ComponentSystem\&lt; InputComponent * \&gt;" alt="" coords="455,220,715,247"/><area shape="rect" id="node11" href="class_component_system.html" title="ComponentSystem\&lt; Physics\lComponent * \&gt;" alt="" coords="489,271,681,313"/><area shape="rect" id="node12" href="class_component_system.html" title="ComponentSystem\&lt; WorldPosition\lComponent * \&gt;" alt="" coords="472,337,699,378"/><area shape="rect" id="node13" href="class_component_system.html" title="ComponentSystem\&lt; TargetComponent * \&gt;" alt="" coords="451,403,719,429"/><area shape="rect" id="node14" href="class_component_system.html" title="ComponentSystem\&lt; ScriptComponent * \&gt;" alt="" coords="452,453,719,480"/><area shape="rect" id="node15" href="class_component_system.html" title="ComponentSystem\&lt; AudioComponent * \&gt;" alt="" coords="453,504,718,531"/><area shape="rect" id="node16" href="class_component_system.html" title="ComponentSystem\&lt; Component\lBase * \&gt;" alt="" coords="480,555,691,597"/><area shape="rect" id="node17" href="class_component_system.html" title="ComponentSystem\&lt; IDComponent * \&gt;" alt="" coords="463,621,707,648"/><area shape="rect" id="node18" href="class_component_system.html" title="ComponentSystem\&lt; Movement\lComponent * \&gt;" alt="" coords="483,673,687,714"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -140,9 +159,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acf481487e0a27bf0c7bf4826d6a579e6"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#acf481487e0a27bf0c7bf4826d6a579e6">getNewID</a> ()</td></tr>
-<tr class="memdesc:acf481487e0a27bf0c7bf4826d6a579e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new, unused ID.  <a href="#acf481487e0a27bf0c7bf4826d6a579e6">More...</a><br/></td></tr>
-<tr class="separator:acf481487e0a27bf0c7bf4826d6a579e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f89ac3d75dbd43ee7ec938fa4720dd"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd">getNewID</a> ()</td></tr>
+<tr class="memdesc:a28f89ac3d75dbd43ee7ec938fa4720dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new, unused ID.  <a href="#a28f89ac3d75dbd43ee7ec938fa4720dd">More...</a><br/></td></tr>
+<tr class="separator:a28f89ac3d75dbd43ee7ec938fa4720dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eefe3f8a55317550731c94e3f8d082d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a3eefe3f8a55317550731c94e3f8d082d">setRenderEngine</a> (<a class="el" href="class_render_engine.html">RenderEngine</a> *RE)</td></tr>
 <tr class="memdesc:a3eefe3f8a55317550731c94e3f8d082d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the rendering engine.  <a href="#a3eefe3f8a55317550731c94e3f8d082d">More...</a><br/></td></tr>
 <tr class="separator:a3eefe3f8a55317550731c94e3f8d082d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,12 +178,12 @@ Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a1c8e4010af5517ee522fcb441110d065"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_component_manager.html">ComponentManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a1c8e4010af5517ee522fcb441110d065">compMan</a></td></tr>
-<tr class="separator:a1c8e4010af5517ee522fcb441110d065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a7809d59301672f6055a39e5270b671"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_render_engine.html">RenderEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a6a7809d59301672f6055a39e5270b671">rendEng</a></td></tr>
-<tr class="separator:a6a7809d59301672f6055a39e5270b671"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f69ac4142a4255be076621e2d6bb33"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game_engine.html">GameEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a79f69ac4142a4255be076621e2d6bb33">eng</a></td></tr>
-<tr class="separator:a79f69ac4142a4255be076621e2d6bb33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08552f7c4c3f9db4af1c945d4983c0c1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_component_manager.html">ComponentManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a08552f7c4c3f9db4af1c945d4983c0c1">compMan</a> = &amp;<a class="el" href="class_component_manager.html#afee1457192e3b251b1a940101ad99549">ComponentManager::getInst</a>()</td></tr>
+<tr class="separator:a08552f7c4c3f9db4af1c945d4983c0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1cfafa266dd3974663b1fc3f80fa359"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_render_engine.html">RenderEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#af1cfafa266dd3974663b1fc3f80fa359">rendEng</a> = NULL</td></tr>
+<tr class="separator:af1cfafa266dd3974663b1fc3f80fa359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e8e549dc39bf4ddbe098ca3f6530a8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game_engine.html">GameEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#ad6e8e549dc39bf4ddbe098ca3f6530a8">eng</a> = NULL</td></tr>
+<tr class="separator:ad6e8e549dc39bf4ddbe098ca3f6530a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class of which all components are derived from. </p>
@@ -254,6 +273,15 @@ Static Protected Attributes</h2></td></tr>
 <p>Returns the ID of the component. </p>
 <dl class="section return"><dt>Returns</dt><dd>The Component's ID </dd></dl>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_base_a86b5c38fa2d7f7f19097777d5ebfbdc4_icgraph.png" border="0" usemap="#class_component_base_a86b5c38fa2d7f7f19097777d5ebfbdc4_icgraph" alt=""/></div>
+<map name="class_component_base_a86b5c38fa2d7f7f19097777d5ebfbdc4_icgraph" id="class_component_base_a86b5c38fa2d7f7f19097777d5ebfbdc4_icgraph">
+<area shape="rect" id="node2" href="class_audio_component.html#ac16908c4a978db81ab2380f67aee4fa7" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="238,5,381,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="211,56,407,83"/><area shape="rect" id="node4" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="246,107,373,133"/><area shape="rect" id="node5" href="class_brave_adventurer_movement.html#a6a0eee2876a4bcb27bad1c9b7a48bb57" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="211,157,407,184"/><area shape="rect" id="node6" href="class_boundary_physics.html#a5e2728bff3abda6f2e935e1cddae21d6" title="BoundaryPhysics::Boundary\lPhysics" alt="" coords="216,209,403,250"/><area shape="rect" id="node7" href="class_boundary_physics.html#aed7e79affe8fb38aefc8310fade21ac9" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="512,275,659,301"/><area shape="rect" id="node8" href="class_polygon_physics.html#a5d2b1e323a364b7cc41d0dcb5bc901a7" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="516,325,655,352"/><area shape="rect" id="node9" href="class_polyline_physics.html#aecbdebe221b0d95fa82384929a54796b" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="517,443,654,469"/><area shape="rect" id="node10" href="class_simple_box_physics.html#adb54af083fedd16f3fc9ca0cc810f5e2" title="Creates a simple box. " alt="" coords="219,611,399,653"/><area shape="rect" id="node11" href="class_simple_box_physics.html#a54d942a7fbc79addaf5181f1c85e36f7" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="508,560,663,587"/><area shape="rect" id="node12" href="class_world_position_component.html#a17d6a9ff7f7427d656154bf65f376087" title="WorldPositionComponent\l::setPosition" alt="" coords="225,377,394,418"/><area shape="rect" id="node15" href="class_world_position_component.html#a919d8f92eb0e1e2d76ed59b90336184f" title="WorldPositionComponent\l::setRotation" alt="" coords="225,494,394,535"/><area shape="rect" id="node16" href="class_animated_component.html#af283bc52eefab748e4f02b7e6fd6ca43" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="227,728,392,755"/><area shape="rect" id="node17" href="class_brave_adventurer_animated_component.html#a27ba0bb20f0a6099fea4b6a088525957" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="456,703,715,729"/><area shape="rect" id="node18" href="class_static_sprite_component.html#ae027d79e87543e760b47c868044894bf" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="220,779,399,805"/><area shape="rect" id="node19" href="class_camera.html#a68abeaaa5ef2aebd0c9d97cdfbbc4ac4" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="265,829,354,856"/><area shape="rect" id="node13" href="class_world_position_component.html#ad6d44a9fa79b710a6304718f59f659e4" title="Constructor. " alt="" coords="497,494,674,535"/><area shape="rect" id="node14" href="class_world_position_component.html#a42c88695ded4bd1cffa2db145a50bb64" title="Moves the object. " alt="" coords="501,377,670,418"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aba0732125bf1e02add6d5c85ae322053"></a>
@@ -275,7 +303,7 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acf481487e0a27bf0c7bf4826d6a579e6"></a>
+<a class="anchor" id="a28f89ac3d75dbd43ee7ec938fa4720dd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -283,7 +311,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static unsigned int ComponentBase::getNewID </td>
+          <td class="memname">unsigned int ComponentBase::getNewID </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -297,6 +325,24 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a new, unused ID. </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_cgraph.png" border="0" usemap="#class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_cgraph" alt=""/></div>
+<map name="class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_cgraph" id="class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_cgraph">
+<area shape="rect" id="node2" href="class_component_manager.html#ad5f18d2a712fce6a09b8d84e89b06ec8" title="ComponentManager::getNewID" alt="" coords="235,5,437,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_icgraph.png" border="0" usemap="#class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_icgraph" alt=""/></div>
+<map name="class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_icgraph" id="class_component_base_a28f89ac3d75dbd43ee7ec938fa4720dd_icgraph">
+<area shape="rect" id="node2" href="class_level.html#a918fc70acf9fe0c425354e4b2105ac33" title="Loads a level. " alt="" coords="271,5,383,32"/><area shape="rect" id="node3" href="class_level.html#a592bd0b361d958223245c7b59f28881d" title="Standardized method to create a box. " alt="" coords="269,56,384,83"/><area shape="rect" id="node4" href="class_level.html#a9d33a42b0985aa9d18f382704c4eb7f7" title="Level::makeSensor" alt="" coords="261,107,393,133"/><area shape="rect" id="node5" href="class_level.html#ad9d7df6973a233e914e3b3faf827ac3e" title="Level::makeCamera" alt="" coords="259,157,395,184"/><area shape="rect" id="node6" href="class_level.html#aae738f64034e93defb1ecf129c9a5652" title="Level::makeBraveAdventurer" alt="" coords="235,208,419,235"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -330,7 +376,7 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">RenderComponent</a>, <a class="el" href="class_simple_box_physics.html#a54d942a7fbc79addaf5181f1c85e36f7">SimpleBoxPhysics</a>, <a class="el" href="class_target_component.html#a71838bbe808ad18a43cbff6cfab97f8d">TargetComponent</a>, <a class="el" href="class_i_d_component.html#a19fc7240785d3d2747d47449f4a981fe">IDComponent</a>, <a class="el" href="class_animated_component.html#a51b6d654bddf01234b2093ccde0dc6a6">AnimatedComponent</a>, <a class="el" href="class_static_sprite_component.html#a673ca32659db46dd83a482650eec98bd">StaticSpriteComponent</a>, <a class="el" href="class_boundary_physics.html#aed7e79affe8fb38aefc8310fade21ac9">BoundaryPhysics</a>, <a class="el" href="class_camera.html#a68abeaaa5ef2aebd0c9d97cdfbbc4ac4">Camera</a>, <a class="el" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285">KeyboardInput</a>, <a class="el" href="class_world_position_component.html#a7e2a53590d84f80e3e401600804831cd">WorldPositionComponent</a>, <a class="el" href="class_input_component.html#af9461cc09ee68996148cce62cfc681b0">InputComponent</a>, <a class="el" href="class_brave_adventurer_movement.html#a6a0eee2876a4bcb27bad1c9b7a48bb57">BraveAdventurerMovement</a>, and <a class="el" href="class_brave_adventurer_animated_component.html#a27ba0bb20f0a6099fea4b6a088525957">BraveAdventurerAnimatedComponent</a>.</p>
+<p>Reimplemented in <a class="el" href="class_i_d_component.html#afceee64afc8ab5c06f6a779350dbb2df">IDComponent</a>, <a class="el" href="class_simple_box_physics.html#a54d942a7fbc79addaf5181f1c85e36f7">SimpleBoxPhysics</a>, <a class="el" href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">RenderComponent</a>, <a class="el" href="class_polygon_physics.html#a5d2b1e323a364b7cc41d0dcb5bc901a7">PolygonPhysics</a>, <a class="el" href="class_polyline_physics.html#aecbdebe221b0d95fa82384929a54796b">PolylinePhysics</a>, <a class="el" href="class_world_position_component.html#a7e2a53590d84f80e3e401600804831cd">WorldPositionComponent</a>, <a class="el" href="class_target_component.html#a590fe7ca5706ab917043f37ac422c0c0">TargetComponent</a>, <a class="el" href="class_animated_component.html#af283bc52eefab748e4f02b7e6fd6ca43">AnimatedComponent</a>, <a class="el" href="class_static_sprite_component.html#ae027d79e87543e760b47c868044894bf">StaticSpriteComponent</a>, <a class="el" href="class_boundary_physics.html#aed7e79affe8fb38aefc8310fade21ac9">BoundaryPhysics</a>, <a class="el" href="class_audio_component.html#ac16908c4a978db81ab2380f67aee4fa7">AudioComponent</a>, <a class="el" href="class_camera.html#a68abeaaa5ef2aebd0c9d97cdfbbc4ac4">Camera</a>, <a class="el" href="class_input_component.html#af9461cc09ee68996148cce62cfc681b0">InputComponent</a>, <a class="el" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285">KeyboardInput</a>, <a class="el" href="class_brave_adventurer_movement.html#a6a0eee2876a4bcb27bad1c9b7a48bb57">BraveAdventurerMovement</a>, and <a class="el" href="class_brave_adventurer_animated_component.html#a27ba0bb20f0a6099fea4b6a088525957">BraveAdventurerAnimatedComponent</a>.</p>
 
 </div>
 </div>
@@ -390,6 +436,15 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Sets the <a class="el" href="class_game_engine.html" title="The overruling class which encapsolates all nessesary objects for the game. ">GameEngine</a>. </p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_game_engine.html" title="The overruling class which encapsolates all nessesary objects for the game. ">GameEngine</a> </dd></dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_base_aaa426e0958cd22ec53dee00b15cf29b2_icgraph.png" border="0" usemap="#class_component_base_aaa426e0958cd22ec53dee00b15cf29b2_icgraph" alt=""/></div>
+<map name="class_component_base_aaa426e0958cd22ec53dee00b15cf29b2_icgraph" id="class_component_base_aaa426e0958cd22ec53dee00b15cf29b2_icgraph">
+<area shape="rect" id="node2" href="class_game_engine.html#a64c430f74d72e2745646fdbffbd97930" title="GameEngine::GameEngine" alt="" coords="238,5,418,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -451,10 +506,19 @@ Static Protected Attributes</h2></td></tr>
 <p>Will be depreciated in favor of all encompassing "GameEngine" pointer </p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_render_engine.html" title="Holds all information needed for rendering and renders frames. ">RenderEngine</a> </dd></dl>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_base_a3eefe3f8a55317550731c94e3f8d082d_icgraph.png" border="0" usemap="#class_component_base_a3eefe3f8a55317550731c94e3f8d082d_icgraph" alt=""/></div>
+<map name="class_component_base_a3eefe3f8a55317550731c94e3f8d082d_icgraph" id="class_component_base_a3eefe3f8a55317550731c94e3f8d082d_icgraph">
+<area shape="rect" id="node2" href="class_render_engine.html#a4dc775fb0ceeb84010eeae545c59f6d4" title="Default constructor. " alt="" coords="244,5,436,32"/><area shape="rect" id="node3" href="class_render_engine.html#a22709e8d62956c56b981d4d5d3ee1fc6" title="Default deconstructor. " alt="" coords="240,56,440,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a1c8e4010af5517ee522fcb441110d065"></a>
+<a class="anchor" id="a08552f7c4c3f9db4af1c945d4983c0c1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -462,7 +526,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_component_manager.html">ComponentManager</a>* ComponentBase::compMan</td>
+          <td class="memname"><a class="el" href="class_component_manager.html">ComponentManager</a> * ComponentBase::compMan = &amp;<a class="el" href="class_component_manager.html#afee1457192e3b251b1a940101ad99549">ComponentManager::getInst</a>()</td>
         </tr>
       </table>
   </td>
@@ -474,7 +538,7 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a79f69ac4142a4255be076621e2d6bb33"></a>
+<a class="anchor" id="ad6e8e549dc39bf4ddbe098ca3f6530a8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -482,7 +546,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_game_engine.html">GameEngine</a>* ComponentBase::eng</td>
+          <td class="memname"><a class="el" href="class_game_engine.html">GameEngine</a> * ComponentBase::eng = NULL</td>
         </tr>
       </table>
   </td>
@@ -534,7 +598,7 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6a7809d59301672f6055a39e5270b671"></a>
+<a class="anchor" id="af1cfafa266dd3974663b1fc3f80fa359"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -542,7 +606,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_render_engine.html">RenderEngine</a>* ComponentBase::rendEng</td>
+          <td class="memname"><a class="el" href="class_render_engine.html">RenderEngine</a> * ComponentBase::rendEng = NULL</td>
         </tr>
       </table>
   </td>
@@ -554,15 +618,20 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/Components/<a class="el" href="_component_base_8h_source.html">ComponentBase.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/Components/<a class="el" href="_component_base_8cpp.html">ComponentBase.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_component_base.html">ComponentBase</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:57 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

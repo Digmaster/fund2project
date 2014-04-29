@@ -5,7 +5,7 @@
 #include "Options.h"
 #include <SFML/Graphics.hpp>
 
-
+///Keeps the camera (mostly) centered on the target
 class Camera : public ScriptComponent {
     public:
         /** Default constructor */

@@ -9,6 +9,7 @@
 
 class RenderEngine;
 
+///Component type which outputs images to the screen.
 class RenderComponent : public ComponentBase
 {
     public:

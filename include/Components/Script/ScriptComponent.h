@@ -3,7 +3,9 @@
 
 #include "Components/ComponentBase.h"
 
+// TODO (Thomas Luppi#1#04/29/14): LUA Compiller
 
+///Component type which provides additionally functionality not given elsewhere
 class ScriptComponent : public ComponentBase
 {
     public:

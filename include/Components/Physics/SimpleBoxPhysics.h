@@ -10,11 +10,13 @@
 class FootContactListener;
 class LadderContactListener;
 
+///A note-so-simple component which creates a physics box.
 class SimpleBoxPhysics : public PhysicsComponent
 {
     public:
         SimpleBoxPhysics() : PhysicsComponent() {}
-        // Flags are defined in Physics Component
+        ///Creates a simple box
+        /** \param opts Flags are defined in physics component **/
         SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts );
         virtual ~SimpleBoxPhysics();
         void go(sf::Time);
@@ -36,6 +38,7 @@ class SimpleBoxPhysics : public PhysicsComponent
         int screenHeight; //Need to convert Box2d to SFML coordinates
 };
 
+///Returns true when in contact with anything
 class FootContactListener : public b2ContactListener
 {
 public:
@@ -49,6 +52,7 @@ private:
     int onGroundNum;
 };
 
+///Returns true when in contact with anything of type "Ladder"
 class LadderContactListener : public b2ContactListener
 {
 public:
@@ -58,10 +62,10 @@ public:
     void EndContact(b2Contact* contact);
     bool overLadder() {return overLadderNum>0;}
 private:
+    PhysicsComponent* origin;
     int overLadderNum;
     float currentGravity;
     unsigned int findID;
-    PhysicsComponent* origin;
 };
 
 #endif // SIMPLEBOXPHYSICS_H

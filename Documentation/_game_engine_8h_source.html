@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/GameEngine.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/GameEngine.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_game_engine_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">GameEngine.h</div>  </div>
@@ -123,20 +140,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_game_engine_html_aacb833eb3230efea9a1b07c50b02c378"><div class="ttname"><a href="class_game_engine.html#aacb833eb3230efea9a1b07c50b02c378">GameEngine::rendEng</a></div><div class="ttdeci">RenderEngine * rendEng</div><div class="ttdoc">Rendering Engine Pointer. </div><div class="ttdef"><b>Definition:</b> GameEngine.h:29</div></div>
 <div class="ttc" id="class_game_engine_html_a43a74dbf81f241b27890de87e6a6657e"><div class="ttname"><a href="class_game_engine.html#a43a74dbf81f241b27890de87e6a6657e">GameEngine::physEng</a></div><div class="ttdeci">PhysicsEngine * physEng</div><div class="ttdoc">Physics Engine Pointer. </div><div class="ttdef"><b>Definition:</b> GameEngine.h:33</div></div>
 <div class="ttc" id="class_input_engine_html"><div class="ttname"><a href="class_input_engine.html">InputEngine</a></div><div class="ttdoc">Manages input to the window and provides a common interface to see the current input. </div><div class="ttdef"><b>Definition:</b> InputEngine.h:9</div></div>
-<div class="ttc" id="class_game_engine_html_aabb626c15dee263ef6328c89c0a09b0f"><div class="ttname"><a href="class_game_engine.html#aabb626c15dee263ef6328c89c0a09b0f">GameEngine::go</a></div><div class="ttdeci">void go()</div><div class="ttdoc">Starts the game engine. </div></div>
-<div class="ttc" id="class_game_engine_html_a8e59d8341ef9d2dcc62eee1437e37f14"><div class="ttname"><a href="class_game_engine.html#a8e59d8341ef9d2dcc62eee1437e37f14">GameEngine::~GameEngine</a></div><div class="ttdeci">~GameEngine()</div></div>
-<div class="ttc" id="class_render_engine_html"><div class="ttname"><a href="class_render_engine.html">RenderEngine</a></div><div class="ttdoc">Holds all information needed for rendering and renders frames. </div><div class="ttdef"><b>Definition:</b> RenderEngine.h:21</div></div>
+<div class="ttc" id="class_game_engine_html_aabb626c15dee263ef6328c89c0a09b0f"><div class="ttname"><a href="class_game_engine.html#aabb626c15dee263ef6328c89c0a09b0f">GameEngine::go</a></div><div class="ttdeci">void go()</div><div class="ttdoc">Starts the game engine. </div><div class="ttdef"><b>Definition:</b> GameEngine.cpp:34</div></div>
+<div class="ttc" id="class_game_engine_html_a8e59d8341ef9d2dcc62eee1437e37f14"><div class="ttname"><a href="class_game_engine.html#a8e59d8341ef9d2dcc62eee1437e37f14">GameEngine::~GameEngine</a></div><div class="ttdeci">~GameEngine()</div><div class="ttdef"><b>Definition:</b> GameEngine.cpp:29</div></div>
+<div class="ttc" id="class_render_engine_html"><div class="ttname"><a href="class_render_engine.html">RenderEngine</a></div><div class="ttdoc">Holds all information needed for rendering and renders frames. </div><div class="ttdef"><b>Definition:</b> RenderEngine.h:22</div></div>
 <div class="ttc" id="class_game_engine_html_a61b35778a47fabca0f59824477f5b8c4"><div class="ttname"><a href="class_game_engine.html#a61b35778a47fabca0f59824477f5b8c4">GameEngine::inputEng</a></div><div class="ttdeci">InputEngine * inputEng</div><div class="ttdoc">Input Engine pointer. </div><div class="ttdef"><b>Definition:</b> GameEngine.h:37</div></div>
-<div class="ttc" id="class_game_engine_html_a64c430f74d72e2745646fdbffbd97930"><div class="ttname"><a href="class_game_engine.html#a64c430f74d72e2745646fdbffbd97930">GameEngine::GameEngine</a></div><div class="ttdeci">GameEngine()</div></div>
+<div class="ttc" id="class_game_engine_html_a64c430f74d72e2745646fdbffbd97930"><div class="ttname"><a href="class_game_engine.html#a64c430f74d72e2745646fdbffbd97930">GameEngine::GameEngine</a></div><div class="ttdeci">GameEngine()</div><div class="ttdef"><b>Definition:</b> GameEngine.cpp:21</div></div>
 <div class="ttc" id="class_game_engine_html_a0b02eb1da9c2d403d187146a150a1085"><div class="ttname"><a href="class_game_engine.html#a0b02eb1da9c2d403d187146a150a1085">GameEngine::pause</a></div><div class="ttdeci">void pause()</div><div class="ttdoc">Pauses the game. </div><div class="ttdef"><b>Definition:</b> GameEngine.h:23</div></div>
 <div class="ttc" id="class_game_engine_html_a110d47edc9b9d6e9a426621954216acc"><div class="ttname"><a href="class_game_engine.html#a110d47edc9b9d6e9a426621954216acc">GameEngine::unpause</a></div><div class="ttdeci">void unpause()</div><div class="ttdoc">Unpauses the game. </div><div class="ttdef"><b>Definition:</b> GameEngine.h:25</div></div>
 <div class="ttc" id="class_game_engine_html"><div class="ttname"><a href="class_game_engine.html">GameEngine</a></div><div class="ttdoc">The overruling class which encapsolates all nessesary objects for the game. </div><div class="ttdef"><b>Definition:</b> GameEngine.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="_game_engine_8h.html">GameEngine.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

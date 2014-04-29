@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Options.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Options.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_options_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Options.h</div>  </div>
@@ -130,20 +147,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
-<div class="ttc" id="class_options_html_a12fb83c1c5f80cbea4aadd1ab918de10"><div class="ttname"><a href="class_options.html#a12fb83c1c5f80cbea4aadd1ab918de10">Options::save</a></div><div class="ttdeci">void save()</div><div class="ttdoc">Fills the options file with the currently loaded values. </div></div>
-<div class="ttc" id="class_options_html_ac52a1a53f1f14a5d2f07304662105745"><div class="ttname"><a href="class_options.html#ac52a1a53f1f14a5d2f07304662105745">Options::load</a></div><div class="ttdeci">void load(std::string name)</div><div class="ttdoc">Fills the options map. </div></div>
+<div class="ttc" id="class_options_html_a12fb83c1c5f80cbea4aadd1ab918de10"><div class="ttname"><a href="class_options.html#a12fb83c1c5f80cbea4aadd1ab918de10">Options::save</a></div><div class="ttdeci">void save()</div><div class="ttdoc">Fills the options file with the currently loaded values. </div><div class="ttdef"><b>Definition:</b> Options.cpp:69</div></div>
+<div class="ttc" id="class_options_html_ac52a1a53f1f14a5d2f07304662105745"><div class="ttname"><a href="class_options.html#ac52a1a53f1f14a5d2f07304662105745">Options::load</a></div><div class="ttdeci">void load(std::string name)</div><div class="ttdoc">Fills the options map. </div><div class="ttdef"><b>Definition:</b> Options.cpp:20</div></div>
 <div class="ttc" id="class_options_html"><div class="ttname"><a href="class_options.html">Options</a></div><div class="ttdoc">Contains all loaded options. </div><div class="ttdef"><b>Definition:</b> Options.h:17</div></div>
-<div class="ttc" id="class_options_html_a32dfe0fe6bb7e5e72ff2e05873ad6fd7"><div class="ttname"><a href="class_options.html#a32dfe0fe6bb7e5e72ff2e05873ad6fd7">Options::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Fills the options file with default values. </div></div>
+<div class="ttc" id="class_options_html_a32dfe0fe6bb7e5e72ff2e05873ad6fd7"><div class="ttname"><a href="class_options.html#a32dfe0fe6bb7e5e72ff2e05873ad6fd7">Options::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Fills the options file with default values. </div><div class="ttdef"><b>Definition:</b> Options.cpp:83</div></div>
 <div class="ttc" id="class_options_html_a9d2eb0d4e06f590c746d2a1dc0553d63"><div class="ttname"><a href="class_options.html#a9d2eb0d4e06f590c746d2a1dc0553d63">Options::set</a></div><div class="ttdeci">void set(std::string name, std::string set)</div><div class="ttdoc">Sets a specific option to a value. This overwrites the list created by loading the options file...</div><div class="ttdef"><b>Definition:</b> Options.h:35</div></div>
-<div class="ttc" id="class_options_html_adfb533de0e35fe144c7db5de1275036c"><div class="ttname"><a href="class_options.html#adfb533de0e35fe144c7db5de1275036c">Options::debugOut</a></div><div class="ttdeci">void debugOut()</div><div class="ttdoc">Outputs all loaded options to the console, for debug purposes. </div></div>
+<div class="ttc" id="class_options_html_adfb533de0e35fe144c7db5de1275036c"><div class="ttname"><a href="class_options.html#adfb533de0e35fe144c7db5de1275036c">Options::debugOut</a></div><div class="ttdeci">void debugOut()</div><div class="ttdoc">Outputs all loaded options to the console, for debug purposes. </div><div class="ttdef"><b>Definition:</b> Options.cpp:78</div></div>
 <div class="ttc" id="class_options_html_adbffdb46b40d26f481e692e68aedb9d1"><div class="ttname"><a href="class_options.html#adbffdb46b40d26f481e692e68aedb9d1">Options::instance</a></div><div class="ttdeci">static Options &amp; instance()</div><div class="ttdoc">Returns a pointer to the Options singleton. </div><div class="ttdef"><b>Definition:</b> Options.h:47</div></div>
-<div class="ttc" id="class_options_html_a66763605d383c29899276a33aaee4221"><div class="ttname"><a href="class_options.html#a66763605d383c29899276a33aaee4221">Options::Options</a></div><div class="ttdeci">Options(std::string name=&quot;options.txt&quot;)</div><div class="ttdoc">Default constructor. </div></div>
+<div class="ttc" id="class_options_html_a66763605d383c29899276a33aaee4221"><div class="ttname"><a href="class_options.html#a66763605d383c29899276a33aaee4221">Options::Options</a></div><div class="ttdeci">Options(std::string name=&quot;options.txt&quot;)</div><div class="ttdoc">Default constructor. </div><div class="ttdef"><b>Definition:</b> Options.cpp:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="_options_8h.html">Options.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

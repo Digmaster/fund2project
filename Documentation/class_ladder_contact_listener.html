@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: LadderContactListener Class Reference</title>
+<title>Fund2Project: LadderContactListener Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_ladder_contact_listener.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -90,15 +111,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Returns true when in contact with anything of type "Ladder".  
+ <a href="class_ladder_contact_listener.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_simple_box_physics_8h_source.html">SimpleBoxPhysics.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for LadderContactListener:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_ladder_contact_listener.png" usemap="#LadderContactListener_map" alt=""/>
-  <map id="LadderContactListener_map" name="LadderContactListener_map">
-</map>
- </div></div>
+<div class="center"><img src="class_ladder_contact_listener__inherit__graph.png" border="0" usemap="#_ladder_contact_listener_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for LadderContactListener:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ladder_contact_listener__coll__graph.png" border="0" usemap="#_ladder_contact_listener_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -113,7 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab0f389d6e0342b88ba2cd2e45a35400e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ladder_contact_listener.html#ab0f389d6e0342b88ba2cd2e45a35400e">overLadder</a> ()</td></tr>
 <tr class="separator:ab0f389d6e0342b88ba2cd2e45a35400e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Returns true when in contact with anything of type "Ladder". </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a2949d7341e310f1d6c828e085bd59758"></a>
 <div class="memitem">
 <div class="memproto">
@@ -186,6 +214,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ladder_contact_listener_a8301a95a02e93ed4c1f0ea331aed5715_cgraph.png" border="0" usemap="#class_ladder_contact_listener_a8301a95a02e93ed4c1f0ea331aed5715_cgraph" alt=""/></div>
+<map name="class_ladder_contact_listener_a8301a95a02e93ed4c1f0ea331aed5715_cgraph" id="class_ladder_contact_listener_a8301a95a02e93ed4c1f0ea331aed5715_cgraph">
+<area shape="rect" id="node2" href="class_component_manager.html#afee1457192e3b251b1a940101ad99549" title="ComponentManager::getInst" alt="" coords="226,5,411,32"/><area shape="rect" id="node3" href="class_component_system.html#a43032d3c794671a62e88db0f0067c670" title="Returns a component from ID. " alt="" coords="206,56,431,83"/><area shape="rect" id="node4" href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646" title="Return type. " alt="" coords="241,107,396,133"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af4cee9751ee86a0aaf6d2cac32916c50"></a>
@@ -201,6 +238,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ladder_contact_listener_af4cee9751ee86a0aaf6d2cac32916c50_cgraph.png" border="0" usemap="#class_ladder_contact_listener_af4cee9751ee86a0aaf6d2cac32916c50_cgraph" alt=""/></div>
+<map name="class_ladder_contact_listener_af4cee9751ee86a0aaf6d2cac32916c50_cgraph" id="class_ladder_contact_listener_af4cee9751ee86a0aaf6d2cac32916c50_cgraph">
+<area shape="rect" id="node2" href="class_component_manager.html#afee1457192e3b251b1a940101ad99549" title="ComponentManager::getInst" alt="" coords="226,5,411,32"/><area shape="rect" id="node3" href="class_component_system.html#a43032d3c794671a62e88db0f0067c670" title="Returns a component from ID. " alt="" coords="206,56,431,83"/><area shape="rect" id="node4" href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646" title="Return type. " alt="" coords="241,107,396,133"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -225,17 +271,31 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ladder_contact_listener_ab0f389d6e0342b88ba2cd2e45a35400e_icgraph.png" border="0" usemap="#class_ladder_contact_listener_ab0f389d6e0342b88ba2cd2e45a35400e_icgraph" alt=""/></div>
+<map name="class_ladder_contact_listener_ab0f389d6e0342b88ba2cd2e45a35400e_icgraph" id="class_ladder_contact_listener_ab0f389d6e0342b88ba2cd2e45a35400e_icgraph">
+<area shape="rect" id="node2" href="class_simple_box_physics.html#a139f7e1c51b60c7e40f6fc0d692c18ba" title="Returns true if the physics body is over a sensor by the type &quot;Ladder&quot;. " alt="" coords="205,12,408,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Physics/<a class="el" href="_simple_box_physics_8h_source.html">SimpleBoxPhysics.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/Components/Physics/<a class="el" href="_simple_box_physics_8cpp.html">SimpleBoxPhysics.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_ladder_contact_listener.html">LadderContactListener</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:57 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -5,6 +5,7 @@
 #include "SFML/Graphics.hpp"
 #include <string>
 
+///Creates a simple, one image, non-moving image
 class StaticSpriteComponent : public RenderComponent
 {
     public:

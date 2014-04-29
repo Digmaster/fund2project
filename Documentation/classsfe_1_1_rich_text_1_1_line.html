@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: sfe::RichText::Line Class Reference</title>
+<title>Fund2Project: sfe::RichText::Line Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,10 +69,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classsfe_1_1_rich_text_1_1_line.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,11 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacesfe.html">sfe</a></li><li class="navelem"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a></li><li class="navelem"><a class="el" href="classsfe_1_1_rich_text_1_1_line.html">Line</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -99,11 +116,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for sfe::RichText::Line:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classsfe_1_1_rich_text_1_1_line.png" usemap="#sfe::RichText::Line_map" alt=""/>
-  <map id="sfe::RichText::Line_map" name="sfe::RichText::Line_map">
-</map>
- </div></div>
+<div class="center"><img src="classsfe_1_1_rich_text_1_1_line__inherit__graph.png" border="0" usemap="#sfe_1_1_rich_text_1_1_line_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for sfe::RichText::Line:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text_1_1_line__coll__graph.png" border="0" usemap="#sfe_1_1_rich_text_1_1_line_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -111,8 +130,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a88cbbcd22dd76430ae7f86d87cb0c2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d86a628b8410776003abe67ec1700da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text_1_1_line.html#a9d86a628b8410776003abe67ec1700da">setFont</a> (const sf::Font &amp;font)</td></tr>
 <tr class="separator:a9d86a628b8410776003abe67ec1700da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92db3f35ec80ccaf1d086fde7f563a3a"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; sf::Text &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text_1_1_line.html#a92db3f35ec80ccaf1d086fde7f563a3a">getTexts</a> () const </td></tr>
-<tr class="separator:a92db3f35ec80ccaf1d086fde7f563a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc983913e0ba2979088f410c4a1b262c"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; sf::Text &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text_1_1_line.html#adc983913e0ba2979088f410c4a1b262c">getTexts</a> () const </td></tr>
+<tr class="separator:adc983913e0ba2979088f410c4a1b262c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40f1802ea798b2777d7fb838f6ba8c97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text_1_1_line.html#a40f1802ea798b2777d7fb838f6ba8c97">appendText</a> (sf::Text text)</td></tr>
 <tr class="separator:a40f1802ea798b2777d7fb838f6ba8c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49d156a1f298856cf52e64fb6d3f89bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesf.html#aed4e58f586b2eed2621c0365d0b7554e">sf::FloatRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsfe_1_1_rich_text_1_1_line.html#a49d156a1f298856cf52e64fb6d3f89bb">getLocalBounds</a> () const </td></tr>
@@ -139,6 +158,15 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text_1_1_line_a40f1802ea798b2777d7fb838f6ba8c97_icgraph.png" border="0" usemap="#classsfe_1_1_rich_text_1_1_line_a40f1802ea798b2777d7fb838f6ba8c97_icgraph" alt=""/></div>
+<map name="classsfe_1_1_rich_text_1_1_line_a40f1802ea798b2777d7fb838f6ba8c97_icgraph" id="classsfe_1_1_rich_text_1_1_line_a40f1802ea798b2777d7fb838f6ba8c97_icgraph">
+<area shape="rect" id="node2" href="classsfe_1_1_rich_text.html#a9285def7afe7919cb1213aaa170587c8" title="sfe::RichText::operator\&lt;\&lt;" alt="" coords="185,12,354,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -189,6 +217,24 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_cgraph.png" border="0" usemap="#classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_cgraph" alt=""/></div>
+<map name="classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_cgraph" id="classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_cgraph">
+<area shape="rect" id="node2" href="classsfe_1_1_rich_text.html#a78f085ec777e4ede29c55b5044154650" title="sfe::RichText::getLocalBounds" alt="" coords="185,12,383,39"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_icgraph.png" border="0" usemap="#classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_icgraph" alt=""/></div>
+<map name="classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_icgraph" id="classsfe_1_1_rich_text_1_1_line_a297bd05f7d91f524268a77b873fcb927_icgraph">
+<area shape="rect" id="node2" href="classsfe_1_1_rich_text.html#a9285def7afe7919cb1213aaa170587c8" title="sfe::RichText::operator\&lt;\&lt;" alt="" coords="185,12,354,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a49d156a1f298856cf52e64fb6d3f89bb"></a>
@@ -206,12 +252,12 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a92db3f35ec80ccaf1d086fde7f563a3a"></a>
+<a class="anchor" id="adc983913e0ba2979088f410c4a1b262c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;sf::Text&gt;&amp; sfe::RichText::Line::getTexts </td>
+          <td class="memname">const std::vector&lt; sf::Text &gt; &amp; sfe::RichText::Line::getTexts </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -253,15 +299,20 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/<a class="el" href="_rich_text_8hpp_source.html">RichText.hpp</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/<a class="el" href="_rich_text_8cpp.html">RichText.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacesfe.html">sfe</a></li><li class="navelem"><a class="el" href="classsfe_1_1_rich_text.html">RichText</a></li><li class="navelem"><a class="el" href="classsfe_1_1_rich_text_1_1_line.html">Line</a></li>
+    <li class="footer">Generated on Tue Apr 8 2014 22:12:35 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

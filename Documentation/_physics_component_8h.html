@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Physics/PhysicsComponent.h File Reference</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Physics/PhysicsComponent.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_physics_component_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,15 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_61a5cbc3c32dc4843a37850077de08ba.html">Physics</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">PhysicsComponent.h File Reference</div>  </div>
@@ -94,38 +110,81 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_component_base_8h_source.html">Components/ComponentBase.h</a>&quot;</code><br/>
 <code>#include &lt;Box2D/Box2D.h&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for PhysicsComponent.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_physics_component_8h__incl.png" border="0" usemap="#_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_physics_component_8h" alt=""/></div>
+<map name="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_physics_component_8h" id="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_physics_component_8h">
+<area shape="rect" id="node2" href="_component_base_8h.html" title="Components/ComponentBase.h" alt="" coords="157,125,363,152"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_physics_component_8h__dep__incl.png" border="0" usemap="#_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_physics_component_8hdep" alt=""/></div>
+<map name="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_physics_component_8hdep" id="_c_1_2_users_2_thomas_01_luppi_2_documents_2fund2project_2include_2_components_2_physics_2_physics_component_8hdep">
+<area shape="rect" id="node2" href="_component_system_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/ComponentSystem.h" alt="" coords="2589,125,2859,181"/><area shape="rect" id="node4" href="_simple_box_physics_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Physics\l/SimpleBoxPhysics.h" alt="" coords="731,350,925,421"/><area shape="rect" id="node14" href="_brave_adventurer_movement_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Movement\l/BraveAdventurerMovement.cpp" alt="" coords="4279,350,4481,421"/><area shape="rect" id="node17" href="_physics_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/PhysicsComponent.cpp" alt="" coords="4506,350,4677,421"/><area shape="rect" id="node20" href="_world_position_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Positional\l/WorldPositionComponent.cpp" alt="" coords="4702,350,4900,421"/><area shape="rect" id="node25" href="_camera_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Scrpt/Camera.cpp" alt="" coords="4925,357,5155,413"/><area shape="rect" id="node28" href="_boundary_physics_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Physics\l/BoundaryPhysics.h" alt="" coords="5,230,200,301"/><area shape="rect" id="node29" href="_polygon_physics_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Physics\l/PolygonPhysics.h" alt="" coords="275,230,469,301"/><area shape="rect" id="node30" href="_polyline_physics_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/Physics\l/PolylinePhysics.h" alt="" coords="523,230,717,301"/><area shape="rect" id="node31" href="_physics_engine_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/physics/PhysicsEngine.cpp" alt="" coords="3089,125,3297,181"/><area shape="rect" id="node3" href="_component_manager_8h.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/include/Components/ComponentManager.h" alt="" coords="2587,237,2861,293"/><area shape="rect" id="node5" href="_simple_box_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/SimpleBoxPhysics.cpp" alt="" coords="1998,470,2169,541"/><area shape="rect" id="node6" href="_game_engine_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/GameEngine.cpp" alt="" coords="745,477,911,533"/><area shape="rect" id="node8" href="_audio_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Audio/AudioComponent.cpp" alt="" coords="3185,357,3471,413"/><area shape="rect" id="node9" href="_component_base_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/ComponentBase.cpp" alt="" coords="3495,357,3741,413"/><area shape="rect" id="node10" href="_component_manager_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/ComponentManager.cpp" alt="" coords="3767,357,4033,413"/><area shape="rect" id="node11" href="_i_d_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Identification\l/IDComponent.cpp" alt="" coords="4057,350,4255,421"/><area shape="rect" id="node12" href="_input_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Input/InputComponent.cpp" alt="" coords="950,357,1225,413"/><area shape="rect" id="node13" href="_keyboard_input_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Input/Keyboard\lInput.cpp" alt="" coords="1250,350,1461,421"/><area shape="rect" id="node15" href="_movement_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Movement\l/MovementComponent.cpp" alt="" coords="1487,350,1671,421"/><area shape="rect" id="node16" href="_boundary_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/BoundaryPhysics.cpp" alt="" coords="90,350,261,421"/><area shape="rect" id="node18" href="_polygon_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/PolygonPhysics.cpp" alt="" coords="286,350,457,421"/><area shape="rect" id="node19" href="_polyline_physics_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Physics\l/PolylinePhysics.cpp" alt="" coords="534,350,705,421"/><area shape="rect" id="node21" href="_animated_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/AnimatedComponent.cpp" alt="" coords="1695,350,1867,421"/><area shape="rect" id="node22" href="_brave_adventurer_animated_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/BraveAdventurerAnimatedComponent.cpp" alt="" coords="1891,350,2156,421"/><area shape="rect" id="node23" href="_render_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/RenderComponent.cpp" alt="" coords="2181,350,2347,421"/><area shape="rect" id="node24" href="_static_sprite_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Render\l/StaticSpriteComponent.cpp" alt="" coords="2371,350,2556,421"/><area shape="rect" id="node26" href="_script_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Scrpt/ScriptComponent.cpp" alt="" coords="2581,357,2867,413"/><area shape="rect" id="node27" href="_target_component_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/Components/Target\l/TargetComponent.cpp" alt="" coords="2891,350,3057,421"/><area shape="rect" id="node7" href="_level_loader_8cpp.html" title="C:/Users/Thomas Luppi\l/Documents/fund2project\l/src/LevelLoader.cpp" alt="" coords="165,477,331,533"/></map>
+</div>
 </div>
 <p><a href="_physics_component_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_component.html">PhysicsComponent</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespace_p_o"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_o.html">PO</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple physics components. Used for sensors, collision, etc.  <a href="class_physics_component.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a1e40bcbaab2a334f39cf15570fc441d9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9">PO::PhysicsOptions</a> { <br/>
-&#160;&#160;<a class="el" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9acde80cf2e155a70221d302be4fb9fd10">PO::sensor</a> = 0x01, 
-<a class="el" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a7a7acc53c7fc8943eccffb91ce11a418">PO::notRotatable</a> = 0x02, 
-<a class="el" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a14f0f7a57a02f1af9149f399ff607f21">PO::roundedCorners</a> = 0x04, 
-<a class="el" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9ae1fc6326acf16b62336a4048ef6ee927">PO::isStatic</a> = 0x08, 
+<tr class="memitem:af470953778eda300f9028c32e4a91d8b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8b">PhysicsOptions</a> { <br/>
+&#160;&#160;<a class="el" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba453e0c47b275de77749e0feff404eb49">sensor</a> = 0x01, 
+<a class="el" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba3068698c777845b35fdde9e264aefc51">notRotatable</a> = 0x02, 
+<a class="el" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bae410b7b756c25d086f6104acb116d8da">roundedCorners</a> = 0x04, 
+<a class="el" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8bace5c87da4ce784e05039ab21ff46e2ff">isStatic</a> = 0x08, 
 <br/>
-&#160;&#160;<a class="el" href="namespace_p_o.html#a1e40bcbaab2a334f39cf15570fc441d9a9e2713a1d98a1592ec90500fd90b7351">PO::sideSensors</a> = 0x16
+&#160;&#160;<a class="el" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8ba80daf1138da9bf359c5996efb4fc3013">sideSensors</a> = 0x16
 <br/>
  }</td></tr>
-<tr class="separator:a1e40bcbaab2a334f39cf15570fc441d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:af470953778eda300f9028c32e4a91d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enumeration used for flags to physics component creation.  <a href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8b">More...</a><br/></td></tr>
+<tr class="separator:af470953778eda300f9028c32e4a91d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="af470953778eda300f9028c32e4a91d8b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_physics_component_8h.html#af470953778eda300f9028c32e4a91d8b">PhysicsOptions</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An enumeration used for flags to physics component creation. </p>
+<p>Not all flags are supported on all components </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="af470953778eda300f9028c32e4a91d8ba453e0c47b275de77749e0feff404eb49"></a>sensor</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="af470953778eda300f9028c32e4a91d8ba3068698c777845b35fdde9e264aefc51"></a>notRotatable</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="af470953778eda300f9028c32e4a91d8bae410b7b756c25d086f6104acb116d8da"></a>roundedCorners</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="af470953778eda300f9028c32e4a91d8bace5c87da4ce784e05039ab21ff46e2ff"></a>isStatic</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="af470953778eda300f9028c32e4a91d8ba80daf1138da9bf359c5996efb4fc3013"></a>sideSensors</em>&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_61a5cbc3c32dc4843a37850077de08ba.html">Physics</a></li><li class="navelem"><a class="el" href="_physics_component_8h.html">PhysicsComponent.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

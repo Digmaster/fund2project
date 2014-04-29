@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/LevelLoader.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/LevelLoader.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_level_loader_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">LevelLoader.h</div>  </div>
@@ -129,23 +146,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//DUN DUN DUN DUUUUUNNNNNNNNNNNN</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // LEVEL_H</span></div>
-<div class="ttc" id="class_level_html_ad9d7df6973a233e914e3b3faf827ac3e"><div class="ttname"><a href="class_level.html#ad9d7df6973a233e914e3b3faf827ac3e">Level::makeCamera</a></div><div class="ttdeci">void makeCamera(sf::Sprite, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div></div>
+<div class="ttc" id="class_level_html_ad9d7df6973a233e914e3b3faf827ac3e"><div class="ttname"><a href="class_level.html#ad9d7df6973a233e914e3b3faf827ac3e">Level::makeCamera</a></div><div class="ttdeci">void makeCamera(sf::Sprite, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div><div class="ttdef"><b>Definition:</b> LevelLoader.cpp:665</div></div>
 <div class="ttc" id="class_texture_manager_html"><div class="ttname"><a href="class_texture_manager.html">TextureManager</a></div><div class="ttdoc">Stores and loads all textures contained in the game. </div><div class="ttdef"><b>Definition:</b> TextureManager.h:16</div></div>
 <div class="ttc" id="class_level_html_a16d1b735f7d513cf18bfff1ad4022f58"><div class="ttname"><a href="class_level.html#a16d1b735f7d513cf18bfff1ad4022f58">Level::height</a></div><div class="ttdeci">int height</div><div class="ttdoc">The height of the level, in &quot;Tiles&quot;. </div><div class="ttdef"><b>Definition:</b> LevelLoader.h:32</div></div>
-<div class="ttc" id="class_level_html_a592bd0b361d958223245c7b59f28881d"><div class="ttname"><a href="class_level.html#a592bd0b361d958223245c7b59f28881d">Level::makeBox</a></div><div class="ttdeci">void makeBox(sf::Sprite, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div><div class="ttdoc">Standardized method to create a box. </div></div>
-<div class="ttc" id="class_render_engine_html"><div class="ttname"><a href="class_render_engine.html">RenderEngine</a></div><div class="ttdoc">Holds all information needed for rendering and renders frames. </div><div class="ttdef"><b>Definition:</b> RenderEngine.h:21</div></div>
-<div class="ttc" id="class_level_html_aae738f64034e93defb1ecf129c9a5652"><div class="ttname"><a href="class_level.html#aae738f64034e93defb1ecf129c9a5652">Level::makeBraveAdventurer</a></div><div class="ttdeci">void makeBraveAdventurer(sf::Sprite, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div></div>
-<div class="ttc" id="class_level_html_a7a696c928ca5d5354db6e50e46d0f67d"><div class="ttname"><a href="class_level.html#a7a696c928ca5d5354db6e50e46d0f67d">Level::Level</a></div><div class="ttdeci">Level()</div><div class="ttdoc">Default Constructor. </div></div>
+<div class="ttc" id="class_level_html_a592bd0b361d958223245c7b59f28881d"><div class="ttname"><a href="class_level.html#a592bd0b361d958223245c7b59f28881d">Level::makeBox</a></div><div class="ttdeci">void makeBox(sf::Sprite, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div><div class="ttdoc">Standardized method to create a box. </div><div class="ttdef"><b>Definition:</b> LevelLoader.cpp:633</div></div>
+<div class="ttc" id="class_render_engine_html"><div class="ttname"><a href="class_render_engine.html">RenderEngine</a></div><div class="ttdoc">Holds all information needed for rendering and renders frames. </div><div class="ttdef"><b>Definition:</b> RenderEngine.h:22</div></div>
+<div class="ttc" id="class_level_html_aae738f64034e93defb1ecf129c9a5652"><div class="ttname"><a href="class_level.html#aae738f64034e93defb1ecf129c9a5652">Level::makeBraveAdventurer</a></div><div class="ttdeci">void makeBraveAdventurer(sf::Sprite, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div><div class="ttdef"><b>Definition:</b> LevelLoader.cpp:676</div></div>
+<div class="ttc" id="class_level_html_a7a696c928ca5d5354db6e50e46d0f67d"><div class="ttname"><a href="class_level.html#a7a696c928ca5d5354db6e50e46d0f67d">Level::Level</a></div><div class="ttdeci">Level()</div><div class="ttdoc">Default Constructor. </div><div class="ttdef"><b>Definition:</b> LevelLoader.cpp:28</div></div>
 <div class="ttc" id="class_level_html"><div class="ttname"><a href="class_level.html">Level</a></div><div class="ttdoc">Contains all information pertaining to the currently loaded level, as well as the method for loading ...</div><div class="ttdef"><b>Definition:</b> LevelLoader.h:14</div></div>
-<div class="ttc" id="class_level_html_a918fc70acf9fe0c425354e4b2105ac33"><div class="ttname"><a href="class_level.html#a918fc70acf9fe0c425354e4b2105ac33">Level::loadLevel</a></div><div class="ttdeci">void loadLevel(std::string filename, RenderEngine *)</div><div class="ttdoc">Loads a level. </div></div>
-<div class="ttc" id="class_level_html_a9d33a42b0985aa9d18f382704c4eb7f7"><div class="ttname"><a href="class_level.html#a9d33a42b0985aa9d18f382704c4eb7f7">Level::makeSensor</a></div><div class="ttdeci">void makeSensor(sf::Vector2f, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div></div>
+<div class="ttc" id="class_level_html_a918fc70acf9fe0c425354e4b2105ac33"><div class="ttname"><a href="class_level.html#a918fc70acf9fe0c425354e4b2105ac33">Level::loadLevel</a></div><div class="ttdeci">void loadLevel(std::string filename, RenderEngine *)</div><div class="ttdoc">Loads a level. </div><div class="ttdef"><b>Definition:</b> LevelLoader.cpp:33</div></div>
+<div class="ttc" id="class_level_html_a9d33a42b0985aa9d18f382704c4eb7f7"><div class="ttname"><a href="class_level.html#a9d33a42b0985aa9d18f382704c4eb7f7">Level::makeSensor</a></div><div class="ttdeci">void makeSensor(sf::Vector2f, sf::Vector2f, std::map&lt; std::string, std::string &gt;, int layer, std::string)</div><div class="ttdef"><b>Definition:</b> LevelLoader.cpp:647</div></div>
 <div class="ttc" id="class_level_html_a33dc03f7e2e10ed198b75526d8e4e62f"><div class="ttname"><a href="class_level.html#a33dc03f7e2e10ed198b75526d8e4e62f">Level::width</a></div><div class="ttdeci">int width</div><div class="ttdoc">The width of the level, in &quot;Tiles&quot;. </div><div class="ttdef"><b>Definition:</b> LevelLoader.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="_level_loader_8h.html">LevelLoader.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

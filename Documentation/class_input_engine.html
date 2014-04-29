@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: InputEngine Class Reference</title>
+<title>Fund2Project: InputEngine Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_input_engine.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -130,9 +151,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3199d329b2f573237fa63f0a6730a6f4"><td class="memItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a3199d329b2f573237fa63f0a6730a6f4">getMousePos</a> ()</td></tr>
 <tr class="memdesc:a3199d329b2f573237fa63f0a6730a6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position of the mouse, relative to the GameWorld.  <a href="#a3199d329b2f573237fa63f0a6730a6f4">More...</a><br/></td></tr>
 <tr class="separator:a3199d329b2f573237fa63f0a6730a6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2b989be9fc065d07ad586d840ad478"><td class="memItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a7f2b989be9fc065d07ad586d840ad478">getScreenMousePos</a> ()</td></tr>
-<tr class="memdesc:a7f2b989be9fc065d07ad586d840ad478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position of the mouse, relative to the Window.  <a href="#a7f2b989be9fc065d07ad586d840ad478">More...</a><br/></td></tr>
-<tr class="separator:a7f2b989be9fc065d07ad586d840ad478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0188d0b9f2cb7a1133fb30d78ad039bb"><td class="memItemLeft" align="right" valign="top">sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a0188d0b9f2cb7a1133fb30d78ad039bb">getScreenMousePos</a> ()</td></tr>
+<tr class="memdesc:a0188d0b9f2cb7a1133fb30d78ad039bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position of the mouse, relative to the Window.  <a href="#a0188d0b9f2cb7a1133fb30d78ad039bb">More...</a><br/></td></tr>
+<tr class="separator:a0188d0b9f2cb7a1133fb30d78ad039bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec810697895cf63e20bcf6830d96088f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aec810697895cf63e20bcf6830d96088f">getMouseAngle</a> (sf::Vector2f)</td></tr>
 <tr class="memdesc:aec810697895cf63e20bcf6830d96088f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the angle of the courser relative to the position.  <a href="#aec810697895cf63e20bcf6830d96088f">More...</a><br/></td></tr>
 <tr class="separator:aec810697895cf63e20bcf6830d96088f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +221,15 @@ Public Member Functions</h2></td></tr>
 <p>Returns the status of the button mapped to ACtivate. </p>
 <p>(Default: E) </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_a006d0708f9a3062a829d790365ee6680_icgraph.png" border="0" usemap="#class_input_engine_a006d0708f9a3062a829d790365ee6680_icgraph" alt=""/></div>
+<map name="class_input_engine_a006d0708f9a3062a829d790365ee6680_icgraph" id="class_input_engine_a006d0708f9a3062a829d790365ee6680_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="217,5,413,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="251,56,378,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ad41a7fdfbf833ca96a70d668e15dcfc4"></a>
@@ -225,6 +255,15 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the status of the button mapped to ClimbDown. </p>
 <p>(Default: S) </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_ad41a7fdfbf833ca96a70d668e15dcfc4_icgraph.png" border="0" usemap="#class_input_engine_ad41a7fdfbf833ca96a70d668e15dcfc4_icgraph" alt=""/></div>
+<map name="class_input_engine_ad41a7fdfbf833ca96a70d668e15dcfc4_icgraph" id="class_input_engine_ad41a7fdfbf833ca96a70d668e15dcfc4_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="235,5,431,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="270,56,397,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -252,6 +291,15 @@ Public Member Functions</h2></td></tr>
 <p>Returns the status of the button mapped to ClimbUp. </p>
 <p>(Default: W) </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_a763f9f7b0a7c9e83f852e4bf325b7655_icgraph.png" border="0" usemap="#class_input_engine_a763f9f7b0a7c9e83f852e4bf325b7655_icgraph" alt=""/></div>
+<map name="class_input_engine_a763f9f7b0a7c9e83f852e4bf325b7655_icgraph" id="class_input_engine_a763f9f7b0a7c9e83f852e4bf325b7655_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="219,5,415,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="254,56,381,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ad39a6d30617bb298383534edd069c5c1"></a>
@@ -277,6 +325,15 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the status of the mouse button mapped to Fire. </p>
 <p>(Default: LeftMouseButton) </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_ad39a6d30617bb298383534edd069c5c1_icgraph.png" border="0" usemap="#class_input_engine_ad39a6d30617bb298383534edd069c5c1_icgraph" alt=""/></div>
+<map name="class_input_engine_ad39a6d30617bb298383534edd069c5c1_icgraph" id="class_input_engine_ad39a6d30617bb298383534edd069c5c1_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="193,5,389,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="227,56,354,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -304,6 +361,15 @@ Public Member Functions</h2></td></tr>
 <p>Returns the status of the button mapped to Jump. </p>
 <p>(Default: Spacebar) </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_aa5dda17b658c8432f5d599ba70411c89_icgraph.png" border="0" usemap="#class_input_engine_aa5dda17b658c8432f5d599ba70411c89_icgraph" alt=""/></div>
+<map name="class_input_engine_aa5dda17b658c8432f5d599ba70411c89_icgraph" id="class_input_engine_aa5dda17b658c8432f5d599ba70411c89_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="201,5,397,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="235,56,362,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aec810697895cf63e20bcf6830d96088f"></a>
@@ -314,7 +380,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">float InputEngine::getMouseAngle </td>
           <td>(</td>
           <td class="paramtype">sf::Vector2f&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -329,6 +395,15 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the angle, in degrees </dd></dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_aec810697895cf63e20bcf6830d96088f_icgraph.png" border="0" usemap="#class_input_engine_aec810697895cf63e20bcf6830d96088f_icgraph" alt=""/></div>
+<map name="class_input_engine_aec810697895cf63e20bcf6830d96088f_icgraph" id="class_input_engine_aec810697895cf63e20bcf6830d96088f_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="243,5,439,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="278,56,405,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -355,9 +430,18 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the position of the mouse, relative to the GameWorld. </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_a3199d329b2f573237fa63f0a6730a6f4_icgraph.png" border="0" usemap="#class_input_engine_a3199d329b2f573237fa63f0a6730a6f4_icgraph" alt=""/></div>
+<map name="class_input_engine_a3199d329b2f573237fa63f0a6730a6f4_icgraph" id="class_input_engine_a3199d329b2f573237fa63f0a6730a6f4_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="233,5,429,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="267,56,394,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a7f2b989be9fc065d07ad586d840ad478"></a>
+<a class="anchor" id="a0188d0b9f2cb7a1133fb30d78ad039bb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -365,7 +449,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sf::Vector2f InputEngine::getScreenMousePos </td>
+          <td class="memname">sf::Vector2i InputEngine::getScreenMousePos </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -406,6 +490,15 @@ Public Member Functions</h2></td></tr>
 <p>Returns the status of the button mapped to WalkLeft. </p>
 <p>(Default: A) </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_a5a0343ae9a55e5e4ec811f45b06aa43f_icgraph.png" border="0" usemap="#class_input_engine_a5a0343ae9a55e5e4ec811f45b06aa43f_icgraph" alt=""/></div>
+<map name="class_input_engine_a5a0343ae9a55e5e4ec811f45b06aa43f_icgraph" id="class_input_engine_a5a0343ae9a55e5e4ec811f45b06aa43f_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="222,5,418,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="257,56,383,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a87c92a7dee61a6ffd4ed74d4c0b41a0f"></a>
@@ -432,6 +525,15 @@ Public Member Functions</h2></td></tr>
 <p>Returns the status of the button mapped to WalkRight. </p>
 <p>(Default: D) </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_a87c92a7dee61a6ffd4ed74d4c0b41a0f_icgraph.png" border="0" usemap="#class_input_engine_a87c92a7dee61a6ffd4ed74d4c0b41a0f_icgraph" alt=""/></div>
+<map name="class_input_engine_a87c92a7dee61a6ffd4ed74d4c0b41a0f_icgraph" id="class_input_engine_a87c92a7dee61a6ffd4ed74d4c0b41a0f_icgraph">
+<area shape="rect" id="node2" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="230,5,426,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="265,56,391,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1f1d0723482b1479bcc8825cb716c6d9"></a>
@@ -442,7 +544,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void InputEngine::update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_game_engine.html">GameEngine</a> *&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>eng</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -457,17 +559,31 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_engine_a1f1d0723482b1479bcc8825cb716c6d9_cgraph.png" border="0" usemap="#class_input_engine_a1f1d0723482b1479bcc8825cb716c6d9_cgraph" alt=""/></div>
+<map name="class_input_engine_a1f1d0723482b1479bcc8825cb716c6d9_cgraph" id="class_input_engine_a1f1d0723482b1479bcc8825cb716c6d9_cgraph">
+<area shape="rect" id="node2" href="class_render_engine.html#a97498c57a11a54ca7f010fc1e49cc92c" title="Toggles if physics debug is shown or not. " alt="" coords="193,5,375,32"/><area shape="rect" id="node3" href="class_render_engine.html#a2b7ac7a858bd10136d83aef6a56f7c10" title="Resizes all views to the same size, preserving the zoom of each view. " alt="" coords="193,56,375,83"/><area shape="rect" id="node4" href="class_game_engine.html#a0b02eb1da9c2d403d187146a150a1085" title="Pauses the game. " alt="" coords="214,107,354,133"/><area shape="rect" id="node5" href="class_game_engine.html#a110d47edc9b9d6e9a426621954216acc" title="Unpauses the game. " alt="" coords="207,157,361,184"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/<a class="el" href="_input_engine_8h_source.html">InputEngine.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/<a class="el" href="_input_engine_8cpp.html">InputEngine.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_input_engine.html">InputEngine</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:57 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

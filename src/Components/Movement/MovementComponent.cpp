@@ -10,6 +10,7 @@ MovementComponent::MovementComponent(unsigned int ID) : ComponentBase(ID) {
     compMan->moveSym.addComponent(this);
     currState = MoveState::onGround;
     nextState = MoveState::onGround;
+    changed = false;
 }
 
 MovementComponent::~MovementComponent()

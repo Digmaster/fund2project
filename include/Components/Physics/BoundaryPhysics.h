@@ -4,6 +4,7 @@
 #include "Components\Physics\PhysicsComponent.h"
 #include "Options.h"
 
+///Creates lines of physics-ness. only two points though
 class BoundaryPhysics : public PhysicsComponent
 {
     public:

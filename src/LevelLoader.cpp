@@ -600,12 +600,12 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             testSprite->setSprite(spriteMan.getSprite("Samus"));
                             testSprite->sprite.setAnimation("WalkUp");
 
-                            KeyboardInput* testInput = new KeyboardInput(id);
+                            new KeyboardInput(id);
 
-                            BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
+                            new BraveAdventurerMovement(id);
 
-                            SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
-                            AudioComponent* audioComp = new AudioComponent(id);
+                            new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+                            new AudioComponent(id);
                         }
                     }
                     else
@@ -634,14 +634,14 @@ void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, s
     unsigned int id = ComponentBase::getNewID();
     position.x +=sprite.getGlobalBounds().width/2;
     position.x +=sprite.getGlobalBounds().height/2;
-    StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
+    new StaticSpriteComponent(sprite, id);
 
-    WorldPositionComponent* posComp= new WorldPositionComponent(id, position, layer);
+    new WorldPositionComponent(id, position, layer);
 
-    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(sprite.getGlobalBounds().width, sprite.getGlobalBounds().height), 1, 0x00 );
+    new SimpleBoxPhysics(id, Vector2f(sprite.getGlobalBounds().width, sprite.getGlobalBounds().height), 1, 0x00 );
 
     if (name!="none")
-        IDComponent* identification = new IDComponent(id, name);
+        new IDComponent(id, name);
 }
 
 void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
@@ -653,23 +653,23 @@ void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<s
     unsigned int id = ComponentBase::getNewID();
     //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
 
-    WorldPositionComponent* posComp= new WorldPositionComponent(id, position, layer);
+    new WorldPositionComponent(id, position, layer);
 
-    SimpleBoxPhysics* physComp = new SimpleBoxPhysics(id, Vector2f(dimension.x, dimension.y), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
+    new SimpleBoxPhysics(id, Vector2f(dimension.x, dimension.y), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
 
     if (name!="none") {
-        IDComponent* identification = new IDComponent(id, name);
+        new IDComponent(id, name);
     }
 }
 
 void Level::makeCamera(sf::Sprite sprite, sf::Vector2f position, std::map<std::string, std::string> properties, int layer, std::string name) {
     unsigned int id = ComponentBase::getNewID();
-    Camera* camComp = new Camera(id, width, height);
+    new Camera(id, width, height);
     if (properties.find("target") != properties.end()) {
-        TargetComponent* tarComp = new TargetComponent(id, properties["target"]);
+        new TargetComponent(id, properties["target"]);
     }
     if (name!="none")
-        IDComponent* identification = new IDComponent(id, name);
+        new IDComponent(id, name);
 
 }
 
@@ -681,19 +681,19 @@ void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::m
     testSprite->setSprite(spriteMan.getSprite("Samus"));
     testSprite->sprite.setAnimation("WalkUp");
 
-    WorldPositionComponent* testPosition = new WorldPositionComponent(id, position, layer);
+    new WorldPositionComponent(id, position, layer);
 
-    KeyboardInput* testInput = new KeyboardInput(id);
+    new KeyboardInput(id);
 
-    BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
+    new BraveAdventurerMovement(id);
 
-    SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+    new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
 
     if (properties.find("target") != properties.end()) {
-        TargetComponent* tarComp = new TargetComponent(id, properties["target"]);
+        new TargetComponent(id, properties["target"]);
     }
     if (name!="none")
-        IDComponent* identification = new IDComponent(id, name);
+        new IDComponent(id, name);
 }
 
 sf::Color Level::HexToColor(std::string input) {

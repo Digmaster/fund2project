@@ -14,14 +14,16 @@ class AudioComponent;
 
 #include "Components/ComponentSystem.h"
 
+///Manages/contains all components
 class ComponentManager
 {
     public:
         /** Default destructor */
         virtual ~ComponentManager();
 
-        ComponentSystem<ComponentBase*> etcSym;
+
         void processAll(sf::Time frameTime);
+         ComponentSystem<ComponentBase*> etcSym;
         ComponentSystem<RenderComponent*> rendSym;
         ComponentSystem<WorldPositionComponent*> posSym;
         ComponentSystem<InputComponent*> inputSym;

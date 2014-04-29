@@ -4,7 +4,7 @@
 #include "Components/Render/RenderComponent.h"
 #include "Rendering/AnimatedSprite.h"
 
-
+///Simple abstract class for animated components
 class AnimatedComponent : public RenderComponent
 {
     public:

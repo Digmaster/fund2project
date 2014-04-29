@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Render/RenderComponent.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Render/RenderComponent.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_render_component_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_e1c090702d7fa364131c199443ca0242.html">Render</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">RenderComponent.h</div>  </div>
@@ -99,37 +116,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="class_render_engine.html">RenderEngine</a>;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_render_component.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_render_component.html">RenderComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_render_component.html#a1bfbe186278dc7528788aea84f976b6c">RenderComponent</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_render_component.html#a1bfbe186278dc7528788aea84f976b6c">RenderComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_render_component.html#a71cf6c8181a4b29cf8480af778e4cdfd">~RenderComponent</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      <span class="comment">//  virtual sf::Drawable* getDrawable() {}</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">   21</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">go</a>(sf::Time) {}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_render_component.html#a02c453a1ad9b4624d4b151d5e94fb79b">   23</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="class_texture_manager.html">TextureManager</a> <a class="code" href="class_render_component.html#a02c453a1ad9b4624d4b151d5e94fb79b">texMan</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif // RENDERCOMPONENT_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_render_component.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_render_component.html">RenderComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_render_component.html#a1bfbe186278dc7528788aea84f976b6c">RenderComponent</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="class_render_component.html#a1bfbe186278dc7528788aea84f976b6c">RenderComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_render_component.html#a16bab40295123b9ea802d7e85b14a884">~RenderComponent</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <span class="comment">//  virtual sf::Drawable* getDrawable() {}</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">   22</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">go</a>(sf::Time) {}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_render_component.html#a02c453a1ad9b4624d4b151d5e94fb79b">   24</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="class_texture_manager.html">TextureManager</a> <a class="code" href="class_render_component.html#a02c453a1ad9b4624d4b151d5e94fb79b">texMan</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // RENDERCOMPONENT_H</span></div>
 <div class="ttc" id="class_texture_manager_html"><div class="ttname"><a href="class_texture_manager.html">TextureManager</a></div><div class="ttdoc">Stores and loads all textures contained in the game. </div><div class="ttdef"><b>Definition:</b> TextureManager.h:16</div></div>
-<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:14</div></div>
+<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:15</div></div>
 <div class="ttc" id="_component_base_8h_html"><div class="ttname"><a href="_component_base_8h.html">ComponentBase.h</a></div></div>
-<div class="ttc" id="class_render_engine_html"><div class="ttname"><a href="class_render_engine.html">RenderEngine</a></div><div class="ttdoc">Holds all information needed for rendering and renders frames. </div><div class="ttdef"><b>Definition:</b> RenderEngine.h:21</div></div>
-<div class="ttc" id="class_render_component_html_a02c453a1ad9b4624d4b151d5e94fb79b"><div class="ttname"><a href="class_render_component.html#a02c453a1ad9b4624d4b151d5e94fb79b">RenderComponent::texMan</a></div><div class="ttdeci">static TextureManager texMan</div><div class="ttdef"><b>Definition:</b> RenderComponent.h:23</div></div>
-<div class="ttc" id="class_render_component_html"><div class="ttname"><a href="class_render_component.html">RenderComponent</a></div><div class="ttdef"><b>Definition:</b> RenderComponent.h:12</div></div>
-<div class="ttc" id="class_render_component_html_a72ae781c18f0b632ad2be535aacc0f99"><div class="ttname"><a href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">RenderComponent::go</a></div><div class="ttdeci">virtual void go(sf::Time)</div><div class="ttdoc">A function to update the component and do whatever the component is designed to do. </div><div class="ttdef"><b>Definition:</b> RenderComponent.h:21</div></div>
-<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:54</div></div>
-<div class="ttc" id="class_render_component_html_a1bfbe186278dc7528788aea84f976b6c"><div class="ttname"><a href="class_render_component.html#a1bfbe186278dc7528788aea84f976b6c">RenderComponent::RenderComponent</a></div><div class="ttdeci">RenderComponent()</div></div>
+<div class="ttc" id="class_render_engine_html"><div class="ttname"><a href="class_render_engine.html">RenderEngine</a></div><div class="ttdoc">Holds all information needed for rendering and renders frames. </div><div class="ttdef"><b>Definition:</b> RenderEngine.h:22</div></div>
+<div class="ttc" id="class_render_component_html_a02c453a1ad9b4624d4b151d5e94fb79b"><div class="ttname"><a href="class_render_component.html#a02c453a1ad9b4624d4b151d5e94fb79b">RenderComponent::texMan</a></div><div class="ttdeci">static TextureManager texMan</div><div class="ttdef"><b>Definition:</b> RenderComponent.h:24</div></div>
+<div class="ttc" id="class_render_component_html"><div class="ttname"><a href="class_render_component.html">RenderComponent</a></div><div class="ttdoc">Component type which outputs images to the screen. </div><div class="ttdef"><b>Definition:</b> RenderComponent.h:13</div></div>
+<div class="ttc" id="class_render_component_html_a72ae781c18f0b632ad2be535aacc0f99"><div class="ttname"><a href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">RenderComponent::go</a></div><div class="ttdeci">virtual void go(sf::Time)</div><div class="ttdoc">A function to update the component and do whatever the component is designed to do. </div><div class="ttdef"><b>Definition:</b> RenderComponent.h:22</div></div>
+<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:56</div></div>
+<div class="ttc" id="class_render_component_html_a1bfbe186278dc7528788aea84f976b6c"><div class="ttname"><a href="class_render_component.html#a1bfbe186278dc7528788aea84f976b6c">RenderComponent::RenderComponent</a></div><div class="ttdeci">RenderComponent()</div><div class="ttdef"><b>Definition:</b> RenderComponent.cpp:4</div></div>
 <div class="ttc" id="_texture_manager_8h_html"><div class="ttname"><a href="_texture_manager_8h.html">TextureManager.h</a></div></div>
-<div class="ttc" id="class_render_component_html_a71cf6c8181a4b29cf8480af778e4cdfd"><div class="ttname"><a href="class_render_component.html#a71cf6c8181a4b29cf8480af778e4cdfd">RenderComponent::~RenderComponent</a></div><div class="ttdeci">virtual ~RenderComponent()</div></div>
+<div class="ttc" id="class_render_component_html_a16bab40295123b9ea802d7e85b14a884"><div class="ttname"><a href="class_render_component.html#a16bab40295123b9ea802d7e85b14a884">RenderComponent::~RenderComponent</a></div><div class="ttdeci">virtual ~RenderComponent()</div><div class="ttdef"><b>Definition:</b> RenderComponent.cpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_e1c090702d7fa364131c199443ca0242.html">Render</a></li><li class="navelem"><a class="el" href="_render_component_8h.html">RenderComponent.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

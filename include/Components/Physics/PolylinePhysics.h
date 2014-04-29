@@ -6,10 +6,12 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+///Creates a series of physics lines (rope)
 class PolylinePhysics : public PhysicsComponent
 {
     public:
         PolylinePhysics() : PhysicsComponent() {}
+        ///takes a series of xy coordinates
         PolylinePhysics(unsigned int, std::vector<sf::Vector2i>);
         virtual ~PolylinePhysics();
 

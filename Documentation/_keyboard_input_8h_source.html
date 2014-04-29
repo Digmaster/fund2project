@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Input/KeyboardInput.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Input/KeyboardInput.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_keyboard_input_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_0c87a09e600f144abd03f91740689ef4.html">Input</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">KeyboardInput.h</div>  </div>
@@ -93,32 +110,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_input_component_8h.html">Components/Input/InputComponent.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_keyboard_input.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_keyboard_input.html">KeyboardInput</a> : <span class="keyword">public</span> <a class="code" href="class_input_component.html">InputComponent</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_keyboard_input.html#a92d9c25232e73f2d9319c79df028cc69">   10</a></span>&#160;        <a class="code" href="class_keyboard_input.html#a92d9c25232e73f2d9319c79df028cc69">KeyboardInput</a>() : <a class="code" href="class_input_component.html">InputComponent</a>() {}</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_keyboard_input.html#a92d9c25232e73f2d9319c79df028cc69">KeyboardInput</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_keyboard_input.html#a74798acfdc6ceba446941853841cd3cc">~KeyboardInput</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_keyboard_input.html#a2aa6da03ad4f06f93a2a940ee59d05f9">~KeyboardInput</a>();</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285">go</a>(sf::Time);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif // KEYBOARDINPUT_H</span></div>
-<div class="ttc" id="class_input_component_html"><div class="ttname"><a href="class_input_component.html">InputComponent</a></div><div class="ttdef"><b>Definition:</b> InputComponent.h:7</div></div>
+<div class="ttc" id="class_input_component_html"><div class="ttname"><a href="class_input_component.html">InputComponent</a></div><div class="ttdoc">Drives a Movement Component. </div><div class="ttdef"><b>Definition:</b> InputComponent.h:8</div></div>
 <div class="ttc" id="class_keyboard_input_html_a92d9c25232e73f2d9319c79df028cc69"><div class="ttname"><a href="class_keyboard_input.html#a92d9c25232e73f2d9319c79df028cc69">KeyboardInput::KeyboardInput</a></div><div class="ttdeci">KeyboardInput()</div><div class="ttdef"><b>Definition:</b> KeyboardInput.h:10</div></div>
-<div class="ttc" id="class_keyboard_input_html_a74798acfdc6ceba446941853841cd3cc"><div class="ttname"><a href="class_keyboard_input.html#a74798acfdc6ceba446941853841cd3cc">KeyboardInput::~KeyboardInput</a></div><div class="ttdeci">virtual ~KeyboardInput()</div></div>
 <div class="ttc" id="_input_component_8h_html"><div class="ttname"><a href="_input_component_8h.html">InputComponent.h</a></div></div>
-<div class="ttc" id="class_keyboard_input_html"><div class="ttname"><a href="class_keyboard_input.html">KeyboardInput</a></div><div class="ttdef"><b>Definition:</b> KeyboardInput.h:7</div></div>
-<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:54</div></div>
-<div class="ttc" id="class_keyboard_input_html_a8ca166fb985f86fc6afe650e2cb73285"><div class="ttname"><a href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285">KeyboardInput::go</a></div><div class="ttdeci">void go(sf::Time)</div><div class="ttdoc">A function to update the component and do whatever the component is designed to do. </div></div>
+<div class="ttc" id="class_keyboard_input_html"><div class="ttname"><a href="class_keyboard_input.html">KeyboardInput</a></div><div class="ttdoc">Simply grabs the appropriate input information from the Input Engine. </div><div class="ttdef"><b>Definition:</b> KeyboardInput.h:7</div></div>
+<div class="ttc" id="class_keyboard_input_html_a2aa6da03ad4f06f93a2a940ee59d05f9"><div class="ttname"><a href="class_keyboard_input.html#a2aa6da03ad4f06f93a2a940ee59d05f9">KeyboardInput::~KeyboardInput</a></div><div class="ttdeci">virtual ~KeyboardInput()</div><div class="ttdef"><b>Definition:</b> KeyboardInput.cpp:26</div></div>
+<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:56</div></div>
+<div class="ttc" id="class_keyboard_input_html_a8ca166fb985f86fc6afe650e2cb73285"><div class="ttname"><a href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285">KeyboardInput::go</a></div><div class="ttdeci">void go(sf::Time)</div><div class="ttdoc">A function to update the component and do whatever the component is designed to do. </div><div class="ttdef"><b>Definition:</b> KeyboardInput.cpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_0c87a09e600f144abd03f91740689ef4.html">Input</a></li><li class="navelem"><a class="el" href="_keyboard_input_8h.html">KeyboardInput.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

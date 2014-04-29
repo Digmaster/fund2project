@@ -3,7 +3,7 @@
 
 #include "Components/Input/InputComponent.h"
 
-
+///Simply grabs the appropriate input information from the Input Engine
 class KeyboardInput : public InputComponent
 {
     public:

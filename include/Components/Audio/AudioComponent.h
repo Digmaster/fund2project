@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 #include "Components/ComponentBase.h"
 
+///Super simple audio component which plays audio based on movement
 class AudioComponent : public ComponentBase
 {
     public:

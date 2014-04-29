@@ -8,6 +8,7 @@
 
 #include "Components/Render/RenderComponent.h"
 
+///Helper class for the physics engine to output debug information
 class DebugDraw : public b2Draw
   {
   public:

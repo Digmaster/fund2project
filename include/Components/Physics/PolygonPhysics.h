@@ -6,10 +6,12 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+///Creates a physics polygon from a set of points
 class PolygonPhysics : public PhysicsComponent
 {
     public:
         PolygonPhysics() : PhysicsComponent() {}
+        ///X-Y Points! Last line is automatically connected to the last to create the polygon.
         PolygonPhysics(unsigned int, std::vector<sf::Vector2i>);
         virtual ~PolygonPhysics();
 

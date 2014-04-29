@@ -18,16 +18,19 @@
 
 using namespace std;
 
-//In essense, this allows us to combine componnets without worry. Add a jetpack without modifying the base movement component!!!!
-
+///Holds components of a specific type and runs them all at once
 template <class T> class ComponentSystem
 {
     public:
+        ///Loops through all components and "go"s them
         void process(sf::Time);
+        ///Adds a component
         void addComponent(T);
+        ///Returns a component from ID
         T getComponent(unsigned int ID);
+        ///Returns the number of components contained within
         int getSize();
-
+        ///The components!
         std::map<unsigned int, T> components;
     protected:
     private:

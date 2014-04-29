@@ -3,7 +3,7 @@
 
 #include "Components/ComponentBase.h"
 
-
+///contains the ID of a target for scripts
 class TargetComponent : public ComponentBase
 {
     public:

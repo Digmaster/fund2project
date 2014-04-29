@@ -9,7 +9,6 @@ DebugDraw::DebugDraw(sf::RenderWindow& app)
         if(!defaultFont.loadFromFile("assets/Inconsolata.otf")){
             std::cout << "Failed to load Font" << std::endl;
         }
-        uint32 flags = b2Draw::e_shapeBit;
         //windowHeight = window->getSize().y; //Use to convert SFML y-axis to Box2D coordinates
         PPM = atoi(Options::instance().get("pixels_per_meter").c_str());
 }
@@ -67,9 +66,7 @@ void DebugDraw::DrawPoint(const b2Vec2& p, float32 size, const b2Color& color)
 
 void DebugDraw::DrawTransform(const b2Transform& xf)
 {
-    float x,y, lineSize, lineProportion;
-    x = xf.p.x * PPM;
-    y = xf.p.y * PPM;
+    float lineSize, lineProportion;
     lineProportion = 0.15; // 0.15 ~ 10 pixels
     b2Vec2 p1 = xf.p, p2;
 

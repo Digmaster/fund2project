@@ -9,7 +9,7 @@ PolygonPhysics::PolygonPhysics(unsigned int ID, vector<sf::Vector2i> points) : P
     physBody = eng->physEng->_world->CreateBody(&physBodyDef);
 
     b2Vec2 *polygons = new b2Vec2[points.size()];
-    for (int i=0; i < points.size(); i++){
+    for (unsigned int i=0; i < points.size(); i++){
         polygons[i].Set( points[i].x/pixelsPerMeter, -points[i].y/pixelsPerMeter );
     }
 

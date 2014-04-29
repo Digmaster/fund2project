@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Movement/MovementComponent.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Movement/MovementComponent.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_movement_component_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_942825931dbd634cb8b2d82518a8eb2d.html">Movement</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">MovementComponent.h</div>  </div>
@@ -94,33 +111,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_component_base_8h.html">Components/ComponentBase.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_movement_component.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_movement_component.html">MovementComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="class_movement_component.html#a8c22ac85ae143a750b109a0afcd5832f">MovementComponent</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_movement_component.html#a8c22ac85ae143a750b109a0afcd5832f">MovementComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_movement_component.html#a2cf2cba9582645b61d136d1e48387205">~MovementComponent</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_movement_component.html#af30a51a15090d60a2e7292c8fd8feb13">   13</a></span>&#160;        std::string <a class="code" href="class_movement_component.html#af30a51a15090d60a2e7292c8fd8feb13">getCurrentMovement</a>() {<span class="keywordflow">return</span> <a class="code" href="class_movement_component.html#a53f2e1d97972fa39bd3bba8b608f16ad">currMovement</a>;}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_movement_component.html#a53f2e1d97972fa39bd3bba8b608f16ad">   15</a></span>&#160;        std::string <a class="code" href="class_movement_component.html#a53f2e1d97972fa39bd3bba8b608f16ad">currMovement</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif // MOVEMENTCOMPONENT_H</span></div>
-<div class="ttc" id="class_movement_component_html_af30a51a15090d60a2e7292c8fd8feb13"><div class="ttname"><a href="class_movement_component.html#af30a51a15090d60a2e7292c8fd8feb13">MovementComponent::getCurrentMovement</a></div><div class="ttdeci">std::string getCurrentMovement()</div><div class="ttdef"><b>Definition:</b> MovementComponent.h:13</div></div>
-<div class="ttc" id="class_movement_component_html_a8c22ac85ae143a750b109a0afcd5832f"><div class="ttname"><a href="class_movement_component.html#a8c22ac85ae143a750b109a0afcd5832f">MovementComponent::MovementComponent</a></div><div class="ttdeci">MovementComponent()</div></div>
-<div class="ttc" id="class_movement_component_html_a2cf2cba9582645b61d136d1e48387205"><div class="ttname"><a href="class_movement_component.html#a2cf2cba9582645b61d136d1e48387205">MovementComponent::~MovementComponent</a></div><div class="ttdeci">virtual ~MovementComponent()</div></div>
-<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:14</div></div>
-<div class="ttc" id="class_movement_component_html"><div class="ttname"><a href="class_movement_component.html">MovementComponent</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:7</div></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343c">    7</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343c">MoveState</a> : <span class="keywordtype">int</span> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca2210901e2e2f7a2c4a83d3a4726ef034">    8</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca2210901e2e2f7a2c4a83d3a4726ef034">onGround</a>,</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca4f429dcfbfffc4e6f2f6c487c54825a1">    9</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca4f429dcfbfffc4e6f2f6c487c54825a1">leftWalk</a>,</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca811f61207ffbbd1914b924657cd57c4c">   10</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca811f61207ffbbd1914b924657cd57c4c">rightWalk</a>,</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cadb0a4ab514bc208a6da70b81d198c46f">   11</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cadb0a4ab514bc208a6da70b81d198c46f">attack</a>,</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cad2d3bad5b048938b81e2d343cafe886a">   12</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cad2d3bad5b048938b81e2d343cafe886a">jumping</a>,</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca76905c899b994b4b204fb561ed7b39a3">   13</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca76905c899b994b4b204fb561ed7b39a3">onLadder</a>,</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca24f11362f0e0c574a3d6c77cee2201d0">   14</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca24f11362f0e0c574a3d6c77cee2201d0">ladderLeft</a>,</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca3223369b8d36d2812652924a3d656852">   15</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca3223369b8d36d2812652924a3d656852">ladderRight</a>,</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca78cf2b597e9b1a16102d0d22697acddb">   16</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca78cf2b597e9b1a16102d0d22697acddb">ladderUp</a>,</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cac00a6c07479467950436059564b52a91">   17</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cac00a6c07479467950436059564b52a91">ladderDown</a>,</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cab64ff5eb13f7d2122d8961f892dbc25c">   18</a></span>&#160;    <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cab64ff5eb13f7d2122d8961f892dbc25c">inAir</a>,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_movement_component.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_movement_component.html">MovementComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="class_movement_component.html#a8c22ac85ae143a750b109a0afcd5832f">MovementComponent</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="class_movement_component.html#a8c22ac85ae143a750b109a0afcd5832f">MovementComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_movement_component.html#ac39be9eb1437d87cc50404dfb25487e6">~MovementComponent</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_movement_component.html#a75f1c7cca100b33706cef79ebfcba00a">   29</a></span>&#160;        <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343c">MoveState</a> <a class="code" href="class_movement_component.html#a75f1c7cca100b33706cef79ebfcba00a">getState</a>() {<span class="keywordflow">return</span> <a class="code" href="class_movement_component.html#a94ff8cc848c682d58c122b9b71380e6e">currState</a>;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_movement_component.html#aeebccc3763a3e91f5d74422e10e3d796">   31</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_movement_component.html#aeebccc3763a3e91f5d74422e10e3d796">hasChanged</a>() {<span class="keywordflow">return</span> <a class="code" href="class_movement_component.html#a816425aad543c55c10cba9f35df205ef">changed</a>;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_movement_component.html#a94ff8cc848c682d58c122b9b71380e6e">   33</a></span>&#160;        <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343c">MoveState</a> <a class="code" href="class_movement_component.html#a94ff8cc848c682d58c122b9b71380e6e">currState</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_movement_component.html#a01e934ee1907d3f6ed5229552734467e">   34</a></span>&#160;        <a class="code" href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343c">MoveState</a> <a class="code" href="class_movement_component.html#a01e934ee1907d3f6ed5229552734467e">nextState</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_movement_component.html#a816425aad543c55c10cba9f35df205ef">   35</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_movement_component.html#a816425aad543c55c10cba9f35df205ef">changed</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif // MOVEMENTCOMPONENT_H</span></div>
+<div class="ttc" id="class_movement_component_html_ac39be9eb1437d87cc50404dfb25487e6"><div class="ttname"><a href="class_movement_component.html#ac39be9eb1437d87cc50404dfb25487e6">MovementComponent::~MovementComponent</a></div><div class="ttdeci">virtual ~MovementComponent()</div><div class="ttdef"><b>Definition:</b> MovementComponent.cpp:16</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343cad2d3bad5b048938b81e2d343cafe886a"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cad2d3bad5b048938b81e2d343cafe886a">jumping</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:12</div></div>
+<div class="ttc" id="class_movement_component_html_a8c22ac85ae143a750b109a0afcd5832f"><div class="ttname"><a href="class_movement_component.html#a8c22ac85ae143a750b109a0afcd5832f">MovementComponent::MovementComponent</a></div><div class="ttdeci">MovementComponent()</div><div class="ttdef"><b>Definition:</b> MovementComponent.cpp:4</div></div>
+<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:15</div></div>
+<div class="ttc" id="class_movement_component_html_a94ff8cc848c682d58c122b9b71380e6e"><div class="ttname"><a href="class_movement_component.html#a94ff8cc848c682d58c122b9b71380e6e">MovementComponent::currState</a></div><div class="ttdeci">MoveState currState</div><div class="ttdef"><b>Definition:</b> MovementComponent.h:33</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343ca4f429dcfbfffc4e6f2f6c487c54825a1"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca4f429dcfbfffc4e6f2f6c487c54825a1">leftWalk</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:9</div></div>
+<div class="ttc" id="class_movement_component_html_a01e934ee1907d3f6ed5229552734467e"><div class="ttname"><a href="class_movement_component.html#a01e934ee1907d3f6ed5229552734467e">MovementComponent::nextState</a></div><div class="ttdeci">MoveState nextState</div><div class="ttdef"><b>Definition:</b> MovementComponent.h:34</div></div>
+<div class="ttc" id="class_movement_component_html_a816425aad543c55c10cba9f35df205ef"><div class="ttname"><a href="class_movement_component.html#a816425aad543c55c10cba9f35df205ef">MovementComponent::changed</a></div><div class="ttdeci">bool changed</div><div class="ttdef"><b>Definition:</b> MovementComponent.h:35</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343c"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343c">MoveState</a></div><div class="ttdeci">MoveState</div><div class="ttdef"><b>Definition:</b> MovementComponent.h:7</div></div>
+<div class="ttc" id="class_movement_component_html_aeebccc3763a3e91f5d74422e10e3d796"><div class="ttname"><a href="class_movement_component.html#aeebccc3763a3e91f5d74422e10e3d796">MovementComponent::hasChanged</a></div><div class="ttdeci">bool hasChanged()</div><div class="ttdoc">Returns if the state has changed for precisely one frame. </div><div class="ttdef"><b>Definition:</b> MovementComponent.h:31</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343cac00a6c07479467950436059564b52a91"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cac00a6c07479467950436059564b52a91">ladderDown</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:17</div></div>
+<div class="ttc" id="class_movement_component_html"><div class="ttname"><a href="class_movement_component.html">MovementComponent</a></div><div class="ttdoc">Takes an input component and moves/modifies other components based on it. </div><div class="ttdef"><b>Definition:</b> MovementComponent.h:22</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343ca3223369b8d36d2812652924a3d656852"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca3223369b8d36d2812652924a3d656852">ladderRight</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:15</div></div>
 <div class="ttc" id="_component_base_8h_html"><div class="ttname"><a href="_component_base_8h.html">ComponentBase.h</a></div></div>
-<div class="ttc" id="class_movement_component_html_a53f2e1d97972fa39bd3bba8b608f16ad"><div class="ttname"><a href="class_movement_component.html#a53f2e1d97972fa39bd3bba8b608f16ad">MovementComponent::currMovement</a></div><div class="ttdeci">std::string currMovement</div><div class="ttdef"><b>Definition:</b> MovementComponent.h:15</div></div>
-<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:54</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343cab64ff5eb13f7d2122d8961f892dbc25c"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cab64ff5eb13f7d2122d8961f892dbc25c">inAir</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:18</div></div>
+<div class="ttc" id="class_movement_component_html_a75f1c7cca100b33706cef79ebfcba00a"><div class="ttname"><a href="class_movement_component.html#a75f1c7cca100b33706cef79ebfcba00a">MovementComponent::getState</a></div><div class="ttdeci">MoveState getState()</div><div class="ttdoc">Returns the MoveState enum corresponding to the current state. </div><div class="ttdef"><b>Definition:</b> MovementComponent.h:29</div></div>
+<div class="ttc" id="class_component_base_html_aa41b3f9c965cfc845ee1104cae1d25c8"><div class="ttname"><a href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ComponentBase::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdef"><b>Definition:</b> ComponentBase.h:56</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343ca78cf2b597e9b1a16102d0d22697acddb"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca78cf2b597e9b1a16102d0d22697acddb">ladderUp</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:16</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343cadb0a4ab514bc208a6da70b81d198c46f"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343cadb0a4ab514bc208a6da70b81d198c46f">attack</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:11</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343ca24f11362f0e0c574a3d6c77cee2201d0"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca24f11362f0e0c574a3d6c77cee2201d0">ladderLeft</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:14</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343ca811f61207ffbbd1914b924657cd57c4c"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca811f61207ffbbd1914b924657cd57c4c">rightWalk</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:10</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343ca2210901e2e2f7a2c4a83d3a4726ef034"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca2210901e2e2f7a2c4a83d3a4726ef034">onGround</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:8</div></div>
+<div class="ttc" id="_movement_component_8h_html_a86c9df933e2562fc4021d99c0e26343ca76905c899b994b4b204fb561ed7b39a3"><div class="ttname"><a href="_movement_component_8h.html#a86c9df933e2562fc4021d99c0e26343ca76905c899b994b4b204fb561ed7b39a3">onLadder</a></div><div class="ttdef"><b>Definition:</b> MovementComponent.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_942825931dbd634cb8b2d82518a8eb2d.html">Movement</a></li><li class="navelem"><a class="el" href="_movement_component_8h.html">MovementComponent.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

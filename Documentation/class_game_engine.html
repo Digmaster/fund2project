@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: GameEngine Class Reference</title>
+<title>Fund2Project: GameEngine Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_game_engine.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -95,6 +116,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="class_game_engine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_game_engine_8h_source.html">GameEngine.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GameEngine:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_engine__coll__graph.png" border="0" usemap="#_game_engine_coll__map" alt="Collaboration graph"/></div>
+<map name="_game_engine_coll__map" id="_game_engine_coll__map">
+<area shape="rect" id="node2" href="class_physics_engine.html" title="Contains all information relevant to physics simulation. " alt="" coords="13,173,123,200"/><area shape="rect" id="node3" href="class_contact_listener.html" title="Stores all contact listeners and iterates through them whenever any objects collide. " alt="" coords="11,83,124,109"/><area shape="rect" id="node5" href="class_render_engine.html" title="Holds all information needed for rendering and renders frames. " alt="" coords="147,173,249,200"/><area shape="rect" id="node6" href="class_input_engine.html" title="Manages input to the window and provides a common interface to see the current input. " alt="" coords="275,173,365,200"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -142,6 +170,15 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Default constructor </p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_engine_a64c430f74d72e2745646fdbffbd97930_cgraph.png" border="0" usemap="#class_game_engine_a64c430f74d72e2745646fdbffbd97930_cgraph" alt=""/></div>
+<map name="class_game_engine_a64c430f74d72e2745646fdbffbd97930_cgraph" id="class_game_engine_a64c430f74d72e2745646fdbffbd97930_cgraph">
+<area shape="rect" id="node2" href="class_component_base.html#aaa426e0958cd22ec53dee00b15cf29b2" title="Sets the GameEngine. " alt="" coords="235,5,419,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8e59d8341ef9d2dcc62eee1437e37f14"></a>
@@ -177,6 +214,15 @@ Public Attributes</h2></td></tr>
 <p>Starts the game engine. </p>
 <p>Until the rendering window is closed (or exception throw), this function will continue to loop </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_engine_aabb626c15dee263ef6328c89c0a09b0f_icgraph.png" border="0" usemap="#class_game_engine_aabb626c15dee263ef6328c89c0a09b0f_icgraph" alt=""/></div>
+<map name="class_game_engine_aabb626c15dee263ef6328c89c0a09b0f_icgraph" id="class_game_engine_aabb626c15dee263ef6328c89c0a09b0f_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="173,5,224,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a0b02eb1da9c2d403d187146a150a1085"></a>
@@ -203,6 +249,15 @@ Public Attributes</h2></td></tr>
 <p>Pauses the game. </p>
 <p>When paused the game will only update <a class="el" href="class_input_engine.html" title="Manages input to the window and provides a common interface to see the current input. ">InputEngine</a>, as that's when unpaused should be called </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_engine_a0b02eb1da9c2d403d187146a150a1085_icgraph.png" border="0" usemap="#class_game_engine_a0b02eb1da9c2d403d187146a150a1085_icgraph" alt=""/></div>
+<map name="class_game_engine_a0b02eb1da9c2d403d187146a150a1085_icgraph" id="class_game_engine_a0b02eb1da9c2d403d187146a150a1085_icgraph">
+<area shape="rect" id="node2" href="class_input_engine.html#a1f1d0723482b1479bcc8825cb716c6d9" title="Updates all input and provides basic processing of it. " alt="" coords="195,5,333,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a110d47edc9b9d6e9a426621954216acc"></a>
@@ -227,6 +282,15 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Unpauses the game. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_engine_a110d47edc9b9d6e9a426621954216acc_icgraph.png" border="0" usemap="#class_game_engine_a110d47edc9b9d6e9a426621954216acc_icgraph" alt=""/></div>
+<map name="class_game_engine_a110d47edc9b9d6e9a426621954216acc_icgraph" id="class_game_engine_a110d47edc9b9d6e9a426621954216acc_icgraph">
+<area shape="rect" id="node2" href="class_input_engine.html#a1f1d0723482b1479bcc8825cb716c6d9" title="Updates all input and provides basic processing of it. " alt="" coords="209,5,346,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -276,15 +340,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/<a class="el" href="_game_engine_8h_source.html">GameEngine.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/<a class="el" href="_game_engine_8cpp.html">GameEngine.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_game_engine.html">GameEngine</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:57 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

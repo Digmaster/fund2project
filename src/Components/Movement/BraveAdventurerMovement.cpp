@@ -17,13 +17,11 @@ BraveAdventurerMovement::BraveAdventurerMovement(unsigned int ID) : MovementComp
 
 void BraveAdventurerMovement::go(sf::Time frameTime) {
     PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
-    WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
     InputComponent* input = compMan->inputSym.getComponent(getID());
     int maxGroundSpeed = 20;
     int maxAirSpeed = 15;
     int maxLadderSpeed = 5;
     int maxJumpSpeed = 10;
-    int climbSpeed = 5;
     sf::Time maxJumpTime = sf::milliseconds(25); //.25 seconds of jump
     if(physics!=NULL) { //Find in physics states
         b2Body* body = physics->getBody();
@@ -154,6 +152,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 nextState=MoveState::inAir;
             if(input->jump) //jump off
                 nextState = MoveState::jumping;
+            break;
+        default:
             break;
         }
     }

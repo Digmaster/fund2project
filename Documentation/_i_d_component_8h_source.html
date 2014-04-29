@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Identification/IDComponent.h Source File</title>
+<title>Fund2Project: C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Identification/IDComponent.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -64,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_i_d_component_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_1c547da50a53af7963d7b309c6f1001c.html">Identification</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">IDComponent.h</div>  </div>
@@ -93,40 +110,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_component_base_8h.html">Components/ComponentBase.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_i_d_component.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_d_component.html">IDComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">    9</a></span>&#160;        <a class="code" href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">IDComponent</a>() : <a class="code" href="class_component_base.html">ComponentBase</a>() {}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">IDComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, std::string = <span class="stringliteral">&quot;&quot;</span>, std::string = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_i_d_component.html#aa6f1226a4cd397add851d608e9ead5f8">   11</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_i_d_component.html#aa6f1226a4cd397add851d608e9ead5f8">setName</a>(std::string input) {name = input;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_i_d_component.html#a68bc9cc7b06e3c465c8cbf18322c56b7">   12</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_i_d_component.html#a68bc9cc7b06e3c465c8cbf18322c56b7">setType</a>(std::string input) {type = input;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_i_d_component.html#af4785e858c4bce63a9aeb625b6a4f010">   13</a></span>&#160;        std::string <a class="code" href="class_i_d_component.html#af4785e858c4bce63a9aeb625b6a4f010">getName</a>() {<span class="keywordflow">return</span> name;}</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646">   14</a></span>&#160;        std::string <a class="code" href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646">getType</a>() {<span class="keywordflow">return</span> type;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_i_d_component.html#aba68acec2f7ed6117ed1c33caa2f06a7">~IDComponent</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_d_component.html#a19fc7240785d3d2747d47449f4a981fe">go</a>(sf::Time);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::string name;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        std::string type;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif // IDCOMPONENT_H</span></div>
-<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:14</div></div>
-<div class="ttc" id="class_i_d_component_html_aba68acec2f7ed6117ed1c33caa2f06a7"><div class="ttname"><a href="class_i_d_component.html#aba68acec2f7ed6117ed1c33caa2f06a7">IDComponent::~IDComponent</a></div><div class="ttdeci">virtual ~IDComponent()</div></div>
-<div class="ttc" id="class_i_d_component_html_a19fc7240785d3d2747d47449f4a981fe"><div class="ttname"><a href="class_i_d_component.html#a19fc7240785d3d2747d47449f4a981fe">IDComponent::go</a></div><div class="ttdeci">virtual void go(sf::Time)</div><div class="ttdoc">A function to update the component and do whatever the component is designed to do. </div></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_i_d_component.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_d_component.html">IDComponent</a> : <span class="keyword">public</span> <a class="code" href="class_component_base.html">ComponentBase</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">   12</a></span>&#160;        <a class="code" href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">IDComponent</a>() : <a class="code" href="class_component_base.html">ComponentBase</a>() {}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">IDComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, std::string = <span class="stringliteral">&quot;&quot;</span>, std::string = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_i_d_component.html#aa6f1226a4cd397add851d608e9ead5f8">   16</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_i_d_component.html#aa6f1226a4cd397add851d608e9ead5f8">setName</a>(std::string input) {name = input;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_i_d_component.html#a68bc9cc7b06e3c465c8cbf18322c56b7">   18</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_i_d_component.html#a68bc9cc7b06e3c465c8cbf18322c56b7">setType</a>(std::string input) {type = input;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_i_d_component.html#af4785e858c4bce63a9aeb625b6a4f010">   20</a></span>&#160;        std::string <a class="code" href="class_i_d_component.html#af4785e858c4bce63a9aeb625b6a4f010">getName</a>() {<span class="keywordflow">return</span> name;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646">   22</a></span>&#160;        std::string <a class="code" href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646">getType</a>() {<span class="keywordflow">return</span> type;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_i_d_component.html#a1d949edef475ff7f2a1131b4ea1729d6">~IDComponent</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_d_component.html#afceee64afc8ab5c06f6a779350dbb2df">go</a>(sf::Time);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::string name;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::string type;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif // IDCOMPONENT_H</span></div>
+<div class="ttc" id="class_component_base_html"><div class="ttname"><a href="class_component_base.html">ComponentBase</a></div><div class="ttdoc">Base class of which all components are derived from. </div><div class="ttdef"><b>Definition:</b> ComponentBase.h:15</div></div>
 <div class="ttc" id="_component_base_8h_html"><div class="ttname"><a href="_component_base_8h.html">ComponentBase.h</a></div></div>
-<div class="ttc" id="class_i_d_component_html_a492010e156a31c31f319e1fcae6d0646"><div class="ttname"><a href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646">IDComponent::getType</a></div><div class="ttdeci">std::string getType()</div><div class="ttdef"><b>Definition:</b> IDComponent.h:14</div></div>
-<div class="ttc" id="class_i_d_component_html_a68bc9cc7b06e3c465c8cbf18322c56b7"><div class="ttname"><a href="class_i_d_component.html#a68bc9cc7b06e3c465c8cbf18322c56b7">IDComponent::setType</a></div><div class="ttdeci">void setType(std::string input)</div><div class="ttdef"><b>Definition:</b> IDComponent.h:12</div></div>
-<div class="ttc" id="class_i_d_component_html_ab506bafb610d7ee2387e7d036831f31b"><div class="ttname"><a href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">IDComponent::IDComponent</a></div><div class="ttdeci">IDComponent()</div><div class="ttdef"><b>Definition:</b> IDComponent.h:9</div></div>
-<div class="ttc" id="class_i_d_component_html_aa6f1226a4cd397add851d608e9ead5f8"><div class="ttname"><a href="class_i_d_component.html#aa6f1226a4cd397add851d608e9ead5f8">IDComponent::setName</a></div><div class="ttdeci">void setName(std::string input)</div><div class="ttdef"><b>Definition:</b> IDComponent.h:11</div></div>
-<div class="ttc" id="class_i_d_component_html_af4785e858c4bce63a9aeb625b6a4f010"><div class="ttname"><a href="class_i_d_component.html#af4785e858c4bce63a9aeb625b6a4f010">IDComponent::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdef"><b>Definition:</b> IDComponent.h:13</div></div>
-<div class="ttc" id="class_i_d_component_html"><div class="ttname"><a href="class_i_d_component.html">IDComponent</a></div><div class="ttdef"><b>Definition:</b> IDComponent.h:6</div></div>
+<div class="ttc" id="class_i_d_component_html_a492010e156a31c31f319e1fcae6d0646"><div class="ttname"><a href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646">IDComponent::getType</a></div><div class="ttdeci">std::string getType()</div><div class="ttdoc">Return type. </div><div class="ttdef"><b>Definition:</b> IDComponent.h:22</div></div>
+<div class="ttc" id="class_i_d_component_html_a68bc9cc7b06e3c465c8cbf18322c56b7"><div class="ttname"><a href="class_i_d_component.html#a68bc9cc7b06e3c465c8cbf18322c56b7">IDComponent::setType</a></div><div class="ttdeci">void setType(std::string input)</div><div class="ttdoc">The type of object. This is the same value used to create the object (etc mob) </div><div class="ttdef"><b>Definition:</b> IDComponent.h:18</div></div>
+<div class="ttc" id="class_i_d_component_html_a1d949edef475ff7f2a1131b4ea1729d6"><div class="ttname"><a href="class_i_d_component.html#a1d949edef475ff7f2a1131b4ea1729d6">IDComponent::~IDComponent</a></div><div class="ttdeci">virtual ~IDComponent()</div><div class="ttdef"><b>Definition:</b> IDComponent.cpp:4</div></div>
+<div class="ttc" id="class_i_d_component_html_ab506bafb610d7ee2387e7d036831f31b"><div class="ttname"><a href="class_i_d_component.html#ab506bafb610d7ee2387e7d036831f31b">IDComponent::IDComponent</a></div><div class="ttdeci">IDComponent()</div><div class="ttdoc">Default constructor. </div><div class="ttdef"><b>Definition:</b> IDComponent.h:12</div></div>
+<div class="ttc" id="class_i_d_component_html_afceee64afc8ab5c06f6a779350dbb2df"><div class="ttname"><a href="class_i_d_component.html#afceee64afc8ab5c06f6a779350dbb2df">IDComponent::go</a></div><div class="ttdeci">virtual void go(sf::Time)</div><div class="ttdoc">A function to update the component and do whatever the component is designed to do. </div><div class="ttdef"><b>Definition:</b> IDComponent.cpp:16</div></div>
+<div class="ttc" id="class_i_d_component_html_aa6f1226a4cd397add851d608e9ead5f8"><div class="ttname"><a href="class_i_d_component.html#aa6f1226a4cd397add851d608e9ead5f8">IDComponent::setName</a></div><div class="ttdeci">void setName(std::string input)</div><div class="ttdoc">Sets the name. This is typically set in tiled. </div><div class="ttdef"><b>Definition:</b> IDComponent.h:16</div></div>
+<div class="ttc" id="class_i_d_component_html_af4785e858c4bce63a9aeb625b6a4f010"><div class="ttname"><a href="class_i_d_component.html#af4785e858c4bce63a9aeb625b6a4f010">IDComponent::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">Return name. </div><div class="ttdef"><b>Definition:</b> IDComponent.h:20</div></div>
+<div class="ttc" id="class_i_d_component_html"><div class="ttname"><a href="class_i_d_component.html">IDComponent</a></div><div class="ttdoc">Component which contains information useful to finding specific components. </div><div class="ttdef"><b>Definition:</b> IDComponent.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_353c044f0f70afdb4c395c9f3aa5fe05.html">Documents</a></li><li class="navelem"><a class="el" href="dir_227dbdf514c7c77a35ba8c68d5cc6927.html">fund2project</a></li><li class="navelem"><a class="el" href="dir_40d4b90c60c0c64ea3ab65294d2470f3.html">include</a></li><li class="navelem"><a class="el" href="dir_cca60a3655ecafac654ef54a1ccdb021.html">Components</a></li><li class="navelem"><a class="el" href="dir_1c547da50a53af7963d7b309c6f1001c.html">Identification</a></li><li class="navelem"><a class="el" href="_i_d_component_8h.html">IDComponent.h</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:53 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

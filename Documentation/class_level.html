@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Level Class Reference</title>
+<title>Fund2Project: Level Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_level.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -159,7 +180,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_render_engine.html">RenderEngine</a> *&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>rendEng</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -178,6 +199,30 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>Root map node</p>
+<p>Collision Boundaries</p>
+<p>Tilesets!</p>
+<p>Load from .tsx file!!!!!!!!!</p>
+<p>Simple tileset, loaded on the fly</p>
+<p>Images in simple tileset</p>
+<p>Load all sprites!</p>
+<p>Layers!!!!</p>
+<p>Layer Properties</p>
+<p>Data!!</p>
+<p>Creating collision boundaries based on Collission map</p>
+<p>*/</p>
+<p>Commonly used options</p>
+<p>Modify position based on what it is</p>
+<p>Types!! </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_level_a918fc70acf9fe0c425354e4b2105ac33_cgraph.png" border="0" usemap="#class_level_a918fc70acf9fe0c425354e4b2105ac33_cgraph" alt=""/></div>
+<map name="class_level_a918fc70acf9fe0c425354e4b2105ac33_cgraph" id="class_level_a918fc70acf9fe0c425354e4b2105ac33_cgraph">
+<area shape="rect" id="node2" href="class_render_engine.html#a848f88c09caa14cba58cec610353e454" title="Sets the background color of the screen. " alt="" coords="166,5,365,46"/><area shape="rect" id="node3" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd" title="Returns a new, unused ID. " alt="" coords="175,71,356,97"/><area shape="rect" id="node5" href="class_render_engine.html#a8578aca95a8745deab50b1a23e4d3cbb" title="Sets a specific layer&#39;s zoom. " alt="" coords="169,121,362,148"/><area shape="rect" id="node6" href="class_render_engine.html#a855250b440abb3fa5b7bf7660556afd8" title="Sets if a view is static or not. " alt="" coords="170,172,361,199"/><area shape="rect" id="node7" href="class_animated_component.html#af866e00df0bf764ead7c900c724ece31" title="AnimatedComponent::\lsetSprite" alt="" coords="190,223,341,265"/><area shape="rect" id="node8" href="class_sprite_manager.html#a47906406851f4f3dfa55db8668bd88ab" title="Returns a sprite. " alt="" coords="182,289,349,316"/><area shape="rect" id="node9" href="class_animated_sprite.html#ab1afc57d90d57a0c4bc4f5b090f2dacf" title="Sets the current Animation to one that&#39;s not currently loaded into the AnimatedSprite. " alt="" coords="168,340,363,367"/><area shape="rect" id="node13" href="class_render_engine.html#a2b7ac7a858bd10136d83aef6a56f7c10" title="Resizes all views to the same size, preserving the zoom of each view. " alt="" coords="175,391,356,417"/><area shape="rect" id="node4" href="class_component_manager.html#ad5f18d2a712fce6a09b8d84e89b06ec8" title="ComponentManager::getNewID" alt="" coords="414,71,615,97"/><area shape="rect" id="node10" href="class_animation.html#aafed5696c35b893bb721aa1303d5e84f" title="Gets the texture associated with the animation. " alt="" coords="427,315,602,341"/><area shape="rect" id="node11" href="class_animated_sprite.html#a0b3e38fffdc1d29f46fa08df9ef2a747" title="Sets the frame to a specific value. " alt="" coords="427,365,602,392"/><area shape="rect" id="node12" href="class_animation.html#ad587678b331518e926b19b807b153daa" title="Gets a frame. " alt="" coords="665,365,807,392"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -225,6 +270,15 @@ Public Attributes</h2></td></tr>
 
 <p>Standardized method to create a box. </p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_level_a592bd0b361d958223245c7b59f28881d_cgraph.png" border="0" usemap="#class_level_a592bd0b361d958223245c7b59f28881d_cgraph" alt=""/></div>
+<map name="class_level_a592bd0b361d958223245c7b59f28881d_cgraph" id="class_level_a592bd0b361d958223245c7b59f28881d_cgraph">
+<area shape="rect" id="node2" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd" title="Returns a new, unused ID. " alt="" coords="168,5,349,32"/><area shape="rect" id="node3" href="class_component_manager.html#ad5f18d2a712fce6a09b8d84e89b06ec8" title="ComponentManager::getNewID" alt="" coords="398,5,599,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aae738f64034e93defb1ecf129c9a5652"></a>
@@ -235,19 +289,19 @@ Public Attributes</h2></td></tr>
           <td class="memname">void Level::makeBraveAdventurer </td>
           <td>(</td>
           <td class="paramtype">sf::Sprite&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">sf::Vector2f&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>position</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>properties</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -259,7 +313,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -268,6 +322,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_level_aae738f64034e93defb1ecf129c9a5652_cgraph.png" border="0" usemap="#class_level_aae738f64034e93defb1ecf129c9a5652_cgraph" alt=""/></div>
+<map name="class_level_aae738f64034e93defb1ecf129c9a5652_cgraph" id="class_level_aae738f64034e93defb1ecf129c9a5652_cgraph">
+<area shape="rect" id="node2" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd" title="Returns a new, unused ID. " alt="" coords="244,5,425,32"/><area shape="rect" id="node4" href="class_animated_component.html#af866e00df0bf764ead7c900c724ece31" title="AnimatedComponent::\lsetSprite" alt="" coords="259,57,410,98"/><area shape="rect" id="node5" href="class_sprite_manager.html#a47906406851f4f3dfa55db8668bd88ab" title="Returns a sprite. " alt="" coords="251,123,418,149"/><area shape="rect" id="node6" href="class_animated_sprite.html#ab1afc57d90d57a0c4bc4f5b090f2dacf" title="Sets the current Animation to one that&#39;s not currently loaded into the AnimatedSprite. " alt="" coords="237,173,432,200"/><area shape="rect" id="node3" href="class_component_manager.html#ad5f18d2a712fce6a09b8d84e89b06ec8" title="ComponentManager::getNewID" alt="" coords="481,5,682,32"/><area shape="rect" id="node7" href="class_animation.html#aafed5696c35b893bb721aa1303d5e84f" title="Gets the texture associated with the animation. " alt="" coords="494,148,669,175"/><area shape="rect" id="node8" href="class_animated_sprite.html#a0b3e38fffdc1d29f46fa08df9ef2a747" title="Sets the frame to a specific value. " alt="" coords="494,199,669,225"/><area shape="rect" id="node9" href="class_animation.html#ad587678b331518e926b19b807b153daa" title="Gets a frame. " alt="" coords="731,199,874,225"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -279,19 +342,19 @@ Public Attributes</h2></td></tr>
           <td class="memname">void Level::makeCamera </td>
           <td>(</td>
           <td class="paramtype">sf::Sprite&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">sf::Vector2f&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>position</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>properties</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -303,7 +366,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -312,6 +375,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_level_ad9d7df6973a233e914e3b3faf827ac3e_cgraph.png" border="0" usemap="#class_level_ad9d7df6973a233e914e3b3faf827ac3e_cgraph" alt=""/></div>
+<map name="class_level_ad9d7df6973a233e914e3b3faf827ac3e_cgraph" id="class_level_ad9d7df6973a233e914e3b3faf827ac3e_cgraph">
+<area shape="rect" id="node2" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd" title="Returns a new, unused ID. " alt="" coords="189,5,371,32"/><area shape="rect" id="node3" href="class_component_manager.html#ad5f18d2a712fce6a09b8d84e89b06ec8" title="ComponentManager::getNewID" alt="" coords="419,5,621,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -357,6 +429,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_level_a9d33a42b0985aa9d18f382704c4eb7f7_cgraph.png" border="0" usemap="#class_level_a9d33a42b0985aa9d18f382704c4eb7f7_cgraph" alt=""/></div>
+<map name="class_level_a9d33a42b0985aa9d18f382704c4eb7f7_cgraph" id="class_level_a9d33a42b0985aa9d18f382704c4eb7f7_cgraph">
+<area shape="rect" id="node2" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd" title="Returns a new, unused ID. " alt="" coords="187,5,368,32"/><area shape="rect" id="node3" href="class_component_manager.html#ad5f18d2a712fce6a09b8d84e89b06ec8" title="ComponentManager::getNewID" alt="" coords="417,5,618,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -388,15 +469,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/<a class="el" href="_level_loader_8h_source.html">LevelLoader.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/<a class="el" href="_level_loader_8cpp.html">LevelLoader.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_level.html">Level</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:58 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

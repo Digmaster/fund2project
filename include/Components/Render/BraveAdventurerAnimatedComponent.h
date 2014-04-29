@@ -3,7 +3,7 @@
 
 #include "Components/Render/AnimatedComponent.h"
 
-
+///Draws an animated component by looking at the movement component and a bit from input
 class BraveAdventurerAnimatedComponent : public AnimatedComponent
 {
     public:

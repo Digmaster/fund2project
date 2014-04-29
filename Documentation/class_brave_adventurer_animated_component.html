@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: BraveAdventurerAnimatedComponent Class Reference</title>
+<title>Fund2Project: BraveAdventurerAnimatedComponent Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_brave_adventurer_animated_component.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -90,18 +111,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Draws an animated component by looking at the movement component and a bit from input.  
+ <a href="class_brave_adventurer_animated_component.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_brave_adventurer_animated_component_8h_source.html">BraveAdventurerAnimatedComponent.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BraveAdventurerAnimatedComponent:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_brave_adventurer_animated_component.png" usemap="#BraveAdventurerAnimatedComponent_map" alt=""/>
-  <map id="BraveAdventurerAnimatedComponent_map" name="BraveAdventurerAnimatedComponent_map">
-<area href="class_animated_component.html" alt="AnimatedComponent" shape="rect" coords="0,112,225,136"/>
-<area href="class_render_component.html" alt="RenderComponent" shape="rect" coords="0,56,225,80"/>
-<area href="class_component_base.html" title="Base class of which all components are derived from. " alt="ComponentBase" shape="rect" coords="0,0,225,24"/>
-</map>
- </div></div>
+<div class="center"><img src="class_brave_adventurer_animated_component__inherit__graph.png" border="0" usemap="#_brave_adventurer_animated_component_inherit__map" alt="Inheritance graph"/></div>
+<map name="_brave_adventurer_animated_component_inherit__map" id="_brave_adventurer_animated_component_inherit__map">
+<area shape="rect" id="node2" href="class_animated_component.html" title="Simple abstract class for animated components. " alt="" coords="51,155,193,181"/><area shape="rect" id="node3" href="class_render_component.html" title="Component type which outputs images to the screen. " alt="" coords="58,80,187,107"/><area shape="rect" id="node4" href="class_component_base.html" title="Base class of which all components are derived from. " alt="" coords="63,5,181,32"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for BraveAdventurerAnimatedComponent:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_brave_adventurer_animated_component__coll__graph.png" border="0" usemap="#_brave_adventurer_animated_component_coll__map" alt="Collaboration graph"/></div>
+<map name="_brave_adventurer_animated_component_coll__map" id="_brave_adventurer_animated_component_coll__map">
+<area shape="rect" id="node2" href="class_animated_component.html" title="Simple abstract class for animated components. " alt="" coords="1521,148,1663,175"/><area shape="rect" id="node3" href="class_render_component.html" title="Component type which outputs images to the screen. " alt="" coords="1305,124,1434,151"/><area shape="rect" id="node4" href="class_component_base.html" title="Base class of which all components are derived from. " alt="" coords="1087,73,1206,100"/><area shape="rect" id="node5" href="class_render_engine.html" title="Holds all information needed for rendering and renders frames. " alt="" coords="534,5,637,32"/><area shape="rect" id="node6" href="class_game_engine.html" title="The overruling class which encapsolates all nessesary objects for the game. " alt="" coords="858,73,955,100"/><area shape="rect" id="node7" href="class_physics_engine.html" title="Contains all information relevant to physics simulation. " alt="" coords="531,68,640,95"/><area shape="rect" id="node8" href="class_contact_listener.html" title="Stores all contact listeners and iterates through them whenever any objects collide. " alt="" coords="185,68,298,95"/><area shape="rect" id="node10" href="class_input_engine.html" title="Manages input to the window and provides a common interface to see the current input. " alt="" coords="540,119,631,145"/><area shape="rect" id="node11" href="class_component_manager.html" title="Manages/contains all components. " alt="" coords="837,403,976,429"/><area shape="rect" id="node12" href="class_component_system.html" title="ComponentSystem\&lt; RenderComponent * \&gt;" alt="" coords="449,169,722,196"/><area shape="rect" id="node13" href="class_component_system.html" title="ComponentSystem\&lt; InputComponent * \&gt;" alt="" coords="455,220,715,247"/><area shape="rect" id="node14" href="class_component_system.html" title="ComponentSystem\&lt; Physics\lComponent * \&gt;" alt="" coords="489,271,681,313"/><area shape="rect" id="node15" href="class_component_system.html" title="ComponentSystem\&lt; WorldPosition\lComponent * \&gt;" alt="" coords="472,337,699,378"/><area shape="rect" id="node16" href="class_component_system.html" title="ComponentSystem\&lt; TargetComponent * \&gt;" alt="" coords="451,403,719,429"/><area shape="rect" id="node17" href="class_component_system.html" title="ComponentSystem\&lt; ScriptComponent * \&gt;" alt="" coords="452,453,719,480"/><area shape="rect" id="node18" href="class_component_system.html" title="ComponentSystem\&lt; AudioComponent * \&gt;" alt="" coords="453,504,718,531"/><area shape="rect" id="node19" href="class_component_system.html" title="ComponentSystem\&lt; Component\lBase * \&gt;" alt="" coords="480,555,691,597"/><area shape="rect" id="node20" href="class_component_system.html" title="ComponentSystem\&lt; IDComponent * \&gt;" alt="" coords="463,621,707,648"/><area shape="rect" id="node21" href="class_component_system.html" title="ComponentSystem\&lt; Movement\lComponent * \&gt;" alt="" coords="483,673,687,714"/><area shape="rect" id="node22" href="class_texture_manager.html" title="Stores and loads all textures contained in the game. " alt="" coords="1089,124,1204,151"/><area shape="rect" id="node23" href="class_animated_sprite.html" title="Animated sprite. " alt="" coords="1314,175,1425,201"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -117,19 +144,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5867718e40da3442da1798285984b6a5 inherit pub_methods_class_animated_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa31959ff4ef2c02abf6154feec03f807 inherit pub_methods_class_animated_component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animated_component.html#aa31959ff4ef2c02abf6154feec03f807">AnimatedComponent</a> (unsigned int <a class="el" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>)</td></tr>
 <tr class="separator:aa31959ff4ef2c02abf6154feec03f807 inherit pub_methods_class_animated_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac56bfb83ff3b508c2e70b15f9fd6214a inherit pub_methods_class_animated_component"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animated_component.html#ac56bfb83ff3b508c2e70b15f9fd6214a">~AnimatedComponent</a> ()</td></tr>
-<tr class="separator:ac56bfb83ff3b508c2e70b15f9fd6214a inherit pub_methods_class_animated_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ce9161a51ed10a003cfd1ef6f7303d inherit pub_methods_class_animated_component"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animated_component.html#ab7ce9161a51ed10a003cfd1ef6f7303d">~AnimatedComponent</a> ()</td></tr>
+<tr class="separator:ab7ce9161a51ed10a003cfd1ef6f7303d inherit pub_methods_class_animated_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af866e00df0bf764ead7c900c724ece31 inherit pub_methods_class_animated_component"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animated_component.html#af866e00df0bf764ead7c900c724ece31">setSprite</a> (<a class="el" href="class_animated_sprite.html">AnimatedSprite</a> input)</td></tr>
 <tr class="separator:af866e00df0bf764ead7c900c724ece31 inherit pub_methods_class_animated_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc4046c6fadebc6755ac1fa5126abb00 inherit pub_methods_class_animated_component"><td class="memItemLeft" align="right" valign="top">sf::Drawable *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animated_component.html#acc4046c6fadebc6755ac1fa5126abb00">getDrawable</a> ()</td></tr>
-<tr class="separator:acc4046c6fadebc6755ac1fa5126abb00 inherit pub_methods_class_animated_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9bce3778ffc06108a966ba3de5824ae inherit pub_methods_class_animated_component"><td class="memItemLeft" align="right" valign="top">sf::Drawable *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animated_component.html#ad9bce3778ffc06108a966ba3de5824ae">getDrawable</a> ()</td></tr>
+<tr class="separator:ad9bce3778ffc06108a966ba3de5824ae inherit pub_methods_class_animated_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_render_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_render_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_render_component.html">RenderComponent</a></td></tr>
 <tr class="memitem:a1bfbe186278dc7528788aea84f976b6c inherit pub_methods_class_render_component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_component.html#a1bfbe186278dc7528788aea84f976b6c">RenderComponent</a> ()</td></tr>
 <tr class="separator:a1bfbe186278dc7528788aea84f976b6c inherit pub_methods_class_render_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d706346ec93582111c28963cd34e0c7 inherit pub_methods_class_render_component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_component.html#a6d706346ec93582111c28963cd34e0c7">RenderComponent</a> (unsigned int <a class="el" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>)</td></tr>
 <tr class="separator:a6d706346ec93582111c28963cd34e0c7 inherit pub_methods_class_render_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71cf6c8181a4b29cf8480af778e4cdfd inherit pub_methods_class_render_component"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_component.html#a71cf6c8181a4b29cf8480af778e4cdfd">~RenderComponent</a> ()</td></tr>
-<tr class="separator:a71cf6c8181a4b29cf8480af778e4cdfd inherit pub_methods_class_render_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16bab40295123b9ea802d7e85b14a884 inherit pub_methods_class_render_component"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_component.html#a16bab40295123b9ea802d7e85b14a884">~RenderComponent</a> ()</td></tr>
+<tr class="separator:a16bab40295123b9ea802d7e85b14a884 inherit pub_methods_class_render_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_component_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_component_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_component_base.html">ComponentBase</a></td></tr>
 <tr class="memitem:a6a483dc4d26b957cbf8c7158545db2d2 inherit pub_methods_class_component_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a6a483dc4d26b957cbf8c7158545db2d2">ComponentBase</a> (unsigned int <a class="el" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>=0)</td></tr>
 <tr class="memdesc:a6a483dc4d26b957cbf8c7158545db2d2 inherit pub_methods_class_component_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a6a483dc4d26b957cbf8c7158545db2d2">More...</a><br/></td></tr>
@@ -153,9 +180,9 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_class_component_base"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_component_base')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_component_base.html">ComponentBase</a></td></tr>
-<tr class="memitem:acf481487e0a27bf0c7bf4826d6a579e6 inherit pub_static_methods_class_component_base"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#acf481487e0a27bf0c7bf4826d6a579e6">getNewID</a> ()</td></tr>
-<tr class="memdesc:acf481487e0a27bf0c7bf4826d6a579e6 inherit pub_static_methods_class_component_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new, unused ID.  <a href="#acf481487e0a27bf0c7bf4826d6a579e6">More...</a><br/></td></tr>
-<tr class="separator:acf481487e0a27bf0c7bf4826d6a579e6 inherit pub_static_methods_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f89ac3d75dbd43ee7ec938fa4720dd inherit pub_static_methods_class_component_base"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd">getNewID</a> ()</td></tr>
+<tr class="memdesc:a28f89ac3d75dbd43ee7ec938fa4720dd inherit pub_static_methods_class_component_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new, unused ID.  <a href="#a28f89ac3d75dbd43ee7ec938fa4720dd">More...</a><br/></td></tr>
+<tr class="separator:a28f89ac3d75dbd43ee7ec938fa4720dd inherit pub_static_methods_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eefe3f8a55317550731c94e3f8d082d inherit pub_static_methods_class_component_base"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a3eefe3f8a55317550731c94e3f8d082d">setRenderEngine</a> (<a class="el" href="class_render_engine.html">RenderEngine</a> *RE)</td></tr>
 <tr class="memdesc:a3eefe3f8a55317550731c94e3f8d082d inherit pub_static_methods_class_component_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the rendering engine.  <a href="#a3eefe3f8a55317550731c94e3f8d082d">More...</a><br/></td></tr>
 <tr class="separator:a3eefe3f8a55317550731c94e3f8d082d inherit pub_static_methods_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,14 +201,16 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a02c453a1ad9b4624d4b151d5e94fb79b inherit pro_static_attribs_class_render_component"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_texture_manager.html">TextureManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_component.html#a02c453a1ad9b4624d4b151d5e94fb79b">texMan</a></td></tr>
 <tr class="separator:a02c453a1ad9b4624d4b151d5e94fb79b inherit pro_static_attribs_class_render_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_class_component_base"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_component_base')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="class_component_base.html">ComponentBase</a></td></tr>
-<tr class="memitem:a1c8e4010af5517ee522fcb441110d065 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_component_manager.html">ComponentManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a1c8e4010af5517ee522fcb441110d065">compMan</a></td></tr>
-<tr class="separator:a1c8e4010af5517ee522fcb441110d065 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a7809d59301672f6055a39e5270b671 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_render_engine.html">RenderEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a6a7809d59301672f6055a39e5270b671">rendEng</a></td></tr>
-<tr class="separator:a6a7809d59301672f6055a39e5270b671 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f69ac4142a4255be076621e2d6bb33 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game_engine.html">GameEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a79f69ac4142a4255be076621e2d6bb33">eng</a></td></tr>
-<tr class="separator:a79f69ac4142a4255be076621e2d6bb33 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08552f7c4c3f9db4af1c945d4983c0c1 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_component_manager.html">ComponentManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a08552f7c4c3f9db4af1c945d4983c0c1">compMan</a> = &amp;<a class="el" href="class_component_manager.html#afee1457192e3b251b1a940101ad99549">ComponentManager::getInst</a>()</td></tr>
+<tr class="separator:a08552f7c4c3f9db4af1c945d4983c0c1 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1cfafa266dd3974663b1fc3f80fa359 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_render_engine.html">RenderEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#af1cfafa266dd3974663b1fc3f80fa359">rendEng</a> = NULL</td></tr>
+<tr class="separator:af1cfafa266dd3974663b1fc3f80fa359 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e8e549dc39bf4ddbe098ca3f6530a8 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game_engine.html">GameEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#ad6e8e549dc39bf4ddbe098ca3f6530a8">eng</a> = NULL</td></tr>
+<tr class="separator:ad6e8e549dc39bf4ddbe098ca3f6530a8 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Draws an animated component by looking at the movement component and a bit from input. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa56f6849fdfaa1559dec7b0e220ec82c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -252,19 +281,33 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="class_animated_component.html#a51b6d654bddf01234b2093ccde0dc6a6">AnimatedComponent</a>.</p>
+<p>Reimplemented from <a class="el" href="class_animated_component.html#af283bc52eefab748e4f02b7e6fd6ca43">AnimatedComponent</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_brave_adventurer_animated_component_a27ba0bb20f0a6099fea4b6a088525957_cgraph.png" border="0" usemap="#class_brave_adventurer_animated_component_a27ba0bb20f0a6099fea4b6a088525957_cgraph" alt=""/></div>
+<map name="class_brave_adventurer_animated_component_a27ba0bb20f0a6099fea4b6a088525957_cgraph" id="class_brave_adventurer_animated_component_a27ba0bb20f0a6099fea4b6a088525957_cgraph">
+<area shape="rect" id="node2" href="class_animated_component.html#af283bc52eefab748e4f02b7e6fd6ca43" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="327,204,492,231"/><area shape="rect" id="node8" href="class_component_manager.html#afee1457192e3b251b1a940101ad99549" title="ComponentManager::getInst" alt="" coords="575,74,761,100"/><area shape="rect" id="node9" href="class_component_system.html#a43032d3c794671a62e88db0f0067c670" title="Returns a component from ID. " alt="" coords="555,292,781,319"/><area shape="rect" id="node10" href="class_component_base.html#a86b5c38fa2d7f7f19097777d5ebfbdc4" title="Returns the ID of the component. " alt="" coords="590,343,746,370"/><area shape="rect" id="node13" href="class_movement_component.html#a75f1c7cca100b33706cef79ebfcba00a" title="Returns the MoveState enum corresponding to the current state. " alt="" coords="332,357,487,398"/><area shape="rect" id="node14" href="class_animated_sprite.html#ab1afc57d90d57a0c4bc4f5b090f2dacf" title="Sets the current Animation to one that&#39;s not currently loaded into the AnimatedSprite. " alt="" coords="312,23,507,50"/><area shape="rect" id="node16" href="class_animated_sprite.html#a203b968f1cb374cca5dbc89716174020" title="Unpauses the animation, if currently paused. " alt="" coords="338,423,481,450"/><area shape="rect" id="node3" href="class_animated_sprite.html#a17a41ff812631a9d8947d272933d6696" title="Updates the animation to show the correct frame. " alt="" coords="589,124,747,151"/><area shape="rect" id="node11" href="class_world_position_component.html#a834b64a3e18635398ddce13f538c9c0b" title="WorldPositionComponent\l::getPosition" alt="" coords="583,226,753,268"/><area shape="rect" id="node12" href="class_render_engine.html#a16484f0d066e4f260ba031d819433d53" title="Adds a sprite to the layer&#39;s render list. " alt="" coords="585,175,751,202"/><area shape="rect" id="node4" href="class_animation.html#a0d48958b0a30f5d845f866e6ef5a7ae4" title="Gets the frametime of the animation. " alt="" coords="832,99,1003,126"/><area shape="rect" id="node5" href="class_animation.html#aa8dc627c1800fcad9b9e53c9a102ded3" title="Gets the size of the animation. " alt="" coords="851,150,983,176"/><area shape="rect" id="node6" href="class_animated_sprite.html#a0b3e38fffdc1d29f46fa08df9ef2a747" title="Sets the frame to a specific value. " alt="" coords="830,11,1005,38"/><area shape="rect" id="node7" href="class_animation.html#ad587678b331518e926b19b807b153daa" title="Gets a frame. " alt="" coords="1054,11,1197,38"/><area shape="rect" id="node15" href="class_animation.html#aafed5696c35b893bb721aa1303d5e84f" title="Gets the texture associated with the animation. " alt="" coords="581,23,755,50"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Render/<a class="el" href="_brave_adventurer_animated_component_8h_source.html">BraveAdventurerAnimatedComponent.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/Components/Render/<a class="el" href="_brave_adventurer_animated_component_8cpp.html">BraveAdventurerAnimatedComponent.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_brave_adventurer_animated_component.html">BraveAdventurerAnimatedComponent</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:56 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

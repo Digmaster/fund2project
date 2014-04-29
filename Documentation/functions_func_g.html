@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Class Members - Functions</title>
+<title>Fund2Project: Class Members - Functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li class="current"><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -82,6 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func_e.html#index_e"><span>e</span></a></li>
       <li><a href="functions_func_f.html#index_f"><span>f</span></a></li>
       <li class="current"><a href="functions_func_g.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_func_h.html#index_h"><span>h</span></a></li>
       <li><a href="functions_func_i.html#index_i"><span>i</span></a></li>
       <li><a href="functions_func_k.html#index_k"><span>k</span></a></li>
       <li><a href="functions_func_l.html#index_l"><span>l</span></a></li>
@@ -99,12 +107,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_func_g.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -121,22 +143,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_game_engine.html#a64c430f74d72e2745646fdbffbd97930">GameEngine</a>
 </li>
 <li>get()
-: <a class="el" href="class_options.html#ab9a7abceef9283656352f8c6514bb220">Options</a>
+: <a class="el" href="class_options.html#a5417fac073fa4bf37c1a189ac2881e56">Options</a>
 </li>
 <li>getActivate()
 : <a class="el" href="class_input_engine.html#a006d0708f9a3062a829d790365ee6680">InputEngine</a>
 </li>
 <li>getAnimation()
-: <a class="el" href="class_animated_sprite.html#a963c37ff365f2a56bc70a2fd7f929718">AnimatedSprite</a>
+: <a class="el" href="class_animated_sprite.html#ad1f89db42fe276e8c8f603d5a501d1ed">AnimatedSprite</a>
 </li>
 <li>getBody()
 : <a class="el" href="class_physics_component.html#a13d110608ad6109e7a5e0c7291bff30e">PhysicsComponent</a>
 </li>
 <li>getCamera()
 : <a class="el" href="class_camera.html#ac0dadeacf43d354fd2bba6f702e14252">Camera</a>
-</li>
-<li>getCharacterSize()
-: <a class="el" href="classsfe_1_1_rich_text.html#a278e1474f17cfe3f7294e4a15f98b10b">sfe::RichText</a>
 </li>
 <li>getClimbDown()
 : <a class="el" href="class_input_engine.html#ad41a7fdfbf833ca96a70d668e15dcfc4">InputEngine</a>
@@ -147,30 +166,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getComponent()
 : <a class="el" href="class_component_system.html#a43032d3c794671a62e88db0f0067c670">ComponentSystem&lt; T &gt;</a>
 </li>
-<li>getCurrentMovement()
-: <a class="el" href="class_brave_adventurer_movement.html#a0d514e2d9e5f024f85ef696c46224b2d">BraveAdventurerMovement</a>
-, <a class="el" href="class_movement_component.html#af30a51a15090d60a2e7292c8fd8feb13">MovementComponent</a>
-</li>
 <li>getDrawable()
-: <a class="el" href="class_animated_component.html#acc4046c6fadebc6755ac1fa5126abb00">AnimatedComponent</a>
-, <a class="el" href="class_static_sprite_component.html#a2eb78a9d896a3ef1c810202ba9d993d2">StaticSpriteComponent</a>
+: <a class="el" href="class_animated_component.html#ad9bce3778ffc06108a966ba3de5824ae">AnimatedComponent</a>
+, <a class="el" href="class_static_sprite_component.html#a127766851f597a12c6dd019cc19b30aa">StaticSpriteComponent</a>
 </li>
 <li>getFire()
 : <a class="el" href="class_input_engine.html#ad39a6d30617bb298383534edd069c5c1">InputEngine</a>
 </li>
-<li>getFont()
-: <a class="el" href="classsfe_1_1_rich_text.html#aaae8d22b31d14a6cc86321f16b9fba68">sfe::RichText</a>
-</li>
 <li>getFrame()
-: <a class="el" href="class_animation.html#a31bdd7b2734bf619dc547891439e0ad1">Animation</a>
+: <a class="el" href="class_animation.html#ad587678b331518e926b19b807b153daa">Animation</a>
 </li>
 <li>getFrameTime()
 : <a class="el" href="class_animation.html#a0d48958b0a30f5d845f866e6ef5a7ae4">Animation</a>
 </li>
 <li>getGlobalBounds()
 : <a class="el" href="class_animated_sprite.html#a61f2bded199a5f39ae5d99cf110503a8">AnimatedSprite</a>
-, <a class="el" href="classsfe_1_1_rich_text.html#a6ac1282e371210117f403699b97f935f">sfe::RichText</a>
-, <a class="el" href="classsfe_1_1_rich_text_1_1_line.html#a297bd05f7d91f524268a77b873fcb927">sfe::RichText::Line</a>
 </li>
 <li>getID()
 : <a class="el" href="class_component_base.html#a86b5c38fa2d7f7f19097777d5ebfbdc4">ComponentBase</a>
@@ -184,13 +194,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getLayer()
 : <a class="el" href="class_world_position_component.html#a16c9b5f64b430ce1ae6a0bb0b085b3b2">WorldPositionComponent</a>
 </li>
-<li>getLines()
-: <a class="el" href="classsfe_1_1_rich_text.html#a671b4aa25e51ae8005cdb3561153d5eb">sfe::RichText</a>
-</li>
 <li>getLocalBounds()
 : <a class="el" href="class_animated_sprite.html#ab85f8836a5e03ba9b954243acd38556f">AnimatedSprite</a>
-, <a class="el" href="classsfe_1_1_rich_text.html#a78f085ec777e4ede29c55b5044154650">sfe::RichText</a>
-, <a class="el" href="classsfe_1_1_rich_text_1_1_line.html#a49d156a1f298856cf52e64fb6d3f89bb">sfe::RichText::Line</a>
 </li>
 <li>getMessage()
 : <a class="el" href="class_component_base.html#aba0732125bf1e02add6d5c85ae322053">ComponentBase</a>
@@ -205,8 +210,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_i_d_component.html#af4785e858c4bce63a9aeb625b6a4f010">IDComponent</a>
 </li>
 <li>getNewID()
-: <a class="el" href="class_component_base.html#acf481487e0a27bf0c7bf4826d6a579e6">ComponentBase</a>
-, <a class="el" href="class_component_manager.html#a13d3a9ffb2dbb6a0a7094cc7daa6d525">ComponentManager</a>
+: <a class="el" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd">ComponentBase</a>
+, <a class="el" href="class_component_manager.html#ad5f18d2a712fce6a09b8d84e89b06ec8">ComponentManager</a>
 </li>
 <li>getPosition()
 : <a class="el" href="class_world_position_component.html#a834b64a3e18635398ddce13f538c9c0b">WorldPositionComponent</a>
@@ -215,10 +220,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_world_position_component.html#a9f8501949aa3899fb1d072e9546cdf91">WorldPositionComponent</a>
 </li>
 <li>getScreenMousePos()
-: <a class="el" href="class_input_engine.html#a7f2b989be9fc065d07ad586d840ad478">InputEngine</a>
+: <a class="el" href="class_input_engine.html#a0188d0b9f2cb7a1133fb30d78ad039bb">InputEngine</a>
 </li>
 <li>getSize()
 : <a class="el" href="class_animation.html#aa8dc627c1800fcad9b9e53c9a102ded3">Animation</a>
+, <a class="el" href="class_component_system.html#a137a3cf5c3ee28e7748cef61d9ec0e8a">ComponentSystem&lt; T &gt;</a>
 </li>
 <li>getSpeed()
 : <a class="el" href="class_animated_sprite.html#a81ee52ed9a1f0975a4aaa1b86e0299be">AnimatedSprite</a>
@@ -227,16 +233,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_sprite_manager.html#a47906406851f4f3dfa55db8668bd88ab">SpriteManager</a>
 </li>
 <li>getSpriteSheet()
-: <a class="el" href="class_animation.html#af7581cb22725244d080b9a4874de41b0">Animation</a>
+: <a class="el" href="class_animation.html#aafed5696c35b893bb721aa1303d5e84f">Animation</a>
+</li>
+<li>getState()
+: <a class="el" href="class_movement_component.html#a75f1c7cca100b33706cef79ebfcba00a">MovementComponent</a>
 </li>
 <li>getTarget()
 : <a class="el" href="class_target_component.html#a2148df5dc1720c8fd86aa105e6cfceaf">TargetComponent</a>
 </li>
-<li>getTexts()
-: <a class="el" href="classsfe_1_1_rich_text_1_1_line.html#a92db3f35ec80ccaf1d086fde7f563a3a">sfe::RichText::Line</a>
-</li>
 <li>getTexture()
-: <a class="el" href="class_texture_manager.html#abe0120506070bae8f3f5ed47bcbfe20f">TextureManager</a>
+: <a class="el" href="class_texture_manager.html#add3b1ab0bc721330050c007f1dec8691">TextureManager</a>
 </li>
 <li>getType()
 : <a class="el" href="class_i_d_component.html#a492010e156a31c31f319e1fcae6d0646">IDComponent</a>
@@ -248,29 +254,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_input_engine.html#a87c92a7dee61a6ffd4ed74d4c0b41a0f">InputEngine</a>
 </li>
 <li>go()
-: <a class="el" href="class_animated_component.html#a51b6d654bddf01234b2093ccde0dc6a6">AnimatedComponent</a>
+: <a class="el" href="class_animated_component.html#af283bc52eefab748e4f02b7e6fd6ca43">AnimatedComponent</a>
+, <a class="el" href="class_audio_component.html#ac16908c4a978db81ab2380f67aee4fa7">AudioComponent</a>
 , <a class="el" href="class_boundary_physics.html#aed7e79affe8fb38aefc8310fade21ac9">BoundaryPhysics</a>
 , <a class="el" href="class_brave_adventurer_animated_component.html#a27ba0bb20f0a6099fea4b6a088525957">BraveAdventurerAnimatedComponent</a>
 , <a class="el" href="class_brave_adventurer_movement.html#a6a0eee2876a4bcb27bad1c9b7a48bb57">BraveAdventurerMovement</a>
 , <a class="el" href="class_camera.html#a68abeaaa5ef2aebd0c9d97cdfbbc4ac4">Camera</a>
 , <a class="el" href="class_component_base.html#a6be4c2990d1864a46f6ddfc54651122a">ComponentBase</a>
 , <a class="el" href="class_game_engine.html#aabb626c15dee263ef6328c89c0a09b0f">GameEngine</a>
-, <a class="el" href="class_i_d_component.html#a19fc7240785d3d2747d47449f4a981fe">IDComponent</a>
+, <a class="el" href="class_i_d_component.html#afceee64afc8ab5c06f6a779350dbb2df">IDComponent</a>
 , <a class="el" href="class_input_component.html#af9461cc09ee68996148cce62cfc681b0">InputComponent</a>
 , <a class="el" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285">KeyboardInput</a>
+, <a class="el" href="class_polygon_physics.html#a5d2b1e323a364b7cc41d0dcb5bc901a7">PolygonPhysics</a>
+, <a class="el" href="class_polyline_physics.html#aecbdebe221b0d95fa82384929a54796b">PolylinePhysics</a>
 , <a class="el" href="class_render_component.html#a72ae781c18f0b632ad2be535aacc0f99">RenderComponent</a>
 , <a class="el" href="class_simple_box_physics.html#a54d942a7fbc79addaf5181f1c85e36f7">SimpleBoxPhysics</a>
-, <a class="el" href="class_static_sprite_component.html#a673ca32659db46dd83a482650eec98bd">StaticSpriteComponent</a>
-, <a class="el" href="class_target_component.html#a71838bbe808ad18a43cbff6cfab97f8d">TargetComponent</a>
+, <a class="el" href="class_static_sprite_component.html#ae027d79e87543e760b47c868044894bf">StaticSpriteComponent</a>
+, <a class="el" href="class_target_component.html#a590fe7ca5706ab917043f37ac422c0c0">TargetComponent</a>
 , <a class="el" href="class_world_position_component.html#a7e2a53590d84f80e3e401600804831cd">WorldPositionComponent</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:52 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Tue Apr 29 2014 15:40:00 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

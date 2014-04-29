@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: ComponentSystem&lt; T &gt; Class Template Reference</title>
+<title>Fund2Project: ComponentSystem&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_component_system.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -91,23 +112,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Holds components of a specific type and runs them all at once.  
+ <a href="class_component_system.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_component_system_8h_source.html">ComponentSystem.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aadf0c5ac1c2a915bd426dbc1532851fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_system.html#aadf0c5ac1c2a915bd426dbc1532851fd">process</a> (sf::Time)</td></tr>
+<tr class="memdesc:aadf0c5ac1c2a915bd426dbc1532851fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loops through all components and "go"s them.  <a href="#aadf0c5ac1c2a915bd426dbc1532851fd">More...</a><br/></td></tr>
 <tr class="separator:aadf0c5ac1c2a915bd426dbc1532851fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abacfa4b804fa92db290f5414df5600c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_system.html#abacfa4b804fa92db290f5414df5600c0">addComponent</a> (T)</td></tr>
+<tr class="memdesc:abacfa4b804fa92db290f5414df5600c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a component.  <a href="#abacfa4b804fa92db290f5414df5600c0">More...</a><br/></td></tr>
 <tr class="separator:abacfa4b804fa92db290f5414df5600c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43032d3c794671a62e88db0f0067c670"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_system.html#a43032d3c794671a62e88db0f0067c670">getComponent</a> (unsigned int ID)</td></tr>
+<tr class="memdesc:a43032d3c794671a62e88db0f0067c670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a component from ID.  <a href="#a43032d3c794671a62e88db0f0067c670">More...</a><br/></td></tr>
 <tr class="separator:a43032d3c794671a62e88db0f0067c670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a137a3cf5c3ee28e7748cef61d9ec0e8a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_system.html#a137a3cf5c3ee28e7748cef61d9ec0e8a">getSize</a> ()</td></tr>
+<tr class="memdesc:a137a3cf5c3ee28e7748cef61d9ec0e8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of components contained within.  <a href="#a137a3cf5c3ee28e7748cef61d9ec0e8a">More...</a><br/></td></tr>
+<tr class="separator:a137a3cf5c3ee28e7748cef61d9ec0e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:af2b3b29c42c301323b5416526c8a2b2c"><td class="memItemLeft" align="right" valign="top">std::map&lt; unsigned int, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_system.html#af2b3b29c42c301323b5416526c8a2b2c">components</a></td></tr>
+<tr class="memdesc:af2b3b29c42c301323b5416526c8a2b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The components!  <a href="#af2b3b29c42c301323b5416526c8a2b2c">More...</a><br/></td></tr>
 <tr class="separator:af2b3b29c42c301323b5416526c8a2b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br/>
+class ComponentSystem&lt; T &gt;</h3>
+
+<p>Holds components of a specific type and runs them all at once. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="abacfa4b804fa92db290f5414df5600c0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -123,6 +159,17 @@ template&lt;class T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds a component. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_system_abacfa4b804fa92db290f5414df5600c0_icgraph.png" border="0" usemap="#class_component_system_abacfa4b804fa92db290f5414df5600c0_icgraph" alt=""/></div>
+<map name="class_component_system_abacfa4b804fa92db290f5414df5600c0_icgraph" id="class_component_system_abacfa4b804fa92db290f5414df5600c0_icgraph">
+<area shape="rect" id="node2" href="class_audio_component.html#aba01f3d0bc40d265d422783cfac49853" title="AudioComponent::AudioComponent" alt="" coords="291,5,519,32"/><area shape="rect" id="node3" href="class_i_d_component.html#a74b7b4a580570cae280d3d21b48741c4" title="Constructor. " alt="" coords="312,56,499,83"/><area shape="rect" id="node4" href="class_input_component.html#ab712be28813b4b8b1e1d509f9cc36b2b" title="InputComponent::InputComponent" alt="" coords="296,107,515,133"/><area shape="rect" id="node5" href="class_movement_component.html#abf9065e2b5ee6de82ff31f45ddce0d4d" title="MovementComponent::\lMovementComponent" alt="" coords="328,158,483,199"/><area shape="rect" id="node6" href="class_physics_component.html#ac6b853d058a7d8f4242f36d27bae2971" title="PhysicsComponent::Physics\lComponent" alt="" coords="310,223,501,265"/><area shape="rect" id="node7" href="class_world_position_component.html#ad6d44a9fa79b710a6304718f59f659e4" title="Constructor. " alt="" coords="317,289,494,330"/><area shape="rect" id="node8" href="class_render_component.html#a6d706346ec93582111c28963cd34e0c7" title="RenderComponent::RenderComponent" alt="" coords="283,355,527,381"/><area shape="rect" id="node9" href="class_camera.html#ac75285d74a3b127bba8cb429c1f8d609" title="Camera::Camera" alt="" coords="345,405,465,432"/><area shape="rect" id="node10" href="class_script_component.html#a0a53f56a7532a5d99e35bb6f71d6167d" title="ScriptComponent::ScriptComponent" alt="" coords="290,456,521,483"/><area shape="rect" id="node11" href="class_target_component.html#a93cf3d96bafded021a882443df715b48" title="TargetComponent::TargetComponent" alt="" coords="288,507,523,533"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -142,6 +189,36 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a component from ID. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_system_a43032d3c794671a62e88db0f0067c670_icgraph.png" border="0" usemap="#class_component_system_a43032d3c794671a62e88db0f0067c670_icgraph" alt=""/></div>
+<map name="class_component_system_a43032d3c794671a62e88db0f0067c670_icgraph" id="class_component_system_a43032d3c794671a62e88db0f0067c670_icgraph">
+<area shape="rect" id="node2" href="class_audio_component.html#ac16908c4a978db81ab2380f67aee4fa7" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="307,5,450,32"/><area shape="rect" id="node3" href="class_keyboard_input.html#af5e5e5844d24c32644d9a1d7bc4f8c8b" title="KeyboardInput::KeyboardInput" alt="" coords="281,56,477,83"/><area shape="rect" id="node4" href="class_keyboard_input.html#a8ca166fb985f86fc6afe650e2cb73285" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="315,107,442,133"/><area shape="rect" id="node5" href="class_brave_adventurer_movement.html#a6a0eee2876a4bcb27bad1c9b7a48bb57" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="281,157,477,184"/><area shape="rect" id="node6" href="class_boundary_physics.html#aed7e79affe8fb38aefc8310fade21ac9" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="581,208,728,235"/><area shape="rect" id="node7" href="class_polygon_physics.html#a5d2b1e323a364b7cc41d0dcb5bc901a7" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="585,259,724,285"/><area shape="rect" id="node8" href="class_polyline_physics.html#aecbdebe221b0d95fa82384929a54796b" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="586,376,723,403"/><area shape="rect" id="node9" href="class_simple_box_physics.html#adb54af083fedd16f3fc9ca0cc810f5e2" title="Creates a simple box. " alt="" coords="289,545,469,586"/><area shape="rect" id="node10" href="class_simple_box_physics.html#a54d942a7fbc79addaf5181f1c85e36f7" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="577,493,732,520"/><area shape="rect" id="node11" href="class_ladder_contact_listener.html#a8301a95a02e93ed4c1f0ea331aed5715" title="LadderContactListener\l::BeginContact" alt="" coords="303,610,455,651"/><area shape="rect" id="node12" href="class_ladder_contact_listener.html#af4cee9751ee86a0aaf6d2cac32916c50" title="LadderContactListener\l::EndContact" alt="" coords="303,675,455,717"/><area shape="rect" id="node13" href="class_world_position_component.html#a17d6a9ff7f7427d656154bf65f376087" title="WorldPositionComponent\l::setPosition" alt="" coords="294,310,463,351"/><area shape="rect" id="node16" href="class_world_position_component.html#a919d8f92eb0e1e2d76ed59b90336184f" title="WorldPositionComponent\l::setRotation" alt="" coords="294,427,463,469"/><area shape="rect" id="node17" href="class_animated_component.html#af283bc52eefab748e4f02b7e6fd6ca43" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="296,741,461,768"/><area shape="rect" id="node18" href="class_brave_adventurer_animated_component.html#a27ba0bb20f0a6099fea4b6a088525957" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="525,767,784,793"/><area shape="rect" id="node19" href="class_static_sprite_component.html#ae027d79e87543e760b47c868044894bf" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="289,843,468,869"/><area shape="rect" id="node20" href="class_camera.html#a68abeaaa5ef2aebd0c9d97cdfbbc4ac4" title="A function to update the component and do whatever the component is designed to do. " alt="" coords="334,893,423,920"/><area shape="rect" id="node14" href="class_world_position_component.html#ad6d44a9fa79b710a6304718f59f659e4" title="Constructor. " alt="" coords="566,427,743,469"/><area shape="rect" id="node15" href="class_world_position_component.html#a42c88695ded4bd1cffa2db145a50bb64" title="Moves the object. " alt="" coords="570,310,739,351"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a137a3cf5c3ee28e7748cef61d9ec0e8a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_component_system.html">ComponentSystem</a>&lt; T &gt;::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of components contained within. </p>
+
 </div>
 </div>
 <a class="anchor" id="aadf0c5ac1c2a915bd426dbc1532851fd"></a>
@@ -160,6 +237,17 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Loops through all components and "go"s them. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_component_system_aadf0c5ac1c2a915bd426dbc1532851fd_icgraph.png" border="0" usemap="#class_component_system_aadf0c5ac1c2a915bd426dbc1532851fd_icgraph" alt=""/></div>
+<map name="class_component_system_aadf0c5ac1c2a915bd426dbc1532851fd_icgraph" id="class_component_system_aadf0c5ac1c2a915bd426dbc1532851fd_icgraph">
+<area shape="rect" id="node2" href="class_component_manager.html#a523ee0dbcc4e05cb7abd27373e184c9c" title="ComponentManager::processAll" alt="" coords="241,5,447,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -175,17 +263,23 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The components! </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/Components/<a class="el" href="_component_system_8h_source.html">ComponentSystem.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_component_system.html">ComponentSystem</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:57 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,9 +7,9 @@ var searchData=
   ['addlistener',['addListener',['../class_contact_listener.html#ab37176fdc369402a1f762aaf2576005a',1,'ContactListener']]],
   ['addscreensprite',['addScreenSprite',['../class_render_engine.html#a41d355c0118697e71866851b3280dd79',1,'RenderEngine']]],
   ['addsprite',['addSprite',['../class_render_engine.html#a16484f0d066e4f260ba031d819433d53',1,'RenderEngine::addSprite()'],['../class_sprite_manager.html#a48872c170c872ce6a2b404f1230ff9d1',1,'SpriteManager::addSprite()']]],
-  ['addtexture',['addTexture',['../class_texture_manager.html#a1febd3ea108884926b28b0e40fe91b23',1,'TextureManager']]],
+  ['addtexture',['addTexture',['../class_texture_manager.html#ad69afbfbdf395106b28694136cdf2dd8',1,'TextureManager']]],
   ['animatedcomponent',['AnimatedComponent',['../class_animated_component.html#a5867718e40da3442da1798285984b6a5',1,'AnimatedComponent::AnimatedComponent()'],['../class_animated_component.html#aa31959ff4ef2c02abf6154feec03f807',1,'AnimatedComponent::AnimatedComponent(unsigned int ID)']]],
   ['animatedsprite',['AnimatedSprite',['../class_animated_sprite.html#a4a222946d565184f863d69265e035987',1,'AnimatedSprite']]],
   ['animation',['Animation',['../class_animation.html#ae04477c2f31755deb8a605dbb51f0915',1,'Animation']]],
-  ['appendtext',['appendText',['../classsfe_1_1_rich_text_1_1_line.html#a40f1802ea798b2777d7fb838f6ba8c97',1,'sfe::RichText::Line']]]
+  ['audiocomponent',['AudioComponent',['../class_audio_component.html#aaea64af7cd81778f6737f0a4bee35394',1,'AudioComponent::AudioComponent()'],['../class_audio_component.html#aba01f3d0bc40d265d422783cfac49853',1,'AudioComponent::AudioComponent(unsigned int ID)']]]
 ];

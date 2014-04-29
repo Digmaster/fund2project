@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: InputComponent Class Reference</title>
+<title>Fund2Project: InputComponent Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Fund2Project
    </div>
   </td>
  </tr>
@@ -62,16 +69,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_input_component.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -91,17 +112,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Drives a Movement Component.  
+ <a href="class_input_component.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_input_component_8h_source.html">InputComponent.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for InputComponent:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_input_component.png" usemap="#InputComponent_map" alt=""/>
-  <map id="InputComponent_map" name="InputComponent_map">
-<area href="class_component_base.html" title="Base class of which all components are derived from. " alt="ComponentBase" shape="rect" coords="0,0,103,24"/>
-<area href="class_keyboard_input.html" alt="KeyboardInput" shape="rect" coords="0,112,103,136"/>
-</map>
- </div></div>
+<div class="center"><img src="class_input_component__inherit__graph.png" border="0" usemap="#_input_component_inherit__map" alt="Inheritance graph"/></div>
+<map name="_input_component_inherit__map" id="_input_component_inherit__map">
+<area shape="rect" id="node3" href="class_keyboard_input.html" title="Simply grabs the appropriate input information from the Input Engine. " alt="" coords="11,155,116,181"/><area shape="rect" id="node2" href="class_component_base.html" title="Base class of which all components are derived from. " alt="" coords="5,5,123,32"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for InputComponent:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_component__coll__graph.png" border="0" usemap="#_input_component_coll__map" alt="Collaboration graph"/></div>
+<map name="_input_component_coll__map" id="_input_component_coll__map">
+<area shape="rect" id="node2" href="class_component_base.html" title="Base class of which all components are derived from. " alt="" coords="1086,73,1205,100"/><area shape="rect" id="node3" href="class_render_engine.html" title="Holds all information needed for rendering and renders frames. " alt="" coords="534,5,637,32"/><area shape="rect" id="node4" href="class_game_engine.html" title="The overruling class which encapsolates all nessesary objects for the game. " alt="" coords="858,73,955,100"/><area shape="rect" id="node5" href="class_physics_engine.html" title="Contains all information relevant to physics simulation. " alt="" coords="531,68,640,95"/><area shape="rect" id="node6" href="class_contact_listener.html" title="Stores all contact listeners and iterates through them whenever any objects collide. " alt="" coords="185,68,298,95"/><area shape="rect" id="node8" href="class_input_engine.html" title="Manages input to the window and provides a common interface to see the current input. " alt="" coords="540,119,631,145"/><area shape="rect" id="node9" href="class_component_manager.html" title="Manages/contains all components. " alt="" coords="837,403,976,429"/><area shape="rect" id="node10" href="class_component_system.html" title="ComponentSystem\&lt; RenderComponent * \&gt;" alt="" coords="449,169,722,196"/><area shape="rect" id="node11" href="class_component_system.html" title="ComponentSystem\&lt; InputComponent * \&gt;" alt="" coords="455,220,715,247"/><area shape="rect" id="node12" href="class_component_system.html" title="ComponentSystem\&lt; Physics\lComponent * \&gt;" alt="" coords="489,271,681,313"/><area shape="rect" id="node13" href="class_component_system.html" title="ComponentSystem\&lt; WorldPosition\lComponent * \&gt;" alt="" coords="472,337,699,378"/><area shape="rect" id="node14" href="class_component_system.html" title="ComponentSystem\&lt; TargetComponent * \&gt;" alt="" coords="451,403,719,429"/><area shape="rect" id="node15" href="class_component_system.html" title="ComponentSystem\&lt; ScriptComponent * \&gt;" alt="" coords="452,453,719,480"/><area shape="rect" id="node16" href="class_component_system.html" title="ComponentSystem\&lt; AudioComponent * \&gt;" alt="" coords="453,504,718,531"/><area shape="rect" id="node17" href="class_component_system.html" title="ComponentSystem\&lt; Component\lBase * \&gt;" alt="" coords="480,555,691,597"/><area shape="rect" id="node18" href="class_component_system.html" title="ComponentSystem\&lt; IDComponent * \&gt;" alt="" coords="463,621,707,648"/><area shape="rect" id="node19" href="class_component_system.html" title="ComponentSystem\&lt; Movement\lComponent * \&gt;" alt="" coords="483,673,687,714"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -109,8 +137,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae3af150f66c8e72ea4bef4b089c48d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab712be28813b4b8b1e1d509f9cc36b2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#ab712be28813b4b8b1e1d509f9cc36b2b">InputComponent</a> (unsigned int <a class="el" href="class_component_base.html#aa41b3f9c965cfc845ee1104cae1d25c8">ID</a>)</td></tr>
 <tr class="separator:ab712be28813b4b8b1e1d509f9cc36b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2004af6e68e0206f045518cb6ee43981"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#a2004af6e68e0206f045518cb6ee43981">~InputComponent</a> ()</td></tr>
-<tr class="separator:a2004af6e68e0206f045518cb6ee43981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50e6b9501302f0c8f055325ca652050e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#a50e6b9501302f0c8f055325ca652050e">~InputComponent</a> ()</td></tr>
+<tr class="separator:a50e6b9501302f0c8f055325ca652050e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9461cc09ee68996148cce62cfc681b0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#af9461cc09ee68996148cce62cfc681b0">go</a> (sf::Time)</td></tr>
 <tr class="memdesc:af9461cc09ee68996148cce62cfc681b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to update the component and do whatever the component is designed to do.  <a href="#af9461cc09ee68996148cce62cfc681b0">More...</a><br/></td></tr>
 <tr class="separator:af9461cc09ee68996148cce62cfc681b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,34 +165,45 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4aa8327058c6a92acd7260afcd577908"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#a4aa8327058c6a92acd7260afcd577908">walkLeft</a></td></tr>
+<tr class="memdesc:a4aa8327058c6a92acd7260afcd577908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a movement left.  <a href="#a4aa8327058c6a92acd7260afcd577908">More...</a><br/></td></tr>
 <tr class="separator:a4aa8327058c6a92acd7260afcd577908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fc91b7f75b6567c7600ebd5b533e084"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#a7fc91b7f75b6567c7600ebd5b533e084">walkRight</a></td></tr>
+<tr class="memdesc:a7fc91b7f75b6567c7600ebd5b533e084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a movement right.  <a href="#a7fc91b7f75b6567c7600ebd5b533e084">More...</a><br/></td></tr>
 <tr class="separator:a7fc91b7f75b6567c7600ebd5b533e084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d3cc63339ba0e6c5f76eb0e328041d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#a6d3cc63339ba0e6c5f76eb0e328041d9">climbUp</a></td></tr>
+<tr class="memdesc:a6d3cc63339ba0e6c5f76eb0e328041d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a movement up. Also starts climbing.  <a href="#a6d3cc63339ba0e6c5f76eb0e328041d9">More...</a><br/></td></tr>
 <tr class="separator:a6d3cc63339ba0e6c5f76eb0e328041d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9c89d54a184208dfa50e8f33a91bcb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#af9c89d54a184208dfa50e8f33a91bcb9">climbDown</a></td></tr>
+<tr class="memdesc:af9c89d54a184208dfa50e8f33a91bcb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">triggers a movement down. Also starts climbing  <a href="#af9c89d54a184208dfa50e8f33a91bcb9">More...</a><br/></td></tr>
 <tr class="separator:af9c89d54a184208dfa50e8f33a91bcb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad455443977c010f44a5bd68077bf6a4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#ad455443977c010f44a5bd68077bf6a4c">fire</a></td></tr>
+<tr class="memdesc:ad455443977c010f44a5bd68077bf6a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a fire. PEW PEW PEW.  <a href="#ad455443977c010f44a5bd68077bf6a4c">More...</a><br/></td></tr>
 <tr class="separator:ad455443977c010f44a5bd68077bf6a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56f33793836f0158e6e7d99c1e4c312d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#a56f33793836f0158e6e7d99c1e4c312d">jump</a></td></tr>
+<tr class="memdesc:a56f33793836f0158e6e7d99c1e4c312d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a jump.  <a href="#a56f33793836f0158e6e7d99c1e4c312d">More...</a><br/></td></tr>
 <tr class="separator:a56f33793836f0158e6e7d99c1e4c312d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae57ca9b5a397529dd489f123d1e451c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#ae57ca9b5a397529dd489f123d1e451c3">activate</a></td></tr>
+<tr class="memdesc:ae57ca9b5a397529dd489f123d1e451c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers an activate.  <a href="#ae57ca9b5a397529dd489f123d1e451c3">More...</a><br/></td></tr>
 <tr class="separator:ae57ca9b5a397529dd489f123d1e451c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca0ec98ab4d0a4213f3fa2bb77512769"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#aca0ec98ab4d0a4213f3fa2bb77512769">currWeapon</a></td></tr>
+<tr class="memdesc:aca0ec98ab4d0a4213f3fa2bb77512769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current weapon (typically 0-9)  <a href="#aca0ec98ab4d0a4213f3fa2bb77512769">More...</a><br/></td></tr>
 <tr class="separator:aca0ec98ab4d0a4213f3fa2bb77512769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b6e9d518cb12e93459f7d63bc7b3c8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#a60b6e9d518cb12e93459f7d63bc7b3c8">fireDir</a></td></tr>
+<tr class="memdesc:a60b6e9d518cb12e93459f7d63bc7b3c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the direction, in degrees, to fire in.  <a href="#a60b6e9d518cb12e93459f7d63bc7b3c8">More...</a><br/></td></tr>
 <tr class="separator:a60b6e9d518cb12e93459f7d63bc7b3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd1f4e9282b4c00125658acc1c3d8d56"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#abd1f4e9282b4c00125658acc1c3d8d56">mouseX</a></td></tr>
+<tr class="memdesc:abd1f4e9282b4c00125658acc1c3d8d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precise location of the mouse. Not typically used.  <a href="#abd1f4e9282b4c00125658acc1c3d8d56">More...</a><br/></td></tr>
 <tr class="separator:abd1f4e9282b4c00125658acc1c3d8d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa5f9db9c9f2dab746dda8c165d56ad6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_component.html#afa5f9db9c9f2dab746dda8c165d56ad6">mouseY</a></td></tr>
+<tr class="memdesc:afa5f9db9c9f2dab746dda8c165d56ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precise location of the mouse. Not typically used.  <a href="#afa5f9db9c9f2dab746dda8c165d56ad6">More...</a><br/></td></tr>
 <tr class="separator:afa5f9db9c9f2dab746dda8c165d56ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_class_component_base"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_component_base')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_component_base.html">ComponentBase</a></td></tr>
-<tr class="memitem:acf481487e0a27bf0c7bf4826d6a579e6 inherit pub_static_methods_class_component_base"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#acf481487e0a27bf0c7bf4826d6a579e6">getNewID</a> ()</td></tr>
-<tr class="memdesc:acf481487e0a27bf0c7bf4826d6a579e6 inherit pub_static_methods_class_component_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new, unused ID.  <a href="#acf481487e0a27bf0c7bf4826d6a579e6">More...</a><br/></td></tr>
-<tr class="separator:acf481487e0a27bf0c7bf4826d6a579e6 inherit pub_static_methods_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f89ac3d75dbd43ee7ec938fa4720dd inherit pub_static_methods_class_component_base"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a28f89ac3d75dbd43ee7ec938fa4720dd">getNewID</a> ()</td></tr>
+<tr class="memdesc:a28f89ac3d75dbd43ee7ec938fa4720dd inherit pub_static_methods_class_component_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new, unused ID.  <a href="#a28f89ac3d75dbd43ee7ec938fa4720dd">More...</a><br/></td></tr>
+<tr class="separator:a28f89ac3d75dbd43ee7ec938fa4720dd inherit pub_static_methods_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eefe3f8a55317550731c94e3f8d082d inherit pub_static_methods_class_component_base"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a3eefe3f8a55317550731c94e3f8d082d">setRenderEngine</a> (<a class="el" href="class_render_engine.html">RenderEngine</a> *RE)</td></tr>
 <tr class="memdesc:a3eefe3f8a55317550731c94e3f8d082d inherit pub_static_methods_class_component_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the rendering engine.  <a href="#a3eefe3f8a55317550731c94e3f8d082d">More...</a><br/></td></tr>
 <tr class="separator:a3eefe3f8a55317550731c94e3f8d082d inherit pub_static_methods_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,14 +216,16 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a9f8950835505936dad3b74d6473c262b inherit pro_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">std::deque&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a9f8950835505936dad3b74d6473c262b">messages</a></td></tr>
 <tr class="separator:a9f8950835505936dad3b74d6473c262b inherit pro_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_class_component_base"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_component_base')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="class_component_base.html">ComponentBase</a></td></tr>
-<tr class="memitem:a1c8e4010af5517ee522fcb441110d065 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_component_manager.html">ComponentManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a1c8e4010af5517ee522fcb441110d065">compMan</a></td></tr>
-<tr class="separator:a1c8e4010af5517ee522fcb441110d065 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a7809d59301672f6055a39e5270b671 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_render_engine.html">RenderEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a6a7809d59301672f6055a39e5270b671">rendEng</a></td></tr>
-<tr class="separator:a6a7809d59301672f6055a39e5270b671 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f69ac4142a4255be076621e2d6bb33 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game_engine.html">GameEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a79f69ac4142a4255be076621e2d6bb33">eng</a></td></tr>
-<tr class="separator:a79f69ac4142a4255be076621e2d6bb33 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08552f7c4c3f9db4af1c945d4983c0c1 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_component_manager.html">ComponentManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#a08552f7c4c3f9db4af1c945d4983c0c1">compMan</a> = &amp;<a class="el" href="class_component_manager.html#afee1457192e3b251b1a940101ad99549">ComponentManager::getInst</a>()</td></tr>
+<tr class="separator:a08552f7c4c3f9db4af1c945d4983c0c1 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1cfafa266dd3974663b1fc3f80fa359 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_render_engine.html">RenderEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#af1cfafa266dd3974663b1fc3f80fa359">rendEng</a> = NULL</td></tr>
+<tr class="separator:af1cfafa266dd3974663b1fc3f80fa359 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e8e549dc39bf4ddbe098ca3f6530a8 inherit pro_static_attribs_class_component_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_game_engine.html">GameEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_base.html#ad6e8e549dc39bf4ddbe098ca3f6530a8">eng</a> = NULL</td></tr>
+<tr class="separator:ad6e8e549dc39bf4ddbe098ca3f6530a8 inherit pro_static_attribs_class_component_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Drives a Movement Component. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae3af150f66c8e72ea4bef4b089c48d99"></a>
 <div class="memitem">
 <div class="memproto">
@@ -214,9 +255,18 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_component_ab712be28813b4b8b1e1d509f9cc36b2b_cgraph.png" border="0" usemap="#class_input_component_ab712be28813b4b8b1e1d509f9cc36b2b_cgraph" alt=""/></div>
+<map name="class_input_component_ab712be28813b4b8b1e1d509f9cc36b2b_cgraph" id="class_input_component_ab712be28813b4b8b1e1d509f9cc36b2b_cgraph">
+<area shape="rect" id="node2" href="class_component_system.html#abacfa4b804fa92db290f5414df5600c0" title="Adds a component. " alt="" coords="273,5,501,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a2004af6e68e0206f045518cb6ee43981"></a>
+<a class="anchor" id="a50e6b9501302f0c8f055325ca652050e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -224,7 +274,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual InputComponent::~InputComponent </td>
+          <td class="memname">InputComponent::~InputComponent </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -287,6 +337,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Triggers an activate. </p>
+
 </div>
 </div>
 <a class="anchor" id="af9c89d54a184208dfa50e8f33a91bcb9"></a>
@@ -298,6 +350,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>triggers a movement down. Also starts climbing </p>
 
 </div>
 </div>
@@ -311,6 +365,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Triggers a movement up. Also starts climbing. </p>
+
 </div>
 </div>
 <a class="anchor" id="aca0ec98ab4d0a4213f3fa2bb77512769"></a>
@@ -322,6 +378,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the current weapon (typically 0-9) </p>
 
 </div>
 </div>
@@ -335,6 +393,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Triggers a fire. PEW PEW PEW. </p>
+
 </div>
 </div>
 <a class="anchor" id="a60b6e9d518cb12e93459f7d63bc7b3c8"></a>
@@ -346,6 +406,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Indicates the direction, in degrees, to fire in. </p>
 
 </div>
 </div>
@@ -359,6 +421,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Triggers a jump. </p>
+
 </div>
 </div>
 <a class="anchor" id="abd1f4e9282b4c00125658acc1c3d8d56"></a>
@@ -370,6 +434,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Precise location of the mouse. Not typically used. </p>
 
 </div>
 </div>
@@ -383,6 +449,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Precise location of the mouse. Not typically used. </p>
+
 </div>
 </div>
 <a class="anchor" id="a4aa8327058c6a92acd7260afcd577908"></a>
@@ -394,6 +462,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Triggers a movement left. </p>
 
 </div>
 </div>
@@ -407,17 +477,24 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Triggers a movement right. </p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Thomas Luppi/Documents/fund2project/include/Components/Input/<a class="el" href="_input_component_8h_source.html">InputComponent.h</a></li>
+<li>C:/Users/Thomas Luppi/Documents/fund2project/src/Components/Input/<a class="el" href="_input_component_8cpp.html">InputComponent.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 18:50:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_input_component.html">InputComponent</a></li>
+    <li class="footer">Generated on Tue Apr 29 2014 15:39:57 for Fund2Project by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>
