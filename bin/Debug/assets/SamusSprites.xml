@@ -21,7 +21,7 @@
 	    <Frame LC="889" TC="237" W="32" H="42"></Frame>
 	    <Frame LC="933" TC="237" W="18" H="42"></Frame>
         </Animation>
-	<Animation name="StandLeft" FT="0.4">
+	<Animation name="StandLeft" FT="0.2">
 	    <Frame LC="111" TC="68" W="26" H="43"></Frame>
 	    <Frame LC="140" TC="68" W="26" H="43"></Frame>
 	    <Frame LC="169" TC="68" W="26" H="43"></Frame>
@@ -47,11 +47,41 @@
 	    <Frame LC="347" TC="293" W="33" H="42"></Frame>
 	    <Frame LC="396" TC="293" W="19" H="42"></Frame>
         </Animation>
-	<Animation name="StandRight" FT="0.4">
+	<Animation name="StandRight" FT="0.2">
 	    <Frame LC="45" TC="12" W="26" H="43"></Frame>
 	    <Frame LC="80" TC="12" W="26" H="43"></Frame>
 	    <Frame LC="112" TC="12" W="26" H="43"></Frame>
 	    <Frame LC="144" TC="12" W="26" H="43"></Frame>
+	</Animation>
+	<Animation name="FallRight" FT="0.05">
+	    <Frame LC="9" TC="244" W="16" H="31"></Frame>
+ 	    <Frame LC="42" TC="247" W="25" H="28"></Frame>
+ 	    <Frame LC="74" TC="259" W="30" H="16"></Frame>
+ 	    <Frame LC="112" TC="250" W="28" H="25"></Frame>
+ 	    <Frame LC="150" TC="244" W="16" H="31"></Frame>
+	    <Frame LC="179" TC="247" W="25" H="28"></Frame>
+	    <Frame LC="214" TC="260" W="31" H="16"></Frame>
+	    <Frame LC="262" TC="250" W="28" H="25"></Frame>
+	</Animation>
+	<Animation name="FallLeft" FT="0.05">
+	    <Frame LC="373" TC="184" W="16" H="31"></Frame>
+ 	    <Frame LC="404" TC="187" W="25" H="28"></Frame>
+ 	    <Frame LC="442" TC="199" W="31" H="16"></Frame>
+ 	    <Frame LC="488" TC="190" W="28" H="25"></Frame>
+ 	    <Frame LC="537" TC="184" W="16" H="31"></Frame>
+	    <Frame LC="560" TC="187" W="25" H="28"></Frame>
+	    <Frame LC="590" TC="199" W="31" H="16"></Frame>
+	    <Frame LC="631" TC="190" W="28" H="25"></Frame>
+	</Animation>
+	<Animation name="ClimbUp" FT="0.1">
+	    
+	    <Frame LC="8" TC="65" W="21" H="46"></Frame>
+	    <Frame LC="43" TC="65" W="24" H="46"></Frame>
+	    <Frame LC="79" TC="65" W="23" H="46"></Frame>
+	    <Frame LC="43" TC="65" W="24" H="46"></Frame>
+	</Animation>
+	<Animation name="ClimbDown" FT="0.25">
+	    <Frame LC="482" TC="68" W="22" H="45"></Frame>
 	</Animation>
     </Sprite>
 </SpriteSheet>

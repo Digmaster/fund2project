@@ -18,7 +18,7 @@
 #include "Components/Input/KeyboardInput.h"
 #include "Components/Physics/PolygonPhysics.h"
 #include "Components/Physics/PolylinePhysics.h"
-
+#include "Components/Audio/AudioComponent.h"
 
 
 using namespace std;
@@ -605,6 +605,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             BraveAdventurerMovement* testMovement = new BraveAdventurerMovement(id);
 
                             SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+                            AudioComponent* audioComp = new AudioComponent(id);
                         }
                     }
                     else

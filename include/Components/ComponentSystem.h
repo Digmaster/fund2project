@@ -14,6 +14,7 @@
 #include "Components/Identification/IDComponent.h"
 #include "Components/Target/TargetComponent.h"
 #include "Components/Script/ScriptComponent.h"
+#include "Components/Audio/AudioComponent.h"
 
 using namespace std;
 

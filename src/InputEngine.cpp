@@ -83,6 +83,11 @@ void InputEngine::update(GameEngine* eng)
             switch(event.mouseButton.button) {
             case sf::Mouse::Right:
                 fire = true;
+                std::cout<<"FIRE"<<std::endl;
+                break;
+            case sf::Mouse::Left:
+                fire = true;
+                std::cout<<"FIRE"<<std::endl;
                 break;
             default:
                 break;

@@ -15,6 +15,7 @@
 #include "Components/ComponentManager.h"
 #include "physics/PhysicsEngine.h"
 #include "InputEngine.h"
+#include <SFML/Audio.hpp>
 
 
 GameEngine::GameEngine(){
@@ -44,12 +45,19 @@ void GameEngine::gameLoop() {
     sf::Clock frameClock;
 
     SpriteManager spriteMan;
-    spriteMan.loadFile("assets/testSprite.xml");
+    //spriteMan.loadFile("assets/testSprite.xml");
     spriteMan.loadFile("assets/SamusSprites.xml");
     //spriteMan.loadSpriteFile("assets/art/testSpriteSheet.sprites");y
 
     Level testLevel;
-    testLevel.loadLevel("longtest.tmx", rendEng);
+    testLevel.loadLevel("longtest1.tmx", rendEng);
+
+    //play background music
+    sf::Music music;
+    music.openFromFile("assets/sound/Castlevania.ogg");
+    music.setVolume(50);
+    //music.setPlayingOffset(sf::seconds(15.5));
+    music.play();
 
     while (rendEng->window.isOpen()) {
         sf::Time frameTime = frameClock.restart();
@@ -84,7 +92,7 @@ void GameEngine::gameLoop() {
         ComponentManager::getInst().rendSym.process(frameTime);
         //cout << "Rendering " << frameClock.getElapsedTime().asMicroseconds() << endl;
         //frameClock.restart();
-
+        ComponentManager::getInst().audioSym.process(frameTime);
 
         rendEng->render(frameTime, physEng);
         physEng->step(frameTime);

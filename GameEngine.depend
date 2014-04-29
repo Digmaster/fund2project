@@ -4408,3 +4408,956 @@
 	<vector>
 	<SFML/Graphics.hpp>
 
+1398280368 source:c:\users\tyler\documents\debug\src\components\componentbase.cpp
+	"Components/ComponentBase.h"
+	"Components/ComponentManager.h"
+	"Rendering/RenderEngine.h"
+	<iostream>
+
+1398280367 c:\users\tyler\documents\debug\include\components\componentbase.h
+	<SFML/System/Time.hpp>
+	<string>
+	<deque>
+	<iostream>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\time.hpp
+	<SFML/System/Export.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\export.hpp
+	<SFML/Config.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\config.hpp
+
+1398792630 c:\users\tyler\documents\debug\include\components\componentmanager.h
+	<map>
+	"Components/ComponentSystem.h"
+
+1398792630 c:\users\tyler\documents\debug\include\components\componentsystem.h
+	<SFML/System/Time.hpp>
+	"Components/ComponentBase.h"
+	<cassert>
+	<map>
+	"Components/Render/RenderComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/Input/InputComponent.h"
+	"Components/Movement/MovementComponent.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Components/Identification/IDComponent.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Script/ScriptComponent.h"
+	"Components/Audio/AudioComponent.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\render\rendercomponent.h
+	"Components/ComponentBase.h"
+	<SFML/System/Time.hpp>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Rendering/TextureManager.h"
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/CircleShape.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/ConvexShape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/View.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window.hpp
+	<SFML/System.hpp>
+	<SFML/Window/Context.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Window.hpp>
+	<SFML/Window/WindowStyle.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\noncopyable.hpp
+	<SFML/System/Export.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\mutex.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\string.hpp
+	<SFML/System/Export.hpp>
+	<locale>
+	<string>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\thread.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\thread.inl
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\threadlocal.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\threadlocalptr.inl
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\utf.inl
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\vector2.inl
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\system\vector3.inl
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\context.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\export.hpp
+	<SFML/Config.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\glresource.hpp
+	<SFML/Window/Export.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\contextsettings.hpp
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\event.hpp
+	<SFML/Config.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\joystick.hpp
+	<SFML/Window/Export.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\keyboard.hpp
+	<SFML/Window/Export.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\mouse.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\videomode.hpp
+	<SFML/Window/Export.hpp>
+	<vector>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\window.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/String.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\windowhandle.hpp
+	<SFML/Config.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\window\windowstyle.hpp
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\blendmode.hpp
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\color.hpp
+	<SFML/Graphics/Export.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\export.hpp
+	<SFML/Config.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\font.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/String.hpp>
+	<map>
+	<string>
+	<vector>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\glyph.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\rect.hpp
+	<SFML/System/Vector2.hpp>
+	<algorithm>
+	<SFML/Graphics/Rect.inl>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\rect.inl
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\texture.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/GlResource.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\image.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+	<vector>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\renderstates.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/Transform.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\transform.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\rendertexture.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\rendertarget.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/View.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\view.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/System/Vector2.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\primitivetype.hpp
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\vertex.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/System/Vector2.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\renderwindow.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/Window.hpp>
+	<string>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\shader.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+	<map>
+	<string>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\shape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/Vector2.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\drawable.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\transformable.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Transform.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\vertexarray.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<vector>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\circleshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\rectangleshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\convexshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<vector>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\sprite.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1398280353 c:\users\tyler\documents\debug\dependancies\include\sfml\graphics\text.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/String.hpp>
+	<string>
+	<vector>
+
+1398280367 c:\users\tyler\documents\debug\include\rendering\texturemanager.h
+	<unordered_map>
+	<SFML/Graphics.hpp>
+	<iostream>
+	<exception>
+
+1398280367 c:\users\tyler\documents\debug\include\components\positional\worldpositioncomponent.h
+	"Components/ComponentBase.h"
+	<SFML/System/Vector2.hpp>
+
+1398280367 c:\users\tyler\documents\debug\include\components\input\inputcomponent.h
+	<SFML/System/Time.hpp>
+	"Components/ComponentBase.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\movement\movementcomponent.h
+	"Components/ComponentBase.h"
+	<string>
+
+1398280367 c:\users\tyler\documents\debug\include\components\physics\physicscomponent.h
+	"Components/ComponentBase.h"
+	<Box2D/Box2D.h>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\box2d\box2d.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Common/b2Draw.h>
+	<Box2D/Common/b2Timer.h>
+	<Box2D/Collision/Shapes/b2CircleShape.h>
+	<Box2D/Collision/Shapes/b2EdgeShape.h>
+	<Box2D/Collision/Shapes/b2ChainShape.h>
+	<Box2D/Collision/Shapes/b2PolygonShape.h>
+	<Box2D/Collision/b2BroadPhase.h>
+	<Box2D/Collision/b2Distance.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<Box2D/Collision/b2TimeOfImpact.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2Fixture.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+	<Box2D/Dynamics/b2World.h>
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
+	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
+	<Box2D/Dynamics/Joints/b2GearJoint.h>
+	<Box2D/Dynamics/Joints/b2MotorJoint.h>
+	<Box2D/Dynamics/Joints/b2MouseJoint.h>
+	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
+	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
+	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
+	<Box2D/Dynamics/Joints/b2RopeJoint.h>
+	<Box2D/Dynamics/Joints/b2WeldJoint.h>
+	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\common\b2settings.h
+	<stddef.h>
+	<assert.h>
+	<float.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\common\b2draw.h
+	<Box2D/Common/b2Math.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\common\b2math.h
+	<Box2D/Common/b2Settings.h>
+	<math.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\common\b2timer.h
+	<Box2D/Common/b2Settings.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\shapes\b2circleshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\shapes\b2shape.h
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\common\b2blockallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\b2collision.h
+	<Box2D/Common/b2Math.h>
+	<limits.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\shapes\b2edgeshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\shapes\b2chainshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\shapes\b2polygonshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\b2broadphase.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<algorithm>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\b2dynamictree.h
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Common/b2GrowableStack.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\common\b2growablestack.h
+	<Box2D/Common/b2Settings.h>
+	<memory.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\b2distance.h
+	<Box2D/Common/b2Math.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\collision\b2timeofimpact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Distance.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\b2body.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<memory>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\b2fixture.h
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\b2worldcallbacks.h
+	<Box2D/Common/b2Settings.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\b2timestep.h
+	<Box2D/Common/b2Math.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\b2world.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2StackAllocator.h>
+	<Box2D/Dynamics/b2ContactManager.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\common\b2stackallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\b2contactmanager.h
+	<Box2D/Collision/b2BroadPhase.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\contacts\b2contact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<Box2D/Dynamics/b2Fixture.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2distancejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2joint.h
+	<Box2D/Common/b2Math.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2frictionjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2gearjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2motorjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2mousejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2prismaticjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2pulleyjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2revolutejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2ropejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2weldjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2wheeljoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1398280367 c:\users\tyler\documents\debug\include\components\identification\idcomponent.h
+	"Components/ComponentBase.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\target\targetcomponent.h
+	"Components/ComponentBase.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\script\scriptcomponent.h
+	"Components/ComponentBase.h"
+
+1398280367 c:\users\tyler\documents\debug\include\rendering\renderengine.h
+	"Components/Render/RenderComponent.h"
+	"Options.h"
+	<SFML/Graphics.hpp>
+	<deque>
+	<map>
+
+1398280367 c:\users\tyler\documents\debug\include\options.h
+	<string>
+	<iostream>
+	<fstream>
+	<unordered_map>
+	<sstream>
+	<algorithm>
+	<stdexcept>
+
+1398792582 source:c:\users\tyler\documents\debug\src\components\componentmanager.cpp
+	"Components/ComponentManager.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\identification\idcomponent.cpp
+	"IDComponent.h"
+	"Components/ComponentManager.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\input\inputcomponent.cpp
+	"Components/Input/InputComponent.h"
+	"Components/ComponentManager.h"
+	"Rendering/RenderEngine.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\input\keyboardinput.cpp
+	"KeyboardInput.h"
+	<cmath>
+	<SFML/Graphics.hpp>
+	"Rendering/RenderEngine.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/ComponentManager.h"
+	"InputEngine.h"
+	"GameEngine.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\input\keyboardinput.h
+	"Components/Input/InputComponent.h"
+
+1398280367 c:\users\tyler\documents\debug\include\inputengine.h
+	<SFML/Graphics.hpp>
+
+1398280367 c:\users\tyler\documents\debug\include\gameengine.h
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\movement\braveadventurermovement.cpp
+	"Components/Movement/BraveAdventurerMovement.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/ComponentManager.h"
+	"Components/Input/InputComponent.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\movement\braveadventurermovement.h
+	"Components/Movement/MovementComponent.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\movement\movementcomponent.cpp
+	"Components/Movement/MovementComponent.h"
+	"Components/ComponentManager.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\physics\boundaryphysics.cpp
+	"Components/Physics/BoundaryPhysics.h"
+	"Components/ComponentManager.h"
+	"physics/PhysicsEngine.h"
+	"GameEngine.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\physics\boundaryphysics.h
+	"Components\Physics\PhysicsComponent.h"
+	"Options.h"
+
+1398280367 c:\users\tyler\documents\debug\include\physics\physicsengine.h
+	<SFML/System/Time.hpp>
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
+	<Box2D/Box2D.h>
+	"Components/Render/DebugDraw.h"
+	<deque>
+
+1398280367 c:\users\tyler\documents\debug\include\components\render\debugdraw.h
+	<Box2D/Box2D.h>
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Components/Render/RenderComponent.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\physics\physicscomponent.cpp
+	"Components/Physics/PhysicsComponent.h"
+	"Options.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/ComponentManager.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\physics\polygonphysics.cpp
+	"Components/Physics/PolygonPhysics.h"
+	"Components/ComponentManager.h"
+	"physics/PhysicsEngine.h"
+	"GameEngine.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\physics\polygonphysics.h
+	"Components\Physics\PhysicsComponent.h"
+	"Options.h"
+	<vector>
+	<SFML/Graphics.hpp>
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\physics\polylinephysics.cpp
+	"Components/Physics/PolylinePhysics.h"
+	"Components/ComponentManager.h"
+	"physics/PhysicsEngine.h"
+	"GameEngine.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\physics\polylinephysics.h
+	"Components\Physics\PhysicsComponent.h"
+	"Options.h"
+	<vector>
+	<SFML/Graphics.hpp>
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\physics\simpleboxphysics.cpp
+	"Components/Physics/SimpleBoxPhysics.h"
+	"Components/ComponentManager.h"
+	"Options.h"
+	"physics/PhysicsEngine.h"
+	"GameEngine.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\physics\simpleboxphysics.h
+	"Components/ComponentManager.h"
+	"Components\Physics\PhysicsComponent.h"
+	"Components\Identification\IDComponent.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\positional\worldpositioncomponent.cpp
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/ComponentManager.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Options.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\render\animatedcomponent.cpp
+	"Components/Render/AnimatedComponent.h"
+	"Components/ComponentManager.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\render\animatedcomponent.h
+	"Components/Render/RenderComponent.h"
+	"Rendering/AnimatedSprite.h"
+
+1398280367 c:\users\tyler\documents\debug\include\rendering\animatedsprite.h
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/System/Vector2.hpp>
+	"Rendering/Animation.h"
+	<unordered_map>
+	"Rendering/RenderEngine.h"
+
+1398280367 c:\users\tyler\documents\debug\include\rendering\animation.h
+	<vector>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/System/Time.hpp>
+	<stdexcept>
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\render\braveadventureranimatedcomponent.cpp
+	"Components/Render/BraveAdventurerAnimatedComponent.h"
+	"Components/Movement/MovementComponent.h"
+	"Components/ComponentManager.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\render\braveadventureranimatedcomponent.h
+	"Components/Render/AnimatedComponent.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\render\debugdraw.cpp
+	"Components/Render/DebugDraw.h"
+	"Options.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\render\rendercomponent.cpp
+	"Components/Render/RenderComponent.h"
+	"Components/ComponentManager.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\components\render\staticspritecomponent.cpp
+	"Components/Render/StaticSpriteComponent.h"
+	"Components/ComponentManager.h"
+	"Rendering/RenderEngine.h"
+	<stdexcept>
+
+1398280367 c:\users\tyler\documents\debug\include\components\render\staticspritecomponent.h
+	"Components/Render/RenderComponent.h"
+	"SFML/Graphics.hpp"
+	<string>
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\scrpt\camera.cpp
+	"Components/Script/Camera.h"
+	"Components/ComponentManager.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Rendering/RenderEngine.h"
+
+1398280367 c:\users\tyler\documents\debug\include\components\script\camera.h
+	"Components/Script/ScriptComponent.h"
+	"Options.h"
+	<SFML/Graphics.hpp>
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\scrpt\scriptcomponent.cpp
+	"ScriptComponent.h"
+	"Components/ComponentManager.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\components\target\targetcomponent.cpp
+	"TargetComponent.h"
+	"Components/ComponentManager.h"
+
+1398796765 source:c:\users\tyler\documents\debug\src\gameengine.cpp
+	"GameEngine.h"
+	"Components/Render/AnimatedComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/Render/BraveAdventurerAnimatedComponent.h"
+	"Components/Movement/BraveAdventurerMovement.h"
+	"Components/Physics/SimpleBoxPhysics.h"
+	"Components/Physics/BoundaryPhysics.h"
+	"Components/Render/StaticSpriteComponent.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Script/Camera.h"
+	"LevelLoader.h"
+	"Rendering/SpriteManager.h"
+	"Rendering/RenderEngine.h"
+	"Components/ComponentManager.h"
+	"physics/PhysicsEngine.h"
+	"InputEngine.h"
+	<SFML/Audio.hpp>
+
+1398280367 c:\users\tyler\documents\debug\include\levelloader.h
+	<string>
+	<map>
+	<SFML/Graphics.hpp>
+
+1398280367 c:\users\tyler\documents\debug\include\rendering\spritemanager.h
+	"Rendering/AnimatedSprite.h"
+	<string>
+	<unordered_map>
+	"rapidxml.hpp"
+	<fstream>
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Rendering/TextureManager.h"
+	<stdexcept>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\rapidxml.hpp
+	<cstdlib>
+	<cassert>
+	<new>
+	<exception>
+
+1398280920 source:c:\users\tyler\documents\debug\src\inputengine.cpp
+	"InputEngine.h"
+	"GameEngine.h"
+	"Rendering/RenderEngine.h"
+
+1398792504 source:c:\users\tyler\documents\debug\src\levelloader.cpp
+	"LevelLoader.h"
+	<rapidxml.hpp>
+	<iostream>
+	<stdexcept>
+	"Components/Physics/SimpleBoxPhysics.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/Render/StaticSpriteComponent.h"
+	"Rendering/RenderEngine.h"
+	"Components/Identification/IDComponent.h"
+	"Components/Script/Camera.h"
+	"Components/Target/TargetComponent.h"
+	"Components/Render/BraveAdventurerAnimatedComponent.h"
+	"Components/Movement/BraveAdventurerMovement.h"
+	"Rendering/SpriteManager.h"
+	"Components/Physics/BoundaryPhysics.h"
+	"Components/Input/KeyboardInput.h"
+	"Components/Physics/PolygonPhysics.h"
+	"Components/Physics/PolylinePhysics.h"
+	"Components/Audio/AudioComponent.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\main.cpp
+	"GameEngine.h"
+	<exception>
+	<iostream>
+
+1398280368 source:c:\users\tyler\documents\debug\src\options.cpp
+	"Options.h"
+
+1398280367 source:c:\users\tyler\documents\debug\src\physics\physicsengine.cpp
+	"Physics/PhysicsEngine.h"
+	"Components/Physics/PhysicsComponent.h"
+	<iostream>
+
+1398280368 source:c:\users\tyler\documents\debug\src\rendering\animatedsprite.cpp
+	"Rendering/AnimatedSprite.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\rendering\animation.cpp
+	"Rendering/Animation.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\rendering\renderengine.cpp
+	"Rendering/RenderEngine.h"
+	"physics/PhysicsEngine.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\rendering\spritemanager.cpp
+	"Rendering/SpriteManager.h"
+
+1398280368 source:c:\users\tyler\documents\debug\src\rendering\texturemanager.cpp
+	"Rendering/TextureManager.h"
+
+1398282572 source:c:\users\tyler\documents\debug\src\richtext.cpp
+	"RichText.hpp"
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/System/String.hpp>
+
+1398280367 c:\users\tyler\documents\debug\include\richtext.hpp
+	<vector>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/System/Vector2.hpp>
+
+1398795830 source:c:\users\tyler\documents\debug\src\components\audio\audiocomponent.cpp
+	"Components/Audio/AudioComponent.h"
+	<SFML/Audio.hpp>
+	"Components/ComponentManager.h"
+	"InputEngine.h"
+	"GameEngine.h"
+	<string>
+
+1398798186 c:\users\tyler\documents\debug\include\components\audio\audiocomponent.h
+	<SFML/Audio.hpp>
+	"Components/ComponentBase.h"
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Thread.hpp>
+	<vector>
+

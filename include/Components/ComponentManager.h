@@ -10,6 +10,7 @@ class PhysicsComponent;
 class IDComponent;
 class ScriptComponent;
 class TargetComponent;
+class AudioComponent;
 
 #include "Components/ComponentSystem.h"
 
@@ -29,6 +30,7 @@ class ComponentManager
         ComponentSystem<IDComponent*> idSym;
         ComponentSystem<TargetComponent*> targetSym;
         ComponentSystem<ScriptComponent*> scriptSym;
+        ComponentSystem<AudioComponent*> audioSym;
         static unsigned int getNewID();
 
         static ComponentManager& getInst() {
