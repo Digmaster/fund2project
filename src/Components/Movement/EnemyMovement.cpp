@@ -13,20 +13,23 @@ EnemyMovement::EnemyMovement() :EnemyMovement(0)
 
 EnemyMovement::EnemyMovement(unsigned int ID) : MovementComponent(ID) {
     currState = rightWalk;
+    nextState = rightWalk;
 }
 
 void EnemyMovement::go(sf::Time frameTime) {
+    walkTimer+=frameTime;
     PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
     InputComponent* input = compMan->inputSym.getComponent(getID());
-    int walkSpeed = 32;
-    int attackSpeed = 64;
-    int maxAirSpeed = 15;
+    int walkSpeed = 5;
+    int attackSpeed = 5;
+    int maxAirSpeed = 2;
     //int maxLadderSpeed = 5;
     int maxJumpSpeed = 10;
     //int climbSpeed = 5;
     sf::Time maxJumpTime = sf::milliseconds(25); //.25 seconds of jump
-    sf::Time maxWalkTime = sf::seconds(5); //5 seconds of walk in either direction
+    sf::Time maxWalkTime = sf::seconds(1); //5 seconds of walk in either direction
+    std::cout << currState << std::endl;
     if(physics!=NULL) { //Find in physics states
         b2Body* body = physics->getBody();
         b2Vec2 velocity = body->GetLinearVelocity();
@@ -53,7 +56,7 @@ void EnemyMovement::go(sf::Time frameTime) {
         sf::Vector2f enePos = compMan->posSym.getComponent(getID())->getPosition();
         sf::Vector2f advPos = compMan->posSym.getComponent(compMan->name2ID("MainChar"))->getPosition();
         int distance = abs(advPos.x - enePos.x);
-        int maxAttackDistance = 320;
+        int maxAttackDistance = 64;
 
         switch(currState) {
         case MoveState::rightWalk:
@@ -62,13 +65,17 @@ void EnemyMovement::go(sf::Time frameTime) {
                 nextState = MoveState::attack;
             else if ((walkTimer >= maxWalkTime) || (physics->onRight()))
                 nextState = MoveState::leftWalk;
+            if(!physics->onGround())
+                nextState = MoveState::inAir;
             break;
         case MoveState::leftWalk:
             body->SetLinearVelocity(b2Vec2(-walkSpeed,body->GetLinearVelocity().y));
             if(distance <= maxAttackDistance)
                 nextState = MoveState::attack;
-            else if ((walkTimer <= maxWalkTime) || (physics->onLeft()))
+            else if ((walkTimer >= maxWalkTime) || (physics->onLeft()))
                 nextState = MoveState::rightWalk;
+            if(!physics->onGround())
+                nextState = MoveState::inAir;
             break;
         case MoveState::attack:
             if (advPos.x > enePos.x)
@@ -79,8 +86,10 @@ void EnemyMovement::go(sf::Time frameTime) {
                 nextState = MoveState::rightWalk;
             else if ((distance > maxAttackDistance) && (advPos.x < enePos.x))
                 nextState = MoveState::leftWalk;
-            if (advPos.y > enePos.y)
+            if (advPos.y < enePos.y)
                 nextState = MoveState::jumping;
+            if(!physics->onGround())
+                nextState = MoveState::inAir;
             break;
         case MoveState::inAir:
             if(physics->onGround()) //Landed

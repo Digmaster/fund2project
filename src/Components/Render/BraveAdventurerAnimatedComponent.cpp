@@ -6,10 +6,11 @@
 BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : BraveAdventurerAnimatedComponent(0)
 {
     currDir = 1;
+
 }
 
 BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent(unsigned int id) : AnimatedComponent(ID) {
-
+    setID(id);
 }
 
 void BraveAdventurerAnimatedComponent::go(sf::Time fps) {

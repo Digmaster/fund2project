@@ -607,11 +607,13 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             new AudioComponent(id);
                         }
                         else if(mobType=="enemy") {
-                                //for later
-                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
+                            //BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
                             SpriteManager spriteMan;
 
-                            testSprite->setSprite(spriteMan.getSprite("Samus"));
+                            //testSprite->setSprite(spriteMan.getSprite("Samus"));
+
+                            new StaticSpriteComponent(sprites[objGid], id);
+
 
                             //KeyboardInput* testInput = new KeyboardInput(id);
 

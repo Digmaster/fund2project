@@ -14,7 +14,7 @@ class AnimatedComponent : public RenderComponent
         /** Default destructor */
         virtual ~AnimatedComponent();
         virtual void go(sf::Time);
-        void setSprite(AnimatedSprite input) {sprite = input;}
+        void setSprite(AnimatedSprite input);
         AnimatedSprite sprite;
         sf::Drawable* getDrawable();
     protected:

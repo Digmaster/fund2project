@@ -13,7 +13,7 @@ AnimatedComponent::~AnimatedComponent()
 
 void AnimatedComponent::go(sf::Time fps) {
     sprite.update(fps);
-    auto posCom = ComponentManager::getInst().posSym.getComponent(getID());
+    auto posCom = compMan->posSym.getComponent(getID());
     if(posCom!=NULL) {
         sf::Vector2f position = posCom->getPosition();
         sprite.setPosition(position);
@@ -21,6 +21,7 @@ void AnimatedComponent::go(sf::Time fps) {
             throw logic_error("Render engine not initialized yet");
         }
         else {
+            cout << getID() << endl;
             rendEng->addSprite(&sprite, posCom->getLayer());
         }
     }
@@ -32,4 +33,8 @@ void AnimatedComponent::go(sf::Time fps) {
 
 sf::Drawable* AnimatedComponent::getDrawable() {
     return &sprite;
+}
+
+void AnimatedComponent::setSprite(AnimatedSprite input) {
+    sprite = AnimatedSprite(input);
 }

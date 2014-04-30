@@ -865,7 +865,7 @@
 1394234871 source:c:\users\thomas luppi\documents\fund2project\src\texturemanager.cpp
 	"TextureManager.h"
 
-1398802463 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
+1398881284 source:c:\users\thomas luppi\documents\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -987,7 +987,7 @@
 1394999258 c:\users\thomas luppi\documents\fund2project\include\braveadventureranimatedcomponent.h
 	"AnimatedComponent.h"
 
-1396828224 c:\users\thomas luppi\documents\fund2project\include\rendering\renderengine.h
+1398803942 c:\users\thomas luppi\documents\fund2project\include\rendering\renderengine.h
 	"Components/Render/RenderComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
@@ -1019,7 +1019,7 @@
 	<SFML/System/Time.hpp>
 	"Components/ComponentBase.h"
 
-1398800378 c:\users\thomas luppi\documents\fund2project\include\components\movement\movementcomponent.h
+1398880596 c:\users\thomas luppi\documents\fund2project\include\components\movement\movementcomponent.h
 	"Components/ComponentBase.h"
 	<string>
 
@@ -1092,11 +1092,11 @@
 	"Components/Physics/PhysicsComponent.h"
 	"Options.h"
 
-1395701450 source:c:\users\thomas luppi\documents\fund2project\src\components\render\animatedcomponent.cpp
+1398882239 source:c:\users\thomas luppi\documents\fund2project\src\components\render\animatedcomponent.cpp
 	"Components/Render/AnimatedComponent.h"
 	"Components/ComponentManager.h"
 
-1398801761 c:\users\thomas luppi\documents\fund2project\include\components\render\animatedcomponent.h
+1398881535 c:\users\thomas luppi\documents\fund2project\include\components\render\animatedcomponent.h
 	"Components/Render/RenderComponent.h"
 	"Rendering/AnimatedSprite.h"
 
@@ -1117,12 +1117,12 @@
 	<SFML/System/Time.hpp>
 	<stdexcept>
 
-1397201390 source:c:\users\thomas luppi\documents\fund2project\src\components\render\braveadventureranimatedcomponent.cpp
+1398881243 source:c:\users\thomas luppi\documents\fund2project\src\components\render\braveadventureranimatedcomponent.cpp
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
 
-1398801736 c:\users\thomas luppi\documents\fund2project\include\components\render\braveadventureranimatedcomponent.h
+1398880596 c:\users\thomas luppi\documents\fund2project\include\components\render\braveadventureranimatedcomponent.h
 	"Components/Render/AnimatedComponent.h"
 
 1395733356 source:c:\users\thomas luppi\documents\fund2project\src\components\render\rendercomponent.cpp
@@ -1152,7 +1152,7 @@
 1395013025 source:c:\users\thomas luppi\documents\fund2project\src\rendering\animation.cpp
 	"Rendering/Animation.h"
 
-1396600795 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
+1398882626 source:c:\users\thomas luppi\documents\fund2project\src\rendering\renderengine.cpp
 	"Rendering/RenderEngine.h"
 	"physics/PhysicsEngine.h"
 
@@ -1351,7 +1351,7 @@
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 
-1398803103 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
+1398803630 c:\users\thomas luppi\documents\fund2project\include\components\physics\simpleboxphysics.h
 	"Components/ComponentManager.h"
 	"Components\Physics\PhysicsComponent.h"
 	"Components\Identification\IDComponent.h"
@@ -3054,7 +3054,7 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1398802463 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
+1398882828 source:c:\users\thomas luppi\documents\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -3074,6 +3074,7 @@
 	"Components/Physics/PolygonPhysics.h"
 	"Components/Physics/PolylinePhysics.h"
 	"Components/Audio/AudioComponent.h"
+	"Components/Movement/EnemyMovement.h"
 
 1395700059 source:c:\users\thomas luppi\documents\fund2project\src\components\physics\simplestaticboxphysics.cpp
 	"Components/Physics/SimpleStaticBoxPhysics.h"
@@ -5364,15 +5365,25 @@
 	<SFML/System/Thread.hpp>
 	<vector>
 
-1398802463 c:\users\thomas luppi\documents\fund2project\include\components\audio\audiocomponent.h
+1398803572 c:\users\thomas luppi\documents\fund2project\include\components\audio\audiocomponent.h
 	<SFML/Audio.hpp>
 	"Components/ComponentBase.h"
 
-1398802463 source:c:\users\thomas luppi\documents\fund2project\src\components\audio\audiocomponent.cpp
+1398880597 source:c:\users\thomas luppi\documents\fund2project\src\components\audio\audiocomponent.cpp
 	"Components/Audio/AudioComponent.h"
 	<SFML/Audio.hpp>
 	"Components/ComponentManager.h"
 	"InputEngine.h"
 	"GameEngine.h"
 	<string>
+
+1398880596 c:\users\thomas luppi\documents\fund2project\include\components\movement\enemymovement.h
+	"Components/Movement/MovementComponent.h"
+
+1398883691 source:c:\users\thomas luppi\documents\fund2project\src\components\movement\enemymovement.cpp
+	"Components/Movement/EnemyMovement.h"
+	"Components/Physics/PhysicsComponent.h"
+	"Components/Positional/WorldPositionComponent.h"
+	"Components/ComponentManager.h"
+	"Components/Input/InputComponent.h"
 

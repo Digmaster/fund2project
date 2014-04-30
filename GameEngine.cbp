@@ -70,6 +70,7 @@
 		<Linker>
 			<Add directory="Dependancies/lib" />
 		</Linker>
+		<Unit filename="include/Components/Audio/AudioComponent.h" />
 		<Unit filename="include/Components/ComponentBase.h" />
 		<Unit filename="include/Components/ComponentManager.h" />
 		<Unit filename="include/Components/ComponentSystem.h" />
@@ -103,13 +104,14 @@
 		<Unit filename="include/Rendering/SpriteManager.h" />
 		<Unit filename="include/Rendering/TextureManager.h" />
 		<Unit filename="include/physics/PhysicsEngine.h" />
+		<Unit filename="src/Components/Audio/AudioComponent.cpp" />
 		<Unit filename="src/Components/ComponentBase.cpp" />
 		<Unit filename="src/Components/ComponentManager.cpp" />
 		<Unit filename="src/Components/Identification/IDComponent.cpp" />
 		<Unit filename="src/Components/Input/InputComponent.cpp" />
 		<Unit filename="src/Components/Input/KeyboardInput.cpp" />
 		<Unit filename="src/Components/Movement/BraveAdventurerMovement.cpp" />
-		<Unit filename="src/Components/Movement/EnemyComponent.cpp" />
+		<Unit filename="src/Components/Movement/EnemyMovement.cpp" />
 		<Unit filename="src/Components/Movement/MovementComponent.cpp" />
 		<Unit filename="src/Components/Physics/BoundaryPhysics.cpp" />
 		<Unit filename="src/Components/Physics/PhysicsComponent.cpp" />
@@ -134,7 +136,6 @@
 		<Unit filename="src/Rendering/RenderEngine.cpp" />
 		<Unit filename="src/Rendering/SpriteManager.cpp" />
 		<Unit filename="src/Rendering/TextureManager.cpp" />
-		<Unit filename="src/RichText.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/physics/PhysicsEngine.cpp" />
 		<Extensions>

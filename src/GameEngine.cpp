@@ -50,7 +50,7 @@ void GameEngine::gameLoop() {
     //spriteMan.loadSpriteFile("assets/art/testSpriteSheet.sprites");y
 
     Level testLevel;
-    testLevel.loadLevel("longtest1.tmx", rendEng);
+    testLevel.loadLevel("longtest.tmx", rendEng);
 
     //play background music
     sf::Music music;

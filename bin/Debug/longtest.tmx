@@ -8045,14 +8045,6 @@
    <tile gid="0"/>
   </data>
  </layer>
- <objectgroup name="uu" width="200" height="40">
-  <object type="clutter" gid="1" x="296" y="321"/>
-  <object type="mob" gid="241" x="752" y="340">
-   <properties>
-    <property name="type" value="enemy"/>
-   </properties>
-  </object>
- </objectgroup>
  <layer name="Tile Layer 3" width="200" height="40">
   <data>
    <tile gid="0"/>
@@ -32071,6 +32063,19 @@
    <tile gid="0"/>
   </data>
  </layer>
+ <objectgroup name="uu" width="200" height="40">
+  <object type="clutter" gid="1" x="296" y="321"/>
+  <object name="teeeest" type="mob" gid="241" x="736" y="352">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object name="teeeest" type="mob" gid="241" x="960" y="224">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="weee" width="200" height="40">
   <object name="box" type="clutter" gid="1" x="850" y="308"/>
   <object type="clutter" gid="1" x="894" y="350"/>
@@ -32103,6 +32108,11 @@
   </object>
   <object type="sensor" x="1152" y="224">
    <polygon points="0,0 -160,160 0,160"/>
+  </object>
+  <object name="teeeest" type="mob" gid="241" x="1056" y="224">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="GameLogic" width="200" height="40">
