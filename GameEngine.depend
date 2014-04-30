@@ -4431,11 +4431,11 @@
 
 1398280354 c:\users\tyler\documents\debug\dependancies\include\sfml\config.hpp
 
-1398792630 c:\users\tyler\documents\debug\include\components\componentmanager.h
+1398818244 c:\users\tyler\documents\debug\include\components\componentmanager.h
 	<map>
 	"Components/ComponentSystem.h"
 
-1398792630 c:\users\tyler\documents\debug\include\components\componentsystem.h
+1398818243 c:\users\tyler\documents\debug\include\components\componentsystem.h
 	<SFML/System/Time.hpp>
 	"Components/ComponentBase.h"
 	<cassert>
@@ -4450,7 +4450,7 @@
 	"Components/Script/ScriptComponent.h"
 	"Components/Audio/AudioComponent.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\render\rendercomponent.h
+1398818244 c:\users\tyler\documents\debug\include\components\render\rendercomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Time.hpp>
 	<SFML/Graphics.hpp>
@@ -4789,19 +4789,19 @@
 	<iostream>
 	<exception>
 
-1398280367 c:\users\tyler\documents\debug\include\components\positional\worldpositioncomponent.h
+1398818244 c:\users\tyler\documents\debug\include\components\positional\worldpositioncomponent.h
 	"Components/ComponentBase.h"
 	<SFML/System/Vector2.hpp>
 
-1398280367 c:\users\tyler\documents\debug\include\components\input\inputcomponent.h
+1398818244 c:\users\tyler\documents\debug\include\components\input\inputcomponent.h
 	<SFML/System/Time.hpp>
 	"Components/ComponentBase.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\movement\movementcomponent.h
+1398818245 c:\users\tyler\documents\debug\include\components\movement\movementcomponent.h
 	"Components/ComponentBase.h"
 	<string>
 
-1398280367 c:\users\tyler\documents\debug\include\components\physics\physicscomponent.h
+1398818244 c:\users\tyler\documents\debug\include\components\physics\physicscomponent.h
 	"Components/ComponentBase.h"
 	<Box2D/Box2D.h>
 
@@ -4967,16 +4967,16 @@
 1398280355 c:\users\tyler\documents\debug\dependancies\include\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1398280367 c:\users\tyler\documents\debug\include\components\identification\idcomponent.h
+1398818245 c:\users\tyler\documents\debug\include\components\identification\idcomponent.h
 	"Components/ComponentBase.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\target\targetcomponent.h
+1398818245 c:\users\tyler\documents\debug\include\components\target\targetcomponent.h
 	"Components/ComponentBase.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\script\scriptcomponent.h
+1398818245 c:\users\tyler\documents\debug\include\components\script\scriptcomponent.h
 	"Components/ComponentBase.h"
 
-1398280367 c:\users\tyler\documents\debug\include\rendering\renderengine.h
+1398818245 c:\users\tyler\documents\debug\include\rendering\renderengine.h
 	"Components/Render/RenderComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
@@ -5014,7 +5014,7 @@
 	"InputEngine.h"
 	"GameEngine.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\input\keyboardinput.h
+1398818244 c:\users\tyler\documents\debug\include\components\input\keyboardinput.h
 	"Components/Input/InputComponent.h"
 
 1398280367 c:\users\tyler\documents\debug\include\inputengine.h
@@ -5029,7 +5029,7 @@
 	"Components/ComponentManager.h"
 	"Components/Input/InputComponent.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\movement\braveadventurermovement.h
+1398818245 c:\users\tyler\documents\debug\include\components\movement\braveadventurermovement.h
 	"Components/Movement/MovementComponent.h"
 
 1398280368 source:c:\users\tyler\documents\debug\src\components\movement\movementcomponent.cpp
@@ -5042,7 +5042,7 @@
 	"physics/PhysicsEngine.h"
 	"GameEngine.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\physics\boundaryphysics.h
+1398818244 c:\users\tyler\documents\debug\include\components\physics\boundaryphysics.h
 	"Components\Physics\PhysicsComponent.h"
 	"Options.h"
 
@@ -5054,7 +5054,7 @@
 	"Components/Render/DebugDraw.h"
 	<deque>
 
-1398280367 c:\users\tyler\documents\debug\include\components\render\debugdraw.h
+1398818244 c:\users\tyler\documents\debug\include\components\render\debugdraw.h
 	<Box2D/Box2D.h>
 	<SFML/System.hpp>
 	<SFML/Graphics.hpp>
@@ -5085,7 +5085,7 @@
 	"physics/PhysicsEngine.h"
 	"GameEngine.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\physics\polylinephysics.h
+1398818244 c:\users\tyler\documents\debug\include\components\physics\polylinephysics.h
 	"Components\Physics\PhysicsComponent.h"
 	"Options.h"
 	<vector>
@@ -5098,7 +5098,7 @@
 	"physics/PhysicsEngine.h"
 	"GameEngine.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\physics\simpleboxphysics.h
+1398818244 c:\users\tyler\documents\debug\include\components\physics\simpleboxphysics.h
 	"Components/ComponentManager.h"
 	"Components\Physics\PhysicsComponent.h"
 	"Components\Identification\IDComponent.h"
@@ -5113,7 +5113,7 @@
 	"Components/Render/AnimatedComponent.h"
 	"Components/ComponentManager.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\render\animatedcomponent.h
+1398818244 c:\users\tyler\documents\debug\include\components\render\animatedcomponent.h
 	"Components/Render/RenderComponent.h"
 	"Rendering/AnimatedSprite.h"
 
@@ -5139,7 +5139,7 @@
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\render\braveadventureranimatedcomponent.h
+1398818244 c:\users\tyler\documents\debug\include\components\render\braveadventureranimatedcomponent.h
 	"Components/Render/AnimatedComponent.h"
 
 1398280367 source:c:\users\tyler\documents\debug\src\components\render\debugdraw.cpp
@@ -5156,7 +5156,7 @@
 	"Rendering/RenderEngine.h"
 	<stdexcept>
 
-1398280367 c:\users\tyler\documents\debug\include\components\render\staticspritecomponent.h
+1398818244 c:\users\tyler\documents\debug\include\components\render\staticspritecomponent.h
 	"Components/Render/RenderComponent.h"
 	"SFML/Graphics.hpp"
 	<string>
@@ -5168,7 +5168,7 @@
 	"Components/Positional/WorldPositionComponent.h"
 	"Rendering/RenderEngine.h"
 
-1398280367 c:\users\tyler\documents\debug\include\components\script\camera.h
+1398818245 c:\users\tyler\documents\debug\include\components\script\camera.h
 	"Components/Script/ScriptComponent.h"
 	"Options.h"
 	<SFML/Graphics.hpp>
@@ -5181,7 +5181,7 @@
 	"TargetComponent.h"
 	"Components/ComponentManager.h"
 
-1398796765 source:c:\users\tyler\documents\debug\src\gameengine.cpp
+1398798375 source:c:\users\tyler\documents\debug\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -5292,7 +5292,7 @@
 	<SFML/Graphics/Text.hpp>
 	<SFML/System/Vector2.hpp>
 
-1398795830 source:c:\users\tyler\documents\debug\src\components\audio\audiocomponent.cpp
+1398815490 source:c:\users\tyler\documents\debug\src\components\audio\audiocomponent.cpp
 	"Components/Audio/AudioComponent.h"
 	<SFML/Audio.hpp>
 	"Components/ComponentManager.h"
@@ -5300,7 +5300,7 @@
 	"GameEngine.h"
 	<string>
 
-1398798186 c:\users\tyler\documents\debug\include\components\audio\audiocomponent.h
+1398818243 c:\users\tyler\documents\debug\include\components\audio\audiocomponent.h
 	<SFML/Audio.hpp>
 	"Components/ComponentBase.h"
 

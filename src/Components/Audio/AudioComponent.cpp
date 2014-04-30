@@ -32,7 +32,7 @@ void AudioComponent::go(sf::Time){
 
     //Play sound for walking/running
     if(action->getState()==1 || action->getState()==2){
-        sound1.setVolume(30);
+        sound1.setVolume(50);
         //only play if sound not already playing
         if(sound1.getStatus()!=sf::SoundSource::Status::Playing)
             sound1.play();
