@@ -15,7 +15,7 @@ enum MoveState : int {
     ladderRight,
     ladderUp,
     ladderDown,
-    inAir,
+    inAir
 };
 
 ///Takes an input component and moves/modifies other components based on it

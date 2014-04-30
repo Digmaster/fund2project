@@ -3,9 +3,13 @@
 #include "Components/Movement/MovementComponent.h"
 #include "Components/ComponentManager.h"
 
-BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent()
+BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : BraveAdventurerAnimatedComponent(0)
 {
     currDir = 1;
+}
+
+BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent(unsigned int id) : AnimatedComponent(ID) {
+
 }
 
 void BraveAdventurerAnimatedComponent::go(sf::Time fps) {

@@ -8047,8 +8047,10 @@
  </layer>
  <objectgroup name="uu" width="200" height="40">
   <object type="clutter" gid="1" x="296" y="321"/>
-  <object name="sensor" x="544" y="576">
-   <polyline points="0,0 128,96 128,-224"/>
+  <object type="mob" gid="241" x="752" y="340">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
   </object>
  </objectgroup>
  <layer name="Tile Layer 3" width="200" height="40">

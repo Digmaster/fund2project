@@ -8,7 +8,7 @@ class BraveAdventurerAnimatedComponent : public AnimatedComponent
 {
     public:
         BraveAdventurerAnimatedComponent();
-        BraveAdventurerAnimatedComponent(unsigned int id) : AnimatedComponent(id) {}
+        BraveAdventurerAnimatedComponent(unsigned int id);
         void go(sf::Time fps);
     protected:
     private:

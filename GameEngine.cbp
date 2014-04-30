@@ -14,7 +14,6 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-Wmain" />
 					<Add option="-g" />
 					<Add option="-std=gnu++11" />
 					<Add directory="Dependancies/include" />
@@ -25,7 +24,6 @@
 					<Add directory="include/Components/Script" />
 					<Add directory="include/Components/Target" />
 					<Add directory="include/Components/Input" />
-					<Add directory="include/Level" />
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
@@ -44,8 +42,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-fexpensive-optimizations" />
-					<Add option="-O3" />
+					<Add option="-O2" />
 					<Add directory="include" />
 					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
 					<Add directory="include/Components/Physics" />
@@ -53,22 +50,19 @@
 					<Add directory="include/Components/Script" />
 					<Add directory="include/Components/Target" />
 					<Add directory="include/Components/Input" />
-					<Add directory="include/Level" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="libsfml-graphics-s" />
+					<Add library="libsfml-network-s" />
 					<Add library="libsfml-audio-s" />
+					<Add library="libsfml-main" />
+					<Add library="libsfml-graphics-s" />
 					<Add library="libsfml-window-s" />
 					<Add library="libsfml-system-s" />
-					<Add library="libBox2D.a" />
-					<Add library="libglui.a" />
-					<Add library="libfreeglut_static.a" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-DSFML_STATIC" />
 			<Add directory="Dependancies/include" />
@@ -83,6 +77,7 @@
 		<Unit filename="include/Components/Input/InputComponent.h" />
 		<Unit filename="include/Components/Input/KeyboardInput.h" />
 		<Unit filename="include/Components/Movement/BraveAdventurerMovement.h" />
+		<Unit filename="include/Components/Movement/EnemyMovement.h" />
 		<Unit filename="include/Components/Movement/MovementComponent.h" />
 		<Unit filename="include/Components/Physics/BoundaryPhysics.h" />
 		<Unit filename="include/Components/Physics/PhysicsComponent.h" />
@@ -114,6 +109,7 @@
 		<Unit filename="src/Components/Input/InputComponent.cpp" />
 		<Unit filename="src/Components/Input/KeyboardInput.cpp" />
 		<Unit filename="src/Components/Movement/BraveAdventurerMovement.cpp" />
+		<Unit filename="src/Components/Movement/EnemyComponent.cpp" />
 		<Unit filename="src/Components/Movement/MovementComponent.cpp" />
 		<Unit filename="src/Components/Physics/BoundaryPhysics.cpp" />
 		<Unit filename="src/Components/Physics/PhysicsComponent.cpp" />
