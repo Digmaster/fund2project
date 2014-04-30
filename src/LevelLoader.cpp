@@ -19,7 +19,7 @@
 #include "Components/Physics/PolygonPhysics.h"
 #include "Components/Physics/PolylinePhysics.h"
 #include "Components/Audio/AudioComponent.h"
-
+#include "Components/Movement/EnemyMovement.h"
 
 using namespace std;
 using namespace sf;
@@ -598,7 +598,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             SpriteManager spriteMan;
 
                             testSprite->setSprite(spriteMan.getSprite("Samus"));
-                            testSprite->sprite.setAnimation("WalkUp");
 
                             new KeyboardInput(id);
 
@@ -606,6 +605,19 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
                             new AudioComponent(id);
+                        }
+                        else if(mobType=="enemy") {
+                                //for later
+                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
+                            SpriteManager spriteMan;
+
+                            testSprite->setSprite(spriteMan.getSprite("Samus"));
+
+                            //KeyboardInput* testInput = new KeyboardInput(id);
+
+                            EnemyMovement* testMovement = new EnemyMovement(id);
+
+                            SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
                         }
                     }
                     else
