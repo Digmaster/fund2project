@@ -31,6 +31,10 @@
  <tileset firstgid="263" name="shaq" tilewidth="45" tileheight="32">
   <image source="assets/art/shaq.png" trans="b3ff9b" width="70" height="100"/>
  </tileset>
+ <tileset firstgid="266" source="Shaq1.tsx"/>
+ <tileset firstgid="267" name="shack" tilewidth="70" tileheight="100">
+  <image source="assets/art/shaq.png" width="70" height="100"/>
+ </tileset>
  <imagelayer name="oeou" width="200" height="40">
   <image source="assets/art/0f10d_Pattern_Seamless_4718496223_5847f34c28.jpg"/>
   <properties>
@@ -32110,6 +32114,26 @@
    <polygon points="0,0 -160,160 0,160"/>
   </object>
   <object name="teeeest" type="mob" gid="241" x="1056" y="224">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object name="sd" type="mob" gid="230" x="354" y="176">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object name="shaq" type="mob" gid="267" x="521" y="894">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object name="shaq" type="mob" gid="267" x="167" y="870">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object name="shaq" type="mob" gid="267" x="413" y="1090">
    <properties>
     <property name="type" value="enemy"/>
    </properties>

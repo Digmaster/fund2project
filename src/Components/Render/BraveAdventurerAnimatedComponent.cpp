@@ -17,6 +17,7 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
     AnimatedComponent::go(fps);
     MovementComponent* movement = ComponentManager::getInst().moveSym.getComponent(getID());
     InputComponent* input = ComponentManager::getInst().inputSym.getComponent(getID());
+    StatsComponent* statsComp = ComponentManager::getInst().statSym.getComponent(getID());
     if(movement!=NULL && input!=NULL) {
         if(movement->getState()==MoveState::onGround) {
             if(input->fireDir < 90 && input->fireDir > -90)
@@ -47,7 +48,6 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
             sprite.setAnimation("ClimbUp");
         if(movement->getState()==MoveState::ladderDown)
             sprite.setAnimation("ClimbDown");
-
         if(movement->getState()==MoveState::jumping) {
             if(input->walkLeft)
                 sprite.setAnimation("JumpLeft");
@@ -55,5 +55,10 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
                 sprite.setAnimation("JumpRight");
         }
         sprite.play();
+    }
+    if(statsComp){
+        if(statsComp->isDead()==true){
+            sprite.setAnimation("Death");\
+        }
     }
 }

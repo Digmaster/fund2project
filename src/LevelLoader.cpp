@@ -594,6 +594,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 else if(type=="mob") { //any sort of enemy, player, etc. Has everything basically
                     if (objProperties.find("type") != objProperties.end()) { //Adds a target, if needed
                         string mobType = objProperties["type"];
+                        string mobName = objProperties["name"];
+                        std::cout<<mobType<<std::endl;
                         new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
                         if(mobType=="Samus") {
                             BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
@@ -611,6 +613,23 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             new MainCharScript(id);
                         }
                         else if(mobType=="enemy") {
+                            if(objectName=="shaq"){
+                                //BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
+                                SpriteManager spriteMan;
+
+                                //testSprite->setSprite(spriteMan.getSprite("Samus"));
+
+                                new StaticSpriteComponent(sprites[objGid], id);
+
+
+                                //KeyboardInput* testInput = new KeyboardInput(id);
+
+                                EnemyMovement* testMovement = new EnemyMovement(id);
+
+                                SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(70,100),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+
+                            }else{
+
                             //BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
                             SpriteManager spriteMan;
 
@@ -624,6 +643,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             EnemyMovement* testMovement = new EnemyMovement(id);
 
                             SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+                            }
                         }
                     }
                     else

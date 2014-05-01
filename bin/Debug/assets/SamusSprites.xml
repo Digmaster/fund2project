@@ -74,7 +74,6 @@
 	    <Frame LC="631" TC="190" W="28" H="25"></Frame>
 	</Animation>
 	<Animation name="ClimbUp" FT="0.1">
-	    
 	    <Frame LC="8" TC="65" W="21" H="46"></Frame>
 	    <Frame LC="43" TC="65" W="24" H="46"></Frame>
 	    <Frame LC="79" TC="65" W="23" H="46"></Frame>
@@ -82,6 +81,21 @@
 	</Animation>
 	<Animation name="ClimbDown" FT="0.25">
 	    <Frame LC="482" TC="68" W="22" H="45"></Frame>
+	</Animation>
+	<Animation name="Death" FT="0.1">
+	    <Frame LC="781" TC="60" W="23" H="50"></Frame>
+	    <Frame LC="840" TC="121" W="23" H="47"></Frame>
+	    <Frame LC="825" TC="68" W="21" H="40"></Frame>
+	    <Frame LC="856" TC="64" W="21" H="44"></Frame>
+	    <Frame LC="892" TC="59" W="32" H="49"></Frame>
+	    <Frame LC="933" TC="47" W="39" H="62"></Frame>
+	    <Frame LC="1053" TC="47" W="72" H="56"></Frame>
+	    <Frame LC="917" TC="112" W="29" H="54"></Frame>	
+	    <Frame LC="959" TC="111" W="29" H="54"></Frame>	
+	</Animation>
+	<Animation name="Shooting" FT="0.25">
+	    <Frame LC="222" TC="24" W="6" H="8"></Frame>
+	    <Frame LC="235" TC="24" W="8" H="8"></Frame>
 	</Animation>
     </Sprite>
 </SpriteSheet>

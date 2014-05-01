@@ -17,7 +17,7 @@
 #include "InputEngine.h"
 #include <SFML/Audio.hpp>
 
-
+//Default constructor: creates engines the game is dependent on to run
 GameEngine::GameEngine(){
     rendEng = new RenderEngine;
     physEng = new PhysicsEngine;
@@ -31,33 +31,36 @@ GameEngine::~GameEngine()
     //dtor
 }
 
+//Loop through the game
 void GameEngine::go() {
     init();
     gameLoop();
 }
 
+//initialize
 void GameEngine::init() {
     //rendEng.init();
     physEng->setDebugDraw(rendEng->window);
 }
 
+//Main loop that the game goes though
 void GameEngine::gameLoop() {
     sf::Clock frameClock;
 
     SpriteManager spriteMan;
     //spriteMan.loadFile("assets/testSprite.xml");
     spriteMan.loadFile("assets/SamusSprites.xml");
-    //spriteMan.loadSpriteFile("assets/art/testSpriteSheet.sprites");y
+    //spriteMan.loadSpriteFile("assets/art/testSpriteSheet.sprites");
 
     Level testLevel;
     testLevel.loadLevel("longtest.tmx", rendEng);
 
     //play background music
-    sf::Music music;
-    music.openFromFile("assets/sound/Castlevania.ogg");
-    music.setVolume(50);
-    //music.setPlayingOffset(sf::seconds(15.5));
-    music.play();
+    sf::Music music; //Declare music object
+    music.openFromFile("assets/sound/stormeaglegenesis.wav"); //open this sound for music
+    music.setVolume(30); //Set volume of music
+    music.setLoop(true); //loop the music throughout
+    music.play(); //sound should now play throughout the game!
 
     while (rendEng->window.isOpen()) {
         sf::Time frameTime = frameClock.restart();

@@ -8,9 +8,12 @@
 class AudioComponent : public ComponentBase
 {
     public:
+        /*! Default Constructor */
         AudioComponent();
         AudioComponent(unsigned int ID);
+        /*! Default Destructor */
         virtual ~AudioComponent();
+        ///function runs until program end
         void go(sf::Time);
     protected:
     private:
