@@ -9,7 +9,7 @@ class MainCharScript : public ScriptComponent
     public:
         /** Default constructor */
         MainCharScript();
-        MainCharScript(unsigned int ID);
+        MainCharScript(unsigned int ID, bool endGame = false);
         /** Default destructor */
         virtual ~MainCharScript();
 
@@ -17,6 +17,7 @@ class MainCharScript : public ScriptComponent
     protected:
     private:
         sf::Time deathCountDown;
+        bool mainChar;
 };
 
 #endif // MAINCHARSCRIPT_H

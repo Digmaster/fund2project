@@ -14,8 +14,14 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
         physBodyDef.type = b2_staticBody;
     else
         physBodyDef.type = b2_dynamicBody;
+    if(opts & PhysicsOptions::isBullet)
+        physBodyDef.bullet = true;
     physBodyDef.position.Set(1,1);
-    physBodyDef.angle = 0;
+    WorldPositionComponent* position = compMan->posSym.getComponent(getID());
+    if(position)
+        physBodyDef.angle = position->getRotation();
+    else
+        physBodyDef.angle = 0;
     physBodyDef.fixedRotation = (opts & PhysicsOptions::notRotatable);
     physBody = eng->physEng->_world->CreateBody(&physBodyDef);
     if(opts & PhysicsOptions::roundedCorners) {
@@ -52,7 +58,6 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     boxFixtureDef.isSensor = (opts & PhysicsOptions::sensor);
     b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
     fixture->SetUserData( (void*)(getID()*10+0) );
-    WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
 
     if(opts & PhysicsOptions::sideSensors) { //All of the sensors!!!
         //foot

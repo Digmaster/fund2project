@@ -2,14 +2,16 @@
 
 #include "Components/Stats/StatsComponent.h"
 #include "Components/ComponentManager.h"
+#include "GameEngine.h"
 
 MainCharScript::MainCharScript() : MainCharScript(0)
 {
 
 }
 
-MainCharScript::MainCharScript(unsigned int ID) : ScriptComponent(ID)
+MainCharScript::MainCharScript(unsigned int ID, bool endGame) : ScriptComponent(ID)
 {
+    mainChar = endGame;
     deathCountDown = sf::seconds(5);
 }
 
@@ -34,7 +36,8 @@ void MainCharScript::go(sf::Time frameTime)
                 compMan->rendSym.removeComponent(getID());
                 compMan->statSym.removeComponent(getID());
                 compMan->targetSym.removeComponent(getID());
-                //compMan->scriptSym.removeComponent(getID()); //Oh god, remove self
+                compMan->scriptSym.removeComponent(getID()); //Oh god, remove self
+                if(mainChar) eng->playerDied();
             }
         }
     }

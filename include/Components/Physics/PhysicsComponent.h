@@ -42,7 +42,8 @@ enum PhysicsOptions{
     notRotatable = 0x02, //Not rotatable
     roundedCorners = 0x04, //Rounds the corners somewhat
     isStatic = 0x08, //Doesn't allow it to move
-    sideSensors = 0x16 //Adds side, top, and bottom sensors.
+    sideSensors = 0x16, //Adds side, top, and bottom sensors.
+    isBullet = 0x32
 };
 
 #endif // PHYSICSCOMPONENT_H

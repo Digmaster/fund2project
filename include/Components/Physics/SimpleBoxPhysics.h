@@ -17,7 +17,7 @@ class SimpleBoxPhysics : public PhysicsComponent
         SimpleBoxPhysics() : PhysicsComponent() {}
         ///Creates a simple box
         /** \param opts Flags are defined in physics component **/
-        SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts );
+        SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction = 10, uint32 opts=0);
         virtual ~SimpleBoxPhysics();
         void go(sf::Time);
         bool onGround();
@@ -47,7 +47,7 @@ class FootContactListener : public b2ContactListener
 {
 public:
     FootContactListener() : findID(0) {}
-    FootContactListener(unsigned int findID) : findID(findID), onGroundNum(0), lastTouch(-5) {}
+    FootContactListener(unsigned int findID) : findID(findID), onGroundNum(0), lastTouch(0) {}
     void BeginContact(b2Contact* contact);
     void EndContact(b2Contact* contact);
     bool onGround() {return onGroundNum>0;}

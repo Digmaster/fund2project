@@ -23,6 +23,7 @@ class GameEngine
         void pause() {paused=true;}
         //! Unpauses the game
         void unpause() {paused=false;}
+        void playerDied() {died = true;}
         //! Rendering Engine Pointer
         /*! This should be the only graphics engine instance created
             /see RenderEngine */
@@ -40,6 +41,7 @@ class GameEngine
         void init();
         void gameLoop();
         bool paused;
+        bool died;
 };
 
 #endif // GAMEENGINE_H

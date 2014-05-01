@@ -4,6 +4,10 @@
 #include "Components/ComponentManager.h"
 #include "Components/Input/InputComponent.h"
 
+#include "Components/Render/StaticSpriteComponent.h"
+#include "Components/Physics/SimpleBoxPhysics.h"
+#include "Components/Script/KillScript.h"
+
 using namespace std;
 
 BraveAdventurerMovement::BraveAdventurerMovement() :BraveAdventurerMovement(0)
@@ -18,6 +22,7 @@ BraveAdventurerMovement::BraveAdventurerMovement(unsigned int ID) : MovementComp
 void BraveAdventurerMovement::go(sf::Time frameTime) {
     PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
     InputComponent* input = compMan->inputSym.getComponent(getID());
+    WorldPositionComponent* position = compMan->posSym.getComponent(getID());
     int maxGroundSpeed = 20;
     int maxAirSpeed = 15;
     int maxLadderSpeed = 5;
@@ -52,6 +57,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 body->ApplyForceToCenter(b2Vec2(50.0f-velocity.x*50.0f/maxAirSpeed,0),true);
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
+            if(input->fire && fireTimer <= sf::seconds(0))
+                nextState = MoveState::attack;
             break;
         case MoveState::onGround:
             body->ApplyForceToCenter(b2Vec2(-25*velocity.x,0),true); //Slow x movement
@@ -65,6 +72,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 nextState = MoveState::jumping;
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
+            if(input->fire && fireTimer <= sf::seconds(0))
+                nextState = MoveState::attack;
             break;
         case MoveState::leftWalk:
             if(input->walkLeft && velocity.x > -maxGroundSpeed) //Contimue to walk left
@@ -77,6 +86,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 nextState = MoveState::jumping;
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
+            if(input->fire && fireTimer <= sf::seconds(0))
+                nextState = MoveState::attack;
             break;
         case MoveState::rightWalk:
             if(input->walkRight && velocity.x < maxGroundSpeed) //Contimue to walk left
@@ -89,6 +100,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 nextState = MoveState::jumping;
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
+            if(input->fire && fireTimer <= sf::seconds(0))
+                nextState = MoveState::attack;
             break;
         case MoveState::jumping:
             jumpTimer += frameTime;
@@ -153,8 +166,23 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
             if(input->jump) //jump off
                 nextState = MoveState::jumping;
             break;
+        case MoveState::attack:
+            if(fireTimer <= sf::seconds(0)) {
+                fireTimer = sf::seconds(.5);
+                unsigned int id = ComponentBase::getNewID();
+                sf::Vector2f pos = position->getPosition();
+                if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
+                else pos.x-=40;
+                new WorldPositionComponent(id, pos , position->getLayer(), (float)input->fireDir*0.0174532925);
+                new StaticSpriteComponent("error", sf::IntRect(0,0,10,4), id);
+                SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors);
+                phys->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
+                new KillScript(id, 34);
+             }
+             nextState = inAir;
         default:
             break;
         }
+        fireTimer-=frameTime;
     }
 }

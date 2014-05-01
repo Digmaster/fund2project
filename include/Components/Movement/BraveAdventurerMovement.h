@@ -14,6 +14,7 @@ class BraveAdventurerMovement : public MovementComponent
     protected:
     private:
         sf::Time jumpTimer;
+        sf::Time fireTimer;
 };
 
 #endif // BRAVEADVENTURERMOVEMENT_H
