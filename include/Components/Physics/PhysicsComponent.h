@@ -15,12 +15,16 @@ class PhysicsComponent : public ComponentBase
         virtual ~PhysicsComponent();
         ///Returns true if the physics object is touching something on the bottom
         virtual bool onGround() {return false;}
+        virtual unsigned int touchingGround() {return 0;}
         ///Returns true if the physics object is touching something on the letf
         virtual bool onLeft() {return false;}
+        virtual unsigned int touchingLeft() {return 0;}
         ///Returns true if the physics object is touching something on the right
         virtual bool onRight() {return false;}
+        virtual unsigned int touchingRight(){return 0;}
         ///Returns true if the physics object is touching something on the top
         virtual bool onTop() {return false;}
+        virtual unsigned int touchingTop(){return 0;}
         ///Returns true if the physics body is over a sensor by the type "Ladder"
         virtual bool overLadder() { return false;}
         ///Returns the physics body. If there are multiple physics bodies, the most important one will be returned

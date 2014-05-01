@@ -105,9 +105,23 @@ bool SimpleBoxPhysics::onGround() {
         return true;
 }
 
+unsigned int SimpleBoxPhysics::touchingGround() {
+    if(footListener!=NULL)
+        return footListener->getTouching();
+    else
+        return true;
+}
+
 bool SimpleBoxPhysics::onLeft() {
     if(leftListener!=NULL)
         return leftListener->onGround();
+    else
+        return true;
+}
+
+unsigned int SimpleBoxPhysics::touchingLeft() {
+    if(leftListener!=NULL)
+        return leftListener->getTouching();
     else
         return true;
 }
@@ -119,9 +133,24 @@ bool SimpleBoxPhysics::onRight() {
         return true;
 }
 
+unsigned int SimpleBoxPhysics::touchingRight() {
+    if(rightListener!=NULL) {
+        return rightListener->getTouching();
+    }
+    else
+        return true;
+}
+
 bool SimpleBoxPhysics::onTop() {
     if(headListener!=NULL)
         return headListener->onGround();
+    else
+        return true;
+}
+
+unsigned int SimpleBoxPhysics::touchingTop() {
+    if(headListener!=NULL)
+        return headListener->getTouching();
     else
         return true;
 }
@@ -146,15 +175,24 @@ void SimpleBoxPhysics::go(sf::Time frameTime) {
 
 void FootContactListener::BeginContact(b2Contact* contact) {
   //check if fixture A was the foot sensor
-  void* fixtureUserData = contact->GetFixtureA()->GetUserData();
-  if ( (unsigned int)fixtureUserData == findID )
-    if( !contact->GetFixtureB()->IsSensor())
+  void* fixtureUserDataA = contact->GetFixtureA()->GetUserData();
+  void* fixtureUserDataB = contact->GetFixtureB()->GetUserData();
+  if ( (unsigned int)fixtureUserDataA == findID )
+    if( !contact->GetFixtureB()->IsSensor()) {
       onGroundNum++;
+      if((unsigned int)fixtureUserDataB!=0) {
+        lastTouch = (unsigned int)fixtureUserDataB/10;
+      }
+      return;
+    }
   //check if fixture B was the foot sensor
-  fixtureUserData = contact->GetFixtureB()->GetUserData();
-  if ( (unsigned int)fixtureUserData == findID )
-    if(!contact->GetFixtureA()->IsSensor())
+  if ( (unsigned int)fixtureUserDataB == findID )
+    if(!contact->GetFixtureA()->IsSensor()) {
       onGroundNum++;
+      if((unsigned int)fixtureUserDataA!=0)
+        lastTouch = (unsigned int)fixtureUserDataA/10;
+      return;
+    }
 }
 
 void FootContactListener::EndContact(b2Contact* contact) {

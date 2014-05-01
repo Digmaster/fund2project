@@ -5,6 +5,7 @@
 #include "Components/ComponentBase.h"
 #include <cassert>
 #include <map>
+#include <deque>
 
 #include "Components/Render/RenderComponent.h"
 #include "Components/Positional/WorldPositionComponent.h"
@@ -15,6 +16,7 @@
 #include "Components/Target/TargetComponent.h"
 #include "Components/Script/ScriptComponent.h"
 #include "Components/Audio/AudioComponent.h"
+#include "Components/Stats/StatsComponent.h"
 
 using namespace std;
 
@@ -26,6 +28,9 @@ template <class T> class ComponentSystem
         void process(sf::Time);
         ///Adds a component
         void addComponent(T);
+        ///Removes a component by pointer
+        void removeComponent(T);
+        void removeComponent(unsigned int ID);
         ///Returns a component from ID
         T getComponent(unsigned int ID);
         ///Returns the number of components contained within
@@ -34,10 +39,15 @@ template <class T> class ComponentSystem
         std::map<unsigned int, T> components;
     protected:
     private:
+        std::deque<T> deleteMap;
 };
 
 template<class T>
 void ComponentSystem<T>::process(sf::Time frameTime) {
+    for(typename std::deque<T>::iterator it = deleteMap.begin(); it!=deleteMap.end(); it++) {
+        delete *it;
+    }
+    deleteMap.clear();
     for(typename std::map<unsigned int, T>::iterator it = components.begin(); it!=components.end(); it++) {
         if(it->second->getID()!=0) {
             it->second->go(frameTime);
@@ -64,6 +74,21 @@ T ComponentSystem<T>::getComponent(unsigned int ID) {
 template<class T>
 int ComponentSystem<T>::getSize() {
     return components.size();
+}
+
+template<class T>
+void ComponentSystem<T>::removeComponent(T) {
+    //std::map<unsigned int, T>::iterator it = find
+}
+
+template<class T>
+void ComponentSystem<T>::removeComponent(unsigned int ID) {
+    typename std::map<unsigned int, T>::iterator it = components.find(ID);
+    if(it!=components.end()) {
+        it->second->setID(0);
+        deleteMap.push_front(it->second);
+        components.erase(it);
+    }
 }
 
 #endif // COMPONENTSYSTEM_H

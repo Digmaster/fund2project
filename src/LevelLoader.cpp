@@ -20,6 +20,8 @@
 #include "Components/Physics/PolylinePhysics.h"
 #include "Components/Audio/AudioComponent.h"
 #include "Components/Movement/EnemyMovement.h"
+#include "Components/Stats/StatsComponent.h"
+#include "Components/Script/MainCharScript.h"
 
 using namespace std;
 using namespace sf;
@@ -605,6 +607,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
                             new AudioComponent(id);
+                            new StatsComponent(id);
+                            new MainCharScript(id);
                         }
                         else if(mobType=="enemy") {
                             //BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);

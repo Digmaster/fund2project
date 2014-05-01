@@ -21,7 +21,6 @@ void AnimatedComponent::go(sf::Time fps) {
             throw logic_error("Render engine not initialized yet");
         }
         else {
-            cout << getID() << endl;
             rendEng->addSprite(&sprite, posCom->getLayer());
         }
     }

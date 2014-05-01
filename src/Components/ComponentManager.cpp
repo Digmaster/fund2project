@@ -28,6 +28,7 @@ void ComponentManager::processAll(sf::Time frameTime) {
     //cout << "Rendering" << endl;
     rendSym.process(frameTime);
     audioSym.process(frameTime);
+    statSym.process(frameTime);
 }
 
 unsigned int ComponentManager::name2ID(std::string name) {

@@ -20,7 +20,7 @@ class ComponentBase {
             \param ID Sets the ID of the object */
         ComponentBase(unsigned int ID = 0) : ID(ID) {}
         //! Default destructor
-        ~ComponentBase() {std::cout << "Someone has killed a component! As I haven't made component clean up work yet, this is a big big fatass problem! Whatever you changed, fix it!" << std::endl;}
+        virtual ~ComponentBase() {}
 
 
         //! Sets the ID

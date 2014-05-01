@@ -19,8 +19,10 @@ EnemyMovement::EnemyMovement(unsigned int ID) : MovementComponent(ID) {
 void EnemyMovement::go(sf::Time frameTime) {
     walkTimer+=frameTime;
     PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
+    unsigned int mainCharID = compMan->name2ID("MainChar");
     WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
     InputComponent* input = compMan->inputSym.getComponent(getID());
+    StatsComponent* stats = compMan->statSym.getComponent(mainCharID);
     int walkSpeed = 5;
     int attackSpeed = 5;
     int maxAirSpeed = 2;
@@ -28,35 +30,34 @@ void EnemyMovement::go(sf::Time frameTime) {
     int maxJumpSpeed = 10;
     //int climbSpeed = 5;
     sf::Time maxJumpTime = sf::milliseconds(25); //.25 seconds of jump
-    sf::Time maxWalkTime = sf::seconds(1); //5 seconds of walk in either direction
-    std::cout << currState << std::endl;
-    if(physics!=NULL) { //Find in physics states
+    sf::Time maxWalkTime = sf::seconds(5); //5 seconds of walk in either direction
+    WorldPositionComponent* enePosComp = compMan->posSym.getComponent(getID());
+    WorldPositionComponent* advPosComp = compMan->posSym.getComponent(mainCharID);
+    if(physics && enePosComp && advPosComp) { //Find in physics states
+        sf::Vector2f enePos = enePosComp->getPosition();
+        sf::Vector2f advPos = advPosComp->getPosition();
         b2Body* body = physics->getBody();
         b2Vec2 velocity = body->GetLinearVelocity();
         //physics->on
         //body->SetLinearVelocity(b2Vec2(uuuhi,body->GetLinearVelocity().y))
 
+        changed = false;
+
         if(nextState!=currState) { //State changers
-            /*if(nextState==MoveState::onLadder) { //Remove gravity and whatnot
-                physics->getBody()->SetGravityScale(0);
-                physics->getBody()->SetLinearDamping(8.0f);
-            }
-            if(currState==MoveState::onLadder) {
-                physics->getBody()->SetGravityScale(1);
-                physics->getBody()->SetLinearDamping(0.0f);
-            }*/
             if(nextState==MoveState::jumping)
                 jumpTimer = sf::milliseconds(0);
             if(nextState==(MoveState::rightWalk || MoveState::leftWalk))
                 walkTimer = sf::seconds(0);
 
             currState=nextState; //Set currState to nextState
+            changed = true;
         }
-
-        sf::Vector2f enePos = compMan->posSym.getComponent(getID())->getPosition();
-        sf::Vector2f advPos = compMan->posSym.getComponent(compMan->name2ID("MainChar"))->getPosition();
         int distance = abs(advPos.x - enePos.x);
         int maxAttackDistance = 64;
+        if(stats) {
+            if((physics->onRight() && (physics->touchingRight() == mainCharID)) || (physics->onLeft() && (physics->touchingLeft() == mainCharID)))
+                stats->setHealth(0);
+        }
 
         switch(currState) {
         case MoveState::rightWalk:

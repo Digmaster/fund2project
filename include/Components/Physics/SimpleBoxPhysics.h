@@ -21,9 +21,13 @@ class SimpleBoxPhysics : public PhysicsComponent
         virtual ~SimpleBoxPhysics();
         void go(sf::Time);
         bool onGround();
+        unsigned int touchingGround();
         bool onLeft();
+        unsigned int touchingLeft();
         bool onRight();
+        unsigned int touchingRight();
         bool onTop();
+        unsigned int touchingTop();
         bool overLadder();
     protected:
     private:
@@ -43,13 +47,15 @@ class FootContactListener : public b2ContactListener
 {
 public:
     FootContactListener() : findID(0) {}
-    FootContactListener(unsigned int findID) : findID(findID), onGroundNum(0) {}
+    FootContactListener(unsigned int findID) : findID(findID), onGroundNum(0), lastTouch(-5) {}
     void BeginContact(b2Contact* contact);
     void EndContact(b2Contact* contact);
     bool onGround() {return onGroundNum>0;}
+    unsigned int getTouching() {return lastTouch;}
 private:
     unsigned int findID;
     int onGroundNum;
+    unsigned int lastTouch;
 };
 
 ///Returns true when in contact with anything of type "Ladder"
