@@ -174,7 +174,7 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
                 else pos.x-=40;
                 new WorldPositionComponent(id, pos , position->getLayer(), (float)input->fireDir*0.0174532925);
-                new StaticSpriteComponent("error", sf::IntRect(0,0,10,4), id);
+                new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6), id);
                 SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors);
                 phys->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
                 new KillScript(id, 34);

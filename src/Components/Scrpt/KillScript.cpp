@@ -35,7 +35,7 @@ void KillScript::go(sf::Time frameTime)
             if(phys->onGround())
                 stats = compMan->statSym.getComponent(phys->touchingGround());
             if(stats) {
-                stats->modHealth(-health);
+                stats->setHealth(0);
             }
             compMan->moveSym.removeComponent(getID()); //Remove movement
             compMan->inputSym.removeComponent(getID()); //input

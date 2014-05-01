@@ -626,6 +626,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                                 EnemyMovement* testMovement = new EnemyMovement(id);
 
+                                new StatsComponent(id);
+                                new MainCharScript(id, false);
+
                                 SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(70,100),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
 
                             }else{
