@@ -82,8 +82,14 @@
 	<Animation name="ClimbDown" FT="0.25">
 	    <Frame LC="482" TC="68" W="22" H="45"></Frame>
 	</Animation>
-	<Animation name="Death" FT="0.1">
+	<Animation name="Death" FT="0.17">
 	    <Frame LC="781" TC="60" W="23" H="50"></Frame>
+	    <Frame LC="781" TC="60" W="23" H="50"></Frame>
+	    <Frame LC="781" TC="60" W="23" H="50"></Frame>
+	    <Frame LC="781" TC="60" W="23" H="50"></Frame>
+	    <Frame LC="840" TC="121" W="23" H="47"></Frame>
+	    <Frame LC="840" TC="121" W="23" H="47"></Frame>
+	    <Frame LC="840" TC="121" W="23" H="47"></Frame>
 	    <Frame LC="840" TC="121" W="23" H="47"></Frame>
 	    <Frame LC="825" TC="68" W="21" H="40"></Frame>
 	    <Frame LC="856" TC="64" W="21" H="44"></Frame>

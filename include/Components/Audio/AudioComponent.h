@@ -19,8 +19,10 @@ class AudioComponent : public ComponentBase
     private:
         sf::Sound sound1; //Walking sound
         sf::Sound sound2; //Jumping sound
+        sf::Sound sound3;
         sf::SoundBuffer buffer1; //walking soundbuffer
         sf::SoundBuffer buffer2; //jumping soundbuffer
+        sf::SoundBuffer buffer3;
 };
 
 #endif // AUDIOCOMPONENT_H

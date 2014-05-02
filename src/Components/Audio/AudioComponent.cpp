@@ -14,14 +14,18 @@ AudioComponent::AudioComponent(unsigned int ID) : ComponentBase(ID){
     compMan->audioSym.addComponent(this);
     buffer1.loadFromFile("assets/sound/Running.wav");
     buffer2.loadFromFile("assets/sound/jump.wav");
+    buffer3.loadFromFile("assets/sound/death.wav");
     sound1.setBuffer(buffer1);
     sound2.setBuffer(buffer2);
+    sound3.setBuffer(buffer3);
     sound1.setLoop(true);
     sound2.setLoop(true);
 }
 
 AudioComponent::~AudioComponent()
 {
+    sound1.stop();
+    sound2.stop();
     //dtor
 }
 
@@ -47,6 +51,12 @@ void AudioComponent::go(sf::Time){
                 sound2.play();
                 sound1.stop();
         }
+        /*else if (action->getState()==0){
+            sound3.setVolume(30);
+            sound3.play();
+            sound1.stop();
+            sound2.stop();
+        }*/
         else{
             //if no actions require sound, play no sound
             sound1.stop();

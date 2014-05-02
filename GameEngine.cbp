@@ -92,6 +92,8 @@
 		<Unit filename="include/Components/Render/RenderComponent.h" />
 		<Unit filename="include/Components/Render/StaticSpriteComponent.h" />
 		<Unit filename="include/Components/Script/Camera.h" />
+		<Unit filename="include/Components/Script/KillScript.h" />
+		<Unit filename="include/Components/Script/MainCharScript.h" />
 		<Unit filename="include/Components/Script/ScriptComponent.h" />
 		<Unit filename="include/Components/Stats/StatsComponent.h" />
 		<Unit filename="include/Components/Target/TargetComponent.h" />
@@ -126,6 +128,8 @@
 		<Unit filename="src/Components/Render/RenderComponent.cpp" />
 		<Unit filename="src/Components/Render/StaticSpriteComponent.cpp" />
 		<Unit filename="src/Components/Scrpt/Camera.cpp" />
+		<Unit filename="src/Components/Scrpt/KillScript.cpp" />
+		<Unit filename="src/Components/Scrpt/MainCharScript.cpp" />
 		<Unit filename="src/Components/Scrpt/ScriptComponent.cpp" />
 		<Unit filename="src/Components/Stats/StatsComponent.cpp" />
 		<Unit filename="src/Components/Target/TargetComponent.cpp" />

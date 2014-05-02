@@ -24,6 +24,7 @@ class GameEngine
         //! Unpauses the game
         void unpause() {paused=false;}
         void playerDied() {died = true;}
+        int playerDying=0;
         //! Rendering Engine Pointer
         /*! This should be the only graphics engine instance created
             /see RenderEngine */

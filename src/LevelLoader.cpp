@@ -610,7 +610,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
                             new AudioComponent(id);
                             new StatsComponent(id);
-                            new MainCharScript(id, true);
+                            new MainCharScript(id, true, sf::seconds(2.5f));
                         }
                         else if(mobType=="enemy") {
                             if(objectName=="shaq"){
@@ -627,7 +627,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                                 EnemyMovement* testMovement = new EnemyMovement(id);
 
                                 new StatsComponent(id);
-                                new MainCharScript(id, false);
+                                new MainCharScript(id, false, sf::seconds(0));
 
                                 SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(70,100),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
 
@@ -645,7 +645,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             EnemyMovement* testMovement = new EnemyMovement(id);
                             new StatsComponent(id);
-                            new MainCharScript(id, false);
+                            new MainCharScript(id, false, sf::seconds(0));
 
                             SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
                             }

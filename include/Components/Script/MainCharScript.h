@@ -9,7 +9,7 @@ class MainCharScript : public ScriptComponent
     public:
         /** Default constructor */
         MainCharScript();
-        MainCharScript(unsigned int ID, bool endGame = false);
+        MainCharScript(unsigned int ID, bool endGame = false, sf::Time=sf::seconds(0));
         /** Default destructor */
         virtual ~MainCharScript();
 
