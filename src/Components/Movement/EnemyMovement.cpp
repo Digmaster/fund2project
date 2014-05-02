@@ -12,8 +12,8 @@ EnemyMovement::EnemyMovement() :EnemyMovement(0)
 }
 
 EnemyMovement::EnemyMovement(unsigned int ID) : MovementComponent(ID) {
-    currState = rightWalk;
-    nextState = rightWalk;
+    currState = leftWalk;
+    nextState = leftWalk;
 }
 
 void EnemyMovement::go(sf::Time frameTime) {
@@ -53,9 +53,9 @@ void EnemyMovement::go(sf::Time frameTime) {
             changed = true;
         }
         int distance = abs(advPos.x - enePos.x);
-        int maxAttackDistance = 64;
+        int maxAttackDistance = 200;
         if(stats) {
-            if((physics->onRight() && (physics->touchingRight() == mainCharID)) || (physics->onLeft() && (physics->touchingLeft() == mainCharID)))
+            if((physics->onRight() && (physics->touchingRight() == mainCharID)) || (physics->onLeft() && (physics->touchingLeft() == mainCharID)) || (physics->onTop() && (physics->touchingTop() == mainCharID)) || (physics->onGround() && (physics->touchingGround() == mainCharID)))
                 stats->setHealth(0);
         }
 
@@ -87,6 +87,8 @@ void EnemyMovement::go(sf::Time frameTime) {
                 nextState = MoveState::rightWalk;
             else if ((distance > maxAttackDistance) && (advPos.x < enePos.x))
                 nextState = MoveState::leftWalk;
+            //if(physics->getBody()->GetLinearVelocity().x < .5 && physics->getBody()->GetLinearVelocity().x > -.5)
+            //    nextState = MoveState::jumping;
             if (advPos.y < enePos.y)
                 nextState = MoveState::jumping;
             if(!physics->onGround())
@@ -95,6 +97,10 @@ void EnemyMovement::go(sf::Time frameTime) {
         case MoveState::inAir:
             if(physics->onGround()) //Landed
                 nextState = MoveState::leftWalk;
+            if (advPos.x > enePos.x)
+                body->SetLinearVelocity(b2Vec2(attackSpeed,body->GetLinearVelocity().y));
+            else if (advPos.x < enePos.x)
+                body->SetLinearVelocity(b2Vec2(-attackSpeed,body->GetLinearVelocity().y));
             /*if(input->walkLeft && velocity.x > -maxAirSpeed) //Move left
                 body->ApplyForceToCenter(b2Vec2(-50.0f-velocity.x*50.0f/maxAirSpeed,0),true);
             if(input->walkRight && velocity.x < maxAirSpeed) //Move right

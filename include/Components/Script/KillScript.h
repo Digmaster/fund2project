@@ -9,7 +9,7 @@ class KillScript : public ScriptComponent
     public:
         /** Default constructor */
         KillScript();
-        KillScript(unsigned int ID, int health = 10, sf::Time freq = sf::seconds(.5));
+        KillScript(unsigned int ID, bool remove = true, int health = 10, sf::Time freq = sf::seconds(.5));
         /** Default destructor */
         virtual ~KillScript();
 
@@ -18,6 +18,7 @@ class KillScript : public ScriptComponent
     private:
         sf::Time frequency;
         int health;
+        bool remove;
 };
 
 #endif // KILLSCRIPT_H

@@ -22,6 +22,8 @@
 #include "Components/Movement/EnemyMovement.h"
 #include "Components/Stats/StatsComponent.h"
 #include "Components/Script/MainCharScript.h"
+#include "Component/Script/EnemySpawner.h"
+#include "Components/Script/KillScript.h"
 
 using namespace std;
 using namespace sf;
@@ -524,6 +526,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     if(script=="camera") {
                         new Camera(id, width, height);
                     }
+
                     //if(script=="BLAHBLAHBLAH")
                 }
 
@@ -539,7 +542,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 //otherwise, don't change it
 
                 ///Types!!
-                if(type=="sensor" || type=="ladder") { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
+                if(type=="sensor" || type=="ladder" || type=="kill") { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
 
                     //Physics Loading
                     if(ellipse_node) {
@@ -556,6 +559,10 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     }
                     //Position
                     new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+
+                    if(type=="kill") {
+                        new KillScript(id, false);
+                    }
 
                 }
                 else if(type=="target") { //Only has world position component
@@ -590,6 +597,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     //Sprite
                     new StaticSpriteComponent(sprites[objGid], id);
 
+                }
+                else if(type=="spawner") {
+                    //Position
+                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    new EnemySpawner(id, sprites[objGid], sf::seconds(2), 10, 800);
                 }
                 else if(type=="mob") { //any sort of enemy, player, etc. Has everything basically
                     if (objProperties.find("type") != objProperties.end()) { //Adds a target, if needed

@@ -73,7 +73,7 @@ void GameEngine::gameLoop() {
     spriteMan.loadFile("assets/SamusSprites.xml");
 
     Level testLevel;
-    testLevel.loadLevel("longtest.tmx", rendEng);
+    testLevel.loadLevel("scifi test.tmx", rendEng);
 
     //play background music
     sf::Music music; //Declare music object

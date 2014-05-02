@@ -6,7 +6,7 @@ using namespace std;
 
 PhysicsEngine::PhysicsEngine()
 {
-    b2Vec2 gravity = b2Vec2(0.0f, -9.8f);
+    b2Vec2 gravity = b2Vec2(0.0f, -19.6f);
     _world = new b2World(gravity);
     _velocityIterations = 8;
     _positionIterations = 3;

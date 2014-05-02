@@ -10,7 +10,7 @@ KillScript::KillScript() : KillScript(0)
 
 }
 
-KillScript::KillScript(unsigned int ID, int health, sf::Time freq) : frequency(freq), health(health), ScriptComponent(ID)
+KillScript::KillScript(unsigned int ID, bool remove, int health, sf::Time freq) : remove(remove), frequency(freq), health(health), ScriptComponent(ID)
 {
 
 }
@@ -24,7 +24,7 @@ void KillScript::go(sf::Time frameTime)
 {
     PhysicsComponent* phys = compMan->physSym.getComponent(getID());
     if(phys) {
-        if(phys->onRight() || phys->onLeft() || phys->onTop() ||phys->onGround()) {
+        if(phys->onRight() || phys->onLeft() || phys->onTop() || phys->onGround()) {
                 StatsComponent* stats;
             if(phys->onRight())
                 stats = compMan->statSym.getComponent(phys->touchingRight());
@@ -37,16 +37,18 @@ void KillScript::go(sf::Time frameTime)
             if(stats) {
                 stats->setHealth(0);
             }
-            compMan->moveSym.removeComponent(getID()); //Remove movement
-            compMan->inputSym.removeComponent(getID()); //input
-            compMan->physSym.removeComponent(getID()); //physics
-            compMan->audioSym.removeComponent(getID());
-            compMan->idSym.removeComponent(getID());
-            compMan->posSym.removeComponent(getID());
-            compMan->rendSym.removeComponent(getID());
-            compMan->statSym.removeComponent(getID());
-            compMan->targetSym.removeComponent(getID());
-            compMan->scriptSym.removeComponent(getID()); //Oh god, remove self
+            if(remove) {
+                compMan->moveSym.removeComponent(getID()); //Remove movement
+                compMan->inputSym.removeComponent(getID()); //input
+                compMan->physSym.removeComponent(getID()); //physics
+                compMan->audioSym.removeComponent(getID());
+                compMan->idSym.removeComponent(getID());
+                compMan->posSym.removeComponent(getID());
+                compMan->rendSym.removeComponent(getID());
+                compMan->statSym.removeComponent(getID());
+                compMan->targetSym.removeComponent(getID());
+                compMan->scriptSym.removeComponent(getID()); //Oh god, remove self
+            }
         }
     }
 }

@@ -70,6 +70,7 @@
 		<Linker>
 			<Add directory="Dependancies/lib" />
 		</Linker>
+		<Unit filename="include/Component/Script/EnemySpawner.h" />
 		<Unit filename="include/Components/Audio/AudioComponent.h" />
 		<Unit filename="include/Components/ComponentBase.h" />
 		<Unit filename="include/Components/ComponentManager.h" />
@@ -128,6 +129,7 @@
 		<Unit filename="src/Components/Render/RenderComponent.cpp" />
 		<Unit filename="src/Components/Render/StaticSpriteComponent.cpp" />
 		<Unit filename="src/Components/Scrpt/Camera.cpp" />
+		<Unit filename="src/Components/Scrpt/EnemySpawner.cpp" />
 		<Unit filename="src/Components/Scrpt/KillScript.cpp" />
 		<Unit filename="src/Components/Scrpt/MainCharScript.cpp" />
 		<Unit filename="src/Components/Scrpt/ScriptComponent.cpp" />

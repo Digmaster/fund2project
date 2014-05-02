@@ -172,8 +172,10 @@ void SimpleBoxPhysics::go(sf::Time frameTime) {
     //The body is the one that contains the position, velocity, etc. not the body definition
     //screenHeight
     //Times 32, as 32 pixels is ~one meter
-    position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)),false);
-    position->setRotation(physBody->GetAngle());
+    if(position) {
+        position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)),false);
+        position->setRotation(physBody->GetAngle());
+    }
     //cout << physBody->GetPosition().x << " " << physBody->GetPosition().y << " " << physBodyDef.awake << endl;
 }
 

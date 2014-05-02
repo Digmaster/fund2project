@@ -6,6 +6,8 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+class FootContactListener;
+
 ///Creates a physics polygon from a set of points
 class PolygonPhysics : public PhysicsComponent
 {
@@ -16,8 +18,13 @@ class PolygonPhysics : public PhysicsComponent
         virtual ~PolygonPhysics();
 
         void go(sf::Time);
+
+        bool onTop();
+        unsigned int touchingTop();
+
     protected:
     private:
+        FootContactListener* headListener;
         b2BodyDef physBodyDef;
         b2PolygonShape boundaryShape;
         b2FixtureDef boundaryFixtureDef;

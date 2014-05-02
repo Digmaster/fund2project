@@ -1,12 +1,15 @@
 #include "Components/Physics/PolygonPhysics.h"
 #include "Components/ComponentManager.h"
 #include "physics/PhysicsEngine.h"
+#include "Components/Physics/SimpleBoxPhysics.h"
 #include "GameEngine.h"
 
 PolygonPhysics::PolygonPhysics(unsigned int ID, vector<sf::Vector2i> points) : PhysicsComponent(ID)
 {
     physBodyDef.type = b2_staticBody;
     physBody = eng->physEng->_world->CreateBody(&physBodyDef);
+
+    headListener = new FootContactListener(getID()*10);
 
     b2Vec2 *polygons = new b2Vec2[points.size()];
     for (unsigned int i=0; i < points.size(); i++){
@@ -24,6 +27,20 @@ PolygonPhysics::PolygonPhysics(unsigned int ID, vector<sf::Vector2i> points) : P
 PolygonPhysics::~PolygonPhysics()
 {
     //dtor
+}
+
+bool PolygonPhysics::onTop() {
+    if(headListener!=NULL)
+        return headListener->onGround();
+    else
+        return true;
+}
+
+unsigned int PolygonPhysics::touchingTop() {
+    if(headListener!=NULL)
+        return headListener->getTouching();
+    else
+        return true;
 }
 
 void PolygonPhysics::go(sf::Time frameTime) {
