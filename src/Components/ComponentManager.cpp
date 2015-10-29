@@ -21,7 +21,6 @@ unsigned int ComponentManager::getNewID() {
 }
 
 void ComponentManager::processAll(sf::Time frameTime) {
-    std::cout << "now " << entities.size() << std::endl;
     for(std::unordered_map<int, Entity*>::iterator it = entities.begin(); it != entities.end();)
     {
         //Delete things to be deleted

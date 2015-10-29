@@ -206,13 +206,13 @@ void FootContactListener::EndContact(b2Contact* contact) {
 }
 
 void LadderContactListener::BeginContact(b2Contact* contact) {
-  //check if fixture A was the foot sensor
-  unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
-  unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
-  if(ComponentManager::getInst()[fixtureUserDataA/10]==nullptr || ComponentManager::getInst()[fixtureUserDataB/10]==nullptr)
-    return;
-  IDComponent* idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->identification; //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
-  IDComponent* idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->identification;
+    std::cout << "contact Listener" << std::endl;
+    //check if fixture A was the foot sensor
+    unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
+    unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
+
+    IDComponent* idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->identification; //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
+    IDComponent* idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->identification;
 
     std::string nameA;
     std::string nameB;
@@ -225,45 +225,46 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
         nameB = idCompB->getType();
     }
 
-
-
-  if ( fixtureUserDataA == findID || fixtureUserDataB == findID){
-//std::cout << "LadderListerner BeginContact" << std::endl;
-    if( contact->GetFixtureA()->IsSensor() && nameA == "ladder" && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
-      overLadderNum++;
-    }
-      if( contact->GetFixtureB()->IsSensor() && nameB == "ladder" && (contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody)){
-      overLadderNum++;
-      }
+    if ( fixtureUserDataA == findID || fixtureUserDataB == findID)
+    {
+        if(    (contact->GetFixtureA()->IsSensor() && nameA == "ladder" && contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)
+           ||  (contact->GetFixtureB()->IsSensor() && nameB == "ladder" && contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody))
+        {
+            overLadderNum++;
+            std::cout << "Entered Ladder" << std::endl;
+        }
     }
 
 }
 
 void LadderContactListener::EndContact(b2Contact* contact) {
+    std::cout << "left listener" << std::endl;
 
     unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
     unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
 
-    if(ComponentManager::getInst()[fixtureUserDataA/10]==nullptr || ComponentManager::getInst()[fixtureUserDataB/10]==nullptr)
-        return;
-
-    IDComponent* idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->identification;
-    IDComponent* idCompB = ComponentManager::getInst()[fixtureUserDataA/10]->identification;
+    IDComponent* idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->identification; //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
+    IDComponent* idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->identification;
 
     std::string nameA;
     std::string nameB;
-    if(idCompA)
-        nameA = idCompA->getType();
-    if(idCompB)
-        nameB = idCompB->getType();
 
-  if ( fixtureUserDataA == findID || fixtureUserDataB == findID){
-    if( contact->GetFixtureA()->IsSensor() && nameA == "ladder"  && (contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)){
-        overLadderNum--;
+    if(idCompA != NULL){
+        nameA = idCompA->getType();
     }
-    if( contact->GetFixtureB()->IsSensor() && nameB == "ladder" && (contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody)){
-        overLadderNum--;
+
+    if(idCompB != NULL){
+        nameB = idCompB->getType();
     }
+
+    if ( fixtureUserDataA == findID || fixtureUserDataB == findID)
+    {
+        if(    (contact->GetFixtureA()->IsSensor() && nameA == "ladder" && contact->GetFixtureB()->GetBody()->GetType() == b2_dynamicBody)
+           ||  (contact->GetFixtureB()->IsSensor() && nameB == "ladder" && contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody))
+        {
+            overLadderNum--;
+            std::cout << "Left Ladder" << std::endl;
+        }
     }
 }
 

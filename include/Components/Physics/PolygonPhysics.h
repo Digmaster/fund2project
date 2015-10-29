@@ -7,13 +7,14 @@
 #include <SFML/Graphics.hpp>
 
 class FootContactListener;
+class WorldPositionComponent;
 
 ///Creates a physics polygon from a set of points
 class PolygonPhysics : public PhysicsComponent
 {
     public:
         ///X-Y Points! Last line is automatically connected to the last to create the polygon.
-        PolygonPhysics(unsigned int, std::vector<sf::Vector2i>);
+        PolygonPhysics(unsigned int, std::vector<sf::Vector2i>, uint32 opts, WorldPositionComponent* position);
         virtual ~PolygonPhysics();
 
         void go(sf::Time, Entity* entity);

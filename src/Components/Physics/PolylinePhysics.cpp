@@ -5,10 +5,18 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Entity.h"
 
-PolylinePhysics::PolylinePhysics(unsigned int ID, std::vector<sf::Vector2i> points) : PhysicsComponent()
+PolylinePhysics::PolylinePhysics(unsigned int ID, std::vector<sf::Vector2i> points, uint32 opts, WorldPositionComponent* position) : PhysicsComponent()
 {
     physBodyDef.type = b2_staticBody;
     physBody = eng->physEng->_world->CreateBody(&physBodyDef);
+
+    if(opts & PhysicsOptions::isStatic)
+        physBodyDef.type = b2_staticBody;
+    else
+        physBodyDef.type = b2_dynamicBody;
+
+    physBodyDef.fixedRotation = (opts & PhysicsOptions::notRotatable);
+
 
     b2Vec2 *polygons = new b2Vec2[points.size()];
     for (int i=0; i < points.size(); i++){
@@ -18,9 +26,14 @@ PolylinePhysics::PolylinePhysics(unsigned int ID, std::vector<sf::Vector2i> poin
     polylineChain.CreateChain(polygons, points.size());
     boundaryFixtureDef.shape = &polylineChain;
     boundaryFixtureDef.friction = 10;
+    boundaryFixtureDef.isSensor = opts & PhysicsOptions::sensor;
     b2Fixture* fixture = physBody->CreateFixture(&boundaryFixtureDef);
     fixture->SetUserData( (void*)(ID*10+2) );
-    //screenHeight = atoi(Options::instance().get("screen_height").c_str());
+
+    if(position!=NULL) {
+        physBodyDef.angle = position->getRotation();
+        physBody->SetTransform(b2Vec2(position->getPosition().x/pixelsPerMeter, -position->getPosition().y/pixelsPerMeter),physBody->GetAngle());
+    }
 }
 
 PolylinePhysics::~PolylinePhysics()

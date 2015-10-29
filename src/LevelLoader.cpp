@@ -507,6 +507,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 xml_node<>* polyline_node = object_node->first_node("polyline");
                 if(polyline_node) {
                     string pointString;
+                    cout << pointString << endl;
                     attribute = polyline_node->first_attribute("points");
                     if(attribute!=NULL) {
                         pointString = attribute->value();
@@ -562,23 +563,24 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 //otherwise, don't change it
 
                 ///Types!!
-                if(type=="sensor" || type=="ladder" || type=="kill") { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
+                if(type=="sensor" || type=="ladder" || type=="kill")
+                { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
 
+                    //Position
+                    entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
                     //Physics Loading
                     if(ellipse_node) {
                         //Create ellipse here!
                     }
                     else if(polygon_node) {
-                        entity->physics = new PolygonPhysics(id, points);
+                        entity->physics = new PolygonPhysics(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->position);
                     }
                     else if(polyline_node) {
-                        entity->physics = new PolylinePhysics(id, points);
+                        entity->physics = new PolylinePhysics(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->position);
                     }
                     else {
                         entity->physics = new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->position);
                     }
-                    //Position
-                    entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
 
                     if(type=="kill") {
                         entity->scripts.push_back(new KillScript(false));
@@ -681,7 +683,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             entity->stats = new StatsComponent();
                             entity->scripts.push_back(new MainCharScript(false, sf::seconds(0)));
 
-                            entity->physics = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+                            entity->physics = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->position);
                             }
                         }
                     }

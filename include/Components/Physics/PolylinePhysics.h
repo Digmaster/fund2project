@@ -6,12 +6,14 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+class WorldPositionComponent;
+
 ///Creates a series of physics lines (rope)
 class PolylinePhysics : public PhysicsComponent
 {
     public:
         ///takes a series of xy coordinates
-        PolylinePhysics(unsigned int, std::vector<sf::Vector2i>);
+        PolylinePhysics(unsigned int, std::vector<sf::Vector2i>, uint32 opts, WorldPositionComponent* position);
         virtual ~PolylinePhysics();
 
         void go(sf::Time, Entity* entity);

@@ -73,14 +73,14 @@ void GameEngine::gameLoop() {
     spriteMan.loadFile("assets/SamusSprites.xml");
 
     Level testLevel;
-    testLevel.loadLevel("scifi test.tmx", rendEng);
+    testLevel.loadLevel("test.tmx", rendEng);
 
     //play background music
     sf::Music music; //Declare music object
     music.openFromFile("assets/sound/stormeaglegenesis.wav"); //open this sound for music
     music.setVolume(30); //Set volume of music
     music.setLoop(true); //loop the music throughout
-    //music.play(); //sound should now play throughout the game!
+    music.play(); //sound should now play throughout the game!
 
     //Load dying sound
     sf::Sound dyingsound;
