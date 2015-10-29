@@ -10,11 +10,11 @@ class EnemySpawner : public ScriptComponent
     public:
         /** Default constructor */
         EnemySpawner();
-        EnemySpawner(unsigned int ID, sf::Sprite spr, sf::Time frequency, int max, int range);
+        EnemySpawner(sf::Sprite spr, sf::Time frequency, int max, int range);
         /** Default destructor */
         virtual ~EnemySpawner();
 
-        virtual void go(sf::Time frameTime);
+        virtual void go(sf::Time frameTime, Entity* entity);
     protected:
     private:
         sf::Time freq;

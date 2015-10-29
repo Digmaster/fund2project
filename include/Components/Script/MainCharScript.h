@@ -7,13 +7,12 @@
 class MainCharScript : public ScriptComponent
 {
     public:
-        /** Default constructor */
-        MainCharScript();
-        MainCharScript(unsigned int ID, bool endGame = false, sf::Time=sf::seconds(0));
+
+        MainCharScript(bool endGame = false, sf::Time=sf::seconds(0));
         /** Default destructor */
         virtual ~MainCharScript();
 
-        virtual void go(sf::Time frameTime);
+        virtual void go(sf::Time frameTime, Entity* entity);
     protected:
     private:
         sf::Time deathCountDown;

@@ -1,19 +1,11 @@
 #ifndef COMPONENTMANAGER_H
 #define COMPONENTMANAGER_H
 
-#include <map>
-class RenderComponent;
-class WorldPositionComponent;
-class InputComponent;
-class MovementComponent;
-class PhysicsComponent;
-class IDComponent;
-class ScriptComponent;
-class TargetComponent;
-class AudioComponent;
-class StatsComponent;
+#include <unordered_map>
+#include <SFML/System/Time.hpp>
+#include <iostream>
 
-#include "Components/ComponentSystem.h"
+class Entity;
 
 ///Manages/contains all components
 class ComponentManager
@@ -24,18 +16,11 @@ class ComponentManager
 
 
         void processAll(sf::Time frameTime);
-         ComponentSystem<ComponentBase*> etcSym;
-        ComponentSystem<RenderComponent*> rendSym;
-        ComponentSystem<WorldPositionComponent*> posSym;
-        ComponentSystem<InputComponent*> inputSym;
-        ComponentSystem<MovementComponent*> moveSym;
-        ComponentSystem<PhysicsComponent*> physSym;
-        ComponentSystem<IDComponent*> idSym;
-        ComponentSystem<TargetComponent*> targetSym;
-        ComponentSystem<ScriptComponent*> scriptSym;
-        ComponentSystem<AudioComponent*> audioSym;
-        ComponentSystem<StatsComponent*> statSym;
+
         static unsigned int getNewID();
+
+        void addEntity(int ID, Entity* entity);
+        void removeEntity(int ID);
 
         static ComponentManager& getInst() {
             static ComponentManager INSTANCE;
@@ -43,7 +28,15 @@ class ComponentManager
         }
 
         unsigned int name2ID(std::string);
+
+        const Entity* operator[](unsigned int i) {
+            if(entities.find(i)==entities.end())
+            {
+                return nullptr;
+            }
+            return entities[i];}
     protected:
+        std::unordered_map<int, Entity*> entities;
     private:
 
 };

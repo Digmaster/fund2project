@@ -24,6 +24,7 @@
 #include "Components/Script/MainCharScript.h"
 #include "Component/Script/EnemySpawner.h"
 #include "Components/Script/KillScript.h"
+#include "Components/Entity.h"
 
 using namespace std;
 using namespace sf;
@@ -120,16 +121,23 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         ///Collision Boundaries
         //Left
         int id = ComponentBase::getNewID();
-        new BoundaryPhysics(id, 0, -1000, 0, height*tileheight-tileheight/2);
+        Entity* entity = new Entity(id);
+        entity->physics = new BoundaryPhysics(id, 0, -1000, 0, height*tileheight-tileheight/2);
+        ComponentManager::getInst().addEntity(id, entity);
         //right
         id = ComponentBase::getNewID();
-        new BoundaryPhysics(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
+        entity = new Entity(id);
+        entity->physics = new BoundaryPhysics(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);
+        ComponentManager::getInst().addEntity(id, entity);
         //bottom
         /*id = ComponentBase::getNewID();
         BoundaryPhysics bottomBoundary(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);*/
         //top
         id = ComponentBase::getNewID();
-        new BoundaryPhysics(id, 0, -1000, width*tilewidth-tilewidth/2, -1000);
+        entity = new Entity(id);
+        entity->physics = new BoundaryPhysics(id, 0, -1000, width*tilewidth-tilewidth/2, -1000);
+        ComponentManager::getInst().addEntity(id, entity);
+
     }
 
 
@@ -275,11 +283,13 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     if(tileGid!=0) {
                         Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth+tilewidth/2, (int)(i/layerWidth)*tileheight+tileheight/2);
                         int id = ComponentBase::getNewID();
-                        new WorldPositionComponent(id, position, layerNum);
+                        Entity* entity = new Entity(id);
+                        ComponentManager::getInst().addEntity(id, entity);
+                        entity->position = new WorldPositionComponent(position, layerNum);
                         if(visible) {
                             sf::Sprite intermSpr(sprites[tileGid]);
                             intermSpr.setColor(sf::Color(255, 255, 255, transparency*255)); //Applies transparency mask
-                            new StaticSpriteComponent(intermSpr, id);
+                            entity->render = new StaticSpriteComponent(intermSpr);
                         }
                         if (properties.find("solid") != properties.end()) {
                             if(properties["solid"]!="no")
@@ -307,7 +317,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            new BoundaryPhysics(id, startPoint, i*tileheight, j*tilewidth, i*tileheight);
+                            Entity* entity = new Entity(id);
+                            entity->physics = new BoundaryPhysics(id, startPoint, i*tileheight, j*tilewidth, i*tileheight);
+                            ComponentManager::getInst().addEntity(id, entity);
                             lastCollission = false;
                         }
                     }
@@ -328,7 +340,10 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            new BoundaryPhysics(id, startPoint, i*tileheight+tileheight, j*tilewidth, i*tileheight+tileheight);
+                            Entity* entity = new Entity(id);
+
+                            entity->physics = new BoundaryPhysics(id, startPoint, i*tileheight+tileheight, j*tilewidth, i*tileheight+tileheight);
+                            ComponentManager::getInst().addEntity(id, entity);
                             lastCollission = false;
                         }
                     }
@@ -349,7 +364,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
 
-                            new BoundaryPhysics(id, i*tilewidth, startPoint, i*tilewidth, j*tileheight);
+                            Entity* entity = new Entity(id);
+                            entity->physics = new BoundaryPhysics(id, i*tilewidth, startPoint, i*tilewidth, j*tileheight);
+                            ComponentManager::getInst().addEntity(id, entity);
 
                             lastCollission = false;
                         }
@@ -370,8 +387,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i+1][j]==true)) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
-
-                            new BoundaryPhysics(id, i*tilewidth+tilewidth, startPoint, i*tilewidth+tilewidth, j*tileheight);
+                            Entity* entity = new Entity(id);
+                            entity->physics = new BoundaryPhysics(id, i*tilewidth+tilewidth, startPoint, i*tilewidth+tilewidth, j*tileheight);
+                            ComponentManager::getInst().addEntity(id, entity);
 
                             lastCollission = false;
                         }
@@ -389,17 +407,21 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         for(int i = texture->getSize().x/2; i < width*tilewidth*layerZoom+texture->getSize().x/2; i+=texture->getSize().x) {
                             for(int j = texture->getSize().y/2; j < height*tileheight*layerZoom+texture->getSize().y/2; j+=texture->getSize().y) {
                                 int id = ComponentBase::getNewID();
-                                new WorldPositionComponent(id, Vector2f(i,j), layerNum);
+                                Entity* entity = new Entity(id);
+                                entity->position = new WorldPositionComponent(Vector2f(i,j), layerNum);
                                 Sprite imageSprite(*texture);
-                                new StaticSpriteComponent(imageSprite, id);
+                                entity->render = new StaticSpriteComponent(imageSprite);
+                                ComponentManager::getInst().addEntity(id, entity);
                             }
                         }
                     }
                     else {
                         int id = ComponentBase::getNewID();
-                        new WorldPositionComponent(id, Vector2f(texture->getSize().x/2,texture->getSize().y/2), layerNum);
+                        Entity* entity = new Entity(id);
+                        entity->position = new WorldPositionComponent(Vector2f(texture->getSize().x/2,texture->getSize().y/2), layerNum);
                         Sprite imageSprite(*texture);
-                        new StaticSpriteComponent(imageSprite, id);
+                        entity->render = new StaticSpriteComponent(imageSprite);
+                        ComponentManager::getInst().addEntity(id, entity);
                     }
                 }
             }
@@ -476,7 +498,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             int y;
                             iss2 >> y;
                             points.push_back(sf::Vector2i(x,y));
-                            cout << x << " " << y << endl;
                         }
                     }
 
@@ -489,7 +510,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     attribute = polyline_node->first_attribute("points");
                     if(attribute!=NULL) {
                         pointString = attribute->value();
-                        cout << pointString << endl;
                         istringstream iss(pointString);
                         string s;
                         //Splits every pair
@@ -503,7 +523,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             int y;
                             iss2 >> y;
                             points.push_back(sf::Vector2i(x,y));
-                            cout << x << " " << y << endl;
                         }
                     }
                 }
@@ -515,16 +534,17 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 /// SIMPLY ADDING A SCRIPT TO THE PROJECT ISN'T ENOUGH ///
                 ///****************************************************///
                 unsigned int id = ComponentBase::getNewID(); //Prefetches ID
+                Entity* entity = new Entity(id);
 
                 ///Commonly used options
                 if(objectName!="none" || type!="none") //Adds a name, if needed
-                    new IDComponent(id, objectName, type);
+                    entity->identification = new IDComponent(objectName, type);
                 if (objProperties.find("target") != objProperties.end()) //Adds a target, if needed
-                    new TargetComponent(id, objProperties["target"]);
+                    entity->target = new TargetComponent(objProperties["target"]);
                 if (objProperties.find("script") != objProperties.end()) { //Adds a script, if needed
                     string script = objProperties["script"]; //ADD MORE SCRIPTS TO THIS PART
                     if(script=="camera") {
-                        new Camera(id, width, height);
+                        entity->scripts.push_back(new Camera(width, height));
                     }
 
                     //if(script=="BLAHBLAHBLAH")
@@ -549,28 +569,28 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         //Create ellipse here!
                     }
                     else if(polygon_node) {
-                        new PolygonPhysics(id, points);
+                        entity->physics = new PolygonPhysics(id, points);
                     }
                     else if(polyline_node) {
-                        new PolylinePhysics(id, points);
+                        entity->physics = new PolylinePhysics(id, points);
                     }
                     else {
-                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
+                        entity->physics = new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->position);
                     }
                     //Position
-                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
 
                     if(type=="kill") {
-                        new KillScript(id, false);
+                        entity->scripts.push_back(new KillScript(false));
                     }
 
                 }
                 else if(type=="target") { //Only has world position component
-                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
                 }
                 else if(type=="guideLine") { //Is only points, used for objects to travel along
                     //Position
-                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
                     //Physics Loading - IMPORTANT: Needs special physics classes that only contain points
                     if(ellipse_node) {
                         //Create ellipse here!
@@ -582,7 +602,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         //Create polyline here!
                     }
                     else {
-                        new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
+                        entity->physics = new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->position);
                     }
                 }
                 else if(type=="script") {//Only script and target
@@ -590,39 +610,41 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 }
                 else if(type=="clutter") {
                     //Position
-                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                    entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
                     //Physics Loading
                     if(objGid!=0)
-                    new SimpleBoxPhysics(id, Vector2f(sprites[objGid].getGlobalBounds().width, sprites[objGid].getGlobalBounds().height), 1, 0x00);
+                        entity->physics = new SimpleBoxPhysics(id, Vector2f(sprites[objGid].getGlobalBounds().width, sprites[objGid].getGlobalBounds().height), 1, 0x00, entity->position);
                     //Sprite
-                    new StaticSpriteComponent(sprites[objGid], id);
+                    entity->render = new StaticSpriteComponent(sprites[objGid]);
 
                 }
                 else if(type=="spawner") {
                     //Position
-                    new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
-                    new EnemySpawner(id, sprites[objGid], sf::seconds(2), 10, 800);
+                    entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
+                    entity->scripts.push_back(new EnemySpawner(sprites[objGid], sf::seconds(2), 10, 800));
                 }
                 else if(type=="mob") { //any sort of enemy, player, etc. Has everything basically
                     if (objProperties.find("type") != objProperties.end()) { //Adds a target, if needed
                         string mobType = objProperties["type"];
                         string mobName = objProperties["name"];
                         std::cout<<mobType<<std::endl;
-                        new WorldPositionComponent(id, Vector2f(objectX, objectY), layerNum);
+                        entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
                         if(mobType=="Samus") {
-                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
+                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
                             SpriteManager spriteMan;
 
                             testSprite->setSprite(spriteMan.getSprite("Samus"));
 
-                            new KeyboardInput(id);
+                            entity->render = testSprite;
 
-                            new BraveAdventurerMovement(id);
+                            entity->input = new KeyboardInput();
 
-                            new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
-                            new AudioComponent(id);
-                            new StatsComponent(id);
-                            new MainCharScript(id, true, sf::seconds(2.5f));
+                            entity->movement = new BraveAdventurerMovement();
+
+                            entity->physics = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->position);
+                            entity->audio = new AudioComponent();
+                            entity->stats = new StatsComponent();
+                            entity->scripts.push_back(new MainCharScript(true, sf::seconds(2.5f)));
                         }
                         else if(mobType=="enemy") {
                             if(objectName=="shaq"){
@@ -631,17 +653,17 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                                 //testSprite->setSprite(spriteMan.getSprite("Samus"));
 
-                                new StaticSpriteComponent(sprites[objGid], id);
+                                entity->render = new StaticSpriteComponent(sprites[objGid]);
 
 
                                 //KeyboardInput* testInput = new KeyboardInput(id);
 
-                                EnemyMovement* testMovement = new EnemyMovement(id);
+                                entity->movement = new EnemyMovement();
 
-                                new StatsComponent(id);
-                                new MainCharScript(id, false, sf::seconds(0));
+                                entity->stats = new StatsComponent();
+                                entity->scripts.push_back(new MainCharScript(false, sf::seconds(0)));
 
-                                SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(70,100),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+                                entity->physics = new SimpleBoxPhysics(id,Vector2f(70,100),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->position);
 
                             }else{
 
@@ -650,105 +672,28 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             //testSprite->setSprite(spriteMan.getSprite("Samus"));
 
-                            new StaticSpriteComponent(sprites[objGid], id);
+                            entity->render = new StaticSpriteComponent(sprites[objGid]);
 
 
                             //KeyboardInput* testInput = new KeyboardInput(id);
 
-                            EnemyMovement* testMovement = new EnemyMovement(id);
-                            new StatsComponent(id);
-                            new MainCharScript(id, false, sf::seconds(0));
+                            entity->movement = new EnemyMovement();
+                            entity->stats = new StatsComponent();
+                            entity->scripts.push_back(new MainCharScript(false, sf::seconds(0)));
 
-                            SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+                            entity->physics = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
                             }
                         }
                     }
                     else
                         throw runtime_error("No type associated with mob!");
                 }
-                /*
-                if(type=="box")
-                    makeBox(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
-                if(type=="sensor")
-                    makeSensor(Vector2f(objectWidth, objectHeight),Vector2f(objectX,objectY), objProperties, layerNum, objectName);
-                if(type=="camera")
-                    makeCamera(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
-                if(type=="BraveAdventurer")
-                    makeBraveAdventurer(sprites[objGid],Vector2f(objectX,objectY), objProperties, layerNum, objectName);
-                */
+                ComponentManager::getInst().addEntity(id, entity);
             }
         }
         layerNum++;
     } //every layer
     rendEng->resizeViews(sf::Vector2i(rendEng->window.getSize()));
-}
-
-
-
-void Level::makeBox(sf::Sprite sprite, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
-    unsigned int id = ComponentBase::getNewID();
-    position.x +=sprite.getGlobalBounds().width/2;
-    position.x +=sprite.getGlobalBounds().height/2;
-    new StaticSpriteComponent(sprite, id);
-
-    new WorldPositionComponent(id, position, layer);
-
-    new SimpleBoxPhysics(id, Vector2f(sprite.getGlobalBounds().width, sprite.getGlobalBounds().height), 1, 0x00 );
-
-    if (name!="none")
-        new IDComponent(id, name);
-}
-
-void Level::makeSensor(sf::Vector2f dimension, sf::Vector2f position, std::map<string, string> properties, int layer, string name) {
-
-    //Simple makeSensor without a sprite. Cannot figure out why the position is messed up.
-    position.x +=dimension.x/2;
-    position.y +=dimension.y/2;
-
-    unsigned int id = ComponentBase::getNewID();
-    //StaticSpriteComponent* spriteComp = new StaticSpriteComponent(sprite, id);
-
-    new WorldPositionComponent(id, position, layer);
-
-    new SimpleBoxPhysics(id, Vector2f(dimension.x, dimension.y), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic);
-
-    if (name!="none") {
-        new IDComponent(id, name);
-    }
-}
-
-void Level::makeCamera(sf::Sprite sprite, sf::Vector2f position, std::map<std::string, std::string> properties, int layer, std::string name) {
-    unsigned int id = ComponentBase::getNewID();
-    new Camera(id, width, height);
-    if (properties.find("target") != properties.end()) {
-        new TargetComponent(id, properties["target"]);
-    }
-    if (name!="none")
-        new IDComponent(id, name);
-
-}
-
-void Level::makeBraveAdventurer(sf::Sprite sprite, sf::Vector2f position, std::map<std::string, std::string> properties, int layer, std::string name) {
-    unsigned int id = ComponentBase::getNewID();
-    BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
-    SpriteManager spriteMan;
-    //testSprite->setSprite(spriteMan.getSprite("BraveAdventurer"));
-    testSprite->setSprite(spriteMan.getSprite("Samus"));
-    testSprite->sprite.setAnimation("WalkUp");
-
-    new WorldPositionComponent(id, position, layer);
-
-    new KeyboardInput(id);
-
-    new BraveAdventurerMovement(id);
-
-    new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
-
-    if (properties.find("target") != properties.end()) {
-        new TargetComponent(id, properties["target"]);
-    }
-    if (name!="none")
-        new IDComponent(id, name);
 }
 
 sf::Color Level::HexToColor(std::string input) {

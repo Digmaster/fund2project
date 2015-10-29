@@ -9,8 +9,7 @@
 class ScriptComponent : public ComponentBase
 {
     public:
-        ScriptComponent() : ComponentBase() {}
-        ScriptComponent(unsigned int ID);
+        ScriptComponent();
         virtual ~ScriptComponent();
         virtual bool isActive() {return active;}
         virtual void enable() {active = true;}

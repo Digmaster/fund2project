@@ -80,7 +80,7 @@ void GameEngine::gameLoop() {
     music.openFromFile("assets/sound/stormeaglegenesis.wav"); //open this sound for music
     music.setVolume(30); //Set volume of music
     music.setLoop(true); //loop the music throughout
-    music.play(); //sound should now play throughout the game!
+    //music.play(); //sound should now play throughout the game!
 
     //Load dying sound
     sf::Sound dyingsound;
@@ -91,16 +91,8 @@ void GameEngine::gameLoop() {
 
     while (rendEng->window.isOpen() && !died) {
         sf::Time frameTime = frameClock.restart();
-        ComponentManager::getInst().physSym.process(frameTime);
-        ComponentManager::getInst().posSym.process(frameTime);
-        ComponentManager::getInst().idSym.process(frameTime);
-        ComponentManager::getInst().inputSym.process(frameTime);
-        ComponentManager::getInst().moveSym.process(frameTime);
-        ComponentManager::getInst().etcSym.process(frameTime);
-        ComponentManager::getInst().targetSym.process(frameTime);
-        ComponentManager::getInst().scriptSym.process(frameTime);
-        ComponentManager::getInst().rendSym.process(frameTime);
-        ComponentManager::getInst().audioSym.process(frameTime);
+
+        ComponentManager::getInst().processAll(frameTime);
 
         rendEng->render(frameTime, physEng);
         physEng->step(frameTime);

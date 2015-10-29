@@ -10,12 +10,11 @@
 class PolylinePhysics : public PhysicsComponent
 {
     public:
-        PolylinePhysics() : PhysicsComponent() {}
         ///takes a series of xy coordinates
         PolylinePhysics(unsigned int, std::vector<sf::Vector2i>);
         virtual ~PolylinePhysics();
 
-        void go(sf::Time);
+        void go(sf::Time, Entity* entity);
     protected:
     private:
         b2BodyDef physBodyDef;

@@ -9,11 +9,10 @@
 class StaticSpriteComponent : public RenderComponent
 {
     public:
-        StaticSpriteComponent() : RenderComponent() {}
-        StaticSpriteComponent(sf::Sprite input, unsigned int ID = 0) : RenderComponent(ID) {sprite = input;}
-        StaticSpriteComponent(std::string texture, const sf::IntRect &rectangle, unsigned int ID = 0);
+        StaticSpriteComponent(sf::Sprite input) : RenderComponent() {sprite = input;}
+        StaticSpriteComponent(std::string texture, const sf::IntRect &rectangle);
         virtual ~StaticSpriteComponent();
-        virtual void go(sf::Time);
+        virtual void go(sf::Time, Entity* entity);
         sf::Drawable* getDrawable();
     protected:
     private:

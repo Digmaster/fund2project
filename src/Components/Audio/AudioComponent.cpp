@@ -1,17 +1,13 @@
 #include "Components/Audio/AudioComponent.h"
 #include <SFML/Audio.hpp>
 #include "Components/ComponentManager.h"
+#include "Components/Movement/MovementComponent.h"
 #include "InputEngine.h"
 #include "GameEngine.h"
+#include "Components/Entity.h"
 #include <string>
 
-AudioComponent::AudioComponent()
-{
-    //ctor
-}
-
-AudioComponent::AudioComponent(unsigned int ID) : ComponentBase(ID){
-    compMan->audioSym.addComponent(this);
+AudioComponent::AudioComponent() : ComponentBase(){
     buffer1.loadFromFile("assets/sound/Running.wav");
     buffer2.loadFromFile("assets/sound/jump.wav");
     buffer3.loadFromFile("assets/sound/death.wav");
@@ -30,8 +26,8 @@ AudioComponent::~AudioComponent()
 }
 
 //Looped function for audio instances
-void AudioComponent::go(sf::Time){
-    MovementComponent* action=ComponentManager::getInst().moveSym.getComponent(getID());
+void AudioComponent::go(sf::Time, Entity* entity){
+    MovementComponent* action = entity->movement;
     //std::cout<<action->getState()<<std::endl;
     if(action) {
         //Play sound for walking/running

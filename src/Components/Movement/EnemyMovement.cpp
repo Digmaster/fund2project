@@ -3,26 +3,23 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/ComponentManager.h"
 #include "Components/Input/InputComponent.h"
+#include "Components/Entity.h"
+#include "Components/Stats/StatsComponent.h"
 
 using namespace std;
 
-EnemyMovement::EnemyMovement() :EnemyMovement(0)
-{
-
-}
-
-EnemyMovement::EnemyMovement(unsigned int ID) : MovementComponent(ID) {
+EnemyMovement::EnemyMovement() : MovementComponent() {
     currState = leftWalk;
     nextState = leftWalk;
 }
 
-void EnemyMovement::go(sf::Time frameTime) {
+void EnemyMovement::go(sf::Time frameTime, Entity* entity) {
     walkTimer+=frameTime;
-    PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
+    PhysicsComponent* physics = entity->physics;
     unsigned int mainCharID = compMan->name2ID("MainChar");
-    WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
-    InputComponent* input = compMan->inputSym.getComponent(getID());
-    StatsComponent* stats = compMan->statSym.getComponent(mainCharID);
+    WorldPositionComponent* position = entity->position;
+    InputComponent* input = entity->input;
+    StatsComponent* stats = (*compMan)[mainCharID]->stats;
     int walkSpeed = 5;
     int attackSpeed = 5;
     int maxAirSpeed = 2;
@@ -31,8 +28,8 @@ void EnemyMovement::go(sf::Time frameTime) {
     //int climbSpeed = 5;
     sf::Time maxJumpTime = sf::milliseconds(25); //.25 seconds of jump
     sf::Time maxWalkTime = sf::seconds(5); //5 seconds of walk in either direction
-    WorldPositionComponent* enePosComp = compMan->posSym.getComponent(getID());
-    WorldPositionComponent* advPosComp = compMan->posSym.getComponent(mainCharID);
+    WorldPositionComponent* enePosComp = entity->position;
+    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->position;
     if(physics && enePosComp && advPosComp) { //Find in physics states
         sf::Vector2f enePos = enePosComp->getPosition();
         sf::Vector2f advPos = advPosComp->getPosition();

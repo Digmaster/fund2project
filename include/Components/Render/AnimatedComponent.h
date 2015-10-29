@@ -8,12 +8,10 @@
 class AnimatedComponent : public RenderComponent
 {
     public:
-        /** Default constructor */
-        AnimatedComponent();
-        AnimatedComponent(unsigned int ID) : RenderComponent(ID) {}
+        AnimatedComponent() : RenderComponent() {}
         /** Default destructor */
         virtual ~AnimatedComponent();
-        virtual void go(sf::Time);
+        virtual void go(sf::Time, Entity* entity);
         void setSprite(AnimatedSprite input);
         AnimatedSprite sprite;
         sf::Drawable* getDrawable();

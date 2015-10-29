@@ -2,22 +2,20 @@
 
 #include "Components/Movement/MovementComponent.h"
 #include "Components/ComponentManager.h"
+#include "Components/Entity.h"
+#include "Components/Input/InputComponent.h"
+#include "Components/Stats/StatsComponent.h"
 
-BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : BraveAdventurerAnimatedComponent(0)
+BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : AnimatedComponent()
 {
     currDir = 1;
-
 }
 
-BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent(unsigned int id) : AnimatedComponent(ID) {
-    setID(id);
-}
-
-void BraveAdventurerAnimatedComponent::go(sf::Time fps) {
-    AnimatedComponent::go(fps);
-    MovementComponent* movement = ComponentManager::getInst().moveSym.getComponent(getID());
-    InputComponent* input = ComponentManager::getInst().inputSym.getComponent(getID());
-    StatsComponent* statsComp = ComponentManager::getInst().statSym.getComponent(getID());
+void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
+    AnimatedComponent::go(fps, entity);
+    MovementComponent* movement = entity->movement;
+    InputComponent* input = entity->input;
+    StatsComponent* statsComp = entity->stats;
     if(movement!=NULL && input!=NULL) {
         if(movement->getState()==MoveState::onGround) {
             if(input->fireDir < 90 && input->fireDir > -90)

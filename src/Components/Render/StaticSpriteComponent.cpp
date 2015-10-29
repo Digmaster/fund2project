@@ -1,6 +1,8 @@
 #include "Components/Render/StaticSpriteComponent.h"
 #include "Components/ComponentManager.h"
 #include "Rendering/RenderEngine.h"
+#include "Components/Entity.h"
+#include "Components/Positional/WorldPositionComponent.h"
 
 #include <stdexcept>
 
@@ -12,14 +14,14 @@ StaticSpriteComponent::~StaticSpriteComponent()
     //dtor
 }
 
-StaticSpriteComponent::StaticSpriteComponent(string texture, const IntRect &rectangle, unsigned int ID) : RenderComponent(ID) {
+StaticSpriteComponent::StaticSpriteComponent(string texture, const IntRect &rectangle) : RenderComponent() {
     sprite.setTexture(*texMan.getTexture(texture));
     sprite.setTextureRect(rectangle);
     // NOTE (Thomas Luppi#1#03/21/14): Check if the texturemanager actually works here
 }
 
-void StaticSpriteComponent::go(sf::Time) {
-    auto posCom = ComponentManager::getInst().posSym.getComponent(getID());
+void StaticSpriteComponent::go(sf::Time, Entity* entity) {
+    auto posCom = entity->position;
     sprite.setOrigin(sprite.getTextureRect().width/2,sprite.getTextureRect().height/2);
     if(posCom!=NULL) {
         sf::Vector2f position = posCom->getPosition();

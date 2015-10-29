@@ -10,6 +10,7 @@
 #include "Components/Stats/StatsComponent.h"
 #include "Components/Script/MainCharScript.h"
 #include "Components/Physics/SimpleBoxPhysics.h"
+#include "Components/Entity.h"
 
 EnemySpawner::EnemySpawner()
 {
@@ -21,15 +22,15 @@ EnemySpawner::~EnemySpawner()
     //dtor
 }
 
-EnemySpawner::EnemySpawner(unsigned int id, sf::Sprite spr, sf::Time frequency, int max, int range) : ScriptComponent(id), spr(spr), freq(frequency), max(max), range(range) {
+EnemySpawner::EnemySpawner(sf::Sprite spr, sf::Time frequency, int max, int range) : ScriptComponent(), spr(spr), freq(frequency), max(max), range(range) {
     countdown = frequency;
     curr = 0;
 }
 
-void EnemySpawner::go(sf::Time frameTime) {
+void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
     unsigned int mainCharID = compMan->name2ID("MainChar");
-    WorldPositionComponent* advPosComp = compMan->posSym.getComponent(mainCharID);
-    WorldPositionComponent* mePosComp = compMan->posSym.getComponent(getID());
+    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->position;
+    WorldPositionComponent* mePosComp = entity->position;
     countdown-=frameTime;
     if(advPosComp && mePosComp && curr <= max && countdown <= sf::seconds(0)) {
         int baddies = advPosComp->getPosition().x;
@@ -43,21 +44,16 @@ void EnemySpawner::go(sf::Time frameTime) {
             curr++;
             countdown = freq;
             unsigned int id = ComponentBase::getNewID();
-            //BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
-            SpriteManager spriteMan;
 
-            //testSprite->setSprite(spriteMan.getSprite("Samus"));
+            Entity* enemy = new Entity(id);
+            enemy->render = new StaticSpriteComponent(spr);
+            enemy->position = new WorldPositionComponent(*mePosComp);
+            enemy->stats = new StatsComponent();
+            enemy->scripts.push_back(new MainCharScript(false));
+            enemy->movement = new EnemyMovement();
+            enemy->physics = new SimpleBoxPhysics(id,sf::Vector2f(spr.getGlobalBounds().width,spr.getGlobalBounds().height),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->position);
 
-            new StaticSpriteComponent(spr, id);
-            new WorldPositionComponent(id, mePosComp->getPosition(), mePosComp->getLayer());
-
-            //KeyboardInput* testInput = new KeyboardInput(id);
-
-            EnemyMovement* testMovement = new EnemyMovement(id);
-            new StatsComponent(id);
-            new MainCharScript(id, false);
-
-            SimpleBoxPhysics* testPhys = new SimpleBoxPhysics(id,sf::Vector2f(spr.getGlobalBounds().width,spr.getGlobalBounds().height),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors);
+            ComponentManager::getInst().addEntity(id, enemy);
         }
     }
 }

@@ -9,17 +9,16 @@
 
 class FootContactListener;
 class LadderContactListener;
+class WorldPositionComponent;
 
-///A note-so-simple component which creates a physics box.
+///A not-so-simple component which creates a physics box.
 class SimpleBoxPhysics : public PhysicsComponent
 {
     public:
-        SimpleBoxPhysics() : PhysicsComponent() {}
         ///Creates a simple box
         /** \param opts Flags are defined in physics component **/
-        SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction = 10, uint32 opts=0);
-        virtual ~SimpleBoxPhysics();
-        void go(sf::Time);
+        SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction = 10, uint32 opts=0, WorldPositionComponent* position = nullptr);
+        void go(sf::Time, Entity* entity);
         bool onGround();
         unsigned int touchingGround();
         bool onLeft();
@@ -62,7 +61,7 @@ private:
 class LadderContactListener : public b2ContactListener
 {
 public:
-    LadderContactListener() : findID(0), origin(0) {}
+    LadderContactListener() : origin(0), findID(0) {}
     LadderContactListener(unsigned int findID, PhysicsComponent* origin) : findID(findID), origin(origin), overLadderNum(0) {}
     void BeginContact(b2Contact* contact);
     void EndContact(b2Contact* contact);

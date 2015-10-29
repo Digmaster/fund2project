@@ -23,7 +23,6 @@ class MovementComponent : public ComponentBase
 {
     public:
         MovementComponent();
-        MovementComponent(unsigned int ID);
         virtual ~MovementComponent();
         ///Returns the MoveState enum corresponding to the current state
         MoveState getState() {return currState;}

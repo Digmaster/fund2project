@@ -10,11 +10,10 @@ class AudioComponent : public ComponentBase
     public:
         /*! Default Constructor */
         AudioComponent();
-        AudioComponent(unsigned int ID);
         /*! Default Destructor */
         virtual ~AudioComponent();
         ///function runs until program end
-        void go(sf::Time);
+        void go(sf::Time, Entity* entity);
     protected:
     private:
         sf::Sound sound1; //Walking sound

@@ -14,11 +14,11 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
-					<Add option="-std=gnu++11" />
 					<Add directory="Dependancies/include" />
 					<Add directory="include" />
-					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
+					<Add directory="D:/Documents/GitHub/fund2project/include" />
 					<Add directory="include/Components/Physics" />
 					<Add directory="include/Components/Identification" />
 					<Add directory="include/Components/Script" />
@@ -43,8 +43,9 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=c++0x" />
 					<Add directory="include" />
-					<Add directory="C:/Users/Thomas Luppi/Documents/fund2project/include" />
+					<Add directory="D:/Documents/GitHub/fund2project/include" />
 					<Add directory="include/Components/Physics" />
 					<Add directory="include/Components/Identification" />
 					<Add directory="include/Components/Script" />
@@ -111,6 +112,7 @@
 		<Unit filename="src/Components/Audio/AudioComponent.cpp" />
 		<Unit filename="src/Components/ComponentBase.cpp" />
 		<Unit filename="src/Components/ComponentManager.cpp" />
+		<Unit filename="src/Components/Entity.cpp" />
 		<Unit filename="src/Components/Identification/IDComponent.cpp" />
 		<Unit filename="src/Components/Input/InputComponent.cpp" />
 		<Unit filename="src/Components/Input/KeyboardInput.cpp" />

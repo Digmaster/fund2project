@@ -15,11 +15,10 @@ class RenderComponent : public ComponentBase
     public:
         /** Default constructor */
         RenderComponent();
-        RenderComponent(unsigned int ID);
         /** Default destructor */
         virtual ~RenderComponent();
       //  virtual sf::Drawable* getDrawable() {}
-        virtual void go(sf::Time) {}
+        virtual void go(sf::Time, Entity* entity) {}
     protected:
         static TextureManager texMan;
     private:

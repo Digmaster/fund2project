@@ -8,11 +8,10 @@
 class BoundaryPhysics : public PhysicsComponent
 {
     public:
-        BoundaryPhysics() : PhysicsComponent() {}
-        BoundaryPhysics(unsigned int, float, float, float, float);
+        BoundaryPhysics(int, float, float, float, float);
         virtual ~BoundaryPhysics();
 
-        void go(sf::Time);
+        void go(sf::Time, Entity* entity);
     protected:
     private:
         b2BodyDef physBodyDef;

@@ -7,10 +7,9 @@
 class KeyboardInput : public InputComponent
 {
     public:
-        KeyboardInput() : InputComponent() {}
-        KeyboardInput(unsigned int ID);
+        KeyboardInput();
         virtual ~KeyboardInput();
-        void go(sf::Time);
+        void go(sf::Time, Entity* entity);
     protected:
     private:
 };

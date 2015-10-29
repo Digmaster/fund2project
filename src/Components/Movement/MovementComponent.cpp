@@ -1,13 +1,7 @@
 #include "Components/Movement/MovementComponent.h"
 #include "Components/ComponentManager.h"
 
-MovementComponent::MovementComponent() : MovementComponent(0)
-{
-    //ctor
-}
-
-MovementComponent::MovementComponent(unsigned int ID) : ComponentBase(ID) {
-    compMan->moveSym.addComponent(this);
+MovementComponent::MovementComponent() : ComponentBase() {
     currState = MoveState::onGround;
     nextState = MoveState::onGround;
     changed = false;

@@ -2,13 +2,7 @@
 #include "Components/ComponentManager.h"
 #include "Rendering/RenderEngine.h"
 
-InputComponent::InputComponent()
-{
-    //ctor
-}
-
-InputComponent::InputComponent(unsigned int ID) : ComponentBase(ID) {
-    compMan->inputSym.addComponent(this);
+InputComponent::InputComponent() : ComponentBase() {
     walkLeft=false;
     walkRight=false;
     climbUp=false;

@@ -7,12 +7,10 @@
 class StatsComponent : public ComponentBase
 {
     public:
-        /** Default constructor */
-        StatsComponent();
-        StatsComponent(unsigned int ID, int health = 100);
+        StatsComponent(int health = 100);
         /** Default destructor */
         virtual ~StatsComponent();
-        virtual void go(sf::Time frameTime);
+        virtual void go(sf::Time frameTime, Entity* entity);
         int getHealth();
         void setHealth(int);
         void modHealth(int);

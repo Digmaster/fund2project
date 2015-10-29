@@ -7,9 +7,8 @@ class EnemyMovement : public MovementComponent
 {
     public:
         EnemyMovement();
-        EnemyMovement(unsigned int ID);
         ~EnemyMovement() {}
-        void go(sf::Time frameTime);
+        void go(sf::Time frameTime, Entity* entity);
         std::string getCurrentMovement();
     protected:
     private:

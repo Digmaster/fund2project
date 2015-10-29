@@ -8,9 +8,8 @@
 class InputComponent : public ComponentBase {
     public:
         InputComponent();
-        InputComponent(unsigned int ID);
         virtual ~InputComponent();
-        virtual void go(sf::Time) {}
+        virtual void go(sf::Time, Entity* entity) {}
         ///Triggers a movement left
         bool walkLeft;
         ///Triggers a movement right

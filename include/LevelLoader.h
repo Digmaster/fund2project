@@ -21,11 +21,6 @@ public:
         \param RenderEngine* The RenderEngine contained in the Game Engine */
     void loadLevel(std::string filename, RenderEngine*);
 
-    //! Standardized method to create a box
-    void makeBox(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
-    void makeSensor(sf::Vector2f, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
-    void makeCamera(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
-    void makeBraveAdventurer(sf::Sprite, sf::Vector2f, std::map<std::string, std::string>, int layer, std::string);
     //! The width of the level, in "Tiles"
     int width;
     //! The height of the level, in "Tiles"

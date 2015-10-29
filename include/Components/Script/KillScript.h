@@ -7,13 +7,11 @@
 class KillScript : public ScriptComponent
 {
     public:
-        /** Default constructor */
-        KillScript();
-        KillScript(unsigned int ID, bool remove = true, int health = 10, sf::Time freq = sf::seconds(.5));
+        KillScript(bool remove = true, int health = 10, sf::Time freq = sf::seconds(.5));
         /** Default destructor */
         virtual ~KillScript();
 
-        virtual void go(sf::Time frameTime);
+        virtual void go(sf::Time frameTime, Entity* entity);
     protected:
     private:
         sf::Time frequency;

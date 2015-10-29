@@ -3,6 +3,7 @@
 
 #include "Components/ComponentBase.h"
 #include <Box2D/Box2D.h>
+#include <SFML/System/Vector2.hpp>
 
 class PhysicsEngine;
 
@@ -10,8 +11,7 @@ class PhysicsEngine;
 class PhysicsComponent : public ComponentBase
 {
     public:
-        PhysicsComponent() : ComponentBase() {}
-        PhysicsComponent(unsigned int ID);
+        PhysicsComponent();
         virtual ~PhysicsComponent();
         ///Returns true if the physics object is touching something on the bottom
         virtual bool onGround() {return false;}

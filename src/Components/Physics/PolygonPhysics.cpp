@@ -3,13 +3,15 @@
 #include "physics/PhysicsEngine.h"
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "GameEngine.h"
+#include "Components/Positional/WorldPositionComponent.h"
+#include "Components/Entity.h"
 
-PolygonPhysics::PolygonPhysics(unsigned int ID, vector<sf::Vector2i> points) : PhysicsComponent(ID)
+PolygonPhysics::PolygonPhysics(unsigned int ID, std::vector<sf::Vector2i> points) : PhysicsComponent()
 {
     physBodyDef.type = b2_staticBody;
     physBody = eng->physEng->_world->CreateBody(&physBodyDef);
 
-    headListener = new FootContactListener(getID()*10);
+    headListener = new FootContactListener(ID*10);
 
     b2Vec2 *polygons = new b2Vec2[points.size()];
     for (unsigned int i=0; i < points.size(); i++){
@@ -20,13 +22,13 @@ PolygonPhysics::PolygonPhysics(unsigned int ID, vector<sf::Vector2i> points) : P
     boundaryFixtureDef.shape = &boundaryShape;
     boundaryFixtureDef.friction = 10;
     b2Fixture* fixture = physBody->CreateFixture(&boundaryFixtureDef);
-    fixture->SetUserData( (void*)(getID()*10+2) );
+    fixture->SetUserData( (void*)(ID*10+2) );
     //screenHeight = atoi(Options::instance().get("screen_height").c_str());
 }
 
 PolygonPhysics::~PolygonPhysics()
 {
-    //dtor
+    eng->physEng->_world->DestroyBody(physBody);
 }
 
 bool PolygonPhysics::onTop() {
@@ -43,11 +45,9 @@ unsigned int PolygonPhysics::touchingTop() {
         return true;
 }
 
-void PolygonPhysics::go(sf::Time frameTime) {
-    WorldPositionComponent* position = ComponentManager::getInst().posSym.getComponent(getID());
-    //The body is the one that contains the position, velocity, etc. not the body definition
-    //screenHeight
+void PolygonPhysics::go(sf::Time frameTime, Entity* entity) {
+    WorldPositionComponent* position = entity->position;
+
     //Times 32, as 32 pixels is ~one meter
-    position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)));
-    //cout << physBody->GetPosition().x << " " << physBody->GetPosition().y << " " << physBodyDef.awake << endl;
+    position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)), this);
 }

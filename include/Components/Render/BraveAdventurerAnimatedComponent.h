@@ -8,8 +8,7 @@ class BraveAdventurerAnimatedComponent : public AnimatedComponent
 {
     public:
         BraveAdventurerAnimatedComponent();
-        BraveAdventurerAnimatedComponent(unsigned int id);
-        void go(sf::Time fps);
+        void go(sf::Time fps, Entity* entity);
     protected:
     private:
         int currDir;

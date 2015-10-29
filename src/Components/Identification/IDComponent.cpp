@@ -6,13 +6,12 @@ IDComponent::~IDComponent()
     //dtor
 }
 
-IDComponent::IDComponent(unsigned int ID, std::string Name, std::string Type) : ComponentBase(ID)
+IDComponent::IDComponent(std::string Name, std::string Type) : ComponentBase()
 {
-    compMan->idSym.addComponent(this);
     name = Name;
     type = Type;
 }
 
-void IDComponent::go(sf::Time frameTime) {
+void IDComponent::go(sf::Time frameTime, Entity* entity) {
 
 }

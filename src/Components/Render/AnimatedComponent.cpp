@@ -1,24 +1,22 @@
 #include "Components/Render/AnimatedComponent.h"
 #include "Components/ComponentManager.h"
+#include "Components/Entity.h"
+#include "Components/Positional/WorldPositionComponent.h"
 
-AnimatedComponent::AnimatedComponent()
-{
-    //ctor
-}
 
 AnimatedComponent::~AnimatedComponent()
 {
     //dtor
 }
 
-void AnimatedComponent::go(sf::Time fps) {
+void AnimatedComponent::go(sf::Time fps, Entity* entity) {
     sprite.update(fps);
-    auto posCom = compMan->posSym.getComponent(getID());
+    auto posCom = entity->position;
     if(posCom!=NULL) {
         sf::Vector2f position = posCom->getPosition();
         sprite.setPosition(position);
         if(rendEng==NULL) {
-            throw logic_error("Render engine not initialized yet");
+            throw std::logic_error("Render engine not initialized yet");
         }
         else {
             rendEng->addSprite(&sprite, posCom->getLayer());

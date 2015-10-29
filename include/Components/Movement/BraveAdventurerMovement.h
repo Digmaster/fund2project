@@ -8,9 +8,8 @@ class BraveAdventurerMovement : public MovementComponent
 {
     public:
         BraveAdventurerMovement();
-        BraveAdventurerMovement(unsigned int ID);
         ~BraveAdventurerMovement() {}
-        void go(sf::Time frameTime);
+        void go(sf::Time frameTime, Entity* entity);
     protected:
     private:
         sf::Time jumpTimer;

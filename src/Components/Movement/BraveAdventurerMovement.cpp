@@ -3,6 +3,7 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/ComponentManager.h"
 #include "Components/Input/InputComponent.h"
+#include "Components/Entity.h"
 
 #include "Components/Render/StaticSpriteComponent.h"
 #include "Components/Physics/SimpleBoxPhysics.h"
@@ -10,19 +11,14 @@
 
 using namespace std;
 
-BraveAdventurerMovement::BraveAdventurerMovement() :BraveAdventurerMovement(0)
-{
+BraveAdventurerMovement::BraveAdventurerMovement() : MovementComponent() {
 
 }
 
-BraveAdventurerMovement::BraveAdventurerMovement(unsigned int ID) : MovementComponent(ID) {
-
-}
-
-void BraveAdventurerMovement::go(sf::Time frameTime) {
-    PhysicsComponent* physics = ComponentManager::getInst().physSym.getComponent(getID());
-    InputComponent* input = compMan->inputSym.getComponent(getID());
-    WorldPositionComponent* position = compMan->posSym.getComponent(getID());
+void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
+    PhysicsComponent* physics = entity->physics;
+    InputComponent* input = entity->input;
+    WorldPositionComponent* position = entity->position;
     int maxGroundSpeed = 20;
     int maxAirSpeed = 15;
     int maxLadderSpeed = 5;
@@ -173,11 +169,13 @@ void BraveAdventurerMovement::go(sf::Time frameTime) {
                 sf::Vector2f pos = position->getPosition();
                 if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
                 else pos.x-=40;
-                new WorldPositionComponent(id, pos , position->getLayer(), (float)input->fireDir*0.0174532925);
-                new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6), id);
-                SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors);
-                phys->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
-                new KillScript(id, 34);
+                Entity* bullet = new Entity(id);
+                bullet->position = new WorldPositionComponent(pos, position->getLayer(), (float)input->fireDir*0.0174532925);
+                bullet->render = new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6));
+                bullet->physics = new SimpleBoxPhysics(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors, bullet->position);
+                bullet->physics->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
+                bullet->scripts.push_back(new KillScript(34));
+                ComponentManager::getInst().addEntity(id, bullet);
              }
              nextState = inAir;
         default:

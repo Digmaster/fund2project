@@ -8,10 +8,8 @@
 class IDComponent : public ComponentBase
 {
     public:
-        ///Default constructor
-        IDComponent() : ComponentBase() {}
         ///Constructor
-        IDComponent(unsigned int, std::string = "", std::string = "");
+        IDComponent(std::string = "", std::string = "");
         ///Sets the name. This is typically set in tiled
         void setName(std::string input) {name = input;}
         ///The type of object. This is the same value used to create the object (etc mob)
@@ -21,7 +19,7 @@ class IDComponent : public ComponentBase
         ///Return type
         std::string getType() {return type;}
         virtual ~IDComponent();
-        virtual void go(sf::Time);
+        virtual void go(sf::Time, Entity* entity);
     protected:
     private:
         std::string name;

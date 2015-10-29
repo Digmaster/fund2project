@@ -2,16 +2,10 @@
 
 #include "Components/ComponentManager.h"
 
-StatsComponent::StatsComponent() : StatsComponent(0)
-{
-
-}
-
-StatsComponent::StatsComponent(unsigned int ID, int health) : ComponentBase(ID)
+StatsComponent::StatsComponent(int health) : ComponentBase()
 {
     health = health;
     dead = false;
-    compMan->statSym.addComponent(this);
 }
 
 StatsComponent::~StatsComponent()
@@ -19,7 +13,7 @@ StatsComponent::~StatsComponent()
     //dtor
 }
 
-void StatsComponent::go(sf::Time frameTime)
+void StatsComponent::go(sf::Time frameTime, Entity* entity)
 {
     //Currently not used
 }
