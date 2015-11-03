@@ -76,7 +76,10 @@
 		<Unit filename="include/Components/ComponentBase.h" />
 		<Unit filename="include/Components/ComponentManager.h" />
 		<Unit filename="include/Components/ComponentSystem.h" />
+		<Unit filename="include/Components/Entity.h" />
+		<Unit filename="include/Components/EventDefines.h" />
 		<Unit filename="include/Components/Identification/IDComponent.h" />
+		<Unit filename="include/Components/Input/BasicAIInput.h" />
 		<Unit filename="include/Components/Input/InputComponent.h" />
 		<Unit filename="include/Components/Input/KeyboardInput.h" />
 		<Unit filename="include/Components/Movement/BraveAdventurerMovement.h" />
@@ -114,6 +117,7 @@
 		<Unit filename="src/Components/ComponentManager.cpp" />
 		<Unit filename="src/Components/Entity.cpp" />
 		<Unit filename="src/Components/Identification/IDComponent.cpp" />
+		<Unit filename="src/Components/Input/BasicAIInput.cpp" />
 		<Unit filename="src/Components/Input/InputComponent.cpp" />
 		<Unit filename="src/Components/Input/KeyboardInput.cpp" />
 		<Unit filename="src/Components/Movement/BraveAdventurerMovement.cpp" />

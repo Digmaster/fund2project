@@ -51,10 +51,10 @@ void EnemyMovement::go(sf::Time frameTime, Entity* entity) {
         }
         int distance = abs(advPos.x - enePos.x);
         int maxAttackDistance = 200;
-        if(stats) {
-            if((physics->onRight() && (physics->touchingRight() == mainCharID)) || (physics->onLeft() && (physics->touchingLeft() == mainCharID)) || (physics->onTop() && (physics->touchingTop() == mainCharID)) || (physics->onGround() && (physics->touchingGround() == mainCharID)))
-                stats->setHealth(0);
-        }
+//        if(stats) {
+//            if((physics->onRight() && (physics->touchingRight() == mainCharID)) || (physics->onLeft() && (physics->touchingLeft() == mainCharID)) || (physics->onTop() && (physics->touchingTop() == mainCharID)) || (physics->onGround() && (physics->touchingGround() == mainCharID)))
+//                stats->setHealth(0);
+//        }
 
         switch(currState) {
         case MoveState::rightWalk:

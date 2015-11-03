@@ -2,6 +2,7 @@
 #include <SFML/Audio.hpp>
 #include "Components/ComponentManager.h"
 #include "Components/Movement/MovementComponent.h"
+#include "Components/Positional/WorldPositionComponent.h"
 #include "InputEngine.h"
 #include "GameEngine.h"
 #include "Components/Entity.h"
@@ -16,6 +17,12 @@ AudioComponent::AudioComponent() : ComponentBase(){
     sound3.setBuffer(buffer3);
     sound1.setLoop(true);
     sound2.setLoop(true);
+    sound1.setAttenuation(.1);
+    sound2.setAttenuation(.1);
+    sound1.setMinDistance(5);
+    sound2.setMinDistance(5);
+//    sound1.setRelativeToListener(true);
+//    sound2.setRelativeToListener(true);
 }
 
 AudioComponent::~AudioComponent()
@@ -28,11 +35,13 @@ AudioComponent::~AudioComponent()
 //Looped function for audio instances
 void AudioComponent::go(sf::Time, Entity* entity){
     MovementComponent* action = entity->movement;
+    WorldPositionComponent* position = entity->position;
     //std::cout<<action->getState()<<std::endl;
     if(action) {
         //Play sound for walking/running
         if(action->getState()==1 || action->getState()==2){
             sound1.setVolume(50);
+            if(position!=nullptr) sound1.setPosition(position->getPosition().x, 0, position->getPosition().y);
             //only play if sound not already playing
             if(sound1.getStatus()!=sf::SoundSource::Status::Playing)
                 sound1.play();
@@ -42,6 +51,7 @@ void AudioComponent::go(sf::Time, Entity* entity){
         //Play sound for jumping/spinning
         else if (action->getState()==10){
             sound2.setVolume(30);
+            if(position!=nullptr) sound2.setPosition(position->getPosition().x, 0, position->getPosition().y);
             //only play if sound not already playing
             if(sound2.getStatus()!=sf::SoundSource::Status::Playing)
                 sound2.play();

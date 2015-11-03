@@ -7,7 +7,7 @@
 class KillScript : public ScriptComponent
 {
     public:
-        KillScript(bool remove = true, int health = 10, sf::Time freq = sf::seconds(.5));
+        KillScript(bool remove = true, int health = 10, sf::Time freq = sf::seconds(2));
         /** Default destructor */
         virtual ~KillScript();
 
@@ -15,6 +15,7 @@ class KillScript : public ScriptComponent
     protected:
     private:
         sf::Time frequency;
+        sf::Time initFreq;
         int health;
         bool remove;
 };

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="300" height="100" tilewidth="16" tileheight="16">
- <tileset firstgid="1" name="Metroid" tilewidth="16" tileheight="16">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="300" height="100" tilewidth="16" tileheight="16" nextobjectid="19">
+ <tileset firstgid="1" name="Metroid" tilewidth="16" tileheight="16" tilecount="432">
   <image source="assets/art/Metroid.png" trans="b3ff9b" width="257" height="432"/>
   <terraintypes>
    <terrain name="Metal thing" tile="-1"/>
@@ -141,7 +141,7 @@
   <tile id="382" terrain="0,0,,"/>
   <tile id="383" terrain="0,,,"/>
  </tileset>
- <tileset firstgid="433" name="tiles1_0" tilewidth="16" tileheight="16">
+ <tileset firstgid="433" name="tiles1_0" tilewidth="16" tileheight="16" tilecount="84">
   <image source="assets/art/tiles1_0.png" trans="b3ff9b" width="224" height="96"/>
   <tile id="43">
    <properties>
@@ -149,13 +149,13 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="517" name="BraveAdventurer" tilewidth="32" tileheight="32">
+ <tileset firstgid="517" name="BraveAdventurer" tilewidth="32" tileheight="32" tilecount="12">
   <image source="assets/art/BraveAdventurer.png" trans="b3ff9b" width="96" height="128"/>
  </tileset>
- <tileset firstgid="529" name="shaq" tilewidth="70" tileheight="100">
+ <tileset firstgid="529" name="shaq" tilewidth="70" tileheight="100" tilecount="1">
   <image source="assets/art/shaq.png" trans="b3ff9b" width="70" height="100"/>
  </tileset>
- <imagelayer name="background" width="300" height="100">
+ <imagelayer name="background">
   <image source="assets/art/shbg.png"/>
   <properties>
    <property name="zoom" value="1.2"/>
@@ -60172,43 +60172,47 @@
    <tile gid="0"/>
   </data>
  </layer>
- <objectgroup name="wee" width="300" height="100">
-  <object name="MainChar" type="mob" gid="68" x="91" y="1224">
+ <objectgroup name="wee">
+  <object id="1" name="MainChar" type="mob" gid="68" x="91" y="1224" width="16" height="16">
    <properties>
     <property name="type" value="Samus"/>
    </properties>
   </object>
-  <object type="script" gid="65" x="2" y="1055">
+  <object id="2" type="script" gid="65" x="2" y="1055" width="16" height="16">
    <properties>
     <property name="script" value="camera"/>
     <property name="target" value="MainChar"/>
    </properties>
   </object>
-  <object type="clutter" gid="493" x="421" y="1261"/>
-  <object type="clutter" gid="493" x="441" y="1261"/>
-  <object type="clutter" gid="493" x="459" y="1261"/>
-  <object type="clutter" gid="493" x="433" y="1243"/>
-  <object type="clutter" gid="493" x="451" y="1243"/>
-  <object type="clutter" gid="493" x="443" y="1225"/>
-  <object type="spawner" gid="518" x="2112" y="896"/>
-  <object type="spawner" gid="518" x="2736" y="736"/>
-  <object type="ladder" x="3152" y="496" width="32" height="320"/>
-  <object type="kill" x="1072" y="1376" width="640" height="16"/>
-  <object type="kill" x="2208" y="1184" width="720" height="16"/>
-  <object type="mob" gid="518" x="912" y="1104">
+  <object id="3" type="clutter" gid="493" x="421" y="1261" width="16" height="16"/>
+  <object id="4" type="clutter" gid="493" x="441" y="1261" width="16" height="16"/>
+  <object id="5" type="clutter" gid="493" x="459" y="1261" width="16" height="16"/>
+  <object id="6" type="clutter" gid="493" x="433" y="1243" width="16" height="16"/>
+  <object id="7" type="clutter" gid="493" x="451" y="1243" width="16" height="16"/>
+  <object id="8" type="clutter" gid="493" x="443" y="1225" width="16" height="16"/>
+  <object id="9" type="spawner" gid="518" x="2112" y="896" width="32" height="32"/>
+  <object id="10" type="spawner" gid="518" x="2736" y="736" width="32" height="32"/>
+  <object id="11" type="ladder" x="3152" y="496" width="32" height="320"/>
+  <object id="12" type="sensor" x="1041" y="1407" width="699" height="16">
+   <properties>
+    <property name="hurt" value="-1"/>
+   </properties>
+  </object>
+  <object id="13" type="kill" x="2208" y="1184" width="720" height="16"/>
+  <object id="14" type="mob" gid="518" x="912" y="1104" width="32" height="32">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object type="mob" gid="518" x="720" y="1104">
+  <object id="15" type="mob" gid="518" x="720" y="1104" width="32" height="32">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object type="kill" x="1216" y="1072" width="112" height="144"/>
-  <object type="sensor" x="2208" y="1152">
+  <object id="16" type="kill" x="1216" y="1072" width="112" height="144"/>
+  <object id="17" type="sensor" x="2208" y="1152">
    <polygon points="0,0 0,48 64,48"/>
   </object>
-  <object type="spawner" gid="529" x="1792" y="448"/>
+  <object id="18" type="spawner" gid="529" x="1792" y="448" width="70" height="100"/>
  </objectgroup>
 </map>

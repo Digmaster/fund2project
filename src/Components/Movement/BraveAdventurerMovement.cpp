@@ -8,6 +8,7 @@
 #include "Components/Render/StaticSpriteComponent.h"
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Script/KillScript.h"
+#include "Components/Stats/StatsComponent.h"
 
 using namespace std;
 
@@ -19,26 +20,53 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
     PhysicsComponent* physics = entity->physics;
     InputComponent* input = entity->input;
     WorldPositionComponent* position = entity->position;
-    int maxGroundSpeed = 20;
-    int maxAirSpeed = 15;
-    int maxLadderSpeed = 5;
-    int maxJumpSpeed = 10;
+    StatsComponent* stats = entity->stats;
+
+    float maxGroundSpeed = 20;
+    float maxAirSpeed = 15;
+    float maxLadderSpeed = 5;
+    float maxJumpSpeed = 20;
     sf::Time maxJumpTime = sf::milliseconds(25); //.25 seconds of jump
+
+    if(stats!=nullptr)
+    {
+        float speed = stats->getSpeed();
+        maxGroundSpeed *= speed;
+        maxAirSpeed *= speed;
+        maxLadderSpeed *= speed;
+        maxJumpSpeed *= speed;
+    }
+
     if(physics!=NULL) { //Find in physics states
         b2Body* body = physics->getBody();
         b2Vec2 velocity = body->GetLinearVelocity();
 
         if(nextState!=currState) { //State changers
             if((nextState>=MoveState::onLadder && nextState<=MoveState::ladderDown) && !(currState>=MoveState::onLadder && currState<=MoveState::ladderDown)) { //Remove gravity and whatnot
+                entity->callListeners(typeid(MovementComponent), Events::CLIMBING_START);
                 physics->getBody()->SetGravityScale(0);
                 physics->getBody()->SetLinearDamping(8.0f);
             }
             if(currState>=MoveState::onLadder && currState<=MoveState::ladderDown && !(nextState>=MoveState::onLadder && nextState<=MoveState::ladderDown)) {
                 physics->getBody()->SetGravityScale(1);
                 physics->getBody()->SetLinearDamping(0.0f);
+                entity->callListeners(typeid(MovementComponent), Events::CLIMBING_END);
             }
             if(nextState==MoveState::jumping)
+            {
                 jumpTimer = sf::milliseconds(0);
+                entity->callListeners(typeid(MovementComponent), Events::JUMP);
+            }
+
+            if(nextState == MoveState::onGround && currState == MoveState::inAir )
+            {
+                entity->callListeners(typeid(MovementComponent), Events::FALL_END);
+            }
+
+            if(nextState == MoveState::inAir && currState == MoveState::onGround )
+            {
+                entity->callListeners(typeid(MovementComponent), Events::FALL_START);
+            }
 
             currState=nextState; //Set currState to nextState
         }
@@ -174,7 +202,7 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 bullet->render = new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6));
                 bullet->physics = new SimpleBoxPhysics(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors, bullet->position);
                 bullet->physics->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
-                bullet->scripts.push_back(new KillScript(34));
+                bullet->addScript(new KillScript(true, 10, sf::Time::Zero));
                 ComponentManager::getInst().addEntity(id, bullet);
              }
              nextState = inAir;

@@ -25,6 +25,9 @@ class PhysicsComponent : public ComponentBase
         ///Returns true if the physics object is touching something on the top
         virtual bool onTop() {return false;}
         virtual unsigned int touchingTop(){return 0;}
+        ///Returns true if the physics object is touching something, somewhere
+        virtual bool onBody() {return false;}
+        virtual unsigned int touchingBody(){return 0;}
         ///Returns true if the physics body is over a sensor by the type "Ladder"
         virtual bool overLadder() { return false;}
         ///Returns the physics body. If there are multiple physics bodies, the most important one will be returned

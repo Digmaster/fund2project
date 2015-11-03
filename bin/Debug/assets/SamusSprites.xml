@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SpriteSheet file="assets/art/SuperMetroidSamus.png">
     <Sprite name="Samus">
-        <Animation name="Dissipate" FT=".2">
+        <Animation name="Dissipate" FT=".3">
             <Frame LC="820" TC="64" W="32" H="45"></Frame>
             <Frame LC="852" TC="59" W="32" H="50"></Frame>
             <Frame LC="884" TC="54" W="45" H="55"></Frame>

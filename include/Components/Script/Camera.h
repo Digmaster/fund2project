@@ -4,6 +4,7 @@
 #include "Components/Script/ScriptComponent.h"
 #include "Options.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 ///Keeps the camera (mostly) centered on the target
 class Camera : public ScriptComponent {

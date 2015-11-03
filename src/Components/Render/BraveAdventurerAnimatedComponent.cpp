@@ -9,9 +9,33 @@
 BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : AnimatedComponent()
 {
     currDir = 1;
+    cooldownValues.resize(getNumCooldowns(), false);
 }
 
 void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
+    for(auto it = cooldowns.begin(); it != cooldowns.end();)
+    {
+        // Subtract the current time
+        it->second -= fps;
+
+        //Delete any old cooldowns
+        if(it->second <= sf::Time::Zero)
+        {
+            cooldownValues[it->first] = false;
+            it = cooldowns.erase(it);
+        }
+        else
+        {
+            cooldownValues[it->first] = true;
+            it++;
+        }
+    }
+
+    if(cooldownValues[HURT])
+        sprite.setColor(sf::Color::Red);
+    else
+        sprite.setColor(sf::Color::White);
+
     AnimatedComponent::go(fps, entity);
     MovementComponent* movement = entity->movement;
     InputComponent* input = entity->input;
@@ -54,9 +78,29 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
         }
         sprite.play();
     }
+
     if(statsComp){
         if(statsComp->isDead()==true){
-            sprite.setAnimation("Death");\
+            sprite.setAnimation("Dissipate");
         }
+    }
+}
+
+void BraveAdventurerAnimatedComponent::setUpListeners(Entity* entity)
+{
+    using namespace std::placeholders;
+    auto handler = std::bind(&BraveAdventurerAnimatedComponent::HandleMovementChange, this, _1, _2, _3);
+    entity->addListener(typeid(MovementComponent), handler);
+    entity->addListener(typeid(StatsComponent), handler);
+}
+
+void BraveAdventurerAnimatedComponent::HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity)
+{
+    std::cout << event << std::endl;
+    switch(event)
+    {
+    case Events::HEALTH_CHANGE:
+        cooldowns[HURT] = getHealthCooldown();
+        break;
     }
 }

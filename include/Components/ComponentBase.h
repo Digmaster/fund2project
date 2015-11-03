@@ -20,19 +20,12 @@ class ComponentBase {
         /*! Sets the ID to the correct value
             \param ID Sets the ID of the object */
         ComponentBase() {}
-        //! Default destructor
+
+        void setUpListeners(Entity*) {}
 
 
         //! Returns a new, unused ID
         static unsigned int getNewID();
-
-        //! Sends a message to this component's message deque
-        /*! \param input String to add to the message deque */
-        void sendMessage(std::string input) {messages.push_back(input);}
-        //! Gets the least recent message
-        /*! Once gotten, this message will be removed from the deque
-            \return The message */
-        std::string getMessage();
 
         //! A function to update the component and do whatever the component is designed to do.
         /*! \param frameTime Difference in time between last update and this one */
@@ -47,7 +40,6 @@ class ComponentBase {
         static void setEngine(GameEngine* gameEng) {eng = gameEng;}
     protected:
         unsigned int ID;
-        std::deque<std::string> messages;
         static ComponentManager* compMan;
         static RenderEngine* rendEng;
         static GameEngine* eng;

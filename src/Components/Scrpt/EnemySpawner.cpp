@@ -11,6 +11,11 @@
 #include "Components/Script/MainCharScript.h"
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Entity.h"
+#include "Components/Render/BraveAdventurerAnimatedComponent.h"
+#include "Components/Movement/BraveAdventurerMovement.h"
+#include "Components/Input/BasicAIInput.h"
+#include "Components/Script/KillScript.h"
+#include "Components/Audio/AudioComponent.h"
 
 EnemySpawner::EnemySpawner()
 {
@@ -46,12 +51,25 @@ void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
             unsigned int id = ComponentBase::getNewID();
 
             Entity* enemy = new Entity(id);
-            enemy->render = new StaticSpriteComponent(spr);
+
             enemy->position = new WorldPositionComponent(*mePosComp);
-            enemy->stats = new StatsComponent();
-            enemy->scripts.push_back(new MainCharScript(false));
-            enemy->movement = new EnemyMovement();
-            enemy->physics = new SimpleBoxPhysics(id,sf::Vector2f(spr.getGlobalBounds().width,spr.getGlobalBounds().height),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->position);
+
+            SpriteManager spriteMan;
+            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
+            testSprite->setUpListeners(enemy);
+            testSprite->setSprite(spriteMan.getSprite("Samus"));
+            enemy->render = testSprite;
+
+            enemy->movement = new BraveAdventurerMovement();
+            enemy->input = new BasicAIInput();
+            enemy->stats = new StatsComponent(20);
+            enemy->stats->setSpeed(.5);
+            enemy->stats->setUpListeners(enemy);
+            enemy->addScript(new MainCharScript(false, sf::seconds(.5)));
+            enemy->addScript(new KillScript(false, 10, sf::seconds(.5)));
+            enemy->audio = new AudioComponent();
+
+            enemy->physics = new SimpleBoxPhysics(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->position);
 
             ComponentManager::getInst().addEntity(id, enemy);
         }

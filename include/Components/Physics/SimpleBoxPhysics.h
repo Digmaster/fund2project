@@ -27,6 +27,8 @@ class SimpleBoxPhysics : public PhysicsComponent
         unsigned int touchingRight();
         bool onTop();
         unsigned int touchingTop();
+        bool onBody();
+        unsigned int touchingBody();
         bool overLadder();
     protected:
     private:
@@ -34,6 +36,7 @@ class SimpleBoxPhysics : public PhysicsComponent
         FootContactListener* headListener;
         FootContactListener* leftListener;
         FootContactListener* rightListener;
+        FootContactListener* bodyListener;
         LadderContactListener* ladderListener;
         b2BodyDef physBodyDef;
         b2PolygonShape boxShape;

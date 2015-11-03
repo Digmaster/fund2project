@@ -32,6 +32,8 @@ class InputComponent : public ComponentBase {
         float mouseX;
         ///Precise location of the mouse. Not typically used
         float mouseY;
+        ///Run!
+        bool run;
     protected:
     private:
 };

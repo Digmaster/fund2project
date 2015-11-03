@@ -43,7 +43,7 @@ void ComponentManager::processAll(sf::Time frameTime) {
         if(entity->render!=nullptr)         entity->render->go(frameTime, entity);
         if(entity->stats!=nullptr)          entity->stats->go(frameTime, entity);
         if(entity->target!=nullptr)         entity->target->go(frameTime, entity);
-        for(ScriptComponent* script : entity->scripts)
+        for(ScriptComponent* script : entity->getScripts())
         {
             script->go(frameTime, entity);
         }

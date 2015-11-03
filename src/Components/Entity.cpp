@@ -36,6 +36,31 @@ Entity::Entity(int ID) : _ID(ID)
     _delete = false;
 }
 
+void Entity::addListener(std::type_index toListenTo, listener toCall)
+{
+    componentListeners[toListenTo].push_back(toCall);
+}
+
+//void Entity::addListener(std::type_index toListenTo, ComponentBase* obj, unboundListener toCall)
+//{
+//    using namespace std::placeholders;
+//    addListener(toListenTo, std::bind(toCall, *obj, _1, _2, _3));
+//}
+
+void Entity::removeListener(std::type_index toListenTo, listener toCall)
+{
+    //componentListeners[toListenTo].remove(toCall);
+}
+
+void Entity::callListeners(std::type_index origin, Events event, std::vector<std::string> message)
+{
+    std::list<listener> toCall = componentListeners[origin];
+    for(listener l : toCall)
+    {
+        l(event, message, this);
+    }
+}
+
 Entity::~Entity()
 {
     delete audio;

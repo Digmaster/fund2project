@@ -25,6 +25,7 @@
 #include "Component/Script/EnemySpawner.h"
 #include "Components/Script/KillScript.h"
 #include "Components/Entity.h"
+#include "Components/Input/BasicAIInput.h"
 
 using namespace std;
 using namespace sf;
@@ -235,7 +236,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         if (properties.find("zoom") != properties.end())
             layerZoom = atof(properties["zoom"].c_str());
         rendEng->setLayerZoom(layerNum,layerZoom);
-        bool noMove;
+        bool noMove = false;
         if (properties.find("static") != properties.end())
             noMove = atoi(properties["static"].c_str());
         rendEng->setLayerMove(layerNum,noMove);
@@ -545,7 +546,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if (objProperties.find("script") != objProperties.end()) { //Adds a script, if needed
                     string script = objProperties["script"]; //ADD MORE SCRIPTS TO THIS PART
                     if(script=="camera") {
-                        entity->scripts.push_back(new Camera(width, height));
+                        entity->addScript(new Camera(width, height));
                     }
 
                     //if(script=="BLAHBLAHBLAH")
@@ -579,11 +580,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         entity->physics = new PolylinePhysics(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->position);
                     }
                     else {
-                        entity->physics = new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->position);
+                        entity->physics = new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic | PhysicsOptions::sideSensors, entity->position);
                     }
 
                     if(type=="kill") {
-                        entity->scripts.push_back(new KillScript(false));
+                        entity->addScript(new KillScript(false));
                     }
 
                 }
@@ -623,7 +624,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 else if(type=="spawner") {
                     //Position
                     entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
-                    entity->scripts.push_back(new EnemySpawner(sprites[objGid], sf::seconds(2), 10, 800));
+                    entity->addScript(new EnemySpawner(sprites[objGid], sf::seconds(2), 10, 800));
                 }
                 else if(type=="mob") { //any sort of enemy, player, etc. Has everything basically
                     if (objProperties.find("type") != objProperties.end()) { //Adds a target, if needed
@@ -633,6 +634,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         entity->position = new WorldPositionComponent(Vector2f(objectX, objectY), layerNum);
                         if(mobType=="Samus") {
                             BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
+                            testSprite->setUpListeners(entity);
                             SpriteManager spriteMan;
 
                             testSprite->setSprite(spriteMan.getSprite("Samus"));
@@ -645,8 +647,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             entity->physics = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->position);
                             entity->audio = new AudioComponent();
-                            entity->stats = new StatsComponent();
-                            entity->scripts.push_back(new MainCharScript(true, sf::seconds(2.5f)));
+                            entity->stats = new StatsComponent(50);
+                            entity->stats->setUpListeners(entity);
+                            entity->addScript(new MainCharScript(true, sf::seconds(2.5f)));
                         }
                         else if(mobType=="enemy") {
                             if(objectName=="shaq"){
@@ -662,8 +665,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                                 entity->movement = new EnemyMovement();
 
-                                entity->stats = new StatsComponent();
-                                entity->scripts.push_back(new MainCharScript(false, sf::seconds(0)));
+                                entity->stats = new StatsComponent(20);
+                                entity->stats->setUpListeners(entity);
+                                entity->stats->setSpeed(.25);
+                                entity->addScript(new MainCharScript(false, sf::seconds(0)));
+                                entity->audio = new AudioComponent();
 
                                 entity->physics = new SimpleBoxPhysics(id,Vector2f(70,100),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->position);
 
@@ -672,16 +678,24 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
                             SpriteManager spriteMan;
 
-                            //testSprite->setSprite(spriteMan.getSprite("Samus"));
+                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
+                            testSprite->setUpListeners(entity);
 
-                            entity->render = new StaticSpriteComponent(sprites[objGid]);
+                            testSprite->setSprite(spriteMan.getSprite("Samus"));
+
+                            entity->render = testSprite;
 
 
                             //KeyboardInput* testInput = new KeyboardInput(id);
 
-                            entity->movement = new EnemyMovement();
-                            entity->stats = new StatsComponent();
-                            entity->scripts.push_back(new MainCharScript(false, sf::seconds(0)));
+                            entity->movement = new BraveAdventurerMovement();
+                            entity->input = new BasicAIInput();
+                            entity->stats = new StatsComponent(20);
+                            entity->stats->setSpeed(.5);
+                            entity->stats->setUpListeners(entity);
+                            entity->addScript(new MainCharScript(false, sf::seconds(.5)));
+                            entity->addScript(new KillScript(false, 10, sf::seconds(.5)));
+                            entity->audio = new AudioComponent();
 
                             entity->physics = new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->position);
                             }
@@ -690,6 +704,16 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     else
                         throw runtime_error("No type associated with mob!");
                 }
+
+                //Adds a hurt value
+                if (objProperties.find("hurt") != objProperties.end())
+                {
+                    string hurtStr = objProperties["hurt"];
+                    int hurtVal = atoi(hurtStr.c_str());
+                    entity->addScript(new KillScript(false, hurtVal, sf::seconds(.5)));
+                }
+
+
                 ComponentManager::getInst().addEntity(id, entity);
             }
         }

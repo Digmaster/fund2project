@@ -12,6 +12,7 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     rightListener = NULL;
     headListener = NULL;
     footListener = NULL;
+    bodyListener = NULL;
     if(opts & PhysicsOptions::isStatic)
         physBodyDef.type = b2_staticBody;
     else
@@ -53,7 +54,11 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     boxFixtureDef.isSensor = (opts & PhysicsOptions::sensor);
     b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
     fixture->SetUserData( (void*)(ID*10+0) );
-
+    if(!(opts & PhysicsOptions::sideSensors))
+    {
+        bodyListener = new FootContactListener(ID*10+0);
+        eng->physEng->contactListeners.addListener(bodyListener);
+    }
     if(opts & PhysicsOptions::sideSensors) { //All of the sensors!!!
         //foot
         boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-size.y/(2.0f*pixelsPerMeter)), 0);
@@ -150,6 +155,20 @@ unsigned int SimpleBoxPhysics::touchingTop() {
         return true;
 }
 
+bool SimpleBoxPhysics::onBody() {
+    if(bodyListener!=NULL)
+        return bodyListener->onGround();
+    else
+        return true;
+}
+
+unsigned int SimpleBoxPhysics::touchingBody() {
+    if(bodyListener!=NULL)
+        return bodyListener->getTouching();
+    else
+        return true;
+}
+
 bool SimpleBoxPhysics::overLadder() {
     if(ladderListener!=NULL)
         return ladderListener->overLadder();
@@ -206,7 +225,6 @@ void FootContactListener::EndContact(b2Contact* contact) {
 }
 
 void LadderContactListener::BeginContact(b2Contact* contact) {
-    std::cout << "contact Listener" << std::endl;
     //check if fixture A was the foot sensor
     unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
     unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
@@ -231,14 +249,12 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
            ||  (contact->GetFixtureB()->IsSensor() && nameB == "ladder" && contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody))
         {
             overLadderNum++;
-            std::cout << "Entered Ladder" << std::endl;
         }
     }
 
 }
 
 void LadderContactListener::EndContact(b2Contact* contact) {
-    std::cout << "left listener" << std::endl;
 
     unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
     unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
@@ -263,7 +279,6 @@ void LadderContactListener::EndContact(b2Contact* contact) {
            ||  (contact->GetFixtureB()->IsSensor() && nameB == "ladder" && contact->GetFixtureA()->GetBody()->GetType() == b2_dynamicBody))
         {
             overLadderNum--;
-            std::cout << "Left Ladder" << std::endl;
         }
     }
 }

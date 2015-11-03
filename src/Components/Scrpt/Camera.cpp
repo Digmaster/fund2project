@@ -46,6 +46,7 @@ void Camera::go(sf::Time frameTime, Entity* entity) {
                 }
 
                 view.setCenter(pos_x, pos_y);
+                sf::Listener::setPosition(pos->getPosition().x, 0, pos->getPosition().y);
 
                 rendEng->centerViews(getCamera().getCenter());
             }

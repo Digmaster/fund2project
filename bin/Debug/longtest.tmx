@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="200" height="40" tilewidth="32" tileheight="32" backgroundcolor="#1ee1eb">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="40" tilewidth="32" tileheight="32" backgroundcolor="#1ee1eb" nextobjectid="32">
  <properties>
   <property name="boundaries" value="yes"/>
  </properties>
- <tileset firstgid="1" name="box" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="box" tilewidth="32" tileheight="32" tilecount="1">
   <image source="assets/art/box.png" trans="b3ff9b" width="32" height="32"/>
  </tileset>
- <tileset firstgid="2" name="Mario" tilewidth="32" tileheight="32">
+ <tileset firstgid="2" name="Mario" tilewidth="32" tileheight="32" tilecount="228">
   <properties>
    <property name="testValue" value="yaaay"/>
   </properties>
@@ -21,25 +21,47 @@
     <property name="test" value="yes"/>
    </properties>
   </tile>
+  <tile id="110">
+   <objectgroup draworder="index">
+    <object id="0" x="2" y="12" width="30" height="16"/>
+    <object id="0" x="7" y="18"/>
+    <object id="0" x="-4" y="-41"/>
+   </objectgroup>
+   <animation>
+    <frame tileid="41" duration="100"/>
+    <frame tileid="77" duration="100"/>
+    <frame tileid="202" duration="100"/>
+    <frame tileid="223" duration="100"/>
+    <frame tileid="204" duration="100"/>
+   </animation>
+  </tile>
  </tileset>
- <tileset firstgid="230" name="BraveAdventurer" tilewidth="32" tileheight="32">
+ <tileset firstgid="230" name="BraveAdventurer" tilewidth="32" tileheight="32" tilecount="12">
   <image source="assets/art/BraveAdventurer.png" trans="b3ff9b" width="96" height="128"/>
+  <tile id="11">
+   <animation>
+    <frame tileid="0" duration="200"/>
+    <frame tileid="2" duration="200"/>
+   </animation>
+  </tile>
  </tileset>
- <tileset firstgid="242" name="tiles1_0" tilewidth="32" tileheight="32">
+ <tileset firstgid="242" name="tiles1_0" tilewidth="32" tileheight="32" tilecount="21">
   <image source="assets/art/tiles1_0.png" trans="b3ff9b" width="224" height="96"/>
  </tileset>
- <tileset firstgid="263" name="shaq" tilewidth="45" tileheight="32">
+ <tileset firstgid="263" name="shaq" tilewidth="45" tileheight="32" tilecount="3">
   <image source="assets/art/shaq.png" trans="b3ff9b" width="70" height="100"/>
  </tileset>
  <tileset firstgid="266" source="Shaq1.tsx"/>
- <tileset firstgid="267" name="shack" tilewidth="70" tileheight="100">
+ <tileset firstgid="267" name="shack" tilewidth="70" tileheight="100" tilecount="1">
   <image source="assets/art/shaq.png" width="70" height="100"/>
  </tileset>
- <imagelayer name="oeou" width="200" height="40">
+ <imagelayer name="oeou">
   <image source="assets/art/0f10d_Pattern_Seamless_4718496223_5847f34c28.jpg"/>
   <properties>
    <property name="imageZoom" value="3"/>
+   <property name="static" value="1"/>
    <property name="tiled" value="yes"/>
+   <property name="zoom" value="1.2"/>
   </properties>
  </imagelayer>
  <layer name="Tile Layer 5" width="200" height="40" opacity="0.91">
@@ -32067,99 +32089,104 @@
    <tile gid="0"/>
   </data>
  </layer>
- <objectgroup name="uu" width="200" height="40">
-  <object type="clutter" gid="1" x="296" y="321"/>
-  <object name="teeeest" type="mob" gid="241" x="736" y="352">
+ <objectgroup name="uu" visible="0">
+  <object id="1" type="clutter" gid="1" x="296" y="321" width="32" height="32"/>
+  <object id="2" name="teeeest" type="mob" gid="241" x="736" y="352" width="32" height="32">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object name="teeeest" type="mob" gid="241" x="960" y="224">
+  <object id="3" name="teeeest" type="mob" gid="241" x="960" y="224" width="32" height="32">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="weee" width="200" height="40">
-  <object name="box" type="clutter" gid="1" x="850" y="308"/>
-  <object type="clutter" gid="1" x="894" y="350"/>
-  <object type="clutter" gid="1" x="844" y="356"/>
-  <object type="clutter" gid="1" x="228" y="334">
+ <objectgroup name="weee">
+  <object id="4" name="box" type="clutter" gid="1" x="850" y="308" width="32" height="32"/>
+  <object id="5" type="clutter" gid="1" x="894" y="350" width="32" height="32"/>
+  <object id="6" type="clutter" gid="1" x="844" y="356" width="32" height="32"/>
+  <object id="7" type="clutter" gid="1" x="228" y="334" width="32" height="32">
    <properties>
     <property name="" value=""/>
    </properties>
   </object>
-  <object type="clutter" gid="1" x="896" y="308"/>
-  <object type="clutter" gid="1" x="874" y="268"/>
-  <object name="MainChar" type="mob" gid="230" x="1173" y="127">
+  <object id="8" type="clutter" gid="1" x="896" y="308" width="32" height="32"/>
+  <object id="9" type="clutter" gid="1" x="874" y="268" width="32" height="32"/>
+  <object id="10" name="MainChar" type="mob" gid="230" x="1173" y="127" width="32" height="32">
    <properties>
     <property name="type" value="Samus"/>
    </properties>
   </object>
-  <object type="clutter" gid="1" x="1172" y="204">
+  <object id="11" type="clutter" gid="1" x="1172" y="204" width="32" height="32">
    <properties>
     <property name="TestProp" value="TestVal"/>
    </properties>
   </object>
-  <object type="sensor" x="83" y="329" width="20" height="48"/>
-  <object type="sensor" x="489" y="307" width="44" height="20"/>
-  <object type="sensor" x="1369" y="621" width="18" height="38"/>
-  <object type="script" x="1171" y="1098" width="20" height="44">
+  <object id="12" type="sensor" x="83" y="329" width="20" height="48"/>
+  <object id="13" type="sensor" x="489" y="307" width="44" height="20"/>
+  <object id="14" type="sensor" x="1369" y="621" width="18" height="38"/>
+  <object id="15" type="script" x="1171" y="1098" width="20" height="44">
    <properties>
     <property name="script" value="teleport"/>
     <property name="target" value="bottompipe1"/>
    </properties>
   </object>
-  <object type="sensor" x="1152" y="224">
+  <object id="16" type="sensor" x="1152" y="224">
    <polygon points="0,0 -160,160 0,160"/>
   </object>
-  <object name="teeeest" type="mob" gid="241" x="1056" y="224">
+  <object id="17" name="teeeest" type="mob" gid="241" x="1056" y="224" width="32" height="32">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object name="sd" type="mob" gid="230" x="354" y="176">
+  <object id="18" name="sd" type="mob" gid="230" x="354" y="176" width="32" height="32">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object name="shaq" type="mob" gid="267" x="521" y="894">
+  <object id="19" name="shaq" type="mob" gid="267" x="521" y="894" width="70" height="100">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object name="shaq" type="mob" gid="267" x="167" y="870">
+  <object id="20" name="shaq" type="mob" gid="267" x="167" y="870" width="70" height="100">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object name="shaq" type="mob" gid="267" x="413" y="1090">
+  <object id="21" name="shaq" type="mob" gid="267" x="413" y="1090" width="70" height="100">
    <properties>
     <property name="type" value="enemy"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="GameLogic" width="200" height="40">
-  <object type="script" gid="1" x="4" y="36">
+ <objectgroup name="GameLogic">
+  <object id="22" type="script" gid="1" x="4" y="36" width="32" height="32">
    <properties>
     <property name="script" value="camera"/>
     <property name="target" value="MainChar"/>
    </properties>
   </object>
-  <object name="ttt" type="guideline" x="1401" y="127">
+  <object id="23" name="ttt" type="guideline" x="1401" y="127">
    <polyline points="0,0 266,38 426,188 602,50"/>
   </object>
-  <object type="ladder" x="2048" y="611" width="36" height="570"/>
-  <object name="bottompipe1" type="target" x="1102" y="1116" width="62" height="16">
+  <object id="24" type="ladder" x="2048" y="611" width="36" height="570"/>
+  <object id="25" name="bottompipe1" type="target" x="1102" y="1116" width="62" height="16">
    <ellipse/>
   </object>
-  <object type="target" x="1408" y="638">
+  <object id="26" type="target" x="1408" y="638">
    <ellipse/>
   </object>
-  <object type="movingObject" gid="112" x="1397" y="110"/>
+  <object id="27" type="movingObject" gid="112" x="1397" y="110" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Sensors/Ladder" width="200" height="40">
-  <object type="ladder" x="2657" y="1" width="30" height="382"/>
+ <objectgroup name="Sensors/Ladder">
+  <object id="28" type="ladder" x="2657" y="1" width="30" height="382"/>
+  <object id="31" type="clutter" gid="1" x="1329" y="232" width="32" height="32">
+   <properties>
+    <property name="TestProp" value="TestVal"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="forground" width="200" height="40" opacity="0.54">
   <properties>

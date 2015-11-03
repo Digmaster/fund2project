@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="16" tilewidth="32" tileheight="32" backgroundcolor="#309fff" nextobjectid="24">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="16" tilewidth="32" tileheight="32" backgroundcolor="#309fff" nextobjectid="26">
  <tileset firstgid="1" name="box" tilewidth="32" tileheight="32" tilecount="1">
   <image source="assets/art/box.png" trans="b3ff9b" width="32" height="32"/>
  </tileset>
@@ -1667,8 +1667,11 @@
   <object id="18" type="ladder" x="946" y="350">
    <polyline points="0,0 -3,-257"/>
   </object>
-  <object id="19" type="ladder" x="84" y="164">
-   <polyline points="0,0 283,156 420,18 156,-98 438,-287"/>
+  <object id="24" type="ladder" x="187" y="97">
+   <polygon points="0,0 -131,122 -15,214 108,6 134,-270 36,-268"/>
+  </object>
+  <object id="25" x="469" y="278">
+   <polygon points="0,0"/>
   </object>
  </objectgroup>
 </map>
