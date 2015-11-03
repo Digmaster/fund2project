@@ -21,7 +21,7 @@ class ComponentBase {
             \param ID Sets the ID of the object */
         ComponentBase() {}
 
-        void setUpListeners(Entity*) {}
+        void setUpListeners(const Entity*) {}
 
 
         //! Returns a new, unused ID
@@ -29,7 +29,7 @@ class ComponentBase {
 
         //! A function to update the component and do whatever the component is designed to do.
         /*! \param frameTime Difference in time between last update and this one */
-        virtual void go(sf::Time frameTime, Entity* entity) {}
+        virtual void go(sf::Time frameTime,  Entity* entity) =0;
 
         //! Sets the rendering engine
         /*! Will be depreciated in favor of all encompassing "GameEngine" pointer

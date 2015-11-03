@@ -29,7 +29,7 @@ BoundaryPhysics::~BoundaryPhysics()
 }
 
 void BoundaryPhysics::go(sf::Time frameTime, Entity* entity) {
-    WorldPositionComponent* position = entity->position;
+    WorldPositionComponent* position = entity->getPosition();
 
     //Times 32, as 32 pixels is ~one meter
     if(position) //IMPORTANT!!! YOU NEVER KNOW IF A COMPONENT EXISTS, SO CHECK FOR IT!

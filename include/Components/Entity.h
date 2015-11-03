@@ -10,6 +10,7 @@
 #include <sstream>
 
 #include "Components/EventDefines.h"
+//#include "Components/Script/ScriptComponent.h"
 
 class AudioComponent;
 class RenderComponent;
@@ -20,8 +21,8 @@ class PhysicsComponent;
 class WorldPositionComponent;
 class StatsComponent;
 class TargetComponent;
-class ScriptComponent;
 class ComponentBase;
+class ScriptComponent;
 
 namespace patch
 {
@@ -42,15 +43,32 @@ class Entity
         virtual ~Entity();
 
         //Component Management
-        AudioComponent* audio;
-        RenderComponent* render;
-        IDComponent* identification;
-        InputComponent* input;
-        MovementComponent* movement;
-        PhysicsComponent* physics;
-        WorldPositionComponent* position;
-        StatsComponent* stats;
-        TargetComponent* target;
+        void setAudio(AudioComponent* a);
+        AudioComponent* getAudio();
+
+        void setRender(RenderComponent* a);
+        RenderComponent* getRender();
+
+        void setIdentification(IDComponent* a);
+        IDComponent* getIdentification();
+
+        void setInput(InputComponent* a);
+        InputComponent* getInput();
+
+        void setMovement(MovementComponent* a);
+        MovementComponent* getMovement();
+
+        void setPhysics(PhysicsComponent* a);
+        PhysicsComponent* getPhysics();
+
+        void setPosition(WorldPositionComponent* a);
+        WorldPositionComponent* getPosition();
+
+        void setStats(StatsComponent* a);
+        StatsComponent* getStats();
+
+        void setTarget(TargetComponent* a);
+        TargetComponent* getTarget();
 
         void addScript(ScriptComponent* s)      {scripts.push_back(s);}
         void removeScript(ScriptComponent* s)   {scripts.remove(s);}
@@ -73,6 +91,16 @@ class Entity
     protected:
         int _ID;
         bool _delete;
+
+        AudioComponent* audio;
+        RenderComponent* render;
+        IDComponent* identification;
+        InputComponent* input;
+        MovementComponent* movement;
+        PhysicsComponent* physics;
+        WorldPositionComponent* position;
+        StatsComponent* stats;
+        TargetComponent* target;
     private:
         std::list<ScriptComponent*> scripts;
         std::unordered_map<std::type_index, std::list<listener> > componentListeners;

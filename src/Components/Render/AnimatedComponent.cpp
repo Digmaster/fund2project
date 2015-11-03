@@ -11,7 +11,7 @@ AnimatedComponent::~AnimatedComponent()
 
 void AnimatedComponent::go(sf::Time fps, Entity* entity) {
     sprite.update(fps);
-    auto posCom = entity->position;
+    auto posCom = entity->getPosition();
     if(posCom!=NULL) {
         sf::Vector2f position = posCom->getPosition();
         sprite.setPosition(position);

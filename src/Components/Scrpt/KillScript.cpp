@@ -18,7 +18,7 @@ KillScript::~KillScript()
 
 void KillScript::go(sf::Time frameTime, Entity* entity)
 {
-    PhysicsComponent* phys = entity->physics;
+    PhysicsComponent* phys = entity->getPhysics();
     if(frequency!=sf::Time::Zero)
     {
         if(frequency>sf::Time::Zero)
@@ -35,15 +35,15 @@ void KillScript::go(sf::Time frameTime, Entity* entity)
                 StatsComponent* stats = nullptr;
 
             if(phys->onBody() && (*compMan)[phys->touchingBody()]!=nullptr)
-                stats = (*compMan)[phys->touchingBody()]->stats;
+                stats = (*compMan)[phys->touchingBody()]->getStats();
             if(phys->onRight() && (*compMan)[phys->touchingRight()]!=nullptr)
-                stats = (*compMan)[phys->touchingRight()]->stats;
+                stats = (*compMan)[phys->touchingRight()]->getStats();
             if(phys->onLeft() && (*compMan)[phys->touchingLeft()]!=nullptr)
-                stats = (*compMan)[phys->touchingLeft()]->stats;
+                stats = (*compMan)[phys->touchingLeft()]->getStats();
             if(phys->onTop() && (*compMan)[phys->touchingTop()]!=nullptr)
-                stats = (*compMan)[phys->touchingTop()]->stats;
+                stats = (*compMan)[phys->touchingTop()]->getStats();
             if(phys->onGround() && (*compMan)[phys->touchingGround()]!=nullptr)
-                stats = (*compMan)[phys->touchingGround()]->stats;
+                stats = (*compMan)[phys->touchingGround()]->getStats();
 
             if(stats!=nullptr && frequency <= sf::Time::Zero) {
                 frequency = initFreq;

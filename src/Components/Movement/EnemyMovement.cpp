@@ -15,11 +15,11 @@ EnemyMovement::EnemyMovement() : MovementComponent() {
 
 void EnemyMovement::go(sf::Time frameTime, Entity* entity) {
     walkTimer+=frameTime;
-    PhysicsComponent* physics = entity->physics;
+    PhysicsComponent* physics = entity->getPhysics();
     unsigned int mainCharID = compMan->name2ID("MainChar");
-    WorldPositionComponent* position = entity->position;
-    InputComponent* input = entity->input;
-    StatsComponent* stats = (*compMan)[mainCharID]->stats;
+    WorldPositionComponent* position = entity->getPosition();
+    InputComponent* input = entity->getInput();
+    StatsComponent* stats = (*compMan)[mainCharID]->getStats();
     int walkSpeed = 5;
     int attackSpeed = 5;
     int maxAirSpeed = 2;
@@ -28,8 +28,8 @@ void EnemyMovement::go(sf::Time frameTime, Entity* entity) {
     //int climbSpeed = 5;
     sf::Time maxJumpTime = sf::milliseconds(25); //.25 seconds of jump
     sf::Time maxWalkTime = sf::seconds(5); //5 seconds of walk in either direction
-    WorldPositionComponent* enePosComp = entity->position;
-    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->position;
+    WorldPositionComponent* enePosComp = entity->getPosition();
+    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->getPosition();
     if(physics && enePosComp && advPosComp) { //Find in physics states
         sf::Vector2f enePos = enePosComp->getPosition();
         sf::Vector2f advPos = advPosComp->getPosition();

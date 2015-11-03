@@ -15,13 +15,13 @@ Camera::Camera(int xlimit, int ylimit) : ScriptComponent() {
 int Camera::pixelsPerMeter = atoi(Options::instance().get("pixels_per_meter").c_str());
 
 void Camera::go(sf::Time frameTime, Entity* entity) {
-    TargetComponent* tarComp = entity->target;
+    TargetComponent* tarComp = entity->getTarget();
     if(tarComp != NULL) {
-        const Entity* target = (*compMan)[tarComp->getTarget()];
+        Entity* target = (*compMan)[tarComp->getTarget()];
         if(target!=NULL)
         {
             //PhysicsComponent* phys = compMan->physSym.getComponent(tarComp->getTarget());
-            WorldPositionComponent* pos = target->position;
+            WorldPositionComponent* pos = target->getPosition();
             if(pos!=NULL) {
                 screenWidth = rendEng->window.getSize().x;
                 screenHeight = rendEng->window.getSize().y;

@@ -34,8 +34,8 @@ EnemySpawner::EnemySpawner(sf::Sprite spr, sf::Time frequency, int max, int rang
 
 void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
     unsigned int mainCharID = compMan->name2ID("MainChar");
-    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->position;
-    WorldPositionComponent* mePosComp = entity->position;
+    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->getPosition();
+    WorldPositionComponent* mePosComp = entity->getPosition();
     countdown-=frameTime;
     if(advPosComp && mePosComp && curr <= max && countdown <= sf::seconds(0)) {
         int baddies = advPosComp->getPosition().x;
@@ -52,24 +52,22 @@ void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
 
             Entity* enemy = new Entity(id);
 
-            enemy->position = new WorldPositionComponent(*mePosComp);
+            enemy->setPosition(new WorldPositionComponent(*mePosComp));
 
             SpriteManager spriteMan;
             BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
-            testSprite->setUpListeners(enemy);
             testSprite->setSprite(spriteMan.getSprite("Samus"));
-            enemy->render = testSprite;
+            enemy->setRender(testSprite);
 
-            enemy->movement = new BraveAdventurerMovement();
-            enemy->input = new BasicAIInput();
-            enemy->stats = new StatsComponent(20);
-            enemy->stats->setSpeed(.5);
-            enemy->stats->setUpListeners(enemy);
+            enemy->setMovement(new BraveAdventurerMovement());
+            enemy->setInput(new BasicAIInput());
+            enemy->setStats(new StatsComponent(20));
+            enemy->getStats()->setSpeed(.5);
             enemy->addScript(new MainCharScript(false, sf::seconds(.5)));
             enemy->addScript(new KillScript(false, 10, sf::seconds(.5)));
-            enemy->audio = new AudioComponent();
+            enemy->setAudio(new AudioComponent());
 
-            enemy->physics = new SimpleBoxPhysics(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->position);
+            enemy->setPhysics(new SimpleBoxPhysics(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->getPosition()));
 
             ComponentManager::getInst().addEntity(id, enemy);
         }

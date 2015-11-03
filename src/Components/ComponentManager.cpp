@@ -10,6 +10,7 @@
 #include "Components/Script/ScriptComponent.h"
 #include "Components/Stats/StatsComponent.h"
 #include "Components/Target/TargetComponent.h"
+#include "Components/Script/Camera.h"
 
 ComponentManager::~ComponentManager() {
     //dtor
@@ -34,15 +35,15 @@ void ComponentManager::processAll(sf::Time frameTime) {
         Entity* entity = it->second;
         int ID = it->first;
 
-        if(entity->audio!=nullptr)          entity->audio->go(frameTime, entity);
-        if(entity->identification!=nullptr) entity->identification->go(frameTime, entity);
-        if(entity->input!=nullptr)          entity->input->go(frameTime, entity);
-        if(entity->movement!=nullptr)       entity->movement->go(frameTime, entity);
-        if(entity->physics!=nullptr)        entity->physics->go(frameTime, entity);
-        if(entity->position!=nullptr)       entity->position->go(frameTime, entity);
-        if(entity->render!=nullptr)         entity->render->go(frameTime, entity);
-        if(entity->stats!=nullptr)          entity->stats->go(frameTime, entity);
-        if(entity->target!=nullptr)         entity->target->go(frameTime, entity);
+        if(entity->getAudio()!=nullptr)          entity->getAudio()->go(frameTime, entity);
+        if(entity->getIdentification()!=nullptr) entity->getIdentification()->go(frameTime, entity);
+        if(entity->getInput()!=nullptr)          entity->getInput()->go(frameTime, entity);
+        if(entity->getMovement()!=nullptr)       entity->getMovement()->go(frameTime, entity);
+        if(entity->getPhysics()!=nullptr)        entity->getPhysics()->go(frameTime, entity);
+        if(entity->getPosition()!=nullptr)       entity->getPosition()->go(frameTime, entity);
+        if(entity->getRender()!=nullptr)         entity->getRender()->go(frameTime, entity);
+        if(entity->getStats()!=nullptr)          entity->getStats()->go(frameTime, entity);
+        if(entity->getTarget()!=nullptr)         entity->getTarget()->go(frameTime, entity);
         for(ScriptComponent* script : entity->getScripts())
         {
             script->go(frameTime, entity);
@@ -63,7 +64,7 @@ void ComponentManager::removeEntity(int ID)
 
 unsigned int ComponentManager::name2ID(std::string name) {
     auto entityIterator = std::find_if(entities.begin(), entities.end(), [name](std::pair<const int, Entity*> keyval){
-                 return keyval.second->identification!=nullptr && keyval.second->identification->getName()==name;
+                 return keyval.second->getIdentification()!=nullptr && keyval.second->getIdentification()->getName()==name;
                  });
 
     if(entityIterator!=entities.end())

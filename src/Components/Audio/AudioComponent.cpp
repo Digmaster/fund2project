@@ -7,6 +7,7 @@
 #include "GameEngine.h"
 #include "Components/Entity.h"
 #include <string>
+#include "Components/Stats/StatsComponent.h"
 
 AudioComponent::AudioComponent() : ComponentBase(){
     buffer1.loadFromFile("assets/sound/Running.wav");
@@ -17,10 +18,13 @@ AudioComponent::AudioComponent() : ComponentBase(){
     sound3.setBuffer(buffer3);
     sound1.setLoop(true);
     sound2.setLoop(true);
+    sound3.setLoop(false);
     sound1.setAttenuation(.1);
     sound2.setAttenuation(.1);
-    sound1.setMinDistance(5);
-    sound2.setMinDistance(5);
+    sound3.setAttenuation(.1);
+    sound1.setMinDistance(10);
+    sound2.setMinDistance(10);
+    sound3.setMinDistance(10);
 //    sound1.setRelativeToListener(true);
 //    sound2.setRelativeToListener(true);
 }
@@ -29,19 +33,33 @@ AudioComponent::~AudioComponent()
 {
     sound1.stop();
     sound2.stop();
+    sound3.stop();
     //dtor
+}
+
+void AudioComponent::setUpListeners(Entity* entity)
+{
+    using namespace std::placeholders;
+    auto handler = std::bind(&AudioComponent::HandleMovementChange, this, _1, _2, _3);
+    entity->addListener(typeid(MovementComponent), handler);
+    entity->addListener(typeid(StatsComponent), handler);
 }
 
 //Looped function for audio instances
 void AudioComponent::go(sf::Time, Entity* entity){
-    MovementComponent* action = entity->movement;
-    WorldPositionComponent* position = entity->position;
+    MovementComponent* action = entity->getMovement();
+    WorldPositionComponent* position = entity->getPosition();
+    if(position!=nullptr)
+    {
+        sound1.setPosition(position->getPosition().x, 0, position->getPosition().y);
+        sound2.setPosition(position->getPosition().x, 0, position->getPosition().y);
+        sound3.setPosition(position->getPosition().y, 0, position->getPosition().y);
+    }
     //std::cout<<action->getState()<<std::endl;
     if(action) {
         //Play sound for walking/running
         if(action->getState()==1 || action->getState()==2){
             sound1.setVolume(50);
-            if(position!=nullptr) sound1.setPosition(position->getPosition().x, 0, position->getPosition().y);
             //only play if sound not already playing
             if(sound1.getStatus()!=sf::SoundSource::Status::Playing)
                 sound1.play();
@@ -51,7 +69,6 @@ void AudioComponent::go(sf::Time, Entity* entity){
         //Play sound for jumping/spinning
         else if (action->getState()==10){
             sound2.setVolume(30);
-            if(position!=nullptr) sound2.setPosition(position->getPosition().x, 0, position->getPosition().y);
             //only play if sound not already playing
             if(sound2.getStatus()!=sf::SoundSource::Status::Playing)
                 sound2.play();
@@ -68,5 +85,19 @@ void AudioComponent::go(sf::Time, Entity* entity){
             sound1.stop();
             sound2.stop();
         }
+    }
+}
+
+void AudioComponent::HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity)
+{
+    std::cout << event << std::endl;
+    switch(event)
+    {
+    case Events::HEALTH_CHANGE:
+        //play some hurt message here
+        break;
+    case Events::DEATH:
+        sound3.play();
+        break;
     }
 }

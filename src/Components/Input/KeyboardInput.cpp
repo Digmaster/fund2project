@@ -37,7 +37,7 @@ void KeyboardInput::go(sf::Time, Entity* entity) {
     currWeapon=0;
     mouseX = eng->inputEng->getMousePos().x;
     mouseY = eng->inputEng->getMousePos().y;
-    WorldPositionComponent* posComp = entity->position;
+    WorldPositionComponent* posComp = entity->getPosition();
     if(posComp)
         fireDir=eng->inputEng->getMouseAngle(posComp->getPosition());
 }

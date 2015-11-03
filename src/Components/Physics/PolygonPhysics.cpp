@@ -58,7 +58,7 @@ unsigned int PolygonPhysics::touchingTop() {
 }
 
 void PolygonPhysics::go(sf::Time frameTime, Entity* entity) {
-    WorldPositionComponent* position = entity->position;
+    WorldPositionComponent* position = entity->getPosition();
 
     //Times 32, as 32 pixels is ~one meter
     position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)), this);

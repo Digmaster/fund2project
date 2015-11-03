@@ -42,7 +42,7 @@ PolylinePhysics::~PolylinePhysics()
 }
 
 void PolylinePhysics::go(sf::Time frameTime, Entity* entity) {
-    WorldPositionComponent* position = entity->position;
+    WorldPositionComponent* position = entity->getPosition();
     //The body is the one that contains the position, velocity, etc. not the body definition
     //screenHeight
     //Times 32, as 32 pixels is ~one meter

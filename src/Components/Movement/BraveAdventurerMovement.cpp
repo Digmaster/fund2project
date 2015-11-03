@@ -17,10 +17,10 @@ BraveAdventurerMovement::BraveAdventurerMovement() : MovementComponent() {
 }
 
 void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
-    PhysicsComponent* physics = entity->physics;
-    InputComponent* input = entity->input;
-    WorldPositionComponent* position = entity->position;
-    StatsComponent* stats = entity->stats;
+    PhysicsComponent* physics = entity->getPhysics();
+    InputComponent* input = entity->getInput();
+    WorldPositionComponent* position = entity->getPosition();
+    StatsComponent* stats = entity->getStats();
 
     float maxGroundSpeed = 20;
     float maxAirSpeed = 15;
@@ -198,10 +198,10 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
                 else pos.x-=40;
                 Entity* bullet = new Entity(id);
-                bullet->position = new WorldPositionComponent(pos, position->getLayer(), (float)input->fireDir*0.0174532925);
-                bullet->render = new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6));
-                bullet->physics = new SimpleBoxPhysics(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors, bullet->position);
-                bullet->physics->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
+                bullet->setPosition(new WorldPositionComponent(pos, position->getLayer(), (float)input->fireDir*0.0174532925));
+                bullet->setRender(new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6)));
+                bullet->setPhysics(new SimpleBoxPhysics(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors, bullet->getPosition()));
+                bullet->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
                 bullet->addScript(new KillScript(true, 10, sf::Time::Zero));
                 ComponentManager::getInst().addEntity(id, bullet);
              }

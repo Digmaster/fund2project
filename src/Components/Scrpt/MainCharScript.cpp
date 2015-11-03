@@ -39,17 +39,17 @@ MainCharScript::~MainCharScript()
 
 void MainCharScript::go(sf::Time frameTime, Entity* entity)
 {
-    StatsComponent* stats = entity->stats;
+    StatsComponent* stats = entity->getStats();
     if(stats) {
         if(stats->isDead()) {
             if(mainChar==true)
                 eng->playerDying=1;
-            delete entity->input;
-            delete entity->movement;
-            delete entity->physics;
-            entity->input = nullptr;
-            entity->movement = nullptr;
-            entity->physics = nullptr;
+            delete entity->getInput();
+            delete entity->getMovement();
+            delete entity->getPhysics();
+            entity->setInput(nullptr);
+            entity->setMovement(nullptr);
+            entity->setPhysics(nullptr);
             deathCountDown -= frameTime; //Give everything time to play death animations and whatnot
             if(deathCountDown <= sf::seconds(0)) {
                 compMan->removeEntity(entity->getID());

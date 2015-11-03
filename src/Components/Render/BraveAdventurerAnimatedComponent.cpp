@@ -12,6 +12,14 @@ BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : AnimatedC
     cooldownValues.resize(getNumCooldowns(), false);
 }
 
+void BraveAdventurerAnimatedComponent::setUpListeners(Entity* entity)
+{
+    using namespace std::placeholders;
+    auto handler = std::bind(&BraveAdventurerAnimatedComponent::HandleMovementChange, this, _1, _2, _3);
+    entity->addListener(typeid(MovementComponent), handler);
+    entity->addListener(typeid(StatsComponent), handler);
+}
+
 void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
     for(auto it = cooldowns.begin(); it != cooldowns.end();)
     {
@@ -37,9 +45,9 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
         sprite.setColor(sf::Color::White);
 
     AnimatedComponent::go(fps, entity);
-    MovementComponent* movement = entity->movement;
-    InputComponent* input = entity->input;
-    StatsComponent* statsComp = entity->stats;
+    MovementComponent* movement = entity->getMovement();
+    InputComponent* input = entity->getInput();
+    StatsComponent* statsComp = entity->getStats();
     if(movement!=NULL && input!=NULL) {
         if(movement->getState()==MoveState::onGround) {
             if(input->fireDir < 90 && input->fireDir > -90)
@@ -84,14 +92,6 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
             sprite.setAnimation("Dissipate");
         }
     }
-}
-
-void BraveAdventurerAnimatedComponent::setUpListeners(Entity* entity)
-{
-    using namespace std::placeholders;
-    auto handler = std::bind(&BraveAdventurerAnimatedComponent::HandleMovementChange, this, _1, _2, _3);
-    entity->addListener(typeid(MovementComponent), handler);
-    entity->addListener(typeid(StatsComponent), handler);
 }
 
 void BraveAdventurerAnimatedComponent::HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity)

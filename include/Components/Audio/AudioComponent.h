@@ -3,6 +3,7 @@
 
 #include <SFML/Audio.hpp>
 #include "Components/ComponentBase.h"
+#include "Components/EventDefines.h"
 
 ///Super simple audio component which plays audio based on movement
 class AudioComponent : public ComponentBase
@@ -14,6 +15,9 @@ class AudioComponent : public ComponentBase
         virtual ~AudioComponent();
         ///function runs until program end
         void go(sf::Time, Entity* entity);
+
+        void setUpListeners(Entity* entity);
+
     protected:
     private:
         sf::Sound sound1; //Walking sound
@@ -22,6 +26,8 @@ class AudioComponent : public ComponentBase
         sf::SoundBuffer buffer1; //walking soundbuffer
         sf::SoundBuffer buffer2; //jumping soundbuffer
         sf::SoundBuffer buffer3;
+
+        void HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity);
 };
 
 #endif // AUDIOCOMPONENT_H

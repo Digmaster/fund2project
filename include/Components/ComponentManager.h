@@ -29,7 +29,7 @@ class ComponentManager
 
         unsigned int name2ID(std::string);
 
-        const Entity* operator[](unsigned int i) {
+        Entity* operator[](unsigned int i) {
             if(entities.find(i)==entities.end())
             {
                 return nullptr;
