@@ -20,7 +20,7 @@ BasicAIInput::~BasicAIInput()
 void BasicAIInput::go(sf::Time frameTime, Entity* entity)
 {
     walkTimer-=frameTime;
-    static const sf::Time maxWalkTime = sf::seconds(1); //5 seconds of walk in either direction
+    static const sf::Time maxWalkTime = sf::seconds(5); //5 seconds of walk in either direction
 
     WorldPositionComponent* position = entity->getPosition();
     unsigned int mainCharID = compMan->name2ID("MainChar");
@@ -78,7 +78,8 @@ void BasicAIInput::go(sf::Time frameTime, Entity* entity)
     }
     else
     {
-        if(walkTimer <= sf::Time::Zero)
+        //if we have walked long enough OR there's something in our way AND we're on the ground
+        if(walkTimer <= sf::Time::Zero || (physics->onGround() && ((physics->onRight() && !gotoLeft) || (physics->onLeft() && gotoLeft))))
         {
             walkTimer = maxWalkTime;
             gotoLeft = !gotoLeft;

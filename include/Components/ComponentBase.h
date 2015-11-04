@@ -21,7 +21,7 @@ class ComponentBase {
             \param ID Sets the ID of the object */
         ComponentBase() {}
 
-        void setUpListeners(const Entity*) {}
+        virtual void setUpListeners(Entity*) {}
 
 
         //! Returns a new, unused ID

@@ -96,7 +96,7 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
 
 void BraveAdventurerAnimatedComponent::HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity)
 {
-    std::cout << event << std::endl;
+    std::cout << "lolll" << std::endl;
     switch(event)
     {
     case Events::HEALTH_CHANGE:

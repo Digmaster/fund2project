@@ -3,6 +3,7 @@
 #include "Components/Stats/StatsComponent.h"
 #include "Components/ComponentManager.h"
 #include "Components/Physics/PhysicsComponent.h"
+#include "Components/Identification/IDComponent.h"
 #include "GameEngine.h"
 #include "Components/Entity.h"
 
@@ -19,6 +20,7 @@ KillScript::~KillScript()
 void KillScript::go(sf::Time frameTime, Entity* entity)
 {
     PhysicsComponent* phys = entity->getPhysics();
+    IDComponent* id = entity->getIdentification();
     if(frequency!=sf::Time::Zero)
     {
         if(frequency>sf::Time::Zero)
@@ -32,25 +34,30 @@ void KillScript::go(sf::Time frameTime, Entity* entity)
     }
     if(phys!=nullptr) {
         if(phys->onRight() || phys->onLeft() || phys->onTop() || phys->onGround()) {
-                StatsComponent* stats = nullptr;
+            Entity* enemy = nullptr;
 
             if(phys->onBody() && (*compMan)[phys->touchingBody()]!=nullptr)
-                stats = (*compMan)[phys->touchingBody()]->getStats();
+                enemy = (*compMan)[phys->touchingBody()];
             if(phys->onRight() && (*compMan)[phys->touchingRight()]!=nullptr)
-                stats = (*compMan)[phys->touchingRight()]->getStats();
+                enemy = (*compMan)[phys->touchingRight()];
             if(phys->onLeft() && (*compMan)[phys->touchingLeft()]!=nullptr)
-                stats = (*compMan)[phys->touchingLeft()]->getStats();
+                enemy = (*compMan)[phys->touchingLeft()];
             if(phys->onTop() && (*compMan)[phys->touchingTop()]!=nullptr)
-                stats = (*compMan)[phys->touchingTop()]->getStats();
+                enemy = (*compMan)[phys->touchingTop()];
             if(phys->onGround() && (*compMan)[phys->touchingGround()]!=nullptr)
-                stats = (*compMan)[phys->touchingGround()]->getStats();
+                enemy = (*compMan)[phys->touchingGround()];
 
-            if(stats!=nullptr && frequency <= sf::Time::Zero) {
-                frequency = initFreq;
-                if(health==-1)
-                    stats->setHealth(0);
-                else
-                    stats->modHealth(-health);
+            if(enemy!=nullptr && enemy->getStats()!=nullptr && frequency <= sf::Time::Zero) {
+                StatsComponent* stats = enemy->getStats();
+                IDComponent* enemyID = enemy->getIdentification();
+                if(enemyID==nullptr || id==nullptr || enemyID->getFaction()!=id->getFaction() || enemyID->getFaction()=="")
+                {
+                    frequency = initFreq;
+                    if(health==-1)
+                        stats->setHealth(0);
+                    else
+                        stats->modHealth(-health);
+                }
             }
 
             if(remove) {

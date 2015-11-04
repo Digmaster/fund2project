@@ -18,7 +18,6 @@
 					<Add option="-g" />
 					<Add directory="Dependancies/include" />
 					<Add directory="include" />
-					<Add directory="D:/Documents/GitHub/fund2project/include" />
 					<Add directory="include/Components/Physics" />
 					<Add directory="include/Components/Identification" />
 					<Add directory="include/Components/Script" />

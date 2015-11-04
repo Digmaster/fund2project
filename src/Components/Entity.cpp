@@ -74,29 +74,29 @@ Entity::~Entity()
     delete target;
 }
 
-void Entity::setAudio(AudioComponent* a) {audio = a; a->setUpListeners(this);}
+void Entity::setAudio(AudioComponent* a) {audio = a; if(a) a->setUpListeners(this);}
 AudioComponent* Entity::getAudio() {return audio;}
 
-void Entity::setRender(RenderComponent* a) {render = a; a->setUpListeners(this);}
+void Entity::setRender(RenderComponent* a) {render = a; if(a) a->setUpListeners(this);}
 RenderComponent* Entity::getRender() {return render;}
 
-void Entity::setIdentification(IDComponent* a) {identification = a; a->setUpListeners(this);}
+void Entity::setIdentification(IDComponent* a) {identification = a; if(a) a->setUpListeners(this);}
 IDComponent* Entity::getIdentification() {return identification;}
 
-void Entity::setInput(InputComponent* a) {input = a; a->setUpListeners(this);}
+void Entity::setInput(InputComponent* a) {input = a; if(a) a->setUpListeners(this);}
 InputComponent* Entity::getInput() {return input;}
 
-void Entity::setMovement(MovementComponent* a) {movement = a; a->setUpListeners(this);}
+void Entity::setMovement(MovementComponent* a) {movement = a; if(a) a->setUpListeners(this);}
 MovementComponent* Entity::getMovement() {return movement;}
 
-void Entity::setPhysics(PhysicsComponent* a) {physics = a; a->setUpListeners(this);}
+void Entity::setPhysics(PhysicsComponent* a) {physics = a; if(a) a->setUpListeners(this);}
 PhysicsComponent* Entity::getPhysics() {return physics;}
 
-void Entity::setPosition(WorldPositionComponent* a) {position = a; a->setUpListeners(this);}
+void Entity::setPosition(WorldPositionComponent* a) {position = a; if(a) a->setUpListeners(this);}
 WorldPositionComponent* Entity::getPosition() {return position;}
 
-void Entity::setStats(StatsComponent* a) {stats = a; a->setUpListeners(this);}
+void Entity::setStats(StatsComponent* a) {stats = a; if(a) a->setUpListeners(this);}
 StatsComponent* Entity::getStats() {return stats;}
 
-void Entity::setTarget(TargetComponent* a) {target = a; a->setUpListeners(this);}
+void Entity::setTarget(TargetComponent* a) {target = a; if(a) a->setUpListeners(this);}
 TargetComponent* Entity::getTarget() {return target;}

@@ -66,6 +66,7 @@ void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
             enemy->addScript(new MainCharScript(false, sf::seconds(.5)));
             enemy->addScript(new KillScript(false, 10, sf::seconds(.5)));
             enemy->setAudio(new AudioComponent());
+            enemy->setIdentification(new IDComponent("","","enemy"));
 
             enemy->setPhysics(new SimpleBoxPhysics(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->getPosition()));
 

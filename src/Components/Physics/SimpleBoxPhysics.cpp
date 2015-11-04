@@ -54,11 +54,9 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     boxFixtureDef.isSensor = (opts & PhysicsOptions::sensor);
     b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
     fixture->SetUserData( (void*)(ID*10+0) );
-    if(!(opts & PhysicsOptions::sideSensors))
-    {
-        bodyListener = new FootContactListener(ID*10+0);
-        eng->physEng->contactListeners.addListener(bodyListener);
-    }
+    bodyListener = new FootContactListener(ID*10+0);
+    eng->physEng->contactListeners.addListener(bodyListener);
+
     if(opts & PhysicsOptions::sideSensors) { //All of the sensors!!!
         //foot
         boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-size.y/(2.0f*pixelsPerMeter)), 0);

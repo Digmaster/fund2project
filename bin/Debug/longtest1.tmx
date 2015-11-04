@@ -43,6 +43,7 @@
   <properties>
    <property name="imageZoom" value="3"/>
    <property name="tiled" value="yes"/>
+   <property name="zoom" value="1.2"/>
   </properties>
  </imagelayer>
  <layer name="Tile Layer 5" width="200" height="40" opacity="0.91">

@@ -1156,7 +1156,7 @@
 	<SFML/System/Thread.hpp>
 	<vector>
 
-1446523525 d:\documents\github\fund2project\include\components\componentbase.h
+1446566455 d:\documents\github\fund2project\include\components\componentbase.h
 	<SFML/System/Time.hpp>
 	<string>
 	<deque>
@@ -1616,7 +1616,7 @@
 1446050154 d:\documents\github\fund2project\dependancies\include\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1446056324 d:\documents\github\fund2project\include\components\identification\idcomponent.h
+1446660380 d:\documents\github\fund2project\include\components\identification\idcomponent.h
 	"Components/ComponentBase.h"
 
 1446058318 d:\documents\github\fund2project\include\components\target\targetcomponent.h
@@ -1670,7 +1670,7 @@
 	"Components/Target/TargetComponent.h"
 	"Components/Script/Camera.h"
 
-1446059501 source:d:\documents\github\fund2project\src\components\identification\idcomponent.cpp
+1446660540 source:d:\documents\github\fund2project\src\components\identification\idcomponent.cpp
 	"IDComponent.h"
 	"Components/ComponentManager.h"
 
@@ -1801,7 +1801,7 @@
 	<vector>
 	<SFML/Graphics.hpp>
 
-1446519459 source:d:\documents\github\fund2project\src\components\physics\simpleboxphysics.cpp
+1446566817 source:d:\documents\github\fund2project\src\components\physics\simpleboxphysics.cpp
 	"Components/Physics/SimpleBoxPhysics.h"
 	"Components/ComponentManager.h"
 	"Options.h"
@@ -1843,7 +1843,7 @@
 	<SFML/System/Time.hpp>
 	<stdexcept>
 
-1446519207 source:d:\documents\github\fund2project\src\components\render\braveadventureranimatedcomponent.cpp
+1446566317 source:d:\documents\github\fund2project\src\components\render\braveadventureranimatedcomponent.cpp
 	"Components/Render/BraveAdventurerAnimatedComponent.h"
 	"Components/Movement/MovementComponent.h"
 	"Components/ComponentManager.h"
@@ -1887,7 +1887,7 @@
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1446519616 source:d:\documents\github\fund2project\src\components\scrpt\enemyspawner.cpp
+1446660426 source:d:\documents\github\fund2project\src\components\scrpt\enemyspawner.cpp
 	"Component/Script/EnemySpawner.h"
 	"Components/Movement/EnemyMovement.h"
 	"Components/Physics/PhysicsComponent.h"
@@ -1931,11 +1931,12 @@
 	"Components/Script/ScriptComponent.h"
 	<SFML/Graphics.hpp>
 
-1446519653 source:d:\documents\github\fund2project\src\components\scrpt\killscript.cpp
+1446660585 source:d:\documents\github\fund2project\src\components\scrpt\killscript.cpp
 	"Components/Script/KillScript.h"
 	"Components/Stats/StatsComponent.h"
 	"Components/ComponentManager.h"
 	"Components/Physics/PhysicsComponent.h"
+	"Components/Identification/IDComponent.h"
 	"GameEngine.h"
 	"Components/Entity.h"
 
@@ -1981,7 +1982,7 @@
 	"TargetComponent.h"
 	"Components/ComponentManager.h"
 
-1446492913 source:d:\documents\github\fund2project\src\gameengine.cpp
+1446584409 source:d:\documents\github\fund2project\src\gameengine.cpp
 	"GameEngine.h"
 	"Components/Render/AnimatedComponent.h"
 	"Components/Positional/WorldPositionComponent.h"
@@ -2010,7 +2011,7 @@
 	"GameEngine.h"
 	"Rendering/RenderEngine.h"
 
-1446520916 source:d:\documents\github\fund2project\src\levelloader.cpp
+1446660598 source:d:\documents\github\fund2project\src\levelloader.cpp
 	"LevelLoader.h"
 	<rapidxml.hpp>
 	<iostream>
@@ -2077,7 +2078,7 @@
 	<sstream>
 	"Components/EventDefines.h"
 
-1446522268 source:d:\documents\github\fund2project\src\components\entity.cpp
+1446566638 source:d:\documents\github\fund2project\src\components\entity.cpp
 	"Components/Entity.h"
 	<iostream>
 	"Components/Physics/SimpleBoxPhysics.h"
@@ -2103,7 +2104,7 @@
 
 1446236880 d:\documents\github\fund2project\include\components\eventdefines.h
 
-1446519245 source:d:\documents\github\fund2project\src\components\input\basicaiinput.cpp
+1446660065 source:d:\documents\github\fund2project\src\components\input\basicaiinput.cpp
 	"BasicAIInput.h"
 	"Components/Positional/WorldPositionComponent.h"
 	"Components/Entity.h"

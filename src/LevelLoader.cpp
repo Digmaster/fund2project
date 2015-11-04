@@ -131,8 +131,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         entity->setPhysics(new BoundaryPhysics(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2));
         ComponentManager::getInst().addEntity(id, entity);
         //bottom
-        /*id = ComponentBase::getNewID();
-        BoundaryPhysics bottomBoundary(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2);*/
+        id = ComponentBase::getNewID();
+        entity = new Entity(id);
+        entity->setPhysics(new BoundaryPhysics(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2));
+        entity->addScript(new KillScript(false, -1, sf::Time::Zero));
+        ComponentManager::getInst().addEntity(id, entity);
         //top
         id = ComponentBase::getNewID();
         entity = new Entity(id);
@@ -405,8 +408,8 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 if(attribute!=NULL) {
                     texture = texMan->getTexture(attribute->value());
                     if(properties["tiled"]!="no") {
-                        for(int i = texture->getSize().x/2; i < width*tilewidth*layerZoom+texture->getSize().x/2; i+=texture->getSize().x) {
-                            for(int j = texture->getSize().y/2; j < height*tileheight*layerZoom+texture->getSize().y/2; j+=texture->getSize().y) {
+                        for(int i = (texture->getSize().x)/2-texture->getSize().x; i < width*tilewidth*layerZoom+texture->getSize().x/2; i+=texture->getSize().x) {
+                            for(int j = (texture->getSize().y)/2-texture->getSize().y; j < height*tileheight*layerZoom+texture->getSize().y/2; j+=texture->getSize().y) {
                                 int id = ComponentBase::getNewID();
                                 Entity* entity = new Entity(id);
                                 entity->setPosition(new WorldPositionComponent(Vector2f(i,j), layerNum));
@@ -685,6 +688,10 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             entity->addScript(new MainCharScript(false, sf::seconds(.5)));
                             entity->addScript(new KillScript(false, 10, sf::seconds(.5)));
                             entity->setAudio(new AudioComponent());
+                            if(entity->getIdentification()!=nullptr)
+                                entity->getIdentification()->setFaction("enemy");
+                            else
+                                entity->setIdentification(new IDComponent(objectName, type, "enemy"));
 
                             entity->setPhysics(new SimpleBoxPhysics(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
                             //}
