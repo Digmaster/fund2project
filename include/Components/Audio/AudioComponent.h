@@ -27,7 +27,7 @@ class AudioComponent : public ComponentBase
         sf::SoundBuffer buffer2; //jumping soundbuffer
         sf::SoundBuffer buffer3;
 
-        void HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity);
+        void HandleMovementChange(Events event, EventObj*, Entity* entity);
 };
 
 #endif // AUDIOCOMPONENT_H

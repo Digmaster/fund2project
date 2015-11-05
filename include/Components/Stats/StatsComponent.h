@@ -14,8 +14,8 @@ class StatsComponent : public ComponentBase
 
         virtual void setUpListeners(Entity* entity);
         int getHealth();
-        void setHealth(int);
-        void modHealth(int);
+        void setHealth(int, Entity*);
+        void modHealth(int, Entity*);
         bool isDead();
 
         float getSpeed() {return speedMod;}

@@ -200,7 +200,7 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 Entity* bullet = new Entity(id);
                 bullet->setPosition(new WorldPositionComponent(pos, position->getLayer(), (float)input->fireDir*0.0174532925));
                 bullet->setRender(new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6)));
-                bullet->setPhysics(new SimpleBoxPhysics(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors, bullet->getPosition()));
+                bullet->setPhysics(new SimpleBoxPhysics(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors | PhysicsOptions::sensor, bullet->getPosition()));
                 bullet->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
                 bullet->addScript(new KillScript(true, 10, sf::Time::Zero));
                 ComponentManager::getInst().addEntity(id, bullet);

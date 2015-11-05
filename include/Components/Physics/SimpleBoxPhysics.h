@@ -6,6 +6,8 @@
 
 #include "Components\Identification\IDComponent.h"
 
+#include "Components/EventDefines.h"
+
 
 class FootContactListener;
 class LadderContactListener;
@@ -30,6 +32,9 @@ class SimpleBoxPhysics : public PhysicsComponent
         bool onBody();
         unsigned int touchingBody();
         bool overLadder();
+
+        void setUpListeners(Entity*);
+        void HandleMessage(Events event, EventObj* message, Entity* entity);
     protected:
     private:
         FootContactListener* footListener;

@@ -81,13 +81,13 @@ class Entity
         int isDeleted() {return _delete;}
 
         // Listener Logic
-        typedef std::function<void(Events, std::vector<std::string>, Entity*)> listener;
-        typedef std::function<void(ComponentBase&, Events, std::vector<std::string>, Entity*)> unboundListener;
+        typedef std::function<void(Events, EventObj*, Entity*)> listener;
+        typedef std::function<void(ComponentBase&, Events, EventObj*, Entity*)> unboundListener;
 
         void addListener(std::type_index toListenTo, listener toCall);
         //void addListener(std::type_index toListenTo, ComponentBase* obj, unboundListener toCall);
         void removeListener(std::type_index toListenTo, listener toCall);
-        void callListeners(std::type_index origin, Events event, std::vector<std::string> message = std::vector<std::string>());
+        void callListeners(std::type_index origin, Events event, EventObj* = nullptr);
     protected:
         int _ID;
         bool _delete;

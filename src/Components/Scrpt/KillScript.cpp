@@ -54,9 +54,9 @@ void KillScript::go(sf::Time frameTime, Entity* entity)
                 {
                     frequency = initFreq;
                     if(health==-1)
-                        stats->setHealth(0);
+                        stats->setHealth(0, entity);
                     else
-                        stats->modHealth(-health);
+                        stats->modHealth(-health, entity);
                 }
             }
 

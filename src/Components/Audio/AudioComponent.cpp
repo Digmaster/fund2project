@@ -88,9 +88,8 @@ void AudioComponent::go(sf::Time, Entity* entity){
     }
 }
 
-void AudioComponent::HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity)
+void AudioComponent::HandleMovementChange(Events event, EventObj* obj, Entity* entity)
 {
-    std::cout << event << std::endl;
     switch(event)
     {
     case Events::HEALTH_CHANGE:

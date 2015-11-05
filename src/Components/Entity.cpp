@@ -52,7 +52,7 @@ void Entity::removeListener(std::type_index toListenTo, listener toCall)
     //componentListeners[toListenTo].remove(toCall);
 }
 
-void Entity::callListeners(std::type_index origin, Events event, std::vector<std::string> message)
+void Entity::callListeners(std::type_index origin, Events event, EventObj* message)
 {
     std::list<listener> toCall = componentListeners[origin];
     for(listener l : toCall)

@@ -12,7 +12,7 @@ class BraveAdventurerAnimatedComponent : public AnimatedComponent
         BraveAdventurerAnimatedComponent();
         void go(sf::Time fps, Entity* entity);
         void setUpListeners(Entity*);
-        void HandleMovementChange(Events event, std::vector<std::string> message, Entity* entity);
+        void HandleMovementChange(Events event, EventObj* message, Entity* entity);
     protected:
     private:
         int currDir;

@@ -6,6 +6,8 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Entity.h"
 
+#include "Components/Stats/StatsComponent.h"
+
 SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts, WorldPositionComponent* position ) : PhysicsComponent()
 {
     leftListener = NULL;
@@ -93,6 +95,27 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
 
     if(position!=NULL) {
         physBody->SetTransform(b2Vec2(position->getPosition().x/pixelsPerMeter, -position->getPosition().y/pixelsPerMeter),physBody->GetAngle());
+    }
+}
+
+void SimpleBoxPhysics::setUpListeners(Entity* entity)
+{
+    using namespace std::placeholders;
+    auto handler = std::bind(&SimpleBoxPhysics::HandleMessage, this, _1, _2, _3);
+    entity->addListener(typeid(StatsComponent), handler);
+}
+
+void SimpleBoxPhysics::HandleMessage(Events event, EventObj* message, Entity* entity)
+{
+    switch(event)
+    {
+    case HEALTH_CHANGE:
+        HealthChange* obj = (HealthChange*)message;
+        float yDif = entity->getPosition()->getPosition().y-obj->causer->getPosition()->getPosition().y;
+        float xDif = entity->getPosition()->getPosition().x-obj->causer->getPosition()->getPosition().x;
+        if(xDif==0) xDif=.1;
+        float angle = atan2(yDif,xDif) * -180.0f/3.14159265f;
+        physBody->ApplyForceToCenter(b2Vec2(std::cos((float)angle*0.0174532925)*200, std::sin((float)angle*0.0174532925)*200), true);
     }
 }
 

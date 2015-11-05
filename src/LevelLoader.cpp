@@ -556,13 +556,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 }
 
                 ///Modify position based on what it is
-                if(objectHeight!=0 && objectWidth!=0) { //Has width and height, use that
+                if(objGid!=0)
+                {
+                    objectX +=sprites[objGid].getGlobalBounds().width/2;
+                    objectY -=sprites[objGid].getGlobalBounds().height/2;
+                }
+                else if(objectHeight!=0 && objectWidth!=0) { //Has width and height, use that
                     objectX +=objectWidth/2;
                     objectY +=objectHeight/2;
-                }
-                else if(objGid!=0) { //Has associated image, use that
-                    objectX +=sprites[objGid].getGlobalBounds().width/2;
-                    objectY +=sprites[objGid].getGlobalBounds().height/2;
                 }
                 //otherwise, don't change it
 
@@ -627,7 +628,17 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 else if(type=="spawner") {
                     //Position
                     entity->setPosition(new WorldPositionComponent(Vector2f(objectX, objectY), layerNum));
-                    entity->addScript(new EnemySpawner(sprites[objGid], sf::seconds(2), 10, 800));
+                    int waitTime = 2;
+                    int numToSpawn = 5;
+                    int minDistance = 800;
+                    if (objProperties.find("waitTime") != objProperties.end())
+                        waitTime = atoi(objProperties["waitTime"].c_str());
+                    if (objProperties.find("numToSpawn") != objProperties.end())
+                        numToSpawn = atoi(objProperties["numToSpawn"].c_str());
+                    if (objProperties.find("minDistance") != objProperties.end())
+                        minDistance = atoi(objProperties["minDistance"].c_str());
+
+                    entity->addScript(new EnemySpawner(sprites[objGid], sf::seconds(waitTime), numToSpawn, minDistance));
                 }
                 else if(type=="mob") { //any sort of enemy, player, etc. Has everything basically
                     if (objProperties.find("type") != objProperties.end()) { //Adds a target, if needed
@@ -706,7 +717,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 {
                     string hurtStr = objProperties["hurt"];
                     int hurtVal = atoi(hurtStr.c_str());
-                    entity->addScript(new KillScript(false, hurtVal, sf::seconds(.5)));
+                    entity->addScript(new KillScript(false, hurtVal, (hurtVal!=-1) ? sf::seconds(.5) : sf::Time::Zero));
                 }
 
 

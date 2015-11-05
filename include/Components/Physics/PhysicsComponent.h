@@ -32,7 +32,7 @@ class PhysicsComponent : public ComponentBase
         virtual bool overLadder() { return false;}
         ///Returns the physics body. If there are multiple physics bodies, the most important one will be returned
         b2Body* getBody() {return physBody;}
-        //virtual b2PolygonShape* getShape() {return physBody->Get}
+
     protected:
         static int pixelsPerMeter;
         b2Body* physBody;

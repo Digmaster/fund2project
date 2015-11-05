@@ -37,7 +37,7 @@ void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
     WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->getPosition();
     WorldPositionComponent* mePosComp = entity->getPosition();
     countdown-=frameTime;
-    if(advPosComp && mePosComp && curr <= max && countdown <= sf::seconds(0)) {
+    if(advPosComp && mePosComp && (max==-1 || curr < max) && countdown <= sf::seconds(0)) {
         int baddies = advPosComp->getPosition().x;
         int me = mePosComp->getPosition().x;
         int distance;
