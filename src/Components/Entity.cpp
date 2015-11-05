@@ -19,7 +19,7 @@
 #include "Components/Movement/EnemyMovement.h"
 #include "Components/Stats/StatsComponent.h"
 #include "Components/Script/MainCharScript.h"
-#include "Component/Script/EnemySpawner.h"
+#include "Components/Script/EnemySpawner.h"
 #include "Components/Script/KillScript.h"
 
 Entity::Entity(int ID) : _ID(ID)

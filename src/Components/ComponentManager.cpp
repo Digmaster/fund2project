@@ -35,19 +35,20 @@ void ComponentManager::processAll(sf::Time frameTime) {
         Entity* entity = it->second;
         int ID = it->first;
 
-        if(entity->getAudio()!=nullptr)          entity->getAudio()->go(frameTime, entity);
-        if(entity->getIdentification()!=nullptr) entity->getIdentification()->go(frameTime, entity);
+        if(entity->getTarget()!=nullptr)         entity->getTarget()->go(frameTime, entity);
         if(entity->getInput()!=nullptr)          entity->getInput()->go(frameTime, entity);
         if(entity->getMovement()!=nullptr)       entity->getMovement()->go(frameTime, entity);
         if(entity->getPhysics()!=nullptr)        entity->getPhysics()->go(frameTime, entity);
         if(entity->getPosition()!=nullptr)       entity->getPosition()->go(frameTime, entity);
-        if(entity->getRender()!=nullptr)         entity->getRender()->go(frameTime, entity);
         if(entity->getStats()!=nullptr)          entity->getStats()->go(frameTime, entity);
-        if(entity->getTarget()!=nullptr)         entity->getTarget()->go(frameTime, entity);
         for(ScriptComponent* script : entity->getScripts())
         {
             script->go(frameTime, entity);
         }
+
+        if(entity->getIdentification()!=nullptr) entity->getIdentification()->go(frameTime, entity);
+        if(entity->getRender()!=nullptr)         entity->getRender()->go(frameTime, entity);
+        if(entity->getAudio()!=nullptr)          entity->getAudio()->go(frameTime, entity);
         it++;
     }
 }

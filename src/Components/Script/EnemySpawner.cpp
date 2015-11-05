@@ -1,4 +1,4 @@
-#include "Component/Script/EnemySpawner.h"
+#include "Components/Script/EnemySpawner.h"
 
 #include "Components/Movement/EnemyMovement.h"
 #include "Components/Physics/PhysicsComponent.h"
