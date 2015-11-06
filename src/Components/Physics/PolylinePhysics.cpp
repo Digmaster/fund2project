@@ -5,7 +5,7 @@
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Entity.h"
 
-PolylinePhysics::PolylinePhysics(unsigned int ID, std::vector<sf::Vector2i> points, uint32 opts, WorldPositionComponent* position) : PhysicsComponent()
+PolylinePhysics::PolylinePhysics(unsigned int ID, std::vector<sf::Vector2i> points, uint32 opts, std::shared_ptr<WorldPositionComponent> position) : PhysicsComponent()
 {
     physBodyDef.type = b2_staticBody;
     physBody = eng->physEng->_world->CreateBody(&physBodyDef);
@@ -42,7 +42,7 @@ PolylinePhysics::~PolylinePhysics()
 }
 
 void PolylinePhysics::go(sf::Time frameTime, Entity* entity) {
-    WorldPositionComponent* position = entity->getPosition();
+    std::shared_ptr<WorldPositionComponent> position = entity->getPosition();
     //The body is the one that contains the position, velocity, etc. not the body definition
     //screenHeight
     //Times 32, as 32 pixels is ~one meter

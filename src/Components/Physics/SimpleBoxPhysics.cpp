@@ -8,7 +8,7 @@
 
 #include "Components/Stats/StatsComponent.h"
 
-SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts, WorldPositionComponent* position ) : PhysicsComponent()
+SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction, uint32 opts, std::shared_ptr<WorldPositionComponent> position ) : PhysicsComponent()
 {
     leftListener = NULL;
     rightListener = NULL;
@@ -200,7 +200,7 @@ bool SimpleBoxPhysics::overLadder() {
 }
 
 void SimpleBoxPhysics::go(sf::Time frameTime, Entity* entity) {
-    WorldPositionComponent* position = entity->getPosition();
+    std::shared_ptr<WorldPositionComponent> position = entity->getPosition();
     //The body is the one that contains the position, velocity, etc. not the body definition
     //screenHeight
     //Times 32, as 32 pixels is ~one meter
@@ -252,8 +252,8 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
     unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
     unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
 
-    IDComponent* idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
-    IDComponent* idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->getIdentification();
+    std::shared_ptr<IDComponent> idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
+    std::shared_ptr<IDComponent> idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->getIdentification();
 
     std::string nameA;
     std::string nameB;
@@ -282,8 +282,8 @@ void LadderContactListener::EndContact(b2Contact* contact) {
     unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
     unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
 
-    IDComponent* idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
-    IDComponent* idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->getIdentification();
+    std::shared_ptr<IDComponent> idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
+    std::shared_ptr<IDComponent> idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->getIdentification();
 
     std::string nameA;
     std::string nameB;

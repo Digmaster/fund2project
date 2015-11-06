@@ -19,8 +19,8 @@ KillScript::~KillScript()
 
 void KillScript::go(sf::Time frameTime, Entity* entity)
 {
-    PhysicsComponent* phys = entity->getPhysics();
-    IDComponent* id = entity->getIdentification();
+    std::shared_ptr<PhysicsComponent> phys = entity->getPhysics();
+    std::shared_ptr<IDComponent> id = entity->getIdentification();
     if(frequency!=sf::Time::Zero)
     {
         if(frequency>sf::Time::Zero)
@@ -32,7 +32,7 @@ void KillScript::go(sf::Time frameTime, Entity* entity)
             frequency = sf::Time::Zero;
         }
     }
-    if(phys!=nullptr) {
+    if(phys) {
         if(phys->onRight() || phys->onLeft() || phys->onTop() || phys->onGround()) {
             Entity* enemy = nullptr;
 
@@ -48,9 +48,9 @@ void KillScript::go(sf::Time frameTime, Entity* entity)
                 enemy = (*compMan)[phys->touchingGround()];
 
             if(enemy!=nullptr && enemy->getStats()!=nullptr && frequency <= sf::Time::Zero) {
-                StatsComponent* stats = enemy->getStats();
-                IDComponent* enemyID = enemy->getIdentification();
-                if(enemyID==nullptr || id==nullptr || enemyID->getFaction()!=id->getFaction() || enemyID->getFaction()=="")
+                std::shared_ptr<StatsComponent> stats = enemy->getStats();
+                std::shared_ptr<IDComponent> enemyID = enemy->getIdentification();
+                if(enemyID || id || enemyID->getFaction()!=id->getFaction() || enemyID->getFaction()=="")
                 {
                     frequency = initFreq;
                     if(health==-1)

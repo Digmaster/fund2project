@@ -48,8 +48,8 @@ ComponentBase::listenerList AudioComponent::getListeners()
 
 //Looped function for audio instances
 void AudioComponent::go(sf::Time, Entity* entity){
-    MovementComponent* action = entity->getMovement();
-    WorldPositionComponent* position = entity->getPosition();
+    std::shared_ptr<MovementComponent> action = entity->getMovement();
+    std::shared_ptr<WorldPositionComponent> position = entity->getPosition();
     if(position!=nullptr)
     {
         sound1.setPosition(position->getPosition().x, 0, position->getPosition().y);

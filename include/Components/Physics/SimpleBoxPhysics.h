@@ -19,7 +19,7 @@ class SimpleBoxPhysics : public PhysicsComponent
     public:
         ///Creates a simple box
         /** \param opts Flags are defined in physics component **/
-        SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction = 10, uint32 opts=0, WorldPositionComponent* position = nullptr);
+        SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float friction = 10, uint32 opts=0, std::shared_ptr<WorldPositionComponent> position = nullptr);
         void go(sf::Time, Entity* entity);
         bool onGround();
         unsigned int touchingGround();

@@ -74,35 +74,35 @@ Entity::~Entity()
 //    delete target;
 }
 
-void Entity::setAudio(AudioComponent* a) {setComponent(&audio, a);}
-AudioComponent* Entity::getAudio() {return audio;}
+void Entity::setAudio(std::shared_ptr<AudioComponent> a) {setComponent(&audio, a);}
+std::shared_ptr<AudioComponent> Entity::getAudio() {return audio;}
 
-void Entity::setRender(RenderComponent* a) {setComponent(&render, a);}
-RenderComponent* Entity::getRender() {return render;}
+void Entity::setRender(std::shared_ptr<RenderComponent> a) {setComponent(&render, a);}
+std::shared_ptr<RenderComponent> Entity::getRender() {return render;}
 
-void Entity::setIdentification(IDComponent* a) {setComponent(&identification, a);}
-IDComponent* Entity::getIdentification() {return identification;}
+void Entity::setIdentification(std::shared_ptr<IDComponent> a) {setComponent(&identification, a);}
+std::shared_ptr<IDComponent> Entity::getIdentification() {return identification;}
 
-void Entity::setInput(InputComponent* a) {setComponent(&input, a);}
-InputComponent* Entity::getInput() {return input;}
+void Entity::setInput(std::shared_ptr<InputComponent> a) {setComponent(&input, a);}
+std::shared_ptr<InputComponent> Entity::getInput() {return input;}
 
-void Entity::setMovement(MovementComponent* a) {setComponent(&movement, a);}
-MovementComponent* Entity::getMovement() {return movement;}
+void Entity::setMovement(std::shared_ptr<MovementComponent> a) {setComponent(&movement, a);}
+std::shared_ptr<MovementComponent> Entity::getMovement() {return movement;}
 
-void Entity::setPhysics(PhysicsComponent* a) {setComponent(&physics, a);}
-PhysicsComponent* Entity::getPhysics() {return physics;}
+void Entity::setPhysics(std::shared_ptr<PhysicsComponent> a) {setComponent(&physics, a);}
+std::shared_ptr<PhysicsComponent> Entity::getPhysics() {return physics;}
 
-void Entity::setPosition(WorldPositionComponent* a) {setComponent(&position, a);}
-WorldPositionComponent* Entity::getPosition() {return position;}
+void Entity::setPosition(std::shared_ptr<WorldPositionComponent> a) {setComponent(&position, a);}
+std::shared_ptr<WorldPositionComponent> Entity::getPosition() {return position;}
 
-void Entity::setStats(StatsComponent* a) {setComponent(&stats, a);}
-StatsComponent* Entity::getStats() {return stats;}
+void Entity::setStats(std::shared_ptr<StatsComponent> a) {setComponent(&stats, a);}
+std::shared_ptr<StatsComponent> Entity::getStats() {return stats;}
 
-void Entity::setTarget(TargetComponent* a) {setComponent(&target, a);}
-TargetComponent* Entity::getTarget() {return target;}
+void Entity::setTarget(std::shared_ptr<TargetComponent> a) {setComponent(&target, a);}
+std::shared_ptr<TargetComponent> Entity::getTarget() {return target;}
 
 template<typename T>
-void Entity::setComponent(T** o, T* n)
+void Entity::setComponent(T* o, T n)
 {
     if((*o) != nullptr)
         (*o)->removeListeners(this);

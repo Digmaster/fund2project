@@ -34,8 +34,8 @@ EnemySpawner::EnemySpawner(sf::Sprite spr, sf::Time frequency, int max, int rang
 
 void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
     unsigned int mainCharID = compMan->name2ID("MainChar");
-    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->getPosition();
-    WorldPositionComponent* mePosComp = entity->getPosition();
+    std::shared_ptr<WorldPositionComponent> advPosComp = (*compMan)[mainCharID]->getPosition();
+    std::shared_ptr<WorldPositionComponent> mePosComp = entity->getPosition();
     countdown-=frameTime;
     if(advPosComp && mePosComp && (max==-1 || curr < max) && countdown <= sf::seconds(0)) {
         int baddies = advPosComp->getPosition().x;
@@ -52,23 +52,23 @@ void EnemySpawner::go(sf::Time frameTime, Entity* entity) {
 
             Entity* enemy = new Entity(id);
 
-            enemy->setPosition(new WorldPositionComponent(*mePosComp));
+            enemy->setPosition(std::make_shared<WorldPositionComponent>(*mePosComp));
 
             SpriteManager spriteMan;
-            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
+            std::shared_ptr<BraveAdventurerAnimatedComponent> testSprite = std::make_shared<BraveAdventurerAnimatedComponent>();
             testSprite->setSprite(spriteMan.getSprite("Samus"));
             enemy->setRender(testSprite);
 
-            enemy->setMovement(new BraveAdventurerMovement());
-            enemy->setInput(new BasicAIInput());
-            enemy->setStats(new StatsComponent(20));
+            enemy->setMovement(std::make_shared<BraveAdventurerMovement>());
+            enemy->setInput(std::make_shared<BasicAIInput>());
+            enemy->setStats(std::make_shared<StatsComponent>(20));
             enemy->getStats()->setSpeed(.5);
-            enemy->addScript(new MainCharScript(false, sf::seconds(.5)));
-            enemy->addScript(new KillScript(false, 10, sf::seconds(.5)));
-            enemy->setAudio(new AudioComponent());
-            enemy->setIdentification(new IDComponent("","","enemy"));
+            enemy->addScript(std::make_shared<MainCharScript>(false, sf::seconds(.5)));
+            enemy->addScript(std::make_shared<KillScript>(false, 10, sf::seconds(.5)));
+            enemy->setAudio(std::make_shared<AudioComponent>());
+            enemy->setIdentification(std::make_shared<IDComponent>("","","enemy"));
 
-            enemy->setPhysics(new SimpleBoxPhysics(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->getPosition()));
+            enemy->setPhysics(std::make_shared<SimpleBoxPhysics>(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, enemy->getPosition()));
 
             ComponentManager::getInst().addEntity(id, enemy);
         }

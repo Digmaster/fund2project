@@ -41,7 +41,7 @@ void ComponentManager::processAll(sf::Time frameTime) {
         if(entity->getPhysics()!=nullptr)        entity->getPhysics()->go(frameTime, entity);
         if(entity->getPosition()!=nullptr)       entity->getPosition()->go(frameTime, entity);
         if(entity->getStats()!=nullptr)          entity->getStats()->go(frameTime, entity);
-        for(ScriptComponent* script : entity->getScripts())
+        for(std::shared_ptr<ScriptComponent> script : entity->getScripts())
         {
             script->go(frameTime, entity);
         }

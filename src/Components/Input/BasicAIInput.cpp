@@ -22,12 +22,12 @@ void BasicAIInput::go(sf::Time frameTime, Entity* entity)
     walkTimer-=frameTime;
     static const sf::Time maxWalkTime = sf::seconds(5); //5 seconds of walk in either direction
 
-    WorldPositionComponent* position = entity->getPosition();
+    std::shared_ptr<WorldPositionComponent> position = entity->getPosition();
     unsigned int mainCharID = compMan->name2ID("MainChar");
 
-    WorldPositionComponent* enePosComp = entity->getPosition();
-    WorldPositionComponent* advPosComp = (*compMan)[mainCharID]->getPosition();
-    PhysicsComponent* physics = entity->getPhysics();
+    std::shared_ptr<WorldPositionComponent> enePosComp = entity->getPosition();
+    std::shared_ptr<WorldPositionComponent> advPosComp = (*compMan)[mainCharID]->getPosition();
+    std::shared_ptr<PhysicsComponent> physics = entity->getPhysics();
 
     if(!enePosComp || !advPosComp)
     {

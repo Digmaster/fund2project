@@ -47,9 +47,9 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
         sprite.setColor(sf::Color::White);
 
     AnimatedComponent::go(fps, entity);
-    MovementComponent* movement = entity->getMovement();
-    InputComponent* input = entity->getInput();
-    StatsComponent* statsComp = entity->getStats();
+    std::shared_ptr<MovementComponent> movement = entity->getMovement();
+    std::shared_ptr<InputComponent> input = entity->getInput();
+    std::shared_ptr<StatsComponent> statsComp = entity->getStats();
     if(movement!=NULL && input!=NULL) {
         if(movement->getState()==MoveState::onGround) {
             if(input->fireDir < 90 && input->fireDir > -90)

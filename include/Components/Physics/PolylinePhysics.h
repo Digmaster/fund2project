@@ -13,7 +13,7 @@ class PolylinePhysics : public PhysicsComponent
 {
     public:
         ///takes a series of xy coordinates
-        PolylinePhysics(unsigned int, std::vector<sf::Vector2i>, uint32 opts, WorldPositionComponent* position);
+        PolylinePhysics(unsigned int, std::vector<sf::Vector2i>, uint32 opts, std::shared_ptr<WorldPositionComponent> position);
         virtual ~PolylinePhysics();
 
         void go(sf::Time, Entity* entity);

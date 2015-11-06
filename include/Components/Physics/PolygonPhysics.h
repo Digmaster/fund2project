@@ -14,7 +14,7 @@ class PolygonPhysics : public PhysicsComponent
 {
     public:
         ///X-Y Points! Last line is automatically connected to the last to create the polygon.
-        PolygonPhysics(unsigned int, std::vector<sf::Vector2i>, uint32 opts, WorldPositionComponent* position);
+        PolygonPhysics(unsigned int, std::vector<sf::Vector2i>, uint32 opts, std::shared_ptr<WorldPositionComponent> position);
         virtual ~PolygonPhysics();
 
         void go(sf::Time, Entity* entity);

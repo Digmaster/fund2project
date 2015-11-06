@@ -39,7 +39,7 @@ MainCharScript::~MainCharScript()
 
 void MainCharScript::go(sf::Time frameTime, Entity* entity)
 {
-    StatsComponent* stats = entity->getStats();
+    std::shared_ptr<StatsComponent> stats = entity->getStats();
     if(stats) {
         if(stats->isDead()) {
             if(mainChar==true)

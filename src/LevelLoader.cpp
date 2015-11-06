@@ -123,23 +123,23 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         //Left
         int id = ComponentBase::getNewID();
         Entity* entity = new Entity(id);
-        entity->setPhysics(new BoundaryPhysics(id, 0, -1000, 0, height*tileheight-tileheight/2));
+        entity->setPhysics(std::make_shared<BoundaryPhysics>(id, 0, -1000, 0, height*tileheight-tileheight/2));
         ComponentManager::getInst().addEntity(id, entity);
         //right
         id = ComponentBase::getNewID();
         entity = new Entity(id);
-        entity->setPhysics(new BoundaryPhysics(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2));
+        entity->setPhysics(std::make_shared<BoundaryPhysics>(id, width*tilewidth-tilewidth/2, -1000, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2));
         ComponentManager::getInst().addEntity(id, entity);
         //bottom
         id = ComponentBase::getNewID();
         entity = new Entity(id);
-        entity->setPhysics(new BoundaryPhysics(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2));
-        entity->addScript(new KillScript(false, -1, sf::Time::Zero));
+        entity->setPhysics(std::make_shared<BoundaryPhysics>(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2));
+        entity->addScript(std::make_shared<KillScript>(false, -1, sf::Time::Zero));
         ComponentManager::getInst().addEntity(id, entity);
         //top
         id = ComponentBase::getNewID();
         entity = new Entity(id);
-        entity->setPhysics(new BoundaryPhysics(id, 0, -1000, width*tilewidth-tilewidth/2, -1000));
+        entity->setPhysics(std::make_shared<BoundaryPhysics>(id, 0, -1000, width*tilewidth-tilewidth/2, -1000));
         ComponentManager::getInst().addEntity(id, entity);
 
     }
@@ -289,11 +289,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         int id = ComponentBase::getNewID();
                         Entity* entity = new Entity(id);
                         ComponentManager::getInst().addEntity(id, entity);
-                        entity->setPosition(new WorldPositionComponent(position, layerNum));
+                        entity->setPosition(std::make_shared<WorldPositionComponent>(position, layerNum));
                         if(visible) {
                             sf::Sprite intermSpr(sprites[tileGid]);
                             intermSpr.setColor(sf::Color(255, 255, 255, transparency*255)); //Applies transparency mask
-                            entity->setRender(new StaticSpriteComponent(intermSpr));
+                            entity->setRender(std::make_shared<StaticSpriteComponent>(intermSpr));
                         }
                         if (properties.find("solid") != properties.end()) {
                             if(properties["solid"]!="no")
@@ -322,7 +322,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             int id = ComponentBase::getNewID();
 
                             Entity* entity = new Entity(id);
-                            entity->setPhysics(new BoundaryPhysics(id, startPoint, i*tileheight, j*tilewidth, i*tileheight));
+                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, startPoint, i*tileheight, j*tilewidth, i*tileheight));
                             ComponentManager::getInst().addEntity(id, entity);
                             lastCollission = false;
                         }
@@ -346,7 +346,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             Entity* entity = new Entity(id);
 
-                            entity->setPhysics(new BoundaryPhysics(id, startPoint, i*tileheight+tileheight, j*tilewidth, i*tileheight+tileheight));
+                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, startPoint, i*tileheight+tileheight, j*tilewidth, i*tileheight+tileheight));
                             ComponentManager::getInst().addEntity(id, entity);
                             lastCollission = false;
                         }
@@ -369,7 +369,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             int id = ComponentBase::getNewID();
 
                             Entity* entity = new Entity(id);
-                            entity->setPhysics(new BoundaryPhysics(id, i*tilewidth, startPoint, i*tilewidth, j*tileheight));
+                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, i*tilewidth, startPoint, i*tilewidth, j*tileheight));
                             ComponentManager::getInst().addEntity(id, entity);
 
                             lastCollission = false;
@@ -392,7 +392,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             //End it, and create it
                             int id = ComponentBase::getNewID();
                             Entity* entity = new Entity(id);
-                            entity->setPhysics(new BoundaryPhysics(id, i*tilewidth+tilewidth, startPoint, i*tilewidth+tilewidth, j*tileheight));
+                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, i*tilewidth+tilewidth, startPoint, i*tilewidth+tilewidth, j*tileheight));
                             ComponentManager::getInst().addEntity(id, entity);
 
                             lastCollission = false;
@@ -412,9 +412,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             for(int j = (texture->getSize().y)/2-texture->getSize().y; j < height*tileheight*layerZoom+texture->getSize().y/2; j+=texture->getSize().y) {
                                 int id = ComponentBase::getNewID();
                                 Entity* entity = new Entity(id);
-                                entity->setPosition(new WorldPositionComponent(Vector2f(i,j), layerNum));
+                                entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(i,j), layerNum));
                                 Sprite imageSprite(*texture);
-                                entity->setRender(new StaticSpriteComponent(imageSprite));
+                                entity->setRender(std::make_shared<StaticSpriteComponent>(imageSprite));
                                 ComponentManager::getInst().addEntity(id, entity);
                             }
                         }
@@ -422,9 +422,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     else {
                         int id = ComponentBase::getNewID();
                         Entity* entity = new Entity(id);
-                        entity->setPosition(new WorldPositionComponent(Vector2f(texture->getSize().x/2,texture->getSize().y/2), layerNum));
+                        entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(texture->getSize().x/2,texture->getSize().y/2), layerNum));
                         Sprite imageSprite(*texture);
-                        entity->setRender(new StaticSpriteComponent(imageSprite));
+                        entity->setRender(std::make_shared<StaticSpriteComponent>(imageSprite));
                         ComponentManager::getInst().addEntity(id, entity);
                     }
                 }
@@ -543,13 +543,13 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                 ///Commonly used options
                 if(objectName!="none" || type!="none") //Adds a name, if needed
-                    entity->setIdentification(new IDComponent(objectName, type));
+                    entity->setIdentification(std::make_shared<IDComponent>(objectName, type));
                 if (objProperties.find("target") != objProperties.end()) //Adds a target, if needed
-                    entity->setTarget(new TargetComponent(objProperties["target"]));
+                    entity->setTarget(std::make_shared<TargetComponent>(objProperties["target"]));
                 if (objProperties.find("script") != objProperties.end()) { //Adds a script, if needed
                     string script = objProperties["script"]; //ADD MORE SCRIPTS TO THIS PART
                     if(script=="camera") {
-                        entity->addScript(new Camera(width, height));
+                        entity->addScript(std::make_shared<Camera>(width, height));
                     }
 
                     //if(script=="BLAHBLAHBLAH")
@@ -572,32 +572,32 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
 
                     //Position
-                    entity->setPosition(new WorldPositionComponent(Vector2f(objectX, objectY), layerNum));
+                    entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                     //Physics Loading
                     if(ellipse_node) {
                         //Create ellipse here!
                     }
                     else if(polygon_node) {
-                        entity->setPhysics(new PolygonPhysics(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
+                        entity->setPhysics(std::make_shared<PolygonPhysics>(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
                     }
                     else if(polyline_node) {
-                        entity->setPhysics(new PolylinePhysics(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
+                        entity->setPhysics(std::make_shared<PolylinePhysics>(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
                     }
                     else {
-                        entity->setPhysics(new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic | PhysicsOptions::sideSensors, entity->getPosition()));
+                        entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic | PhysicsOptions::sideSensors, entity->getPosition()));
                     }
 
                     if(type=="kill") {
-                        entity->addScript(new KillScript(false));
+                        entity->addScript(std::make_shared<KillScript>(false));
                     }
 
                 }
                 else if(type=="target") { //Only has world position component
-                    entity->setPosition(new WorldPositionComponent(Vector2f(objectX, objectY), layerNum));
+                    entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                 }
                 else if(type=="guideLine") { //Is only points, used for objects to travel along
                     //Position
-                    entity->setPosition(new WorldPositionComponent(Vector2f(objectX, objectY), layerNum));
+                    entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                     //Physics Loading - IMPORTANT: Needs special physics classes that only contain points
                     if(ellipse_node) {
                         //Create ellipse here!
@@ -609,7 +609,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         //Create polyline here!
                     }
                     else {
-                        entity->setPhysics(new SimpleBoxPhysics(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
+                        entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
                     }
                 }
                 else if(type=="script") {//Only script and target
@@ -617,17 +617,17 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 }
                 else if(type=="clutter") {
                     //Position
-                    entity->setPosition(new WorldPositionComponent(Vector2f(objectX, objectY), layerNum));
+                    entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                     //Physics Loading
                     if(objGid!=0)
-                        entity->setPhysics(new SimpleBoxPhysics(id, Vector2f(sprites[objGid].getGlobalBounds().width, sprites[objGid].getGlobalBounds().height), 1, 0x00, entity->getPosition()));
+                        entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, Vector2f(sprites[objGid].getGlobalBounds().width, sprites[objGid].getGlobalBounds().height), 1, 0x00, entity->getPosition()));
                     //Sprite
-                    entity->setRender(new StaticSpriteComponent(sprites[objGid]));
+                    entity->setRender(std::make_shared<StaticSpriteComponent>(sprites[objGid]));
 
                 }
                 else if(type=="spawner") {
                     //Position
-                    entity->setPosition(new WorldPositionComponent(Vector2f(objectX, objectY), layerNum));
+                    entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                     int waitTime = 2;
                     int numToSpawn = 5;
                     int minDistance = 800;
@@ -638,30 +638,30 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     if (objProperties.find("minDistance") != objProperties.end())
                         minDistance = atoi(objProperties["minDistance"].c_str());
 
-                    entity->addScript(new EnemySpawner(sprites[objGid], sf::seconds(waitTime), numToSpawn, minDistance));
+                    entity->addScript(std::make_shared<EnemySpawner>(sprites[objGid], sf::seconds(waitTime), numToSpawn, minDistance));
                 }
                 else if(type=="mob") { //any sort of enemy, player, etc. Has everything basically
                     if (objProperties.find("type") != objProperties.end()) { //Adds a target, if needed
                         string mobType = objProperties["type"];
                         string mobName = objProperties["name"];
                         std::cout<<mobType<<std::endl;
-                        entity->setPosition(new WorldPositionComponent(Vector2f(objectX, objectY), layerNum));
+                        entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                         if(mobType=="Samus") {
-                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
+                            std::shared_ptr<BraveAdventurerAnimatedComponent> testSprite = std::make_shared<BraveAdventurerAnimatedComponent>();
                             SpriteManager spriteMan;
 
                             testSprite->setSprite(spriteMan.getSprite("Samus"));
 
                             entity->setRender(testSprite);
 
-                            entity->setInput(new KeyboardInput());
+                            entity->setInput(std::make_shared<KeyboardInput>());
 
-                            entity->setMovement(new BraveAdventurerMovement());
+                            entity->setMovement(std::make_shared<BraveAdventurerMovement>());
 
-                            entity->setPhysics(new SimpleBoxPhysics(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
-                            entity->setAudio(new AudioComponent());
-                            entity->setStats(new StatsComponent(50));
-                            entity->addScript(new MainCharScript(true, sf::seconds(2.5f)));
+                            entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
+                            entity->setAudio(std::make_shared<AudioComponent>());
+                            entity->setStats(std::make_shared<StatsComponent>(50));
+                            entity->addScript(std::make_shared<MainCharScript>(true, sf::seconds(2.5f)));
                         }
                         else if(mobType=="enemy") {
 //                            if(objectName=="shaq"){
@@ -688,23 +688,23 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             //KeyboardInput* testInput = new KeyboardInput(id);
                             SpriteManager spriteMan;
-                            BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent();
+                            std::shared_ptr<BraveAdventurerAnimatedComponent> testSprite = std::make_shared<BraveAdventurerAnimatedComponent>();
                             testSprite->setSprite(spriteMan.getSprite("Samus"));
                             entity->setRender(testSprite);
 
-                            entity->setMovement(new BraveAdventurerMovement());
-                            entity->setInput(new BasicAIInput());
-                            entity->setStats(new StatsComponent(20));
+                            entity->setMovement(std::make_shared<BraveAdventurerMovement>());
+                            entity->setInput(std::make_shared<BasicAIInput>());
+                            entity->setStats(std::make_shared<StatsComponent>(20));
                             entity->getStats()->setSpeed(.5);
-                            entity->addScript(new MainCharScript(false, sf::seconds(.5)));
-                            entity->addScript(new KillScript(false, 10, sf::seconds(.5)));
-                            entity->setAudio(new AudioComponent());
+                            entity->addScript(std::make_shared<MainCharScript>(false, sf::seconds(.5)));
+                            entity->addScript(std::make_shared<KillScript>(false, 10, sf::seconds(.5)));
+                            entity->setAudio(std::make_shared<AudioComponent>());
                             if(entity->getIdentification()!=nullptr)
                                 entity->getIdentification()->setFaction("enemy");
                             else
-                                entity->setIdentification(new IDComponent(objectName, type, "enemy"));
+                                entity->setIdentification(std::make_shared<IDComponent>(objectName, type, "enemy"));
 
-                            entity->setPhysics(new SimpleBoxPhysics(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
+                            entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
                             //}
                         }
                     }
@@ -717,7 +717,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 {
                     string hurtStr = objProperties["hurt"];
                     int hurtVal = atoi(hurtStr.c_str());
-                    entity->addScript(new KillScript(false, hurtVal, (hurtVal!=-1) ? sf::seconds(.5) : sf::Time::Zero));
+                    entity->addScript(std::make_shared<KillScript>(false, hurtVal, (hurtVal!=-1) ? sf::seconds(.5) : sf::Time::Zero));
                 }
 
 

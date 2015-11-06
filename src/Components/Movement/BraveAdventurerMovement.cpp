@@ -17,10 +17,10 @@ BraveAdventurerMovement::BraveAdventurerMovement() : MovementComponent() {
 }
 
 void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
-    PhysicsComponent* physics = entity->getPhysics();
-    InputComponent* input = entity->getInput();
-    WorldPositionComponent* position = entity->getPosition();
-    StatsComponent* stats = entity->getStats();
+    std::shared_ptr<PhysicsComponent> physics = entity->getPhysics();
+    std::shared_ptr<InputComponent> input = entity->getInput();
+    std::shared_ptr<WorldPositionComponent> position = entity->getPosition();
+    std::shared_ptr<StatsComponent> stats = entity->getStats();
 
     float maxGroundSpeed = 20;
     float maxAirSpeed = 15;
@@ -198,11 +198,11 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
                 else pos.x-=40;
                 Entity* bullet = new Entity(id);
-                bullet->setPosition(new WorldPositionComponent(pos, position->getLayer(), (float)input->fireDir*0.0174532925));
-                bullet->setRender(new StaticSpriteComponent("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6)));
-                bullet->setPhysics(new SimpleBoxPhysics(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors | PhysicsOptions::sensor, bullet->getPosition()));
+                bullet->setPosition(std::make_shared<WorldPositionComponent>(pos, position->getLayer(), (float)input->fireDir*0.0174532925));
+                bullet->setRender(std::make_shared<StaticSpriteComponent>("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6)));
+                bullet->setPhysics(std::make_shared<SimpleBoxPhysics>(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sideSensors | PhysicsOptions::sensor, bullet->getPosition()));
                 bullet->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
-                bullet->addScript(new KillScript(true, 10, sf::Time::Zero));
+                bullet->addScript(std::make_shared<KillScript>(true, 10, sf::Time::Zero));
                 ComponentManager::getInst().addEntity(id, bullet);
              }
              nextState = inAir;
