@@ -47,8 +47,11 @@ void ComponentManager::processAll(sf::Time frameTime) {
         }
 
         if(entity->getIdentification()!=nullptr) entity->getIdentification()->go(frameTime, entity);
-        if(entity->getRender()!=nullptr)         entity->getRender()->go(frameTime, entity);
-        if(entity->getAudio()!=nullptr)          entity->getAudio()->go(frameTime, entity);
+        if(!entity->isDeleted())
+        {
+            if(entity->getRender()!=nullptr)         entity->getRender()->go(frameTime, entity);
+            if(entity->getAudio()!=nullptr)          entity->getAudio()->go(frameTime, entity);
+        }
         it++;
     }
 }

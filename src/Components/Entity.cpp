@@ -49,7 +49,10 @@ void Entity::addListener(std::type_index toListenTo, listener& toCall)
 
 void Entity::removeListener(std::type_index toListenTo, listener& toCall)
 {
-    //componentListeners[toListenTo].remove(toCall);
+    componentListeners[toListenTo].remove_if([toCall](listener & o)
+                                             {
+                                                 return toCall.target<listener>() == o.target<listener>();
+                                             });
 }
 
 void Entity::callListeners(std::type_index origin, Events event, EventObj* message)
