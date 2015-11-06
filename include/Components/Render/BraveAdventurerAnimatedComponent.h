@@ -11,7 +11,7 @@ class BraveAdventurerAnimatedComponent : public AnimatedComponent
     public:
         BraveAdventurerAnimatedComponent();
         void go(sf::Time fps, Entity* entity);
-        void setUpListeners(Entity*);
+        listenerList getListeners();
         void HandleMovementChange(Events event, EventObj* message, Entity* entity);
     protected:
     private:

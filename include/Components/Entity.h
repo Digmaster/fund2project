@@ -43,6 +43,9 @@ class Entity
         virtual ~Entity();
 
         //Component Management
+        template<typename T>
+        void setComponent(T** o, T* n);
+
         void setAudio(AudioComponent* a);
         AudioComponent* getAudio();
 
@@ -84,23 +87,24 @@ class Entity
         typedef std::function<void(Events, EventObj*, Entity*)> listener;
         typedef std::function<void(ComponentBase&, Events, EventObj*, Entity*)> unboundListener;
 
-        void addListener(std::type_index toListenTo, listener toCall);
+        void addListener(std::type_index toListenTo, listener& toCall);
         //void addListener(std::type_index toListenTo, ComponentBase* obj, unboundListener toCall);
-        void removeListener(std::type_index toListenTo, listener toCall);
+        void removeListener(std::type_index toListenTo, listener& toCall);
         void callListeners(std::type_index origin, Events event, EventObj* = nullptr);
     protected:
         int _ID;
         bool _delete;
 
-        AudioComponent* audio;
-        RenderComponent* render;
         IDComponent* identification;
-        InputComponent* input;
-        MovementComponent* movement;
-        PhysicsComponent* physics;
-        WorldPositionComponent* position;
-        StatsComponent* stats;
-        TargetComponent* target;
+        std::shared_ptr<AudioComponent> audio;
+        std::shared_ptr<RenderComponent> render;
+        std::shared_ptr<IDComponent> identification;
+        std::shared_ptr<InputComponent> input;
+        std::shared_ptr<MovementComponent> movement;
+        std::shared_ptr<PhysicsComponent> physics;
+        std::shared_ptr<WorldPositionComponent> position;
+        std::shared_ptr<StatsComponent> stats;
+        std::shared_ptr<TargetComponent> target;
     private:
         std::list<ScriptComponent*> scripts;
         std::unordered_map<std::type_index, std::list<listener> > componentListeners;

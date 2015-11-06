@@ -16,7 +16,7 @@ class AudioComponent : public ComponentBase
         ///function runs until program end
         void go(sf::Time, Entity* entity);
 
-        void setUpListeners(Entity* entity);
+        listenerList getListeners();
 
     protected:
     private:

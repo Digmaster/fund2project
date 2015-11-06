@@ -12,7 +12,6 @@ class StatsComponent : public ComponentBase
         virtual ~StatsComponent();
         virtual void go(sf::Time frameTime, Entity* entity);
 
-        virtual void setUpListeners(Entity* entity);
         int getHealth();
         void setHealth(int, Entity*);
         void modHealth(int, Entity*);

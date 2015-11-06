@@ -33,7 +33,7 @@ class SimpleBoxPhysics : public PhysicsComponent
         unsigned int touchingBody();
         bool overLadder();
 
-        void setUpListeners(Entity*);
+        ComponentBase::listenerList getListeners();
         void HandleMessage(Events event, EventObj* message, Entity* entity);
     protected:
     private:

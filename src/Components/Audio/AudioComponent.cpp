@@ -37,12 +37,13 @@ AudioComponent::~AudioComponent()
     //dtor
 }
 
-void AudioComponent::setUpListeners(Entity* entity)
+ComponentBase::listenerList AudioComponent::getListeners()
 {
     using namespace std::placeholders;
     auto handler = std::bind(&AudioComponent::HandleMovementChange, this, _1, _2, _3);
-    entity->addListener(typeid(MovementComponent), handler);
-    entity->addListener(typeid(StatsComponent), handler);
+    listenerList out = listenerList();
+    out.push_back(listenerPair(typeid(StatsComponent), handler));
+    return out;
 }
 
 //Looped function for audio instances

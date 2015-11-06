@@ -12,12 +12,14 @@ BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : AnimatedC
     cooldownValues.resize(getNumCooldowns(), false);
 }
 
-void BraveAdventurerAnimatedComponent::setUpListeners(Entity* entity)
+ComponentBase::listenerList BraveAdventurerAnimatedComponent::getListeners()
 {
     using namespace std::placeholders;
     auto handler = std::bind(&BraveAdventurerAnimatedComponent::HandleMovementChange, this, _1, _2, _3);
-    entity->addListener(typeid(MovementComponent), handler);
-    entity->addListener(typeid(StatsComponent), handler);
+    listenerList out = listenerList();
+    out.push_back(listenerPair(typeid(MovementComponent), handler));
+    out.push_back(listenerPair(typeid(StatsComponent), handler));
+    return out;
 }
 
 void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {

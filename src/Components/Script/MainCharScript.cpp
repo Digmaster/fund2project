@@ -44,9 +44,6 @@ void MainCharScript::go(sf::Time frameTime, Entity* entity)
         if(stats->isDead()) {
             if(mainChar==true)
                 eng->playerDying=1;
-            delete entity->getInput();
-            delete entity->getMovement();
-            delete entity->getPhysics();
             entity->setInput(nullptr);
             entity->setMovement(nullptr);
             entity->setPhysics(nullptr);

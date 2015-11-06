@@ -4,12 +4,16 @@
 #include <SFML/System/Time.hpp>
 #include <string>
 #include <deque>
+#include <list>
 #include <iostream>
+#include <typeindex>
+#include <Components/EventDefines.h>
+
+#include <Components/Entity.h>
 
 class ComponentManager; //Forward declaration
 class RenderEngine;
 class GameEngine;
-class Entity;
 
 //! Base class of which all components are derived from
 /*! Includes base functionality, but should never be instantiated alone */
@@ -19,10 +23,18 @@ class ComponentBase {
         //! Default constructor
         /*! Sets the ID to the correct value
             \param ID Sets the ID of the object */
-        ComponentBase() {}
+        ComponentBase();
 
-        virtual void setUpListeners(Entity*) {}
+        ///Sets up the listeners with the given entity
+        virtual void setUpListeners(Entity*) final;
 
+        ///removes the listeners from the given entity
+        virtual void removeListeners(Entity*) final;
+
+        ///returns all the listeners a component needs
+        typedef std::pair<std::type_index, Entity::listener> listenerPair;
+        typedef std::list<listenerPair> listenerList;
+        virtual listenerList getListeners() {return listenerList();}
 
         //! Returns a new, unused ID
         static unsigned int getNewID();
@@ -43,7 +55,11 @@ class ComponentBase {
         static ComponentManager* compMan;
         static RenderEngine* rendEng;
         static GameEngine* eng;
+
+        ///Calls the listeners for all the entities currently listening to this component
+        void callListeners(std::type_index origin, Events event, EventObj* = nullptr);
     private:
+        std::list<Entity*> _entitiesToCall;
 };
 
 #endif // COMPONENTBASE_H

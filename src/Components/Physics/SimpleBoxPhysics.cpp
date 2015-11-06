@@ -98,11 +98,13 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     }
 }
 
-void SimpleBoxPhysics::setUpListeners(Entity* entity)
+ComponentBase::listenerList SimpleBoxPhysics::getListeners()
 {
     using namespace std::placeholders;
     auto handler = std::bind(&SimpleBoxPhysics::HandleMessage, this, _1, _2, _3);
-    entity->addListener(typeid(StatsComponent), handler);
+    listenerList out = listenerList();
+    out.push_back(listenerPair(typeid(StatsComponent), handler));
+    return out;
 }
 
 void SimpleBoxPhysics::HandleMessage(Events event, EventObj* message, Entity* entity)

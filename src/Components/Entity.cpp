@@ -36,7 +36,7 @@ Entity::Entity(int ID) : _ID(ID)
     _delete = false;
 }
 
-void Entity::addListener(std::type_index toListenTo, listener toCall)
+void Entity::addListener(std::type_index toListenTo, listener& toCall)
 {
     componentListeners[toListenTo].push_back(toCall);
 }
@@ -47,7 +47,7 @@ void Entity::addListener(std::type_index toListenTo, listener toCall)
 //    addListener(toListenTo, std::bind(toCall, *obj, _1, _2, _3));
 //}
 
-void Entity::removeListener(std::type_index toListenTo, listener toCall)
+void Entity::removeListener(std::type_index toListenTo, listener& toCall)
 {
     //componentListeners[toListenTo].remove(toCall);
 }
@@ -63,40 +63,50 @@ void Entity::callListeners(std::type_index origin, Events event, EventObj* messa
 
 Entity::~Entity()
 {
-    delete audio;
-    delete identification;
-    delete input;
-    delete movement;
-    delete physics;
-    delete position;
-    delete render;
-    delete stats;
-    delete target;
+//    delete audio;
+//    delete identification;
+//    delete input;
+//    delete movement;
+//    delete physics;
+//    delete position;
+//    delete render;
+//    delete stats;
+//    delete target;
 }
 
-void Entity::setAudio(AudioComponent* a) {audio = a; if(a) a->setUpListeners(this);}
+void Entity::setAudio(AudioComponent* a) {setComponent(&audio, a);}
 AudioComponent* Entity::getAudio() {return audio;}
 
-void Entity::setRender(RenderComponent* a) {render = a; if(a) a->setUpListeners(this);}
+void Entity::setRender(RenderComponent* a) {setComponent(&render, a);}
 RenderComponent* Entity::getRender() {return render;}
 
-void Entity::setIdentification(IDComponent* a) {identification = a; if(a) a->setUpListeners(this);}
+void Entity::setIdentification(IDComponent* a) {setComponent(&identification, a);}
 IDComponent* Entity::getIdentification() {return identification;}
 
-void Entity::setInput(InputComponent* a) {input = a; if(a) a->setUpListeners(this);}
+void Entity::setInput(InputComponent* a) {setComponent(&input, a);}
 InputComponent* Entity::getInput() {return input;}
 
-void Entity::setMovement(MovementComponent* a) {movement = a; if(a) a->setUpListeners(this);}
+void Entity::setMovement(MovementComponent* a) {setComponent(&movement, a);}
 MovementComponent* Entity::getMovement() {return movement;}
 
-void Entity::setPhysics(PhysicsComponent* a) {physics = a; if(a) a->setUpListeners(this);}
+void Entity::setPhysics(PhysicsComponent* a) {setComponent(&physics, a);}
 PhysicsComponent* Entity::getPhysics() {return physics;}
 
-void Entity::setPosition(WorldPositionComponent* a) {position = a; if(a) a->setUpListeners(this);}
+void Entity::setPosition(WorldPositionComponent* a) {setComponent(&position, a);}
 WorldPositionComponent* Entity::getPosition() {return position;}
 
-void Entity::setStats(StatsComponent* a) {stats = a; if(a) a->setUpListeners(this);}
+void Entity::setStats(StatsComponent* a) {setComponent(&stats, a);}
 StatsComponent* Entity::getStats() {return stats;}
 
-void Entity::setTarget(TargetComponent* a) {target = a; if(a) a->setUpListeners(this);}
+void Entity::setTarget(TargetComponent* a) {setComponent(&target, a);}
 TargetComponent* Entity::getTarget() {return target;}
+
+template<typename T>
+void Entity::setComponent(T** o, T* n)
+{
+    if((*o) != nullptr)
+        (*o)->removeListeners(this);
+    if(n != nullptr)
+        n->setUpListeners(this);
+    *o = n;
+}
