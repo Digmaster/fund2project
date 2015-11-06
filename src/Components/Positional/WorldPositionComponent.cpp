@@ -9,13 +9,6 @@ WorldPositionComponent::WorldPositionComponent(sf::Vector2f Position, int Layer,
     setLayer(Layer);
 }
 
-WorldPositionComponent::WorldPositionComponent(WorldPositionComponent& old)
-{
-    setPosition(sf::Vector2f(old.getPosition()));
-    setLayer(old.getLayer());
-    setRotation(old.getRotation());
-}
-
 int WorldPositionComponent::PPM = atoi(Options::instance().get("pixels_per_meter").c_str());
 
 void WorldPositionComponent::go(sf::Time frameTime, Entity* entity) {

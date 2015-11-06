@@ -23,6 +23,8 @@
 					<Add directory="include/Components/Script" />
 					<Add directory="include/Components/Target" />
 					<Add directory="include/Components/Input" />
+					<Add directory="include/Components/Render" />
+					<Add directory="include/Rendering" />
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
@@ -50,6 +52,8 @@
 					<Add directory="include/Components/Script" />
 					<Add directory="include/Components/Target" />
 					<Add directory="include/Components/Input" />
+					<Add directory="include/Components/Render" />
+					<Add directory="include/Rendering" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -70,7 +74,6 @@
 		<Linker>
 			<Add directory="Dependancies/lib" />
 		</Linker>
-		<Unit filename="include/Components/Script/EnemySpawner.h" />
 		<Unit filename="include/Components/Audio/AudioComponent.h" />
 		<Unit filename="include/Components/ComponentBase.h" />
 		<Unit filename="include/Components/ComponentManager.h" />
@@ -95,10 +98,13 @@
 		<Unit filename="include/Components/Render/DebugDraw.h" />
 		<Unit filename="include/Components/Render/RenderComponent.h" />
 		<Unit filename="include/Components/Render/StaticSpriteComponent.h" />
+		<Unit filename="include/Components/Render/TextComponent.h" />
 		<Unit filename="include/Components/Script/Camera.h" />
+		<Unit filename="include/Components/Script/EnemySpawner.h" />
 		<Unit filename="include/Components/Script/KillScript.h" />
 		<Unit filename="include/Components/Script/MainCharScript.h" />
 		<Unit filename="include/Components/Script/ScriptComponent.h" />
+		<Unit filename="include/Components/Script/SuicideComponent.h" />
 		<Unit filename="include/Components/Stats/StatsComponent.h" />
 		<Unit filename="include/Components/Target/TargetComponent.h" />
 		<Unit filename="include/GameEngine.h" />
@@ -107,6 +113,7 @@
 		<Unit filename="include/Options.h" />
 		<Unit filename="include/Rendering/AnimatedSprite.h" />
 		<Unit filename="include/Rendering/Animation.h" />
+		<Unit filename="include/Rendering/FontManager.h" />
 		<Unit filename="include/Rendering/RenderEngine.h" />
 		<Unit filename="include/Rendering/SpriteManager.h" />
 		<Unit filename="include/Rendering/TextureManager.h" />
@@ -133,11 +140,13 @@
 		<Unit filename="src/Components/Render/DebugDraw.cpp" />
 		<Unit filename="src/Components/Render/RenderComponent.cpp" />
 		<Unit filename="src/Components/Render/StaticSpriteComponent.cpp" />
+		<Unit filename="src/Components/Render/TextComponent.cpp" />
 		<Unit filename="src/Components/Script/Camera.cpp" />
 		<Unit filename="src/Components/Script/EnemySpawner.cpp" />
 		<Unit filename="src/Components/Script/KillScript.cpp" />
 		<Unit filename="src/Components/Script/MainCharScript.cpp" />
 		<Unit filename="src/Components/Script/ScriptComponent.cpp" />
+		<Unit filename="src/Components/Script/SuicideComponent.cpp" />
 		<Unit filename="src/Components/Stats/StatsComponent.cpp" />
 		<Unit filename="src/Components/Target/TargetComponent.cpp" />
 		<Unit filename="src/GameEngine.cpp" />
@@ -146,6 +155,7 @@
 		<Unit filename="src/Options.cpp" />
 		<Unit filename="src/Rendering/AnimatedSprite.cpp" />
 		<Unit filename="src/Rendering/Animation.cpp" />
+		<Unit filename="src/Rendering/FontManager.cpp" />
 		<Unit filename="src/Rendering/RenderEngine.cpp" />
 		<Unit filename="src/Rendering/SpriteManager.cpp" />
 		<Unit filename="src/Rendering/TextureManager.cpp" />

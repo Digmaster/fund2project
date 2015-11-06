@@ -5,6 +5,11 @@
 #include "Components/Entity.h"
 #include "Components/Input/InputComponent.h"
 #include "Components/Stats/StatsComponent.h"
+#include "Components/Render/TextComponent.h"
+#include "Components/Positional/WorldPositionComponent.h"
+#include "Components/Physics/SimpleBoxPhysics.h"
+#include "Components/Script/SuicideComponent.h"
+#include <random>
 
 BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : AnimatedComponent()
 {
@@ -102,6 +107,20 @@ void BraveAdventurerAnimatedComponent::HandleMovementChange(Events event, EventO
     {
     case Events::HEALTH_CHANGE:
         cooldowns[HURT] = getHealthCooldown();
+        HealthChange* obj = (HealthChange*)message;
+        int id = ComponentManager::getInst().getNewID();
+        Entity* healthHurtMessage = new Entity(id);
+        std::random_device rd;
+        std::mt19937 mt(rd());
+        std::uniform_real_distribution<double> dist(0, 3.14);
+        double flyAngle = dist(mt);
+        healthHurtMessage->setRender(std::make_shared<TextComponent>(patch::to_string(obj->ammount), 15, sf::Color::Yellow));
+        healthHurtMessage->setPosition(std::make_shared<WorldPositionComponent>(*entity->getPosition()));
+        healthHurtMessage->setPhysics(std::make_shared<SimpleBoxPhysics>(id, sf::Vector2f(1,1), 0, PhysicsOptions::sensor, healthHurtMessage->getPosition()));
+        healthHurtMessage->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos(flyAngle)*5, std::sin(flyAngle)*5));
+        healthHurtMessage->addScript(std::make_shared<SuicideComponent>(sf::seconds(.5)));
+        ComponentManager::getInst().addEntity(id, healthHurtMessage);
+
         break;
     }
 }

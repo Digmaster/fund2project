@@ -16,9 +16,6 @@ class WorldPositionComponent : public ComponentBase {
         \param rotation the rotation of the object **/
         WorldPositionComponent(sf::Vector2f position = sf::Vector2f(0,0), int layer = 0, float rotation = 0);
 
-        /// Copy Constructor
-        WorldPositionComponent(WorldPositionComponent& old);
-
         void go(sf::Time frameTime, Entity* entity);
 
         void setPosition(sf::Vector2f input, PhysicsComponent* = nullptr, bool awaken = true);

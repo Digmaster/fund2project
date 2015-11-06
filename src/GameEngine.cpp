@@ -123,6 +123,6 @@ void GameEngine::gameLoop() {
     rendEng->window.display();
     //Exit after 3 seconds
     sf::Clock clk;
-    while(clk.getElapsedTime() <= sf::seconds(3)){
+    while(clk.getElapsedTime() <= sf::seconds(3) && rendEng->window.isOpen()){
     }
 }

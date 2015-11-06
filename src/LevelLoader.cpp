@@ -26,6 +26,7 @@
 #include "Components/Script/KillScript.h"
 #include "Components/Entity.h"
 #include "Components/Input/BasicAIInput.h"
+#include "Components/Render/TextComponent.h"
 
 using namespace std;
 using namespace sf;
