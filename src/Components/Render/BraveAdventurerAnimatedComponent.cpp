@@ -10,6 +10,7 @@
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Script/SuicideComponent.h"
 #include <random>
+#include <cstdlib>
 
 BraveAdventurerAnimatedComponent::BraveAdventurerAnimatedComponent() : AnimatedComponent()
 {
@@ -110,10 +111,7 @@ void BraveAdventurerAnimatedComponent::HandleMovementChange(Events event, EventO
         HealthChange* obj = (HealthChange*)message;
         int id = ComponentManager::getInst().getNewID();
         Entity* healthHurtMessage = new Entity(id);
-        std::random_device rd;
-        std::mt19937 mt(rd());
-        std::uniform_real_distribution<double> dist(0, 3.14);
-        double flyAngle = dist(mt);
+        double flyAngle = ((float)(rand() % 314))/100.0f;
         healthHurtMessage->setRender(std::make_shared<TextComponent>(patch::to_string(obj->ammount), 15, sf::Color::Yellow));
         healthHurtMessage->setPosition(std::make_shared<WorldPositionComponent>(*entity->getPosition()));
         healthHurtMessage->setPhysics(std::make_shared<SimpleBoxPhysics>(id, sf::Vector2f(1,1), 0, PhysicsOptions::sensor, healthHurtMessage->getPosition()));
