@@ -49,4 +49,12 @@ enum PhysicsOptions{
     isBullet = 0x32
 };
 
+enum SensorSides {
+    body = 0,
+    top = 1,
+    bottom = 2,
+    left = 3,
+    right = 4,
+};
+
 #endif // PHYSICSCOMPONENT_H

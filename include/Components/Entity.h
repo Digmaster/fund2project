@@ -8,6 +8,7 @@
 #include<vector>
 #include<functional>
 #include <sstream>
+#include <SFML/System/Time.hpp>
 
 #include "Components/EventDefines.h"
 //#include "Components/Script/ScriptComponent.h"
@@ -46,6 +47,8 @@ class Entity
         template<typename T>
         void setComponent(T* o, T n);
 
+        void update(sf::Time frameTime);
+
         void setAudio(std::shared_ptr<AudioComponent> a);
         std::shared_ptr<AudioComponent> getAudio();
 
@@ -73,8 +76,8 @@ class Entity
         void setTarget(std::shared_ptr<TargetComponent> a);
         std::shared_ptr<TargetComponent> getTarget();
 
-        void addScript(std::shared_ptr<ScriptComponent> s)      {scripts.push_back(s);}
-        void removeScript(std::shared_ptr<ScriptComponent> s)   {scripts.remove(s);}
+        void addScript(std::shared_ptr<ScriptComponent> s);
+        void removeScript(std::shared_ptr<ScriptComponent> s);
         std::list<std::shared_ptr<ScriptComponent>> getScripts() {return scripts;}
 
         int getID() {return _ID;}
@@ -87,10 +90,16 @@ class Entity
         typedef std::function<void(Events, EventObj*, Entity*)> listener;
         typedef std::function<void(ComponentBase&, Events, EventObj*, Entity*)> unboundListener;
 
+        typedef std::function<void()> deferredListenerCall;
+
         void addListener(std::type_index toListenTo, listener& toCall);
-        //void addListener(std::type_index toListenTo, ComponentBase* obj, unboundListener toCall);
         void removeListener(std::type_index toListenTo, listener& toCall);
+
+        /// Fires the listener message immediately
         void callListeners(std::type_index origin, Events event, EventObj* = nullptr);
+
+        /// Fires the listener message on start of next "go"
+        void callListenersDeferred(std::type_index origin, Events event, EventObj* = nullptr);
     protected:
         int _ID;
         bool _delete;
@@ -107,6 +116,7 @@ class Entity
     private:
         std::list<std::shared_ptr<ScriptComponent>> scripts;
         std::unordered_map<std::type_index, std::list<listener> > componentListeners;
+        std::list<deferredListenerCall> deferredCalls;
 };
 
 #endif // ENTITY_H

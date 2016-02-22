@@ -27,6 +27,7 @@
 #include "Components/Entity.h"
 #include "Components/Input/BasicAIInput.h"
 #include "Components/Render/TextComponent.h"
+#include "Components/Script/TeleportScript.h"
 
 using namespace std;
 using namespace sf;
@@ -552,7 +553,9 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     if(script=="camera") {
                         entity->addScript(std::make_shared<Camera>(width, height));
                     }
-
+                    else if(script=="teleport") {
+                        entity->addScript(std::make_shared<TeleportScript>());
+                    }
                     //if(script=="BLAHBLAHBLAH")
                 }
 

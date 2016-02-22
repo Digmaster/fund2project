@@ -64,6 +64,13 @@ void Entity::callListeners(std::type_index origin, Events event, EventObj* messa
     }
 }
 
+void Entity::callListenersDeferred(std::type_index origin, Events event, EventObj* message)
+{
+    using namespace std::placeholders;
+    auto deferred = std::bind(&Entity::callListeners, this, origin, event, message);
+    deferredCalls.push_back(deferred);
+}
+
 Entity::~Entity()
 {
 //    delete audio;
@@ -104,6 +111,17 @@ std::shared_ptr<StatsComponent> Entity::getStats() {return stats;}
 void Entity::setTarget(std::shared_ptr<TargetComponent> a) {setComponent(&target, a);}
 std::shared_ptr<TargetComponent> Entity::getTarget() {return target;}
 
+void Entity::addScript(std::shared_ptr<ScriptComponent> s)
+{
+    s->setUpListeners(this);
+    scripts.push_back(s);
+}
+void Entity::removeScript(std::shared_ptr<ScriptComponent> s)
+{
+    s->removeListeners(this);
+    scripts.remove(s);
+}
+
 template<typename T>
 void Entity::setComponent(T* o, T n)
 {
@@ -112,4 +130,35 @@ void Entity::setComponent(T* o, T n)
     if(n != nullptr)
         n->setUpListeners(this);
     *o = n;
+}
+
+void Entity::update(sf::Time frameTime)
+{
+    for(deferredListenerCall call : this->deferredCalls)
+    {
+        if(this->isDeleted()) return;
+        call();
+    }
+
+    deferredCalls.clear();
+
+    if(this->isDeleted()) return;
+
+    if(this->getTarget()!=nullptr)         this->getTarget()->go(frameTime, this);
+    if(this->getInput()!=nullptr)          this->getInput()->go(frameTime, this);
+    if(this->getMovement()!=nullptr)       this->getMovement()->go(frameTime, this);
+    if(this->getPhysics()!=nullptr)        this->getPhysics()->go(frameTime, this);
+    if(this->getPosition()!=nullptr)       this->getPosition()->go(frameTime, this);
+    if(this->getStats()!=nullptr)          this->getStats()->go(frameTime, this);
+    for(std::shared_ptr<ScriptComponent> script : this->getScripts())
+    {
+        script->go(frameTime, this);
+    }
+
+    if(this->getIdentification()!=nullptr) this->getIdentification()->go(frameTime, this);
+    if(!this->isDeleted())
+    {
+        if(this->getRender()!=nullptr)         this->getRender()->go(frameTime, this);
+        if(this->getAudio()!=nullptr)          this->getAudio()->go(frameTime, this);
+    }
 }

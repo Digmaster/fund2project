@@ -1,6 +1,7 @@
 #include "Physics/PhysicsEngine.h"
 #include "Components/Physics/PhysicsComponent.h"
 #include <iostream>
+#include "Components/ComponentManager.h"
 
 using namespace std;
 
@@ -55,6 +56,16 @@ void ContactListener::BeginContact(b2Contact* contact) {
     //cout << (int)(contact->GetFixtureA()->GetUserData())/10 << " = " << (int)(contact->GetFixtureB()->GetUserData())/10 << endl;
     for(deque<b2ContactListener*>::iterator it = listenerList.begin(); it != listenerList.end(); it++)
         (*it)->BeginContact(contact);
+
+    unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
+    unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
+    Entity* entA = ComponentManager::getInst()[fixtureUserDataA/10];
+    Entity* entB = ComponentManager::getInst()[fixtureUserDataB/10];
+    if(entA!=nullptr && entB!=nullptr)
+    {
+        entA->callListenersDeferred(typeid(PhysicsComponent), Events::COLLISION, new Collision(fixtureUserDataA%10, fixtureUserDataB/10, 0));
+        entB->callListenersDeferred(typeid(PhysicsComponent), Events::COLLISION, new Collision(fixtureUserDataB%10, fixtureUserDataA/10, 0));
+    }
 }
 
 void ContactListener::EndContact(b2Contact* contact) {

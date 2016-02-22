@@ -12,6 +12,9 @@ class KillScript : public ScriptComponent
         virtual ~KillScript();
 
         virtual void go(sf::Time frameTime, Entity* entity);
+
+        ComponentBase::listenerList getListeners();
+        void HandleMessage(Events event, EventObj* message, Entity* entity);
     protected:
     private:
         sf::Time frequency;

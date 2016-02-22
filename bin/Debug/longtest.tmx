@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="40" tilewidth="32" tileheight="32" backgroundcolor="#1ee1eb" nextobjectid="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="40" tilewidth="32" tileheight="32" backgroundcolor="#1ee1eb" nextobjectid="35">
  <properties>
   <property name="boundaries" value="yes"/>
  </properties>
- <tileset firstgid="1" name="box" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="1" name="box" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="assets/art/box.png" trans="b3ff9b" width="32" height="32"/>
  </tileset>
- <tileset firstgid="2" name="Mario" tilewidth="32" tileheight="32" tilecount="228">
+ <tileset firstgid="2" name="Mario" tilewidth="32" tileheight="32" tilecount="228" columns="19">
   <properties>
    <property name="testValue" value="yaaay"/>
   </properties>
@@ -36,7 +36,7 @@
    </animation>
   </tile>
  </tileset>
- <tileset firstgid="230" name="BraveAdventurer" tilewidth="32" tileheight="32" tilecount="12">
+ <tileset firstgid="230" name="BraveAdventurer" tilewidth="32" tileheight="32" tilecount="12" columns="3">
   <image source="assets/art/BraveAdventurer.png" trans="b3ff9b" width="96" height="128"/>
   <tile id="11">
    <animation>
@@ -45,14 +45,14 @@
    </animation>
   </tile>
  </tileset>
- <tileset firstgid="242" name="tiles1_0" tilewidth="32" tileheight="32" tilecount="21">
+ <tileset firstgid="242" name="tiles1_0" tilewidth="32" tileheight="32" tilecount="21" columns="7">
   <image source="assets/art/tiles1_0.png" trans="b3ff9b" width="224" height="96"/>
  </tileset>
- <tileset firstgid="263" name="shaq" tilewidth="45" tileheight="32" tilecount="3">
+ <tileset firstgid="263" name="shaq" tilewidth="45" tileheight="32" tilecount="3" columns="1">
   <image source="assets/art/shaq.png" trans="b3ff9b" width="70" height="100"/>
  </tileset>
  <tileset firstgid="266" source="Shaq1.tsx"/>
- <tileset firstgid="267" name="shack" tilewidth="70" tileheight="100" tilecount="1">
+ <tileset firstgid="267" name="shack" tilewidth="70" tileheight="100" tilecount="1" columns="1">
   <image source="assets/art/shaq.png" width="70" height="100"/>
  </tileset>
  <imagelayer name="oeou">
@@ -32125,11 +32125,16 @@
   </object>
   <object id="12" type="sensor" x="83" y="329" width="20" height="48"/>
   <object id="13" type="sensor" x="489" y="307" width="44" height="20"/>
-  <object id="14" type="sensor" x="1369" y="621" width="18" height="38"/>
-  <object id="15" type="script" x="1171" y="1098" width="20" height="44">
+  <object id="14" type="sensor" x="1369" y="621" width="18" height="38">
    <properties>
     <property name="script" value="teleport"/>
     <property name="target" value="bottompipe1"/>
+   </properties>
+  </object>
+  <object id="15" type="sensor" x="1171" y="1098" width="20" height="44">
+   <properties>
+    <property name="script" value="teleport"/>
+    <property name="target" value="toppipe1"/>
    </properties>
   </object>
   <object id="16" type="sensor" x="1152" y="224">
@@ -32160,6 +32165,8 @@
     <property name="type" value="enemy"/>
    </properties>
   </object>
+  <object id="32" name="toppipe1" type="target" x="1437.33" y="634.667" width="13.3333" height="12.6667"/>
+  <object id="34" name="bottompipe1" type="target" x="1117.33" y="1119.33"/>
  </objectgroup>
  <objectgroup name="GameLogic">
   <object id="22" type="script" gid="1" x="4" y="36" width="32" height="32">
@@ -32172,12 +32179,6 @@
    <polyline points="0,0 266,38 426,188 602,50"/>
   </object>
   <object id="24" type="ladder" x="2048" y="611" width="36" height="570"/>
-  <object id="25" name="bottompipe1" type="target" x="1102" y="1116" width="62" height="16">
-   <ellipse/>
-  </object>
-  <object id="26" type="target" x="1408" y="638">
-   <ellipse/>
-  </object>
   <object id="27" type="movingObject" gid="112" x="1397" y="110" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Sensors/Ladder">

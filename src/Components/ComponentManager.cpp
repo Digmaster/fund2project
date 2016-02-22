@@ -27,30 +27,24 @@ void ComponentManager::processAll(sf::Time frameTime) {
         //Delete things to be deleted
         if(it->second->isDeleted())
         {
-            delete it->second;
-            it = entities.erase(it);
+            it++;
             continue;
         }
 
         Entity* entity = it->second;
         int ID = it->first;
-
-        if(entity->getTarget()!=nullptr)         entity->getTarget()->go(frameTime, entity);
-        if(entity->getInput()!=nullptr)          entity->getInput()->go(frameTime, entity);
-        if(entity->getMovement()!=nullptr)       entity->getMovement()->go(frameTime, entity);
-        if(entity->getPhysics()!=nullptr)        entity->getPhysics()->go(frameTime, entity);
-        if(entity->getPosition()!=nullptr)       entity->getPosition()->go(frameTime, entity);
-        if(entity->getStats()!=nullptr)          entity->getStats()->go(frameTime, entity);
-        for(std::shared_ptr<ScriptComponent> script : entity->getScripts())
+        entity->update(frameTime);
+        it++;
+    }
+    for(std::unordered_map<int, Entity*>::iterator it = entities.begin(); it != entities.end();)
+    {
+        //Delete things to be deleted
+        if(it->second->isDeleted())
         {
-            script->go(frameTime, entity);
-        }
-
-        if(entity->getIdentification()!=nullptr) entity->getIdentification()->go(frameTime, entity);
-        if(!entity->isDeleted())
-        {
-            if(entity->getRender()!=nullptr)         entity->getRender()->go(frameTime, entity);
-            if(entity->getAudio()!=nullptr)          entity->getAudio()->go(frameTime, entity);
+            std::cout << "Deleting Entity: " << it->first << std::endl;
+            delete it->second;
+            it = entities.erase(it);
+            continue;
         }
         it++;
     }

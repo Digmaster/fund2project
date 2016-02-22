@@ -30,9 +30,9 @@ struct HealthChange : public EventObj
 struct Collision : public EventObj
 {
     int side;
-    Entity* entity;
+    unsigned int entity;
     float speed;
-    Collision(int s, Entity* e, float s1) : side(s), entity(e), speed(s1) {}
+    Collision(int s, unsigned int e, float s1) : side(s), entity(e), speed(s1) {}
     enum Side : int {
         SIDE_TOP,
         SIDE_BOTTOM,

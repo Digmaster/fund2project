@@ -55,6 +55,8 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     boxFixtureDef.friction = friction;
     boxFixtureDef.isSensor = (opts & PhysicsOptions::sensor);
     b2Fixture* fixture = physBody->CreateFixture(&boxFixtureDef);
+
+    //body sensor
     fixture->SetUserData( (void*)(ID*10+0) );
     bodyListener = new FootContactListener(ID*10+0);
     eng->physEng->contactListeners.addListener(bodyListener);
@@ -113,11 +115,14 @@ void SimpleBoxPhysics::HandleMessage(Events event, EventObj* message, Entity* en
     {
     case HEALTH_CHANGE:
         HealthChange* obj = (HealthChange*)message;
-        float yDif = entity->getPosition()->getPosition().y-obj->causer->getPosition()->getPosition().y;
-        float xDif = entity->getPosition()->getPosition().x-obj->causer->getPosition()->getPosition().x;
-        if(xDif==0) xDif=.1;
-        float angle = atan2(yDif,xDif) * -180.0f/3.14159265f;
-        if(physBody!=nullptr) physBody->ApplyForceToCenter(b2Vec2(-std::cos((float)angle*0.0174532925)*1000, -std::sin((float)angle*0.0174532925)*1000), true);
+        if(obj->causer->getPosition()!=nullptr && entity->getPosition()!=nullptr)
+        {
+            float yDif = entity->getPosition()->getPosition().y-obj->causer->getPosition()->getPosition().y;
+            float xDif = entity->getPosition()->getPosition().x-obj->causer->getPosition()->getPosition().x;
+            if(xDif==0) xDif=.1;
+            float angle = atan2(yDif,xDif) * -180.0f/3.14159265f;
+            if(physBody!=nullptr) physBody->ApplyForceToCenter(b2Vec2(-std::cos((float)angle*0.0174532925)*1000, -std::sin((float)angle*0.0174532925)*1000), true);
+        }
     }
 }
 
@@ -252,8 +257,13 @@ void LadderContactListener::BeginContact(b2Contact* contact) {
     unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
     unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
 
-    std::shared_ptr<IDComponent> idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
-    std::shared_ptr<IDComponent> idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->getIdentification();
+    Entity* entA = ComponentManager::getInst()[fixtureUserDataA/10];
+    Entity* entB = ComponentManager::getInst()[fixtureUserDataB/10];
+
+    if(entA==nullptr || entB==nullptr) return;
+
+    std::shared_ptr<IDComponent> idCompA = entA->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
+    std::shared_ptr<IDComponent> idCompB = entB->getIdentification();
 
     std::string nameA;
     std::string nameB;
@@ -282,8 +292,13 @@ void LadderContactListener::EndContact(b2Contact* contact) {
     unsigned int fixtureUserDataA = (unsigned int)contact->GetFixtureA()->GetUserData();
     unsigned int fixtureUserDataB = (unsigned int)contact->GetFixtureB()->GetUserData();
 
-    std::shared_ptr<IDComponent> idCompA = ComponentManager::getInst()[fixtureUserDataA/10]->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
-    std::shared_ptr<IDComponent> idCompB = ComponentManager::getInst()[fixtureUserDataB/10]->getIdentification();
+    Entity* entA = ComponentManager::getInst()[fixtureUserDataA/10];
+    Entity* entB = ComponentManager::getInst()[fixtureUserDataB/10];
+
+    if(entA==nullptr || entB==nullptr) return;
+
+    std::shared_ptr<IDComponent> idCompA = entA->getIdentification(); //The findID is ID*10+fixture number (Which is defined as whatever). Divide by ten to get the actual ID
+    std::shared_ptr<IDComponent> idCompB = entB->getIdentification();
 
     std::string nameA;
     std::string nameB;
