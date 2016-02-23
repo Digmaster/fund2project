@@ -3,6 +3,7 @@
 
 #include "Components/Positional/WorldPositionComponent.h"
 #include "Components/Render/SingleUseAnimatedComponent.h"
+#include "Components/Audio/SingleUseAudioComponent.h"
 #include "Components/ComponentManager.h"
 
 ExplodeScript::ExplodeScript()
@@ -34,6 +35,7 @@ void ExplodeScript::HandleMessage(Events event, EventObj* message, Entity* entit
         Entity* bullet = new Entity(id);
         bullet->setPosition(std::make_shared<WorldPositionComponent>(pos, entity->getPosition()->getLayer()));
         bullet->setRender(std::make_shared<SingleUseAnimatedComponent>("Explosion", "Explode"));
+        bullet->setAudio(std::make_shared<SingleUseAudioComponent>("assets/sound/explosion.wav"));
         ComponentManager::getInst().addEntity(id, bullet);
     }
 }
