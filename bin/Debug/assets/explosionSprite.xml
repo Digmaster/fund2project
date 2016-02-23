@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteSheet file="assets/art/explosion.png">
+    <Sprite name="Explosion">
+        <Animation name="Explode" FT=".01">
+            <Frame LC="0" TC="0" W="100" H="100"></Frame>
+            <Frame LC="100" TC="0" W="100" H="100"></Frame>
+            <Frame LC="200" TC="0" W="100" H="100"></Frame>
+            <Frame LC="300" TC="0" W="100" H="100"></Frame>
+            <Frame LC="400" TC="0" W="100" H="100"></Frame>
+            <Frame LC="500" TC="0" W="100" H="100"></Frame>
+            <Frame LC="600" TC="0" W="100" H="100"></Frame>
+            <Frame LC="0" TC="100" W="100" H="100"></Frame>
+            <Frame LC="100" TC="100" W="100" H="100"></Frame>
+            <Frame LC="200" TC="100" W="100" H="100"></Frame>
+            <Frame LC="300" TC="100" W="100" H="100"></Frame>
+            <Frame LC="400" TC="100" W="100" H="100"></Frame>
+            <Frame LC="500" TC="100" W="100" H="100"></Frame>
+            <Frame LC="600" TC="100" W="100" H="100"></Frame>
+            <Frame LC="0" TC="200" W="100" H="100"></Frame>
+            <Frame LC="100" TC="200" W="100" H="100"></Frame>
+            <Frame LC="200" TC="200" W="100" H="100"></Frame>
+            <Frame LC="300" TC="200" W="100" H="100"></Frame>
+            <Frame LC="400" TC="200" W="100" H="100"></Frame>
+            <Frame LC="500" TC="200" W="100" H="100"></Frame>
+            <Frame LC="600" TC="200" W="100" H="100"></Frame>
+            <Frame LC="0" TC="300" W="100" H="100"></Frame>
+            <Frame LC="100" TC="300" W="100" H="100"></Frame>
+            <Frame LC="200" TC="300" W="100" H="100"></Frame>
+            <Frame LC="300" TC="300" W="100" H="100"></Frame>
+            <Frame LC="400" TC="300" W="100" H="100"></Frame>
+            <Frame LC="500" TC="300" W="100" H="100"></Frame>
+            <Frame LC="600" TC="300" W="100" H="100"></Frame>
+            <Frame LC="0" TC="400" W="100" H="100"></Frame>
+            <Frame LC="100" TC="400" W="100" H="100"></Frame>
+            <Frame LC="200" TC="400" W="100" H="100"></Frame>
+            <Frame LC="300" TC="400" W="100" H="100"></Frame>
+            <Frame LC="400" TC="400" W="100" H="100"></Frame>
+            <Frame LC="500" TC="400" W="100" H="100"></Frame>
+            <Frame LC="600" TC="400" W="100" H="100"></Frame>
+            <Frame LC="0" TC="500" W="100" H="100"></Frame>
+            <Frame LC="100" TC="500" W="100" H="100"></Frame>
+            <Frame LC="200" TC="500" W="100" H="100"></Frame>
+            <Frame LC="300" TC="500" W="100" H="100"></Frame>
+            <Frame LC="400" TC="500" W="100" H="100"></Frame>
+            <Frame LC="500" TC="500" W="100" H="100"></Frame>
+            <Frame LC="600" TC="500" W="100" H="100"></Frame>
+            <Frame LC="0" TC="600" W="100" H="100"></Frame>
+        </Animation>
+    </Sprite>
+</SpriteSheet>

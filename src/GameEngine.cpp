@@ -71,6 +71,7 @@ void GameEngine::gameLoop() {
 
     SpriteManager spriteMan;
     spriteMan.loadFile("assets/SamusSprites.xml");
+    spriteMan.loadFile("assets/explosionSprite.xml");
 
     Level testLevel;
     testLevel.loadLevel("longtest.tmx", rendEng);

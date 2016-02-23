@@ -42,6 +42,7 @@ void TeleportScript::HandleMessage(Events event, EventObj* message, Entity* enti
             if(target!=nullptr && target->getPosition()!=nullptr)
             {
                 actor->getPosition()->setPosition(target->getPosition()->getPosition(), actor->getPhysics().get(), true);
+                actor->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(0,0));
             }
         }
     }
