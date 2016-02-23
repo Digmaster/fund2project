@@ -187,6 +187,7 @@ void AnimatedSprite::update(sf::Time deltaTime)
                 if (!m_isLooped)
                 {
                     m_isPaused = true;
+                    return;
                 }
 
             }
