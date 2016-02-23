@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include<list>
-#include<unordered_map>
+#include<map>
 #include<memory>
 #include<typeindex>
 #include<vector>
@@ -92,14 +92,14 @@ class Entity
 
         typedef std::function<void()> deferredListenerCall;
 
-        void addListener(std::type_index toListenTo, listener& toCall);
-        void removeListener(std::type_index toListenTo, listener& toCall);
+        void addListener(Events toListenTo, listener& toCall);
+        void removeListener(Events toListenTo, listener& toCall);
 
         /// Fires the listener message immediately
-        void callListeners(std::type_index origin, Events event, EventObj* = nullptr);
+        void callListeners(Events event, EventObj* = nullptr);
 
         /// Fires the listener message on start of next "go"
-        void callListenersDeferred(std::type_index origin, Events event, EventObj* = nullptr);
+        void callListenersDeferred(Events event, EventObj* = nullptr);
     protected:
         int _ID;
         bool _delete;
@@ -115,7 +115,7 @@ class Entity
         std::shared_ptr<TargetComponent> target;
     private:
         std::list<std::shared_ptr<ScriptComponent>> scripts;
-        std::unordered_map<std::type_index, std::list<listener> > componentListeners;
+        std::map<Events, std::list<listener> > componentListeners;
         std::list<deferredListenerCall> deferredCalls;
 };
 

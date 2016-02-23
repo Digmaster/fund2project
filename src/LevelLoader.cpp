@@ -28,6 +28,7 @@
 #include "Components/Input/BasicAIInput.h"
 #include "Components/Render/TextComponent.h"
 #include "Components/Script/TeleportScript.h"
+#include "Components/Script/ExplodeScript.h"
 
 using namespace std;
 using namespace sf;
@@ -550,13 +551,21 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     entity->setTarget(std::make_shared<TargetComponent>(objProperties["target"]));
                 if (objProperties.find("script") != objProperties.end()) { //Adds a script, if needed
                     string script = objProperties["script"]; //ADD MORE SCRIPTS TO THIS PART
-                    if(script=="camera") {
-                        entity->addScript(std::make_shared<Camera>(width, height));
+                    stringstream ss(script);
+                    string s;
+
+                    while (getline(ss, s, ',')) {
+                        if(s=="camera") {
+                            entity->addScript(std::make_shared<Camera>(width, height));
+                        }
+                        else if(s=="teleport") {
+                            entity->addScript(std::make_shared<TeleportScript>());
+                        }
+                        else if(s=="explode") {
+                            entity->addScript(std::make_shared<ExplodeScript>());
+                        }
+                        //if(script=="BLAHBLAHBLAH")
                     }
-                    else if(script=="teleport") {
-                        entity->addScript(std::make_shared<TeleportScript>());
-                    }
-                    //if(script=="BLAHBLAHBLAH")
                 }
 
                 ///Modify position based on what it is

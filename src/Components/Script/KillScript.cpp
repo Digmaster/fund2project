@@ -27,7 +27,7 @@ ComponentBase::listenerList KillScript::getListeners()
     using namespace std::placeholders;
     auto handler = std::bind(&KillScript::HandleMessage, this, _1, _2, _3);
     listenerList out = listenerList();
-    out.push_back(listenerPair(typeid(PhysicsComponent), handler));
+    out.push_back(listenerPair(Events::COLLISION, handler));
     return out;
 }
 

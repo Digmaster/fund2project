@@ -29,7 +29,7 @@ int StatsComponent::getHealth()
 
 void StatsComponent::setHealth(int input, Entity* causer)
 {
-    callListeners(typeid(StatsComponent), Events::HEALTH_CHANGE, new HealthChange(health-input, input, health, causer));
+    callListeners(Events::HEALTH_CHANGE, new HealthChange(health-input, input, health, causer));
     health = input;
     if(health>0)
     {
@@ -39,7 +39,7 @@ void StatsComponent::setHealth(int input, Entity* causer)
         dead = true;
 
     if(dead)
-        callListeners(typeid(StatsComponent), Events::DEATH);
+        callListeners(Events::DEATH);
 }
 
 void StatsComponent::modHealth(int input, Entity* causer)

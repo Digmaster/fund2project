@@ -36,7 +36,7 @@ Entity::Entity(int ID) : _ID(ID)
     _delete = false;
 }
 
-void Entity::addListener(std::type_index toListenTo, listener& toCall)
+void Entity::addListener(Events toListenTo, listener& toCall)
 {
     componentListeners[toListenTo].push_back(toCall);
 }
@@ -47,7 +47,7 @@ void Entity::addListener(std::type_index toListenTo, listener& toCall)
 //    addListener(toListenTo, std::bind(toCall, *obj, _1, _2, _3));
 //}
 
-void Entity::removeListener(std::type_index toListenTo, listener& toCall)
+void Entity::removeListener(Events toListenTo, listener& toCall)
 {
     componentListeners[toListenTo].remove_if([toCall](listener & o)
                                              {
@@ -55,19 +55,19 @@ void Entity::removeListener(std::type_index toListenTo, listener& toCall)
                                              });
 }
 
-void Entity::callListeners(std::type_index origin, Events event, EventObj* message)
+void Entity::callListeners(Events event, EventObj* message)
 {
-    std::list<listener> toCall = componentListeners[origin];
+    std::list<listener> toCall = componentListeners[event];
     for(listener l : toCall)
     {
         l(event, message, this);
     }
 }
 
-void Entity::callListenersDeferred(std::type_index origin, Events event, EventObj* message)
+void Entity::callListenersDeferred(Events event, EventObj* message)
 {
     using namespace std::placeholders;
-    auto deferred = std::bind(&Entity::callListeners, this, origin, event, message);
+    auto deferred = std::bind(&Entity::callListeners, this, event, message);
     deferredCalls.push_back(deferred);
 }
 

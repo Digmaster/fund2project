@@ -57,6 +57,7 @@ void ComponentManager::addEntity(int ID, Entity* entity)
 
 void ComponentManager::removeEntity(int ID)
 {
+    entities[ID]->callListeners(Events::DELETED);
     entities[ID]->setDelete();
 }
 

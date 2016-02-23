@@ -105,7 +105,7 @@ ComponentBase::listenerList SimpleBoxPhysics::getListeners()
     using namespace std::placeholders;
     auto handler = std::bind(&SimpleBoxPhysics::HandleMessage, this, _1, _2, _3);
     listenerList out = listenerList();
-    out.push_back(listenerPair(typeid(StatsComponent), handler));
+    out.push_back(listenerPair(Events::HEALTH_CHANGE, handler));
     return out;
 }
 

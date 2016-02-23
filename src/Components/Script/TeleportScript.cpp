@@ -24,7 +24,7 @@ ComponentBase::listenerList TeleportScript::getListeners()
     using namespace std::placeholders;
     auto handler = std::bind(&TeleportScript::HandleMessage, this, _1, _2, _3);
     listenerList out = listenerList();
-    out.push_back(listenerPair(typeid(PhysicsComponent), handler));
+    out.push_back(listenerPair(Events::COLLISION, handler));
     return out;
 }
 

@@ -23,8 +23,7 @@ ComponentBase::listenerList BraveAdventurerAnimatedComponent::getListeners()
     using namespace std::placeholders;
     auto handler = std::bind(&BraveAdventurerAnimatedComponent::HandleMovementChange, this, _1, _2, _3);
     listenerList out = listenerList();
-    out.push_back(listenerPair(typeid(MovementComponent), handler));
-    out.push_back(listenerPair(typeid(StatsComponent), handler));
+    out.push_back(listenerPair(Events::HEALTH_CHANGE, handler));
     return out;
 }
 

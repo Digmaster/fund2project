@@ -12,7 +12,7 @@ enum Events {
     FALL_START,
     FALL_END,
     COLLISION,
-    ABOUT_TO_BE_DELETED
+    DELETED
 };
 
 struct EventObj

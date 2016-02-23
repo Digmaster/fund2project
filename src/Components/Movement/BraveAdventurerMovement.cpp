@@ -9,6 +9,7 @@
 #include "Components/Physics/SimpleBoxPhysics.h"
 #include "Components/Script/KillScript.h"
 #include "Components/Stats/StatsComponent.h"
+#include "Components/Script/ExplodeScript.h"
 
 using namespace std;
 
@@ -43,29 +44,29 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
 
         if(nextState!=currState) { //State changers
             if((nextState>=MoveState::onLadder && nextState<=MoveState::ladderDown) && !(currState>=MoveState::onLadder && currState<=MoveState::ladderDown)) { //Remove gravity and whatnot
-                entity->callListeners(typeid(MovementComponent), Events::CLIMBING_START);
+                entity->callListeners(Events::CLIMBING_START);
                 physics->getBody()->SetGravityScale(0);
                 physics->getBody()->SetLinearDamping(8.0f);
             }
             if(currState>=MoveState::onLadder && currState<=MoveState::ladderDown && !(nextState>=MoveState::onLadder && nextState<=MoveState::ladderDown)) {
                 physics->getBody()->SetGravityScale(1);
                 physics->getBody()->SetLinearDamping(0.0f);
-                entity->callListeners(typeid(MovementComponent), Events::CLIMBING_END);
+                entity->callListeners(Events::CLIMBING_END);
             }
             if(nextState==MoveState::jumping)
             {
                 jumpTimer = sf::milliseconds(0);
-                entity->callListeners(typeid(MovementComponent), Events::JUMP);
+                entity->callListeners(Events::JUMP);
             }
 
             if(nextState == MoveState::onGround && currState == MoveState::inAir )
             {
-                entity->callListeners(typeid(MovementComponent), Events::FALL_END);
+                entity->callListeners(Events::FALL_END);
             }
 
             if(nextState == MoveState::inAir && currState == MoveState::onGround )
             {
-                entity->callListeners(typeid(MovementComponent), Events::FALL_START);
+                entity->callListeners(Events::FALL_START);
             }
 
             currState=nextState; //Set currState to nextState
@@ -203,6 +204,7 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 bullet->setPhysics(std::make_shared<SimpleBoxPhysics>(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sensor, bullet->getPosition()));
                 bullet->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
                 bullet->addScript(std::make_shared<KillScript>(true, 10, sf::Time::Zero));
+                bullet->addScript(std::make_shared<ExplodeScript>());
                 ComponentManager::getInst().addEntity(id, bullet);
              }
              nextState = inAir;

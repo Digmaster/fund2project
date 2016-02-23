@@ -35,10 +35,10 @@ void ComponentBase::removeListeners(Entity* entity)
     }
 }
 
-void ComponentBase::callListeners(std::type_index origin, Events event, EventObj* message)
+void ComponentBase::callListeners(Events event, EventObj* message)
 {
     for(auto entity : _entitiesToCall)
     {
-        entity->callListeners(origin, event, message);
+        entity->callListeners(event, message);
     }
 }

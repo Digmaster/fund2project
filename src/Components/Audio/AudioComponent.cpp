@@ -42,7 +42,8 @@ ComponentBase::listenerList AudioComponent::getListeners()
     using namespace std::placeholders;
     auto handler = std::bind(&AudioComponent::HandleMovementChange, this, _1, _2, _3);
     listenerList out = listenerList();
-    out.push_back(listenerPair(typeid(StatsComponent), handler));
+    out.push_back(listenerPair(Events::HEALTH_CHANGE, handler));
+    out.push_back(listenerPair(Events::DEATH, handler));
     return out;
 }
 

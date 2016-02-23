@@ -32,7 +32,7 @@ class ComponentBase {
         virtual void removeListeners(Entity*) final;
 
         ///returns all the listeners a component needs
-        typedef std::pair<std::type_index, Entity::listener> listenerPair;
+        typedef std::pair<Events, Entity::listener> listenerPair;
         typedef std::list<listenerPair> listenerList;
         virtual listenerList getListeners() {return listenerList();}
 
@@ -57,7 +57,7 @@ class ComponentBase {
         static GameEngine* eng;
 
         ///Calls the listeners for all the entities currently listening to this component
-        void callListeners(std::type_index origin, Events event, EventObj* = nullptr);
+        void callListeners(Events event, EventObj* = nullptr);
     private:
         std::list<Entity*> _entitiesToCall;
 };
