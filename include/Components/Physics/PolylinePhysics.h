@@ -17,6 +17,9 @@ class PolylinePhysics : public PhysicsComponent
         virtual ~PolylinePhysics();
 
         void go(sf::Time, Entity* entity);
+
+        std::vector<b2Vec2> getPath();
+        virtual bool isPathClosed() {return false;}
     protected:
     private:
         b2BodyDef physBodyDef;

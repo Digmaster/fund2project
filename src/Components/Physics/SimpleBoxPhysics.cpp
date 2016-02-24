@@ -17,6 +17,8 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
     bodyListener = NULL;
     if(opts & PhysicsOptions::isStatic)
         physBodyDef.type = b2_staticBody;
+    else if (opts & PhysicsOptions::isKinematic)
+        physBodyDef.type = b2_kinematicBody;
     else
         physBodyDef.type = b2_dynamicBody;
     if(opts & PhysicsOptions::isBullet)
@@ -63,28 +65,31 @@ SimpleBoxPhysics::SimpleBoxPhysics(unsigned int ID, sf::Vector2f size, float fri
 
     if(opts & PhysicsOptions::sideSensors) { //All of the sensors!!!
         //foot
-        boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-size.y/(2.0f*pixelsPerMeter)), 0);
+        b2PolygonShape sensorShape;
+        boxFixtureDef.shape = &sensorShape;
+
+        sensorShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,-size.y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* footSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         footSensorFixture->SetUserData( (void*)(ID*10+1) );
         footListener = new FootContactListener(ID*10+1);
         eng->physEng->contactListeners.addListener(footListener);
         //head
-        boxShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,size.y/(2.0f*pixelsPerMeter)), 0);
+        sensorShape.SetAsBox(size.x*.45/pixelsPerMeter, 0.1, b2Vec2(0,size.y/(2.0f*pixelsPerMeter)), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* headSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         headSensorFixture->SetUserData( (void*)(ID*10+2) );
         headListener = new FootContactListener(ID*10+2);
         eng->physEng->contactListeners.addListener(headListener);
         //left
-        boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(-size.x/(2.0f*pixelsPerMeter),0), 0);
+        sensorShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(-size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* leftSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         leftSensorFixture->SetUserData( (void*)(ID*10+3) );
         leftListener = new FootContactListener(ID*10+3);
         eng->physEng->contactListeners.addListener(leftListener);
         //right
-        boxShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(size.x/(2.0f*pixelsPerMeter),0), 0);
+        sensorShape.SetAsBox(.1f, size.y*.35/pixelsPerMeter, b2Vec2(size.x/(2.0f*pixelsPerMeter),0), 0);
         boxFixtureDef.isSensor = true;
         b2Fixture* rightSensorFixture = physBody->CreateFixture(&boxFixtureDef);
         rightSensorFixture->SetUserData( (void*)(ID*10+4) );
@@ -214,6 +219,21 @@ void SimpleBoxPhysics::go(sf::Time frameTime, Entity* entity) {
         position->setRotation(physBody->GetAngle(), this);
     }
     //cout << physBody->GetPosition().x << " " << physBody->GetPosition().y << " " << physBodyDef.awake << endl;
+}
+
+std::vector<b2Vec2> SimpleBoxPhysics::getPath()
+{
+    std::vector<b2Vec2> out;
+    for(int i = 0; i < boxShape.GetVertexCount(); i++)
+    {
+        b2Vec2 curr = boxShape.GetVertex(i);
+        // Translate from box2D space to game space
+        curr.x *= pixelsPerMeter;
+        curr.y *= pixelsPerMeter;
+        curr.y *= -1;
+        out.push_back(curr);
+    }
+    return out;
 }
 
 

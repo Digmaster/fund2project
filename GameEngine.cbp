@@ -25,6 +25,8 @@
 					<Add directory="include/Components/Input" />
 					<Add directory="include/Components/Render" />
 					<Add directory="include/Rendering" />
+					<Add directory="include/Components/Audio" />
+					<Add directory="include/Components/Movement" />
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
@@ -54,6 +56,8 @@
 					<Add directory="include/Components/Input" />
 					<Add directory="include/Components/Render" />
 					<Add directory="include/Rendering" />
+					<Add directory="include/Components/Audio" />
+					<Add directory="include/Components/Movement" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -74,7 +78,9 @@
 		<Linker>
 			<Add directory="Dependancies/lib" />
 		</Linker>
+		<Unit filename="include/Components/Movement/PathFollowMovement.h" />
 		<Unit filename="include/Components/Audio/AudioComponent.h" />
+		<Unit filename="include/Components/Audio/SingleUseAudioComponent.h" />
 		<Unit filename="include/Components/ComponentBase.h" />
 		<Unit filename="include/Components/ComponentManager.h" />
 		<Unit filename="include/Components/ComponentSystem.h" />
@@ -88,6 +94,7 @@
 		<Unit filename="include/Components/Movement/EnemyMovement.h" />
 		<Unit filename="include/Components/Movement/MovementComponent.h" />
 		<Unit filename="include/Components/Physics/BoundaryPhysics.h" />
+		<Unit filename="include/Components/Physics/EllipsePhysics.h" />
 		<Unit filename="include/Components/Physics/PhysicsComponent.h" />
 		<Unit filename="include/Components/Physics/PolygonPhysics.h" />
 		<Unit filename="include/Components/Physics/PolylinePhysics.h" />
@@ -121,7 +128,9 @@
 		<Unit filename="include/Rendering/SpriteManager.h" />
 		<Unit filename="include/Rendering/TextureManager.h" />
 		<Unit filename="include/physics/PhysicsEngine.h" />
+		<Unit filename="src/Components/Movement/PathFollowMovement.cpp" />
 		<Unit filename="src/Components/Audio/AudioComponent.cpp" />
+		<Unit filename="src/Components/Audio/SingleUseAudioComponent.cpp" />
 		<Unit filename="src/Components/ComponentBase.cpp" />
 		<Unit filename="src/Components/ComponentManager.cpp" />
 		<Unit filename="src/Components/Entity.cpp" />
@@ -133,6 +142,7 @@
 		<Unit filename="src/Components/Movement/EnemyMovement.cpp" />
 		<Unit filename="src/Components/Movement/MovementComponent.cpp" />
 		<Unit filename="src/Components/Physics/BoundaryPhysics.cpp" />
+		<Unit filename="src/Components/Physics/EllipsePhysics.cpp" />
 		<Unit filename="src/Components/Physics/PhysicsComponent.cpp" />
 		<Unit filename="src/Components/Physics/PolygonPhysics.cpp" />
 		<Unit filename="src/Components/Physics/PolylinePhysics.cpp" />

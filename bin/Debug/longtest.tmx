@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="40" tilewidth="32" tileheight="32" backgroundcolor="#1ee1eb" nextobjectid="35">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="40" tilewidth="32" tileheight="32" backgroundcolor="#1ee1eb" nextobjectid="50">
  <properties>
   <property name="boundaries" value="yes"/>
  </properties>
@@ -32167,6 +32167,46 @@
   </object>
   <object id="32" name="toppipe1" type="target" x="1437.33" y="634.667" width="13.3333" height="12.6667"/>
   <object id="34" name="bottompipe1" type="target" x="1117.33" y="1119.33"/>
+  <object id="39" type="kinematic" gid="129" x="1384" y="121" width="32" height="32">
+   <properties>
+    <property name="movement" value="pathfollow"/>
+    <property name="target" value="randomPath"/>
+   </properties>
+  </object>
+  <object id="40" name="squarePath" type="guideline" x="2126" y="84" width="256" height="91"/>
+  <object id="41" name="circlePath" type="guideline" x="2508" y="209" width="103" height="103">
+   <ellipse/>
+  </object>
+  <object id="43" name="polygonPath" type="guideline" x="2858" y="62">
+   <polygon points="0,0 -117,185 27,246 104,98 9,127"/>
+  </object>
+  <object id="45" type="kinematic" gid="129" x="2197" y="166" width="32" height="32">
+   <properties>
+    <property name="movement" value="pathfollow"/>
+    <property name="target" value="squarePath"/>
+   </properties>
+  </object>
+  <object id="46" type="kinematic" gid="129" x="2546" y="327" width="32" height="32">
+   <properties>
+    <property name="movement" value="pathfollow"/>
+    <property name="target" value="circlePath"/>
+   </properties>
+  </object>
+  <object id="47" type="kinematic" gid="129" x="2839" y="293" width="32" height="32">
+   <properties>
+    <property name="movement" value="pathfollow"/>
+    <property name="target" value="polygonPath"/>
+   </properties>
+  </object>
+  <object id="48" name="holeVader" type="guideline" x="672" y="385">
+   <polyline points="0,0 0,727"/>
+  </object>
+  <object id="49" type="kinematic" gid="19" x="691" y="608" width="32" height="32">
+   <properties>
+    <property name="movement" value="pathfollow"/>
+    <property name="target" value="holeVader"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="GameLogic">
   <object id="22" type="script" gid="1" x="4" y="36" width="32" height="32">
@@ -32175,11 +32215,10 @@
     <property name="target" value="MainChar"/>
    </properties>
   </object>
-  <object id="23" name="ttt" type="guideline" x="1401" y="127">
+  <object id="23" name="randomPath" type="guideline" x="1401" y="127">
    <polyline points="0,0 266,38 426,188 602,50"/>
   </object>
   <object id="24" type="ladder" x="2048" y="611" width="36" height="570"/>
-  <object id="27" type="movingObject" gid="112" x="1397" y="110" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Sensors/Ladder">
   <object id="28" type="ladder" x="2657" y="1" width="30" height="382"/>

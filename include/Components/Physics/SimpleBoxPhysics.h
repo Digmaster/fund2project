@@ -33,6 +33,9 @@ class SimpleBoxPhysics : public PhysicsComponent
         unsigned int touchingBody();
         bool overLadder();
 
+        std::vector<b2Vec2> getPath();
+        virtual bool isPathClosed() {return true;}
+
         ComponentBase::listenerList getListeners();
         void HandleMessage(Events event, EventObj* message, Entity* entity);
     protected:

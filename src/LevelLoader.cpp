@@ -29,6 +29,8 @@
 #include "Components/Render/TextComponent.h"
 #include "Components/Script/TeleportScript.h"
 #include "Components/Script/ExplodeScript.h"
+#include "Components/Physics/EllipsePhysics.h"
+#include "Components/Movement/PathFollowMovement.h"
 
 using namespace std;
 using namespace sf;
@@ -136,7 +138,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         //bottom
         id = ComponentBase::getNewID();
         entity = new Entity(id);
-        entity->setPhysics(std::make_shared<BoundaryPhysics>(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2));
+        entity->setPhysics(std::make_shared<BoundaryPhysics>(id, 0, height*tileheight-tileheight/2, width*tilewidth-tilewidth/2, height*tileheight-tileheight/2, PhysicsOptions::sensor));
         entity->addScript(std::make_shared<KillScript>(false, -1, sf::Time::Zero));
         ComponentManager::getInst().addEntity(id, entity);
         //top
@@ -567,6 +569,11 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         //if(script=="BLAHBLAHBLAH")
                     }
                 }
+                if (objProperties.find("movement") != objProperties.end()) {
+                    string movement = objProperties["movement"];
+                    if(movement=="pathfollow")
+                        entity->setMovement(std::make_shared<PathFollowMovement>());
+                }
 
                 ///Modify position based on what it is
                 if(objGid!=0)
@@ -581,14 +588,14 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                 //otherwise, don't change it
 
                 ///Types!!
-                if(type=="sensor" || type=="ladder" || type=="kill")
+                if(type=="sensor" || type=="ladder" || type=="kill" || type=="guideline")
                 { //Has physics box, but not collision. Can have script. Also ladder as it's special but similar
 
                     //Position
                     entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                     //Physics Loading
                     if(ellipse_node) {
-                        //Create ellipse here!
+                        entity->setPhysics(std::make_shared<EllipsePhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
                     }
                     else if(polygon_node) {
                         entity->setPhysics(std::make_shared<PolygonPhysics>(id, points, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
@@ -605,25 +612,28 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                     }
 
                 }
-                else if(type=="target") { //Only has world position component
+                else if(type=="kinematic")
+                {
                     entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
-                }
-                else if(type=="guideLine") { //Is only points, used for objects to travel along
-                    //Position
-                    entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
-                    //Physics Loading - IMPORTANT: Needs special physics classes that only contain points
+                    //Physics Loading
                     if(ellipse_node) {
-                        //Create ellipse here!
+                        entity->setPhysics(std::make_shared<EllipsePhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::isKinematic, entity->getPosition()));
                     }
                     else if(polygon_node) {
-                        //Create polygon here!
+                        entity->setPhysics(std::make_shared<PolygonPhysics>(id, points, PhysicsOptions::isKinematic, entity->getPosition()));
                     }
                     else if(polyline_node) {
-                        //Create polyline here!
+                        entity->setPhysics(std::make_shared<PolylinePhysics>(id, points, PhysicsOptions::isKinematic, entity->getPosition()));
                     }
                     else {
-                        entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::sensor | PhysicsOptions::isStatic, entity->getPosition()));
+                        entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::isKinematic, entity->getPosition()));
                     }
+
+                    if(objGid!=0)
+                        entity->setRender(std::make_shared<StaticSpriteComponent>(sprites[objGid]));
+                }
+                else if(type=="target") { //Only has world position component
+                    entity->setPosition(std::make_shared<WorldPositionComponent>(Vector2f(objectX, objectY), layerNum));
                 }
                 else if(type=="script") {//Only script and target
                     //No further loaded is needed, covered by common loaders

@@ -49,3 +49,32 @@ void PolylinePhysics::go(sf::Time frameTime, Entity* entity) {
     position->setPosition(sf::Vector2f((physBody->GetPosition().x)*pixelsPerMeter, -((physBody->GetPosition().y)*pixelsPerMeter)), this);
     //cout << physBody->GetPosition().x << " " << physBody->GetPosition().y << " " << physBodyDef.awake << endl;
 }
+
+std::vector<b2Vec2> PolylinePhysics::getPath()
+{
+    std::vector<b2Vec2> out;
+    b2EdgeShape* pt = new b2EdgeShape();
+    for(int i = 0; i < polylineChain.GetChildCount(); i++)
+    {
+        polylineChain.GetChildEdge(pt, i);
+        b2Vec2 curr = pt->m_vertex1;
+        // Translate from box2D space to game space
+        curr.x *= pixelsPerMeter;
+        curr.y *= pixelsPerMeter;
+        curr.y *= -1;
+        out.push_back(curr);
+
+        //as each "child" describes a line, we need to get the end of the last line encountered (we typically only get the start
+        if(i == polylineChain.GetChildCount()-1)
+        {
+            b2Vec2 curr = pt->m_vertex2;
+
+            // Translate from box2D space to game space
+            curr.x *= pixelsPerMeter;
+            curr.y *= pixelsPerMeter;
+            curr.y *= -1;
+            out.push_back(curr);
+        }
+    }
+    return out;
+}

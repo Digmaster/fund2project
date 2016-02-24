@@ -38,6 +38,8 @@ void KillScript::HandleMessage(Events event, EventObj* message, Entity* entity)
     {
     case COLLISION:
         Collision* obj = (Collision*)message;
+        if(obj->otherHit->IsSensor()) return; //don't react to sensors
+
         Entity* actor = ComponentManager::getInst()[obj->entity];
         if(actor!=nullptr && actor->getStats()!=nullptr && frequency <= sf::Time::Zero) {
             std::shared_ptr<StatsComponent> stats = actor->getStats();

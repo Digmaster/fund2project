@@ -1,6 +1,8 @@
 #ifndef EVENTDEFINES_H
 #define EVENTDEFINES_H
 
+class b2Fixture;
+
 class Entity;
 
 enum Events {
@@ -33,7 +35,9 @@ struct Collision : public EventObj
     int side;
     unsigned int entity;
     float speed;
-    Collision(int s, unsigned int e, float s1) : side(s), entity(e), speed(s1) {}
+    b2Fixture* selfHit;
+    b2Fixture* otherHit;
+    Collision(int s, unsigned int e, float s1, b2Fixture* self, b2Fixture* other) : side(s), entity(e), speed(s1), selfHit(self), otherHit(other) {}
     enum Side : int {
         SIDE_TOP,
         SIDE_BOTTOM,

@@ -33,6 +33,13 @@ class PhysicsComponent : public ComponentBase
         ///Returns the physics body. If there are multiple physics bodies, the most important one will be returned
         b2Body* getBody() {return physBody;}
 
+        ///Get Polygon Path
+        /** Used for path following **/
+        virtual std::vector<b2Vec2> getPath() = 0;
+
+        /// Returns if the path is closed (a circle) or open
+        virtual bool isPathClosed() = 0;
+
     protected:
         static int pixelsPerMeter;
         b2Body* physBody;
@@ -41,12 +48,13 @@ class PhysicsComponent : public ComponentBase
 ///An enumeration used for flags to physics component creation
 /** Not all flags are supported on all components **/
 enum PhysicsOptions{
-    sensor = 0x01, //Not solid
-    notRotatable = 0x02, //Not rotatable
-    roundedCorners = 0x04, //Rounds the corners somewhat
-    isStatic = 0x08, //Doesn't allow it to move
-    sideSensors = 0x16, //Adds side, top, and bottom sensors.
-    isBullet = 0x32
+    sensor = 1, //Not solid
+    notRotatable = 2, //Not rotatable
+    roundedCorners = 4, //Rounds the corners somewhat
+    isStatic = 8, //Doesn't allow it to move
+    sideSensors = 16, //Adds side, top, and bottom sensors.
+    isBullet = 32,
+    isKinematic = 64
 };
 
 enum SensorSides {

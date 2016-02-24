@@ -63,8 +63,8 @@ void ContactListener::BeginContact(b2Contact* contact) {
     Entity* entB = ComponentManager::getInst()[fixtureUserDataB/10];
     if(entA!=nullptr && entB!=nullptr)
     {
-        entA->callListenersDeferred(Events::COLLISION, new Collision(fixtureUserDataA%10, fixtureUserDataB/10, 0));
-        entB->callListenersDeferred(Events::COLLISION, new Collision(fixtureUserDataB%10, fixtureUserDataA/10, 0));
+        entA->callListenersDeferred(Events::COLLISION, new Collision(fixtureUserDataA%10, fixtureUserDataB/10, 0, contact->GetFixtureA(), contact->GetFixtureB()));
+        entB->callListenersDeferred(Events::COLLISION, new Collision(fixtureUserDataB%10, fixtureUserDataA/10, 0, contact->GetFixtureB(), contact->GetFixtureA()));
     }
 }
 

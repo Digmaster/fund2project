@@ -41,7 +41,6 @@ void ComponentManager::processAll(sf::Time frameTime) {
         //Delete things to be deleted
         if(it->second->isDeleted())
         {
-            std::cout << "Deleting Entity: " << it->first << std::endl;
             delete it->second;
             it = entities.erase(it);
             continue;

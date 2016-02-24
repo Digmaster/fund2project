@@ -22,6 +22,9 @@ class PolygonPhysics : public PhysicsComponent
         bool onTop();
         unsigned int touchingTop();
 
+        std::vector<b2Vec2> getPath();
+        virtual bool isPathClosed() {return true;}
+
     protected:
     private:
         FootContactListener* headListener;

@@ -43,6 +43,21 @@ PolygonPhysics::~PolygonPhysics()
     eng->physEng->_world->DestroyBody(physBody);
 }
 
+std::vector<b2Vec2> PolygonPhysics::getPath()
+{
+    std::vector<b2Vec2> out;
+    for(int i = 0; i < boundaryShape.GetVertexCount(); i++)
+    {
+        b2Vec2 curr = boundaryShape.GetVertex(i);
+        // Translate from box2D space to game space
+        curr.x *= pixelsPerMeter;
+        curr.y *= pixelsPerMeter;
+        curr.y *= -1;
+        out.push_back(curr);
+    }
+    return out;
+}
+
 bool PolygonPhysics::onTop() {
     if(headListener!=NULL)
         return headListener->onGround();

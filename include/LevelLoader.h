@@ -17,7 +17,7 @@ public:
     Level();
     //! Loads a level
     /*! Takes an XML file created by the Tiled level creator and loads it into memory
-        \param filename The filename, relative to the binary's file
+        \param filename The filename of the tmx file to load
         \param RenderEngine* The RenderEngine contained in the Game Engine */
     void loadLevel(std::string filename, RenderEngine*);
 
