@@ -51,6 +51,7 @@ class PhysicsEngine
     private:
         int _velocityIterations;
         int _positionIterations;
+        int _substeps;
 };
 
 #endif // PHYSICSENGINE_H

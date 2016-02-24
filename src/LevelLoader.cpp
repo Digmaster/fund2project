@@ -626,7 +626,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                         entity->setPhysics(std::make_shared<PolylinePhysics>(id, points, PhysicsOptions::isKinematic, entity->getPosition()));
                     }
                     else {
-                        entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::isKinematic, entity->getPosition()));
+                        entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, Vector2f(objectWidth, objectHeight), 0, PhysicsOptions::isKinematic| PhysicsOptions::sideSensors, entity->getPosition()));
                     }
 
                     if(objGid!=0)

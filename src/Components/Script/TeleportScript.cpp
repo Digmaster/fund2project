@@ -38,7 +38,6 @@ void TeleportScript::HandleMessage(Events event, EventObj* message, Entity* enti
         if(actor!=nullptr && actor->getPosition()!=nullptr) {
             int targetID = entity->getTarget()->getTarget();
             Entity* target = ComponentManager::getInst()[targetID];
-            std::cout << "Teleporting to " << targetID << std::endl;
             if(target!=nullptr && target->getPosition()!=nullptr)
             {
                 actor->getPosition()->setPosition(target->getPosition()->getPosition(), actor->getPhysics().get(), true);

@@ -10,7 +10,7 @@ PathFollowMovement::PathFollowMovement()
     goingForward = true;
 }
 
-void PathFollowMovement::go(sf::Time, Entity* entity)
+void PathFollowMovement::go(sf::Time frameTime, Entity* entity)
 {
     if(entity->getTarget()==nullptr)
     {
@@ -45,8 +45,22 @@ void PathFollowMovement::go(sf::Time, Entity* entity)
                 if(x==0) x=.001;
 
                 float angle = atan2(y, x);
+                float normFactor = (float)frameTime.asMicroseconds()/10000.0f; //move one pixel every 1/100th of a second;
+                float speed = 1;
 
-                selfPos->move(sf::Vector2f(cos(angle), sin(angle)), entity->getPhysics().get());
+                sf::Vector2f movement = sf::Vector2f(speed*normFactor*cos(angle), speed*normFactor*sin(angle));
+
+                selfPos->move(movement, entity->getPhysics().get());
+
+                //Move anything on top of the platform as well
+                if(entity->getPhysics() && entity->getPhysics()->onTop())
+                {
+                    Entity* topEnt = ComponentManager::getInst()[entity->getPhysics()->touchingTop()];
+                    if(topEnt!=nullptr && topEnt->getPosition()!=nullptr)
+                    {
+                        topEnt->getPosition()->move(movement, topEnt->getPhysics().get());
+                    }
+                }
 
                 if((x*x+y*y)<(1*1)) //very close to next target
                 {

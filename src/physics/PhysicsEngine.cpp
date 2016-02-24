@@ -11,6 +11,7 @@ PhysicsEngine::PhysicsEngine()
     _world = new b2World(gravity);
     _velocityIterations = 8;
     _positionIterations = 3;
+    _substeps = 1;
     _world->SetContactListener(&contactListeners);
 
 }
@@ -22,9 +23,11 @@ PhysicsEngine::~PhysicsEngine()
 
 void PhysicsEngine::step(sf::Time frameTime)
 {
-    float updatetime = frameTime.asMicroseconds()/1000000.0f;
-    _world->Step(updatetime, _velocityIterations, _positionIterations);
-
+    float updatetime = frameTime.asMicroseconds()/1000000.0f/_substeps;
+    for(int i = 0; i < _substeps; i++)
+    {
+        _world->Step(updatetime, _velocityIterations, _positionIterations);
+    }
 }
 
 void PhysicsEngine::debugDraw(){
