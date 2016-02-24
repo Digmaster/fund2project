@@ -32167,7 +32167,7 @@
   </object>
   <object id="32" name="toppipe1" type="target" x="1437.33" y="634.667" width="13.3333" height="12.6667"/>
   <object id="34" name="bottompipe1" type="target" x="1117.33" y="1119.33"/>
-  <object id="39" type="kinematic" gid="129" x="1384" y="121" width="32" height="32">
+  <object id="39" name="lolCamera" type="kinematic" gid="129" x="1384" y="121" width="32" height="32">
    <properties>
     <property name="movement" value="pathfollow"/>
     <property name="target" value="randomPath"/>

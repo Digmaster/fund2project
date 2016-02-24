@@ -48,6 +48,9 @@ public:
 		static Options INSTANCE;
 		return INSTANCE;
 	}
+
+	//! Present Options
+	int getPixelsPerMeter() {return atoi(get("pixels_per_meter").c_str());}
 private:
 	std::string fileName;
 	std::unordered_map<std::string,std::string> settings;
