@@ -47,7 +47,9 @@ void BraveAdventurerAnimatedComponent::go(sf::Time fps, Entity* entity) {
     }
 
     if(cooldownValues[HURT])
-        sprite.setColor(sf::Color::Red);
+        sprite.setColor(getHealthHurtColor());
+    else if(cooldownValues[HEALED])
+        sprite.setColor(getHealthHealColor());
     else
         sprite.setColor(sf::Color::White);
 
@@ -106,12 +108,19 @@ void BraveAdventurerAnimatedComponent::HandleMovementChange(Events event, EventO
     switch(event)
     {
     case Events::HEALTH_CHANGE:
-        cooldowns[HURT] = getHealthCooldown();
         HealthChange* obj = (HealthChange*)message;
+        if(obj->ammount > 0)
+            cooldowns[HURT] = getHealthCooldown();
+        else
+            cooldowns[HEALED] = getHealthCooldown();
         int id = ComponentManager::getInst().getNewID();
         Entity* healthHurtMessage = new Entity(id);
         double flyAngle = ((float)(rand() % 314))/100.0f;
-        healthHurtMessage->setRender(std::make_shared<TextComponent>(patch::to_string(obj->ammount), 15, sf::Color::Yellow));
+
+        if(obj->ammount > 0)
+            healthHurtMessage->setRender(std::make_shared<TextComponent>(patch::to_string(obj->ammount), 15, sf::Color::Yellow));
+        else
+            healthHurtMessage->setRender(std::make_shared<TextComponent>(patch::to_string(-obj->ammount), 15, sf::Color::Green));
         healthHurtMessage->setPosition(std::make_shared<WorldPositionComponent>(*entity->getPosition()));
         healthHurtMessage->setPhysics(std::make_shared<SimpleBoxPhysics>(id, sf::Vector2f(1,1), 0, PhysicsOptions::sensor, healthHurtMessage->getPosition()));
         healthHurtMessage->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos(flyAngle)*5, std::sin(flyAngle)*5));

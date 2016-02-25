@@ -7,6 +7,7 @@
 #include "Components/ComponentManager.h"
 #include "GameEngine.h"
 #include "Physics/PhysicsEngine.h"
+#include "Components/Stats/StatsComponent.h"
 
 ExplodeScript::ExplodeScript()
 {
@@ -43,7 +44,7 @@ void ExplodeScript::HandleMessage(Events event, EventObj* message, Entity* entit
         bullet->setRender(std::make_shared<SingleUseAnimatedComponent>("Explosion", "Explode"));
         bullet->setAudio(std::make_shared<SingleUseAudioComponent>("assets/sound/explosion.wav"));
         ComponentManager::getInst().addEntity(id, bullet);
-        raycastExplosion(pos, 100/pixelsPerMeter, 10);
+        raycastExplosion(pos, 100/pixelsPerMeter, 1);
     }
 }
 
@@ -72,6 +73,11 @@ float32 RaycastObjectFound::ReportFixture(b2Fixture* fixture, const b2Vec2& poin
 {
     if(fixture->IsSensor()) return 0;
     ExplodeScript::applyBlastImpulse(fixture->GetBody(), center, point, (power / (float)numRays));
+    Entity* hit = ComponentManager::getInst()[((unsigned int)fixture->GetUserData())/10];
+    if(hit!=nullptr && hit->getStats()!=nullptr)
+    {
+        hit->getStats()->modHealth(-1, hit);
+    }
 }
 
 void ExplodeScript::applyBlastImpulse(b2Body* body, b2Vec2 blastCenter, b2Vec2 applyPoint, float blastPower) {

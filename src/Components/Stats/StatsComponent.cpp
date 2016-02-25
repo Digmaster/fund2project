@@ -4,9 +4,10 @@
 #include "Components/Entity.h"
 #include<string>
 
-StatsComponent::StatsComponent(int health) : ComponentBase()
+StatsComponent::StatsComponent(int health, int maxHealth) : ComponentBase()
 {
     this->health = health;
+    this->maxHealth = maxHealth;
     dead = false;
     speedMod = 1;
     runMod = 1;
@@ -29,6 +30,12 @@ int StatsComponent::getHealth()
 
 void StatsComponent::setHealth(int input, Entity* causer)
 {
+    //if maxHealth is set, ensure health never goes above
+    if(maxHealth>0 && input > maxHealth) input = maxHealth;
+
+    //if input is 0, do nothing (probably hit max health)
+    if(health==input) return;
+
     callListeners(Events::HEALTH_CHANGE, new HealthChange(health-input, input, health, causer));
     health = input;
     if(health>0)

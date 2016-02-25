@@ -7,7 +7,7 @@
 class StatsComponent : public ComponentBase
 {
     public:
-        StatsComponent(int health);
+        StatsComponent(int initHealth, int maxHealth = -1);
         /** Default destructor */
         virtual ~StatsComponent();
         virtual void go(sf::Time frameTime, Entity* entity);
@@ -24,6 +24,7 @@ class StatsComponent : public ComponentBase
     protected:
     private:
         int health;
+        int maxHealth;
         bool dead;
         Entity* _listenedEntity;
         float speedMod;

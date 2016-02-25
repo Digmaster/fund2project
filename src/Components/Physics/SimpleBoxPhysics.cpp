@@ -120,14 +120,14 @@ void SimpleBoxPhysics::HandleMessage(Events event, EventObj* message, Entity* en
     {
     case HEALTH_CHANGE:
         HealthChange* obj = (HealthChange*)message;
-        if(obj->causer->getPosition()!=nullptr && entity->getPosition()!=nullptr)
-        {
-            float yDif = entity->getPosition()->getPosition().y-obj->causer->getPosition()->getPosition().y;
-            float xDif = entity->getPosition()->getPosition().x-obj->causer->getPosition()->getPosition().x;
-            if(xDif==0) xDif=.1;
-            float angle = atan2(yDif,xDif) * -180.0f/3.14159265f;
-            if(physBody!=nullptr) physBody->ApplyForceToCenter(b2Vec2(-std::cos((float)angle*0.0174532925)*1000, -std::sin((float)angle*0.0174532925)*1000), true);
-        }
+//        if(obj->causer->getPosition()!=nullptr && entity->getPosition()!=nullptr)
+//        {
+//            float yDif = entity->getPosition()->getPosition().y-obj->causer->getPosition()->getPosition().y;
+//            float xDif = entity->getPosition()->getPosition().x-obj->causer->getPosition()->getPosition().x;
+//            if(xDif==0) xDif=.1;
+//            float angle = atan2(yDif,xDif) * -180.0f/3.14159265f;
+//            if(physBody!=nullptr) physBody->ApplyForceToCenter(b2Vec2(-std::cos((float)angle*0.0174532925)*1000, -std::sin((float)angle*0.0174532925)*1000), true);
+//        }
     }
 }
 

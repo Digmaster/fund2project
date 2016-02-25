@@ -10,6 +10,7 @@
 #include "Components/Script/KillScript.h"
 #include "Components/Stats/StatsComponent.h"
 #include "Components/Script/ExplodeScript.h"
+#include "Components/Movement/AccelerateMovement.h"
 
 using namespace std;
 
@@ -199,12 +200,14 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
                 else pos.x-=40;
                 Entity* bullet = new Entity(id);
+                int bulletSpeed = 10;
                 bullet->setPosition(std::make_shared<WorldPositionComponent>(pos, position->getLayer(), (float)input->fireDir*0.0174532925));
                 bullet->setRender(std::make_shared<StaticSpriteComponent>("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6)));
                 bullet->setPhysics(std::make_shared<SimpleBoxPhysics>(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet | PhysicsOptions::sensor, bullet->getPosition()));
-                bullet->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*100, std::sin((float)input->fireDir*0.0174532925)*100));
+                bullet->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*bulletSpeed, std::sin((float)input->fireDir*0.0174532925)*bulletSpeed));
                 bullet->addScript(std::make_shared<KillScript>(true, 10, sf::Time::Zero));
                 bullet->addScript(std::make_shared<ExplodeScript>());
+                bullet->setMovement(std::make_shared<AccelerateMovement>(sf::Vector2f(std::cos((float)input->fireDir*0.0174532925)*bulletSpeed, std::sin((float)input->fireDir*0.0174532925)*bulletSpeed),100));
                 ComponentManager::getInst().addEntity(id, bullet);
              }
              nextState = inAir;

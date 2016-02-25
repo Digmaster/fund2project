@@ -23,11 +23,13 @@ class BraveAdventurerAnimatedComponent : public AnimatedComponent
 
         static const int getNumCooldowns() {return 1;}
         enum Cooldowns : int {
-            HURT
+            HURT,
+            HEALED
         };
 
         static const sf::Time getHealthCooldown() { return sf::seconds(.5); }
         static const sf::Color getHealthHurtColor() { return sf::Color::Red; }
+        static const sf::Color getHealthHealColor() { return sf::Color::Green; }
 };
 
 #endif // BRAVEADVENTURERANIMATEDCOMPONENT_H

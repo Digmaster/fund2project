@@ -683,7 +683,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
                             entity->setAudio(std::make_shared<AudioComponent>());
-                            entity->setStats(std::make_shared<StatsComponent>(50));
+                            entity->setStats(std::make_shared<StatsComponent>(50, 50));
                             entity->addScript(std::make_shared<MainCharScript>(true, sf::seconds(2.5f)));
                         }
                         else if(mobType=="enemy") {
