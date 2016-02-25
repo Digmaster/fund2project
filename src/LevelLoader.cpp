@@ -685,31 +685,12 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                             entity->setAudio(std::make_shared<AudioComponent>());
                             entity->setStats(std::make_shared<StatsComponent>(50, 50));
                             entity->addScript(std::make_shared<MainCharScript>(true, sf::seconds(2.5f)));
+                            if(entity->getIdentification()!=nullptr)
+                                entity->getIdentification()->setFaction("player");
+                            else
+                                entity->setIdentification(std::make_shared<IDComponent>(objectName, type, "player"));
                         }
                         else if(mobType=="enemy") {
-//                            if(objectName=="shaq"){
-//                                //BraveAdventurerAnimatedComponent* testSprite = new BraveAdventurerAnimatedComponent(id);
-//                                SpriteManager spriteMan;
-//
-//                                //testSprite->setSprite(spriteMan.getSprite("Samus"));
-//
-//                                entity->setRender(new StaticSpriteComponent(sprites[objGid]));
-//
-//
-//                                //KeyboardInput* testInput = new KeyboardInput(id);
-//
-//                                entity->getMovement() = new EnemyMovement();
-//
-//                                entity->getStats() = new StatsComponent(20);
-//                                entity->getStats()->setSpeed(.25);
-//                                entity->addScript(new MainCharScript(false, sf::seconds(0)));
-//                                entity->getAudio() = new AudioComponent();
-//
-//                                entity->getPhysics() = new SimpleBoxPhysics(id,Vector2f(70,100),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition());
-//
-//                            }else{
-
-                            //KeyboardInput* testInput = new KeyboardInput(id);
                             SpriteManager spriteMan;
                             std::shared_ptr<BraveAdventurerAnimatedComponent> testSprite = std::make_shared<BraveAdventurerAnimatedComponent>();
                             testSprite->setSprite(spriteMan.getSprite("Samus"));
@@ -728,7 +709,6 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
                                 entity->setIdentification(std::make_shared<IDComponent>(objectName, type, "enemy"));
 
                             entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id,sf::Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
-                            //}
                         }
                     }
                     else

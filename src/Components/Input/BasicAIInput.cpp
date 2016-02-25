@@ -37,12 +37,16 @@ void BasicAIInput::go(sf::Time frameTime, Entity* entity)
     sf::Vector2f enePos = enePosComp->getPosition();
     sf::Vector2f advPos = advPosComp->getPosition();
 
-    int distance = std::abs(advPos.x - enePos.x);
+    int distance = (advPos.x - enePos.x)*(advPos.x - enePos.x)+(advPos.y - enePos.y)*(advPos.y - enePos.y);
     int maxAttackDistance = 200;
 
-    if(distance <= maxAttackDistance)
+    fireDir = atan2(advPos.y-enePos.y,advPos.x-enePos.x) * -180.0f/3.14159265f;
+    fire = false;
+
+    if(distance <= maxAttackDistance * maxAttackDistance)
     {
         run = true;
+        fire = true;
         if (advPos.x > enePos.x)
         {
             walkRight = true;

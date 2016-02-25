@@ -40,21 +40,28 @@ void KillScript::HandleMessage(Events event, EventObj* message, Entity* entity)
         Collision* obj = (Collision*)message;
         if(obj->otherHit->IsSensor()) return; //don't react to sensors
 
+        bool shouldRemove = true;
+
         Entity* actor = ComponentManager::getInst()[obj->entity];
         if(actor!=nullptr && actor->getStats()!=nullptr && frequency <= sf::Time::Zero) {
             std::shared_ptr<StatsComponent> stats = actor->getStats();
             std::shared_ptr<IDComponent> enemyID = actor->getIdentification();
-            if(enemyID || id || enemyID->getFaction()!=id->getFaction() || enemyID->getFaction()=="")
+            if(enemyID==nullptr || id==nullptr || enemyID->getFaction()!=id->getFaction() || enemyID->getFaction()=="")
             {
                 frequency = initFreq;
                 if(health==-1)
                     stats->setHealth(0, actor);
                 else
                     stats->modHealth(-health, actor);
+
+            }
+            else
+            {
+                shouldRemove = false;
             }
         }
 
-        if(remove) {
+        if(remove && shouldRemove) {
             compMan->removeEntity(entity->getID());
         }
     }

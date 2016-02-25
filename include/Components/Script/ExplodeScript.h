@@ -21,7 +21,7 @@ class ExplodeScript : public ScriptComponent
     protected:
     private:
         static void particalExplosion(sf::Vector2f location, float power);
-        static void raycastExplosion(sf::Vector2f location, float blastRadius, float power);
+        static void raycastExplosion(sf::Vector2f location, float blastRadius, float power, std::shared_ptr<IDComponent> identification);
 
         static int numRays;
         static float DEGTORAD;
@@ -35,6 +35,7 @@ public:
     b2Vec2 center;
     float power;
     int numRays;
+    std::shared_ptr<IDComponent> faction;
 };
 
 #endif // EXPLODESCRIPT_H

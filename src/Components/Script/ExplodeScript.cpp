@@ -8,6 +8,7 @@
 #include "GameEngine.h"
 #include "Physics/PhysicsEngine.h"
 #include "Components/Stats/StatsComponent.h"
+#include "Components/Identification/IDComponent.h"
 
 ExplodeScript::ExplodeScript()
 {
@@ -43,12 +44,13 @@ void ExplodeScript::HandleMessage(Events event, EventObj* message, Entity* entit
         bullet->setPosition(std::make_shared<WorldPositionComponent>(pos, entity->getPosition()->getLayer()));
         bullet->setRender(std::make_shared<SingleUseAnimatedComponent>("Explosion", "Explode"));
         bullet->setAudio(std::make_shared<SingleUseAudioComponent>("assets/sound/explosion.wav"));
+        bullet->setIdentification(entity->getIdentification());
         ComponentManager::getInst().addEntity(id, bullet);
-        raycastExplosion(pos, 100/pixelsPerMeter, 1);
+        raycastExplosion(pos, 100/pixelsPerMeter, 1, entity->getIdentification());
     }
 }
 
-void ExplodeScript::raycastExplosion(sf::Vector2f location, float blastRadius, float power)
+void ExplodeScript::raycastExplosion(sf::Vector2f location, float blastRadius, float power, std::shared_ptr<IDComponent> identification)
 {
 
     b2Vec2 center;
@@ -65,6 +67,7 @@ void ExplodeScript::raycastExplosion(sf::Vector2f location, float blastRadius, f
         callback.center = center;
         callback.power = power;
         callback.numRays = numRays;
+        callback.faction = identification;
         eng->physEng->_world->RayCast(&callback, center, rayEnd);
     }
 }
@@ -74,7 +77,7 @@ float32 RaycastObjectFound::ReportFixture(b2Fixture* fixture, const b2Vec2& poin
     if(fixture->IsSensor()) return 0;
     ExplodeScript::applyBlastImpulse(fixture->GetBody(), center, point, (power / (float)numRays));
     Entity* hit = ComponentManager::getInst()[((unsigned int)fixture->GetUserData())/10];
-    if(hit!=nullptr && hit->getStats()!=nullptr)
+    if(hit!=nullptr && hit->getStats()!=nullptr && (faction==nullptr || hit->getIdentification()==nullptr || faction->getFaction()!=hit->getIdentification()->getFaction() || faction->getFaction()==""))
     {
         hit->getStats()->modHealth(-1, hit);
     }

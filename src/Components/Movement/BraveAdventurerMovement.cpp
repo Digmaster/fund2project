@@ -197,8 +197,8 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 fireTimer = sf::seconds(.5);
                 unsigned int id = ComponentBase::getNewID();
                 sf::Vector2f pos = position->getPosition();
-                if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
-                else pos.x-=40;
+                //if(input->fireDir < 90 && input->fireDir > -90) pos.x+=40;
+                //else pos.x-=40;
                 Entity* bullet = new Entity(id);
                 int bulletSpeed = 10;
                 bullet->setPosition(std::make_shared<WorldPositionComponent>(pos, position->getLayer(), (float)input->fireDir*0.0174532925));
@@ -208,6 +208,7 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 bullet->addScript(std::make_shared<KillScript>(true, 10, sf::Time::Zero));
                 bullet->addScript(std::make_shared<ExplodeScript>());
                 bullet->setMovement(std::make_shared<AccelerateMovement>(sf::Vector2f(std::cos((float)input->fireDir*0.0174532925)*bulletSpeed, std::sin((float)input->fireDir*0.0174532925)*bulletSpeed),100));
+                bullet->setIdentification(entity->getIdentification());
                 ComponentManager::getInst().addEntity(id, bullet);
              }
              nextState = inAir;
