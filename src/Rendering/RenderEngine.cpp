@@ -48,6 +48,8 @@ void RenderEngine::render(sf::Time frameTime, PhysicsEngine* physEng) {
         window.setView(layerList[99].view); //99 is the physics debug view. Don't mess with it.
         physEng->debugDraw();
     }
+
+    window.setView(layerList.begin()->second.view);
     window.display();
 }
 
@@ -66,7 +68,13 @@ void RenderEngine::centerViews(sf::Vector2f center)
 {
     for(map<int, layerStruct>::iterator it = layerList.begin(); it!=layerList.end(); it++) {
         if(!it->second.noMove)
+        {
             it->second.view.setCenter(center.x, center.y);
+        }
+        else
+        {
+            it->second.view.setCenter(this->window.getSize().x/2, this->window.getSize().y/2);
+        }
     }
 }
 

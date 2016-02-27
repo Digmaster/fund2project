@@ -37,8 +37,7 @@ using namespace sf;
 using namespace rapidxml;
 
 Level::Level() {
-    texMan = new TextureManager;
-
+    texMan = new TextureManager();
 }
 
 void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
@@ -282,128 +281,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
             ///Data!!
             // TODO (Thomas Luppi#1#03/24/14): Allow compression
             for (xml_node<>* data_node = layer_node->first_node("data"); data_node; data_node = data_node->next_sibling()) {
-                int i = 0;
-                vector< vector<bool> >collissionMap(layerWidth+1, vector<bool>(layerHeight+1, false));
-                for (xml_node<>* tile_node = data_node->first_node("tile"); tile_node; tile_node = tile_node->next_sibling()) {
-                    int tileGid = 0;
-                    attribute = tile_node->first_attribute("gid");
-                    if(attribute!=NULL)
-                        tileGid = atoi(attribute->value());
-                    if(tileGid!=0) {
-                        Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth+tilewidth/2, (int)(i/layerWidth)*tileheight+tileheight/2);
-                        int id = ComponentBase::getNewID();
-                        Entity* entity = new Entity(id);
-                        ComponentManager::getInst().addEntity(id, entity);
-                        entity->setPosition(std::make_shared<WorldPositionComponent>(position, layerNum));
-                        if(visible) {
-                            sf::Sprite intermSpr(sprites[tileGid]);
-                            intermSpr.setColor(sf::Color(255, 255, 255, transparency*255)); //Applies transparency mask
-                            entity->setRender(std::make_shared<StaticSpriteComponent>(intermSpr));
-                        }
-                        if (properties.find("solid") != properties.end()) {
-                            if(properties["solid"]!="no")
-                              //SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
-                              collissionMap[(int)(i%layerWidth)][(int)(i/layerWidth)] = true;
-                        } //issolid
-                    } //is actually a tile
-                    i++;
-                } //every tile
-                ///Creating collision boundaries based on Collission map
-                //on X surfaces
-                for(int i = 1; i <= layerHeight; i++) {
-                    bool lastCollission = false;
-                    int startPoint = 0;
-                    for(int j = 1; j <= layerWidth; j++) {
-                        if(lastCollission && collissionMap[j][i]==true && collissionMap[j][i-1]==false) {
-                            lastCollission = true;
-                        }
-                        else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i-1]==false) {
-                            //Start the collission line
-                            startPoint = j*tilewidth;
-                            lastCollission = true;
-                        }
-                        else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i-1]==true)) {
-                            //End it, and create it
-                            int id = ComponentBase::getNewID();
-
-                            Entity* entity = new Entity(id);
-                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, startPoint, i*tileheight, j*tilewidth, i*tileheight));
-                            ComponentManager::getInst().addEntity(id, entity);
-                            lastCollission = false;
-                        }
-                    }
-                }
-                for(int i = 0; i <= layerHeight; i++) {
-                    bool lastCollission = false;
-                    int startPoint = 0;
-                    for(int j = 0; j <= layerWidth; j++) {
-                        if(lastCollission && collissionMap[j][i]==true && collissionMap[j][i+1]==false) {
-                            lastCollission = true;
-                        }
-                        else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i+1]==false) {
-                            //Start the collission line
-                            startPoint = j*tilewidth;
-                            lastCollission = true;
-                        }
-                        else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i+1]==true)) {
-                            //End it, and create it
-                            int id = ComponentBase::getNewID();
-
-                            Entity* entity = new Entity(id);
-
-                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, startPoint, i*tileheight+tileheight, j*tilewidth, i*tileheight+tileheight));
-                            ComponentManager::getInst().addEntity(id, entity);
-                            lastCollission = false;
-                        }
-                    }
-                }
-                for(int i = 1; i <= layerWidth; i++) {
-                    bool lastCollission = false;
-                    int startPoint = 0;
-                    for(int j = 1; j <= layerHeight; j++) {
-                        if(lastCollission && collissionMap[i][j]==true && collissionMap[i-1][j]==false) {
-                            lastCollission = true;
-                        }
-                        else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i-1][j]==false) {
-                            //Start the collission line
-                            startPoint = j*tilewidth;
-                            lastCollission = true;
-                        }
-                        else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i-1][j]==true)) {
-                            //End it, and create it
-                            int id = ComponentBase::getNewID();
-
-                            Entity* entity = new Entity(id);
-                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, i*tilewidth, startPoint, i*tilewidth, j*tileheight));
-                            ComponentManager::getInst().addEntity(id, entity);
-
-                            lastCollission = false;
-                        }
-                    }
-                }
-                for(int i = 0; i <= layerWidth; i++) {
-                    bool lastCollission = false;
-                    int startPoint = 0;
-                    for(int j = 0; j <= layerHeight; j++) {
-                        if(lastCollission && collissionMap[i][j]==true && collissionMap[i+1][j]==false) {
-                            lastCollission = true;
-                        }
-                        else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i+1][j]==false) {
-                            //Start the collission line
-                            startPoint = j*tilewidth;
-                            lastCollission = true;
-                        }
-                        else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i+1][j]==true)) {
-                            //End it, and create it
-                            int id = ComponentBase::getNewID();
-                            Entity* entity = new Entity(id);
-                            entity->setPhysics(std::make_shared<BoundaryPhysics>(id, i*tilewidth+tilewidth, startPoint, i*tilewidth+tilewidth, j*tileheight));
-                            ComponentManager::getInst().addEntity(id, entity);
-
-                            lastCollission = false;
-                        }
-                    }
-                }
+                createFilledSolidBounds(layerWidth, layerHeight, tilewidth, layerNum, transparency, properties, visible, data_node);
             } //every data node in layer (Should always be one)
         }
         else if(nodename=="imagelayer") {
@@ -683,7 +561,7 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
 
                             entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id,Vector2f(34,42),0, PhysicsOptions::roundedCorners | PhysicsOptions::notRotatable | PhysicsOptions::sideSensors, entity->getPosition()));
                             entity->setAudio(std::make_shared<AudioComponent>());
-                            entity->setStats(std::make_shared<StatsComponent>(50, 50));
+                            entity->setStats(std::make_shared<StatsComponent>(500, 500));
                             entity->addScript(std::make_shared<MainCharScript>(true, sf::seconds(2.5f)));
                             if(entity->getIdentification()!=nullptr)
                                 entity->getIdentification()->setFaction("player");
@@ -730,6 +608,190 @@ void Level::loadLevel(std::string filename, RenderEngine* rendEng) {
         layerNum++;
     } //every layer
     rendEng->resizeViews(sf::Vector2i(rendEng->window.getSize()));
+}
+
+void Level::createFilledSolidBounds(int layerWidth, int layerHeight, int tilewidth, int layerNum, float transparency, map<string, string> properties, bool visible, xml_node<>* data_node)
+{
+    int i = 0;
+    vector< vector<bool> >collissionMap(layerWidth+1, vector<bool>(layerHeight+1, false));
+    for (xml_node<>* tile_node = data_node->first_node("tile"); tile_node; tile_node = tile_node->next_sibling()) {
+        int tileGid = 0;
+        auto attribute = tile_node->first_attribute("gid");
+        if(attribute!=NULL)
+            tileGid = atoi(attribute->value());
+        if(tileGid!=0) {
+            Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth+tilewidth/2, (int)(i/layerWidth)*tileheight+tileheight/2);
+            int id = ComponentBase::getNewID();
+            Entity* entity = new Entity(id);
+            ComponentManager::getInst().addEntity(id, entity);
+            entity->setPosition(std::make_shared<WorldPositionComponent>(position, layerNum));
+            if(visible) {
+                sf::Sprite intermSpr(sprites[tileGid]);
+                intermSpr.setColor(sf::Color(255, 255, 255, transparency*255)); //Applies transparency mask
+                entity->setRender(std::make_shared<StaticSpriteComponent>(intermSpr));
+            }
+            if (properties.find("solid") != properties.end()) {
+                if(properties["solid"]!="no")
+                  //SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
+                  collissionMap[(int)(i%layerWidth)][(int)(i/layerWidth)] = true;
+            } //issolid
+        } //is actually a tile
+        i++;
+    } //every tile
+    ///Creating collision boundaries based on Collission map
+    //on X surfaces
+    for(int i = 1; i <= layerHeight; i++) {
+        bool lastCollission = false;
+        int startPoint = 0;
+        int startIndex = 0;
+        for(int j = 0; j <= layerWidth; j++) {
+            if(lastCollission && collissionMap[j][i]==true) {
+                lastCollission = true;
+            }
+            else if(!lastCollission && collissionMap[j][i]==true) {
+                //Start the collission line
+                startPoint = j*tilewidth;
+                lastCollission = true;
+                startIndex = j;
+            }
+            else if(lastCollission && collissionMap[j][i]==false) {
+                //End it, and create it
+                int id = ComponentBase::getNewID();
+
+                Entity* entity = new Entity(id);
+                entity->setPosition(std::make_shared<WorldPositionComponent>(sf::Vector2f(startPoint+(j-startIndex)*tilewidth/2, i*tileheight+tileheight/2)));
+                entity->setPhysics(std::make_shared<SimpleBoxPhysics>(id, sf::Vector2f((j-startIndex)*tilewidth, tileheight), 10, PhysicsOptions::isStatic, entity->getPosition()));
+                ComponentManager::getInst().addEntity(id, entity);
+                lastCollission = false;
+            }
+        }
+    }
+}
+
+void Level::createSimpleSolidBounds(int layerWidth, int layerHeight, int tilewidth, int layerNum, float transparency, map<string, string> properties, bool visible, xml_node<>* data_node)
+{
+    int i = 0;
+    vector< vector<bool> >collissionMap(layerWidth+1, vector<bool>(layerHeight+1, false));
+    for (xml_node<>* tile_node = data_node->first_node("tile"); tile_node; tile_node = tile_node->next_sibling()) {
+        int tileGid = 0;
+        auto attribute = tile_node->first_attribute("gid");
+        if(attribute!=NULL)
+            tileGid = atoi(attribute->value());
+        if(tileGid!=0) {
+            Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth+tilewidth/2, (int)(i/layerWidth)*tileheight+tileheight/2);
+            int id = ComponentBase::getNewID();
+            Entity* entity = new Entity(id);
+            ComponentManager::getInst().addEntity(id, entity);
+            entity->setPosition(std::make_shared<WorldPositionComponent>(position, layerNum));
+            if(visible) {
+                sf::Sprite intermSpr(sprites[tileGid]);
+                intermSpr.setColor(sf::Color(255, 255, 255, transparency*255)); //Applies transparency mask
+                entity->setRender(std::make_shared<StaticSpriteComponent>(intermSpr));
+            }
+            if (properties.find("solid") != properties.end()) {
+                if(properties["solid"]!="no")
+                  //SimpleBoxPhysics* phys = new SimpleBoxPhysics(id,tilewidth,tileheight, true, false, false);
+                  collissionMap[(int)(i%layerWidth)][(int)(i/layerWidth)] = true;
+            } //issolid
+        } //is actually a tile
+        i++;
+    } //every tile
+    ///Creating collision boundaries based on Collission map
+    //on X surfaces
+    for(int i = 1; i <= layerHeight; i++) {
+        bool lastCollission = false;
+        int startPoint = 0;
+        for(int j = 1; j <= layerWidth; j++) {
+            if(lastCollission && collissionMap[j][i]==true && collissionMap[j][i-1]==false) {
+                lastCollission = true;
+            }
+            else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i-1]==false) {
+                //Start the collission line
+                startPoint = j*tilewidth;
+                lastCollission = true;
+            }
+            else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i-1]==true)) {
+                //End it, and create it
+                int id = ComponentBase::getNewID();
+
+                Entity* entity = new Entity(id);
+                entity->setPhysics(std::make_shared<BoundaryPhysics>(id, startPoint, i*tileheight, j*tilewidth, i*tileheight));
+                ComponentManager::getInst().addEntity(id, entity);
+                lastCollission = false;
+            }
+        }
+    }
+    for(int i = 0; i <= layerHeight; i++) {
+        bool lastCollission = false;
+        int startPoint = 0;
+        for(int j = 0; j <= layerWidth; j++) {
+            if(lastCollission && collissionMap[j][i]==true && collissionMap[j][i+1]==false) {
+                lastCollission = true;
+            }
+            else if(!lastCollission && collissionMap[j][i]==true && collissionMap[j][i+1]==false) {
+                //Start the collission line
+                startPoint = j*tilewidth;
+                lastCollission = true;
+            }
+            else if(lastCollission && (collissionMap[j][i]==false || collissionMap[j][i+1]==true)) {
+                //End it, and create it
+                int id = ComponentBase::getNewID();
+
+                Entity* entity = new Entity(id);
+
+                entity->setPhysics(std::make_shared<BoundaryPhysics>(id, startPoint, i*tileheight+tileheight, j*tilewidth, i*tileheight+tileheight));
+                ComponentManager::getInst().addEntity(id, entity);
+                lastCollission = false;
+            }
+        }
+    }
+    for(int i = 1; i <= layerWidth; i++) {
+        bool lastCollission = false;
+        int startPoint = 0;
+        for(int j = 1; j <= layerHeight; j++) {
+            if(lastCollission && collissionMap[i][j]==true && collissionMap[i-1][j]==false) {
+                lastCollission = true;
+            }
+            else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i-1][j]==false) {
+                //Start the collission line
+                startPoint = j*tilewidth;
+                lastCollission = true;
+            }
+            else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i-1][j]==true)) {
+                //End it, and create it
+                int id = ComponentBase::getNewID();
+
+                Entity* entity = new Entity(id);
+                entity->setPhysics(std::make_shared<BoundaryPhysics>(id, i*tilewidth, startPoint, i*tilewidth, j*tileheight));
+                ComponentManager::getInst().addEntity(id, entity);
+
+                lastCollission = false;
+            }
+        }
+    }
+    for(int i = 0; i <= layerWidth; i++) {
+        bool lastCollission = false;
+        int startPoint = 0;
+        for(int j = 0; j <= layerHeight; j++) {
+            if(lastCollission && collissionMap[i][j]==true && collissionMap[i+1][j]==false) {
+                lastCollission = true;
+            }
+            else if(!lastCollission && collissionMap[i][j]==true && collissionMap[i+1][j]==false) {
+                //Start the collission line
+                startPoint = j*tilewidth;
+                lastCollission = true;
+            }
+            else if(lastCollission && (collissionMap[i][j]==false || collissionMap[i+1][j]==true)) {
+                //End it, and create it
+                int id = ComponentBase::getNewID();
+                Entity* entity = new Entity(id);
+                entity->setPhysics(std::make_shared<BoundaryPhysics>(id, i*tilewidth+tilewidth, startPoint, i*tilewidth+tilewidth, j*tileheight));
+                ComponentManager::getInst().addEntity(id, entity);
+
+                lastCollission = false;
+            }
+        }
+    }
 }
 
 sf::Color Level::HexToColor(std::string input) {

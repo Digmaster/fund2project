@@ -10,6 +10,7 @@
 #include "Components/Target/TargetComponent.h"
 #include "Components/Script/Camera.h"
 #include "LevelLoader.h"
+#include "GuiLoader.h"
 #include "Rendering/SpriteManager.h"
 #include "Rendering/RenderEngine.h"
 #include "Components/ComponentManager.h"
@@ -73,6 +74,9 @@ void GameEngine::gameLoop() {
     spriteMan.loadFile("assets/SamusSprites.xml");
     spriteMan.loadFile("assets/explosionSprite.xml");
 
+    GuiLoader testGui;
+    testGui.load("main.gui", this);
+
     Level testLevel;
     testLevel.loadLevel("longtest.tmx", rendEng);
 
@@ -122,6 +126,7 @@ void GameEngine::gameLoop() {
     rendEng->centerViews(sf::Vector2f(-gameover.getSize().x/2,0));
     rendEng->window.draw(sprite);
     rendEng->window.display();
+    Options::instance().save();
     //Exit after 3 seconds
     sf::Clock clk;
     while(clk.getElapsedTime() <= sf::seconds(3) && rendEng->window.isOpen()){

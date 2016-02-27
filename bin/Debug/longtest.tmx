@@ -32125,13 +32125,13 @@
   </object>
   <object id="12" type="sensor" x="83" y="329" width="20" height="48"/>
   <object id="13" type="sensor" x="489" y="307" width="44" height="20"/>
-  <object id="14" type="sensor" x="1369" y="621" width="18" height="38">
+  <object id="14" type="sensor" x="1369" y="615" width="8" height="52">
    <properties>
     <property name="script" value="teleport"/>
     <property name="target" value="bottompipe1"/>
    </properties>
   </object>
-  <object id="15" type="sensor" x="1171" y="1098" width="20" height="44">
+  <object id="15" type="sensor" x="1183.5" y="1092.5" width="7.5" height="55.5">
    <properties>
     <property name="script" value="teleport"/>
     <property name="target" value="toppipe1"/>
@@ -32165,8 +32165,8 @@
     <property name="type" value="enemy"/>
    </properties>
   </object>
-  <object id="32" name="toppipe1" type="target" x="1437.33" y="634.667" width="13.3333" height="12.6667"/>
-  <object id="34" name="bottompipe1" type="target" x="1117.33" y="1119.33"/>
+  <object id="32" name="toppipe1" type="target" x="1414.33" y="634.167" width="13.3333" height="12.6667"/>
+  <object id="34" name="bottompipe1" type="target" x="1148.83" y="1117.33"/>
   <object id="39" name="lolCamera" type="kinematic" gid="129" x="1384" y="121" width="32" height="32">
    <properties>
     <property name="movement" value="pathfollow"/>

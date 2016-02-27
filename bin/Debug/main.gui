@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gui name="health" location="top:left">
+	<text value="health" position="0,0" textSize="30" color=""></text>
+</gui>

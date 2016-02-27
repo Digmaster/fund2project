@@ -18,11 +18,6 @@ TextureManager::TextureManager()
 
 std::unordered_map<std::string, sf::Texture*> TextureManager::textureMap;
 
-TextureManager::~TextureManager()
-{
-
-}
-
 sf::Texture* TextureManager::addTexture(string input) {
     if(textureMap.find(input) == textureMap.end()) {
         Texture* texture = new Texture();

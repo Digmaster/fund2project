@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <SFML/Graphics.hpp>
+#include <rapidxml.hpp>
 
 class RenderEngine;
 class TextureManager;
@@ -26,6 +27,9 @@ public:
     //! The height of the level, in "Tiles"
     int height;
 private:
+    void createSimpleSolidBounds(int layerWidth, int layerHeight, int tilewidth, int layerNum, float transparency, std::map<std::string, std::string>, bool visible, rapidxml::xml_node<>* data_node);
+    void createFilledSolidBounds(int layerWidth, int layerHeight, int tilewidth, int layerNum, float transparency, std::map<std::string, std::string>, bool visible, rapidxml::xml_node<>* data_node);
+
     sf::Color HexToColor(std::string);
 
     std::string version;

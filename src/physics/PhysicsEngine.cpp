@@ -2,6 +2,9 @@
 #include "Components/Physics/PhysicsComponent.h"
 #include <iostream>
 #include "Components/ComponentManager.h"
+#include "Options.h"
+
+#define SPC << " " <<
 
 using namespace std;
 
@@ -9,9 +12,10 @@ PhysicsEngine::PhysicsEngine()
 {
     b2Vec2 gravity = b2Vec2(0.0f, -19.6f);
     _world = new b2World(gravity);
-    _velocityIterations = 8;
-    _positionIterations = 3;
-    _substeps = 1;
+    _velocityIterations = Options::instance().getVelocityIterations();
+    _positionIterations = Options::instance().getPositionIterations();
+    _substeps = Options::instance().getPhysicsSubsets();
+    std::cout << _velocityIterations SPC _positionIterations SPC _substeps << std::endl;
     _world->SetContactListener(&contactListeners);
 
 }

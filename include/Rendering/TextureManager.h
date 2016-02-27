@@ -16,10 +16,7 @@
 class TextureManager
 {
     public:
-        //! Default constructor
         TextureManager();
-        //! Default
-        ~TextureManager();
         //! Adds a texture based on the filename
         /*! Force-adds a texture, for pre-loading . If the texture already exists it will be reloaded
             \param file The filename of the texture to be loaded

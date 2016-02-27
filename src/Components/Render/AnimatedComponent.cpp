@@ -22,10 +22,6 @@ void AnimatedComponent::go(sf::Time fps, Entity* entity) {
             rendEng->addSprite(&sprite, posCom->getLayer());
         }
     }
-    else { //No world position? // TODO (Thomas Luppi#1#03/16/14): Add checks for screen position, which requires changing the rendering code a bit
-    }
-
-    //Add code here to see if the animation has to change!!!
 }
 
 sf::Drawable* AnimatedComponent::getDrawable() {

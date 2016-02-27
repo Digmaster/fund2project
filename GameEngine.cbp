@@ -27,6 +27,7 @@
 					<Add directory="include/Rendering" />
 					<Add directory="include/Components/Audio" />
 					<Add directory="include/Components/Movement" />
+					<Add directory="include/Components/Positional" />
 				</Compiler>
 				<Linker>
 					<Add library="libsfml-graphics-s-d" />
@@ -58,6 +59,7 @@
 					<Add directory="include/Rendering" />
 					<Add directory="include/Components/Audio" />
 					<Add directory="include/Components/Movement" />
+					<Add directory="include/Components/Positional" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -78,7 +80,6 @@
 		<Linker>
 			<Add directory="Dependancies/lib" />
 		</Linker>
-		<Unit filename="include/Components/Movement/PathFollowMovement.h" />
 		<Unit filename="include/Components/Audio/AudioComponent.h" />
 		<Unit filename="include/Components/Audio/SingleUseAudioComponent.h" />
 		<Unit filename="include/Components/ComponentBase.h" />
@@ -93,12 +94,15 @@
 		<Unit filename="include/Components/Movement/BraveAdventurerMovement.h" />
 		<Unit filename="include/Components/Movement/EnemyMovement.h" />
 		<Unit filename="include/Components/Movement/MovementComponent.h" />
+		<Unit filename="include/Components/Movement/PathFollowMovement.h" />
+		<Unit filename="include/Components/Movement/AccelerateMovement.h" />
 		<Unit filename="include/Components/Physics/BoundaryPhysics.h" />
 		<Unit filename="include/Components/Physics/EllipsePhysics.h" />
 		<Unit filename="include/Components/Physics/PhysicsComponent.h" />
 		<Unit filename="include/Components/Physics/PolygonPhysics.h" />
 		<Unit filename="include/Components/Physics/PolylinePhysics.h" />
 		<Unit filename="include/Components/Physics/SimpleBoxPhysics.h" />
+		<Unit filename="include/Components/Positional/RelativePosition.h" />
 		<Unit filename="include/Components/Positional/WorldPositionComponent.h" />
 		<Unit filename="include/Components/Render/AnimatedComponent.h" />
 		<Unit filename="include/Components/Render/BraveAdventurerAnimatedComponent.h" />
@@ -118,6 +122,7 @@
 		<Unit filename="include/Components/Stats/StatsComponent.h" />
 		<Unit filename="include/Components/Target/TargetComponent.h" />
 		<Unit filename="include/GameEngine.h" />
+		<Unit filename="include/GuiLoader.h" />
 		<Unit filename="include/InputEngine.h" />
 		<Unit filename="include/LevelLoader.h" />
 		<Unit filename="include/Options.h" />
@@ -128,7 +133,6 @@
 		<Unit filename="include/Rendering/SpriteManager.h" />
 		<Unit filename="include/Rendering/TextureManager.h" />
 		<Unit filename="include/physics/PhysicsEngine.h" />
-		<Unit filename="src/Components/Movement/PathFollowMovement.cpp" />
 		<Unit filename="src/Components/Audio/AudioComponent.cpp" />
 		<Unit filename="src/Components/Audio/SingleUseAudioComponent.cpp" />
 		<Unit filename="src/Components/ComponentBase.cpp" />
@@ -141,12 +145,15 @@
 		<Unit filename="src/Components/Movement/BraveAdventurerMovement.cpp" />
 		<Unit filename="src/Components/Movement/EnemyMovement.cpp" />
 		<Unit filename="src/Components/Movement/MovementComponent.cpp" />
+		<Unit filename="src/Components/Movement/PathFollowMovement.cpp" />
+		<Unit filename="src/Components/Movement/AccelerateMovement.cpp" />
 		<Unit filename="src/Components/Physics/BoundaryPhysics.cpp" />
 		<Unit filename="src/Components/Physics/EllipsePhysics.cpp" />
 		<Unit filename="src/Components/Physics/PhysicsComponent.cpp" />
 		<Unit filename="src/Components/Physics/PolygonPhysics.cpp" />
 		<Unit filename="src/Components/Physics/PolylinePhysics.cpp" />
 		<Unit filename="src/Components/Physics/SimpleBoxPhysics.cpp" />
+		<Unit filename="src/Components/Positional/RelativePosition.cpp" />
 		<Unit filename="src/Components/Positional/WorldPositionComponent.cpp" />
 		<Unit filename="src/Components/Render/AnimatedComponent.cpp" />
 		<Unit filename="src/Components/Render/BraveAdventurerAnimatedComponent.cpp" />
@@ -166,6 +173,7 @@
 		<Unit filename="src/Components/Stats/StatsComponent.cpp" />
 		<Unit filename="src/Components/Target/TargetComponent.cpp" />
 		<Unit filename="src/GameEngine.cpp" />
+		<Unit filename="src/GuiLoader.cpp" />
 		<Unit filename="src/InputEngine.cpp" />
 		<Unit filename="src/LevelLoader.cpp" />
 		<Unit filename="src/Options.cpp" />

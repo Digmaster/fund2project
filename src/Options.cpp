@@ -64,6 +64,9 @@ void Options::fillDefault() {
     defaultSettings["maxFPS"]="60";
     defaultSettings["pixels_per_meter"]="32";
     defaultSettings["physics_debug"]="false";
+    defaultSettings["velocity_iterations"]=8;
+    defaultSettings["position_iterations"]=3;
+    defaultSettings["physics_subsets"]=1;
 }
 
 void Options::save() {

@@ -94,6 +94,8 @@ class RenderEngine
 
         std::map<int, layerStruct> layerList;
         std::deque<sf::Drawable*> screenRenderList;
+
+        sf::View screenView;
 };
 
 #endif // RENDERENGINE_H

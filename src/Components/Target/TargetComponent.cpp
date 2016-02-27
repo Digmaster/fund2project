@@ -16,6 +16,7 @@ TargetComponent::TargetComponent(unsigned int target) : ComponentBase() {
 }
 
 TargetComponent::TargetComponent(std::string name) : ComponentBase() {
+    targetID=0;
     this->name = name;
 }
 

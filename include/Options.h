@@ -49,8 +49,21 @@ public:
 		return INSTANCE;
 	}
 
+	int getInt(std::string name) {return atoi(get(name).c_str());}
+
 	//! Present Options
-	int getPixelsPerMeter() {return atoi(get("pixels_per_meter").c_str());}
+	int getPixelsPerMeter() {return getInt("pixels_per_meter");}
+	int getVelocityIterations() {return 8; return getInt("velocity_iterations");}
+	int getPositionIterations() {return 3; return getInt("position_iterations");}
+	int getPhysicsSubsets() {return 1; return getInt("physics_subsets");}
+	int getMaxFPS() {return getInt("maxFPS");}
+	int getScreenBBP() {return getInt("screen_bbp");}
+	int getScreenWidth() {return getInt("screen_width");}
+	int getScreenHeight() {return getInt("screen_height");}
+	bool getPhysicsDebug() {return get("physics_debug")=="true";}
+	bool getVerbose() {return get("verbose")=="true";}
+	std::string getErrorImage() {return get("error_image");}
+
 private:
 	std::string fileName;
 	std::unordered_map<std::string,std::string> settings;
