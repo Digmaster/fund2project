@@ -2,7 +2,25 @@
 #define INPUTENGINE_H
 #include <SFML/Graphics.hpp>
 
+#include <list>
+#include <map>
+
 class GameEngine;
+
+enum KeyboardEvent
+{
+    Forward,
+    Backward,
+    Left,
+    Right,
+    Jump,
+    Fire,
+    AltFire,
+    Crouch,
+    Walk,
+    Reload,
+    Activate
+};
 
 //! Manages input to the window and provides a common interface to see the current input
 /*! Input will only be parsed when the window is active, although this class should be called every frame even when the GameEngine is paused, as this is the only way to unpause it. */
@@ -39,6 +57,9 @@ class InputEngine
         //! Returns the status of the button mapped to Jump
         /*! (Default: Spacebar) */
         bool getJump() { return jump; }
+        //! Gets the last number button pressed
+        /*! (Default: 0-9) */
+        int getCurrWeapon() { return currWeapon; }
         //! Returns the position of the mouse, relative to the GameWorld
         sf::Vector2f getMousePos() {return mousePos;}
         //! Returns the position of the mouse, relative to the Window
@@ -48,6 +69,15 @@ class InputEngine
             \param sf::Vector2f position to find angle relative to
             \return the angle, in degrees */
         float getMouseAngle(sf::Vector2f);
+
+        //! Fires on keyboard events
+        typedef std::function<void(KeyboardEvent, bool pressed)> keyboardListener;
+        typedef std::list<keyboardListener> keyboardListenerList;
+        typedef std::map<KeyboardEvent, keyboardListenerList > keyboardListenerMap;
+
+        //! Adds a listener that will fire on keyboard events
+        keyboardListenerList::iterator addListener(KeyboardEvent toListenTo, keyboardListener& toCall);
+
     protected:
     private:
         GameEngine* eng;
@@ -58,8 +88,11 @@ class InputEngine
         bool activate;
         bool fire;
         bool jump;
+        int currWeapon;
         sf::Vector2i scrMousePos;
         sf::Vector2f mousePos;
+
+        keyboardListenerMap componentListeners;
 };
 
 #endif // INPUTENGINE_H

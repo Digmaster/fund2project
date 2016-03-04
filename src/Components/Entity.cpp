@@ -21,6 +21,7 @@
 #include "Components/Script/MainCharScript.h"
 #include "Components/Script/EnemySpawner.h"
 #include "Components/Script/KillScript.h"
+#include "Components/Weapon/WeaponComponent.h"
 
 Entity::Entity(int ID) : _ID(ID)
 {
@@ -33,6 +34,7 @@ Entity::Entity(int ID) : _ID(ID)
     render = nullptr;
     stats = nullptr;
     target = nullptr;
+    weapon = nullptr;
     _delete = false;
 }
 
@@ -111,6 +113,9 @@ std::shared_ptr<StatsComponent> Entity::getStats() {return stats;}
 void Entity::setTarget(std::shared_ptr<TargetComponent> a) {setComponent(&target, a);}
 std::shared_ptr<TargetComponent> Entity::getTarget() {return target;}
 
+void Entity::setWeapon(std::shared_ptr<WeaponComponent> a) {setComponent(&weapon, a);}
+std::shared_ptr<WeaponComponent> Entity::getWeapon() {return weapon;}
+
 void Entity::addScript(std::shared_ptr<ScriptComponent> s)
 {
     s->setUpListeners(this);
@@ -150,6 +155,7 @@ void Entity::update(sf::Time frameTime)
     if(this->getPhysics()!=nullptr)        this->getPhysics()->go(frameTime, this);
     if(this->getPosition()!=nullptr)       this->getPosition()->go(frameTime, this);
     if(this->getStats()!=nullptr)          this->getStats()->go(frameTime, this);
+    if(this->getWeapon()!=nullptr)         this->getWeapon()->go(frameTime, this);
     for(std::shared_ptr<ScriptComponent> script : this->getScripts())
     {
         script->go(frameTime, this);

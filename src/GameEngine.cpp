@@ -78,7 +78,7 @@ void GameEngine::gameLoop() {
     testGui.load("main.gui", this);
 
     Level testLevel;
-    testLevel.loadLevel("longtest.tmx", rendEng);
+    testLevel.loadLevel("scifi.tmx", rendEng);
 
     //play background music
     sf::Music music; //Declare music object

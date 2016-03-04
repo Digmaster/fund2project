@@ -23,9 +23,6 @@ class AudioComponent : public ComponentBase
         sf::Sound sound1; //Walking sound
         sf::Sound sound2; //Jumping sound
         sf::Sound sound3;
-        sf::SoundBuffer buffer1; //walking soundbuffer
-        sf::SoundBuffer buffer2; //jumping soundbuffer
-        sf::SoundBuffer buffer3;
 
         void HandleMovementChange(Events event, EventObj*, Entity* entity);
 };

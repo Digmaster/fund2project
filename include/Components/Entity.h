@@ -24,6 +24,7 @@ class StatsComponent;
 class TargetComponent;
 class ComponentBase;
 class ScriptComponent;
+class WeaponComponent;
 
 namespace patch
 {
@@ -76,6 +77,9 @@ class Entity
         void setTarget(std::shared_ptr<TargetComponent> a);
         std::shared_ptr<TargetComponent> getTarget();
 
+        void setWeapon(std::shared_ptr<WeaponComponent> a);
+        std::shared_ptr<WeaponComponent> getWeapon();
+
         void addScript(std::shared_ptr<ScriptComponent> s);
         void removeScript(std::shared_ptr<ScriptComponent> s);
         std::list<std::shared_ptr<ScriptComponent>> getScripts() {return scripts;}
@@ -113,6 +117,7 @@ class Entity
         std::shared_ptr<WorldPositionComponent> position;
         std::shared_ptr<StatsComponent> stats;
         std::shared_ptr<TargetComponent> target;
+        std::shared_ptr<WeaponComponent> weapon;
     private:
         std::list<std::shared_ptr<ScriptComponent>> scripts;
         std::map<Events, std::list<listener> > componentListeners;

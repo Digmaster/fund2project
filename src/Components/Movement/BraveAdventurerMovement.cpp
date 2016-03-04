@@ -11,11 +11,15 @@
 #include "Components/Stats/StatsComponent.h"
 #include "Components/Script/ExplodeScript.h"
 #include "Components/Movement/AccelerateMovement.h"
+#include "Components/Weapon/MissileWeapon.h"
+#include "Components/Weapon/GunWeapon.h"
 
 using namespace std;
 
 BraveAdventurerMovement::BraveAdventurerMovement() : MovementComponent() {
-
+    availableWeapons.push_back(make_shared<MissileWeapon>());
+    availableWeapons.push_back(make_shared<MissileWeapon>(50, sf::seconds(2)));
+    availableWeapons.push_back(make_shared<GunWeapon>());
 }
 
 void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
@@ -23,6 +27,13 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
     std::shared_ptr<InputComponent> input = entity->getInput();
     std::shared_ptr<WorldPositionComponent> position = entity->getPosition();
     std::shared_ptr<StatsComponent> stats = entity->getStats();
+
+    if(input->currWeapon < availableWeapons.size())
+        currWeapon = availableWeapons.at(input->currWeapon);
+
+    currWeapon->go(frameTime, entity);
+
+    if(input->fire) currWeapon->fire(input->fireDir, entity);
 
     float maxGroundSpeed = 20;
     float maxAirSpeed = 15;
@@ -83,8 +94,6 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 body->ApplyForceToCenter(b2Vec2(50.0f-velocity.x*50.0f/maxAirSpeed,0),true);
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
-            if(input->fire && fireTimer <= sf::seconds(0))
-                nextState = MoveState::attack;
             break;
         case MoveState::onGround:
             body->ApplyForceToCenter(b2Vec2(-25*velocity.x,0),true); //Slow x movement
@@ -98,8 +107,6 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 nextState = MoveState::jumping;
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
-            if(input->fire && fireTimer <= sf::seconds(0))
-                nextState = MoveState::attack;
             break;
         case MoveState::leftWalk:
             if(input->walkLeft && velocity.x > -maxGroundSpeed) //Contimue to walk left
@@ -112,8 +119,6 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 nextState = MoveState::jumping;
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
-            if(input->fire && fireTimer <= sf::seconds(0))
-                nextState = MoveState::attack;
             break;
         case MoveState::rightWalk:
             if(input->walkRight && velocity.x < maxGroundSpeed) //Contimue to walk left
@@ -126,8 +131,6 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
                 nextState = MoveState::jumping;
             if((input->climbUp || input->climbDown) && physics->overLadder()) //Start climbing on a ladder
                 nextState = MoveState::onLadder;
-            if(input->fire && fireTimer <= sf::seconds(0))
-                nextState = MoveState::attack;
             break;
         case MoveState::jumping:
             jumpTimer += frameTime;
@@ -192,26 +195,6 @@ void BraveAdventurerMovement::go(sf::Time frameTime, Entity* entity) {
             if(input->jump) //jump off
                 nextState = MoveState::jumping;
             break;
-        case MoveState::attack:
-            if(fireTimer <= sf::seconds(0)) {
-                fireTimer = sf::seconds(.5);
-                unsigned int id = ComponentBase::getNewID();
-                sf::Vector2f pos = position->getPosition();
-                pos.x += 40*cos(input->fireDir*0.0174532925);
-                pos.y += -40*sin(input->fireDir*0.0174532925);
-                Entity* bullet = new Entity(id);
-                int bulletSpeed = 10;
-                bullet->setPosition(std::make_shared<WorldPositionComponent>(pos, position->getLayer(), (float)input->fireDir*0.0174532925));
-                bullet->setRender(std::make_shared<StaticSpriteComponent>("assets/art/SuperMetroidSamus.png", sf::IntRect(423,29,16,6)));
-                bullet->setPhysics(std::make_shared<SimpleBoxPhysics>(bullet->getID(), sf::Vector2f(10,5), 0, PhysicsOptions::isBullet, bullet->getPosition()));
-                bullet->getPhysics()->getBody()->SetLinearVelocity(b2Vec2(std::cos((float)input->fireDir*0.0174532925)*bulletSpeed, std::sin((float)input->fireDir*0.0174532925)*bulletSpeed));
-                bullet->addScript(std::make_shared<KillScript>(true, 10, sf::Time::Zero));
-                bullet->addScript(std::make_shared<ExplodeScript>());
-                bullet->setMovement(std::make_shared<AccelerateMovement>(sf::Vector2f(std::cos((float)input->fireDir*0.0174532925)*bulletSpeed, std::sin((float)input->fireDir*0.0174532925)*bulletSpeed),100));
-                bullet->setIdentification(entity->getIdentification());
-                ComponentManager::getInst().addEntity(id, bullet);
-             }
-             nextState = inAir;
         default:
             break;
         }

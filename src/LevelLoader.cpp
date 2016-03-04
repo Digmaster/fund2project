@@ -620,7 +620,7 @@ void Level::createFilledSolidBounds(int layerWidth, int layerHeight, int tilewid
         if(attribute!=NULL)
             tileGid = atoi(attribute->value());
         if(tileGid!=0) {
-            Vector2f position = Vector2f((int)(i%layerWidth)*tilewidth+tilewidth/2, (int)(i/layerWidth)*tileheight+tileheight/2);
+            Vector2f position = Vector2f((int)(i%layerWidth+1)*tilewidth+sprites[tileGid].getTextureRect().width/2, (int)(i/layerWidth+1)*tileheight-sprites[tileGid].getTextureRect().height/2);
             int id = ComponentBase::getNewID();
             Entity* entity = new Entity(id);
             ComponentManager::getInst().addEntity(id, entity);

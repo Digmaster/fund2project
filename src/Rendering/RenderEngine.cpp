@@ -78,9 +78,13 @@ void RenderEngine::centerViews(sf::Vector2f center)
     }
 }
 
-void RenderEngine::zoomViews(float)
+void RenderEngine::zoomViews(float zoom)
 {
-
+    for(map<int, layerStruct>::iterator it = layerList.begin(); it!=layerList.end(); it++) {
+        //it->second.view.zoom(1 + (it->second.zoom - zoom));
+        it->second.view.zoom(zoom);
+        it->second.zoom = zoom;
+    }
 }
 
 void RenderEngine::resizeViews(sf::Vector2i size)

@@ -3,6 +3,10 @@
 
 #include "Components/Movement/MovementComponent.h"
 
+#include <vector>
+
+class WeaponComponent;
+
 ///Simple movement file which takes any input and translates it into movement; nothing more complicated than running back and forth and whatnot.
 class BraveAdventurerMovement : public MovementComponent
 {
@@ -14,6 +18,9 @@ class BraveAdventurerMovement : public MovementComponent
     private:
         sf::Time jumpTimer;
         sf::Time fireTimer;
+
+        std::vector<std::shared_ptr<WeaponComponent>> availableWeapons;
+        std::shared_ptr<WeaponComponent> currWeapon;
 };
 
 #endif // BRAVEADVENTURERMOVEMENT_H

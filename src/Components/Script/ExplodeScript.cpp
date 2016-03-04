@@ -10,9 +10,9 @@
 #include "Components/Stats/StatsComponent.h"
 #include "Components/Identification/IDComponent.h"
 
-ExplodeScript::ExplodeScript()
+ExplodeScript::ExplodeScript(float explosionSize)
 {
-    //ctor
+    this->explosionSize = explosionSize;
 }
 
 ExplodeScript::~ExplodeScript()
@@ -42,11 +42,13 @@ void ExplodeScript::HandleMessage(Events event, EventObj* message, Entity* entit
         sf::Vector2f pos = entity->getPosition()->getPosition();
         Entity* bullet = new Entity(id);
         bullet->setPosition(std::make_shared<WorldPositionComponent>(pos, entity->getPosition()->getLayer()));
-        bullet->setRender(std::make_shared<SingleUseAnimatedComponent>("Explosion", "Explode"));
+        std::shared_ptr<SingleUseAnimatedComponent> anim = std::make_shared<SingleUseAnimatedComponent>("Explosion", "Explode");
+        anim->sprite.setScale(explosionSize, explosionSize);
+        bullet->setRender(anim);
         bullet->setAudio(std::make_shared<SingleUseAudioComponent>("assets/sound/explosion.wav"));
         bullet->setIdentification(entity->getIdentification());
         ComponentManager::getInst().addEntity(id, bullet);
-        raycastExplosion(pos, 100/pixelsPerMeter, 1, entity->getIdentification());
+        raycastExplosion(pos, (100/pixelsPerMeter)*explosionSize, explosionSize, entity->getIdentification());
     }
 }
 
@@ -79,7 +81,7 @@ float32 RaycastObjectFound::ReportFixture(b2Fixture* fixture, const b2Vec2& poin
     Entity* hit = ComponentManager::getInst()[((unsigned int)fixture->GetUserData())/10];
     if(hit!=nullptr && hit->getStats()!=nullptr && (faction==nullptr || hit->getIdentification()==nullptr || faction->getFaction()!=hit->getIdentification()->getFaction() || faction->getFaction()==""))
     {
-        hit->getStats()->modHealth(-1, hit);
+        hit->getStats()->modHealth(-1 * power, hit);
     }
 }
 

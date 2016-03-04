@@ -12,6 +12,7 @@ InputEngine::InputEngine()
     activate=false;
     fire=false;
     jump=false;
+    currWeapon=0;
     mousePos = sf::Vector2f(0,0);
 }
 
@@ -52,7 +53,15 @@ void InputEngine::update(GameEngine* eng)
             case sf::Keyboard::F2:
                 eng->rendEng->toggleDebug();
                 break;
+            case sf::Keyboard::Equal:
+                eng->rendEng->zoomViews(.9);
+                break;
+            case sf::Keyboard::Subtract:
+                eng->rendEng->zoomViews(1.1);
+                break;
             default:
+                if(event.key.code >= sf::Keyboard::Num0 && event.key.code <= sf::Keyboard::Num9)
+                    currWeapon = event.key.code-sf::Keyboard::Num0;
                 break;
             }
             break;
@@ -123,6 +132,11 @@ void InputEngine::update(GameEngine* eng)
         }
     }
     mousePos = eng->rendEng->window.mapPixelToCoords(scrMousePos);
+}
+
+InputEngine::keyboardListenerList::iterator InputEngine::addListener(KeyboardEvent toListenTo, keyboardListener& toCall)
+{
+    componentListeners[toListenTo].push_back(toCall);
 }
 
 float InputEngine::getMouseAngle(sf::Vector2f position){

@@ -21,7 +21,7 @@ class BraveAdventurerAnimatedComponent : public AnimatedComponent
         std::unordered_map<int, sf::Time> cooldowns;
         std::vector<bool> cooldownValues;
 
-        static const int getNumCooldowns() {return 1;}
+        static const int getNumCooldowns() {return 2;}
         enum Cooldowns : int {
             HURT,
             HEALED

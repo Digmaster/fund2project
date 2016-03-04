@@ -10,7 +10,7 @@
 class ExplodeScript : public ScriptComponent
 {
     public:
-        ExplodeScript();
+        ExplodeScript(float explosionSize = 1);
         virtual ~ExplodeScript();
 
         virtual void go(sf::Time frameTime, Entity* entity) {} //does nothing
@@ -19,6 +19,7 @@ class ExplodeScript : public ScriptComponent
         void HandleMessage(Events event, EventObj* message, Entity* entity);
         static void applyBlastImpulse(b2Body* body, b2Vec2 blastCenter, b2Vec2 applyPoint, float blastPower);
     protected:
+        float explosionSize;
     private:
         static void particalExplosion(sf::Vector2f location, float power);
         static void raycastExplosion(sf::Vector2f location, float blastRadius, float power, std::shared_ptr<IDComponent> identification);

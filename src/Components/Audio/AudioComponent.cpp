@@ -9,13 +9,12 @@
 #include <string>
 #include "Components/Stats/StatsComponent.h"
 
+#include "AudioManager.h"
+
 AudioComponent::AudioComponent() : ComponentBase(){
-    buffer1.loadFromFile("assets/sound/Running.wav");
-    buffer2.loadFromFile("assets/sound/jump.wav");
-    buffer3.loadFromFile("assets/sound/death.wav");
-    sound1.setBuffer(buffer1);
-    sound2.setBuffer(buffer2);
-    sound3.setBuffer(buffer3);
+    sound1.setBuffer(AudioManager::instance().getSound("assets/sound/Running.wav"));
+    sound2.setBuffer(AudioManager::instance().getSound("assets/sound/jump.wav"));
+    sound3.setBuffer(AudioManager::instance().getSound("assets/sound/death.wav"));
     sound1.setLoop(true);
     sound2.setLoop(true);
     sound3.setLoop(false);

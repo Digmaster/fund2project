@@ -16,7 +16,7 @@ KeyboardInput::KeyboardInput() : InputComponent() {
     fire=eng->inputEng->getFire();
     jump=eng->inputEng->getJump();
     activate=eng->inputEng->getActivate();
-    currWeapon=0;
+    currWeapon=eng->inputEng->getCurrWeapon();
     mouseX = eng->inputEng->getMousePos().x;
     mouseY = eng->inputEng->getMousePos().y;
 }
@@ -34,10 +34,16 @@ void KeyboardInput::go(sf::Time, Entity* entity) {
     fire=eng->inputEng->getFire();
     jump=eng->inputEng->getJump();
     activate=eng->inputEng->getActivate();
-    currWeapon=0;
+    currWeapon=eng->inputEng->getCurrWeapon();
     mouseX = eng->inputEng->getMousePos().x;
     mouseY = eng->inputEng->getMousePos().y;
     std::shared_ptr<WorldPositionComponent> posComp = entity->getPosition();
     if(posComp)
         fireDir=eng->inputEng->getMouseAngle(posComp->getPosition());
+}
+
+void KeyboardInput::addKeyboardListener(KeyboardEvent event, InputEngine::keyboardListener listener)
+{
+    InputEngine::keyboardListenerList::iterator it = eng->inputEng->addListener(event, listener);
+    subscribedEvents.push_back(it);
 }
