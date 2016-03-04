@@ -31,3 +31,6 @@
 # CodeBlocks files
 *.depend
 *.layout
+src/Options.cpp
+bin/Debug/options.txt
+bin/Debug/options.txt

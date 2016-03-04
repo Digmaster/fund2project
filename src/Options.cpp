@@ -1,5 +1,8 @@
 #include "Options.h"
 
+#include "Components/Entity.h"
+#include <SFML/Graphics.hpp>
+
 using namespace std;
 
 Options::Options(string name) {
@@ -52,10 +55,11 @@ void Options::load(string name) {
 }
 
 void Options::fillDefault() {
-    defaultSettings["w"]="forward";
-    defaultSettings["a"]="left";
-    defaultSettings["s"]="back";
-    defaultSettings["d"]="right";
+    defaultSettings["up"]=patch::to_string(sf::Keyboard::W);
+    defaultSettings["left"]=patch::to_string(sf::Keyboard::A);
+    defaultSettings["down"]=patch::to_string(sf::Keyboard::S);
+    defaultSettings["right"]=patch::to_string(sf::Keyboard::D);
+    defaultSettings["jump"]=patch::to_string(sf::Keyboard::Space);
     defaultSettings["error_image"]="assets/debug/error.png";
     defaultSettings["screen_width"]="640";
     defaultSettings["screen_height"]="480";
@@ -64,9 +68,9 @@ void Options::fillDefault() {
     defaultSettings["maxFPS"]="60";
     defaultSettings["pixels_per_meter"]="32";
     defaultSettings["physics_debug"]="false";
-    defaultSettings["velocity_iterations"]=8;
-    defaultSettings["position_iterations"]=3;
-    defaultSettings["physics_subsets"]=1;
+    defaultSettings["velocity_iterations"]="8";
+    defaultSettings["position_iterations"]="3";
+    defaultSettings["physics_subsets"]="1";
 }
 
 void Options::save() {
@@ -74,6 +78,13 @@ void Options::save() {
 	file.open(fileName.c_str());
 	for (unordered_map<string,string>::iterator it=settings.begin(); it!=settings.end(); ++it)
     	file << it->first << "=" << it->second << endl;
+
+    //Fill file with any options not in settings (new settings, typically)
+    for (unordered_map<string,string>::iterator it=defaultSettings.begin(); it!=defaultSettings.end(); ++it)
+    {
+        if(settings.find(it->first)==settings.end())
+            file << it->first << "=" << it->second << endl;
+    }
 	file.close();
 }
 

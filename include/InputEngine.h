@@ -79,6 +79,7 @@ class InputEngine
         keyboardListenerList::iterator addListener(KeyboardEvent toListenTo, keyboardListener& toCall);
 
     protected:
+        std::map<int, std::function<void(int,bool)> > keyAction;
     private:
         GameEngine* eng;
         bool walkLeft;

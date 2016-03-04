@@ -14,6 +14,13 @@ InputEngine::InputEngine()
     jump=false;
     currWeapon=0;
     mousePos = sf::Vector2f(0,0);
+
+    Options opt = Options::instance();
+    keyAction[opt.getInt("up")] = [=](int, bool pressed) mutable {climbUp = pressed;};
+    keyAction[opt.getInt("down")] = [=](int, bool pressed) mutable {climbDown = pressed;};
+    keyAction[opt.getInt("left")] = [=](int, bool pressed) mutable {walkLeft = pressed;};
+    keyAction[opt.getInt("right")] = [=](int, bool pressed) mutable {walkRight = pressed;};
+    keyAction[opt.getInt("jump")] = [=](int, bool pressed) mutable {jump = pressed;};
 }
 
 InputEngine::~InputEngine()
@@ -29,24 +36,6 @@ void InputEngine::update(GameEngine* eng)
         switch(event.type) {
         case sf::Event::KeyPressed:
             switch(event.key.code) {
-            case sf::Keyboard::W:
-                climbUp = true;
-                break;
-            case sf::Keyboard::A:
-                walkLeft = true;
-                break;
-            case sf::Keyboard::S:
-                climbDown = true;
-                break;
-            case sf::Keyboard::D:
-                walkRight = true;
-                break;
-            case sf::Keyboard::Space:
-                jump = true;
-                break;
-            case sf::Keyboard::E:
-                activate = true;
-                break;
             case sf::Keyboard::Escape:
                 eng->rendEng->window.close();
                 break;
@@ -62,30 +51,16 @@ void InputEngine::update(GameEngine* eng)
             default:
                 if(event.key.code >= sf::Keyboard::Num0 && event.key.code <= sf::Keyboard::Num9)
                     currWeapon = event.key.code-sf::Keyboard::Num0;
+                else if(keyAction.find(event.key.code)!=keyAction.end())
+                    keyAction[event.key.code](event.key.code, true);
                 break;
             }
             break;
         case sf::Event::KeyReleased:
             switch(event.key.code) {
-            case sf::Keyboard::W:
-                climbUp = false;
-                break;
-            case sf::Keyboard::A:
-                walkLeft = false;
-                break;
-            case sf::Keyboard::S:
-                climbDown = false;
-                break;
-            case sf::Keyboard::D:
-                walkRight = false;
-                break;
-            case sf::Keyboard::Space:
-                jump = false;
-                break;
-            case sf::Keyboard::E:
-                activate = false;
             default:
-                break;
+                if(keyAction.find(event.key.code)!=keyAction.end())
+                    keyAction[event.key.code](event.key.code, false);
             }
             break;
         case sf::Event::MouseButtonPressed:
@@ -134,9 +109,12 @@ void InputEngine::update(GameEngine* eng)
     mousePos = eng->rendEng->window.mapPixelToCoords(scrMousePos);
 }
 
+
+
 InputEngine::keyboardListenerList::iterator InputEngine::addListener(KeyboardEvent toListenTo, keyboardListener& toCall)
 {
     componentListeners[toListenTo].push_back(toCall);
+    return --componentListeners[toListenTo].end();
 }
 
 float InputEngine::getMouseAngle(sf::Vector2f position){
